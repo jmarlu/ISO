@@ -3,6 +3,5 @@ site_url: https://example.com/
 nav:
   - Home: index.md
   - About: about.md
-  - Mio: hola.md
 theme:
   name: material
