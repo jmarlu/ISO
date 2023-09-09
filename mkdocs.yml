@@ -1,7 +1,7 @@
 site_name: UD1 S.O. ESTRUCTURA Y VIRTUALIZACIÓN
 site_url: https://example.com/
 nav:
-  - Estructura: intro.md
+  - Estructura: index.md
   - Virtualización: virtual.md
 
 theme:
