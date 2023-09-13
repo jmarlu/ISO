@@ -10,7 +10,7 @@ Aparentemente en un contenedor se ejecuta un sistema operativo GNU/Linux indepen
 
 Así que el sistema anfitrión y todos los contenedores utilizan el mismo núcleo. En el sistema anfitrión se pueden ver todos los procesos y en cada uno de los contenedores únicamente los propios. La red, la raíz del sistema de archivos, los ficheros de dispositivo y otros recursos también están virtualizados así que cada contenedor puede tener su propia interfaz de red y sistema de archivos raíz. Incluso es posible que un contenedor utilice una distribución de GNU/Linux diferente del resto pero, eso sí, compartiendo el único núcleo que se ejecuta en el equipo anfitrión.
 
-Las ventaja de los contenedores frente a las máquinas virtuales tradicionales es la eficiencia. Un contenedor es mucho más ligero pues no necesita recrear el hardware de la máquina virtual ni ejecutar dentro otro sistema operativo. Los procesos que se ejecutan en un contenedor al fin y al cabo son procesos nativos del equipo anfitrión. Por lo tanto se consigue un mayor rendimiento y es posible ejecutar en un mismo ordenador un número mucho mayor de contenedores que de máquinas virtuales. Hay artículos en los que se menciona la ejecución de 652 contenedores Ubuntu 14.04LTS en un portátil con 16GB de RAM en el que "solo" es posible ejecutar 31 máquinas KVM sin KSM activado y 65 con KSM activado.
+Las ventaja de los contenedores frente a las máquinas virtuales tradicionales es la eficiencia. Un contenedor es mucho más ligero pues no necesita recrear el hardware de la máquina virtual ni ejecutar dentro otro sistema operativo. Los procesos que se ejecutan en un contenedor al fin y al cabo son procesos nativos del equipo anfitrión. Por lo tanto se consigue un mayor rendimiento y es posible ejecutar en un mismo ordenador un número mucho mayor de contenedores que de máquinas virtuales. Hay artículos en los que se menciona [http://blog.dustinkirkland.com/2015/06/lxd-challenge-how-many-containers-can.html](la ejecución de 652 contenedores Ubuntu 14.04LTS) en un portátil con 16GB de RAM en el que "solo" es posible ejecutar 31 máquinas KVM sin KSM activado y 65 con KSM activado.
 
 El inconveniente de los contenedores frente a la virtualización completa asistida por hardware es que se apoya en Linux y todos los contenedores deben ejecutar una distribución de GNU/Linux. Pero como usted sabe con una distribución de GNU/Linux es posible hacer mucho.
 
@@ -24,7 +24,7 @@ Otras herramientas similares son:
 
 LXD se puede instalar sobre Ubuntu 14.04 LTS agregando su propio PPA, pero en la versión 16.04 LTS forma parte de los repositorios oficiales y viene acompañado de una gran novedad: ZFS. LXD puede utilizar diferentes storage-backends, por defecto se utiliza un directorio en el sistema de archivos pero combinar los contenedores con alguna herramienta que proporcione COW (como ZFS, Btrfs o LVM) permite mejorar la velocidad y economizar espacio al trabajar con snapshots o al copiar contenedores. Aunque para probar LXD bastará cualquier sistema de archivos.
 
-La instalación en LXD en Ubuntu 14.04 LTS se realiza con los siguientes comandos:
+La instalación en LXD en Ubuntu se realiza con los siguientes comandos:
 
 ```bash title="Instalación"
 add-apt-repository ppa:ubuntu-lxc/lxd-stable
@@ -35,13 +35,16 @@ apt-get install lxd
 
 La instalación crea el grupo lxd que incluye a los usuarios que pueden utilizarlo. Pero como la información sobre los grupos a los que pertenece un usuario se lee en el momento de iniciar sesión, ahora será necesario salir y volver a entrar. O, alternativamente, ejecutar:
 
+```bash
 newgrp lxd
-En Ubuntu 16.04 LTS no es necesario hacer nada especial para instalar LXD. Únicamente será necesario que el usuario que lo vaya a utilizar forme parte del grupo lxd.
+```
+
+En Ubuntu no es necesario hacer nada especial para instalar LXD. Únicamente será necesario que el usuario que lo vaya a utilizar forme parte del grupo lxd.
 
 Una vez instalado la gestión de los contenedores se realiza a través de la herramienta lxc. Al ejecutarla sin parámetros se muestran las diferentes opciones:
 
 ```bash
-usuario@soyuz:~$ lxc
+julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc
 Usage: lxc [subcommand] [options]
 Órdenes disponibles
 config - Manage configuration.
@@ -73,67 +76,100 @@ Opciones:
 Entorno:
 LXD_CONF Path to an alternate client configuration directory.
 LXD_DIR Path to an alternate server directory.
-usuario@soyuz:~$
+julio@julio-Lenovo-ideapad-330-15ICH:~$
 ```
 
-Contenedores, imágenes y remotos
+## Contenedores, imágenes y remotos
+
 Los contenedores se lanzan a partir de imágenes y las imágenes se almacenan en repositorios locales o remotos. LXD facilita la gestión de contenedores, imágenes y remotos (repositorios de imágenes). De hecho, gracias a que la mayoría de operaciones son automáticas es posible lanzar un contenedor desde el primer momento (lo que descargará de manera automática la imagen necesaria).
 
 Pero vamos a verlo con más detalle. La primera vez que se ejecuta LXD es posible utilizar el comando lxc image list para comprobar que esta máquina todavía no tiene ninguna imagen:
 
-usuario@soyuz:~$ lxc image list
-Generating a client certificate. This may take a minute...
-If this is your first time using LXD, you should also run: sudo lxd init
-To start your first container, try: lxc launch ubuntu:16.04
+```bash title="Listar imágenes"
+julio@julio-Lenovo-ideapad-330-15ICH:~$ sudo lxc image list # (1)
+If this is your first time running LXD on this machine, you should also run: lxd init
+To start your first container, try: lxc launch ubuntu:20.04
+Or for a virtual machine: lxc launch ubuntu:20.04 --vm
 
-+-------+-------------+--------+--------------+-----+---------+-------------+
-| ALIAS | FINGERPRINT | PUBLIC | DESCRIPCIÓN | ARQ | TAMAÑO | UPLOAD DATE |
-+-------+-------------+--------+--------------+-----+---------+-------------+
-usuario@soyuz:~$
+```
+
+1. :man_raising_hand: deberemos poner sudo para obtener privilegios de administrador.
+
 Y obtener dos informaciones:
 
-Que se puede utilizar sudo lxd init para configurar diferentes aspectos de LXD como la red o el backend de almacenamiento. Aunque las opciones por defecto son razonables y no es necesario cambiarlas.
-Que se puede lanzar un nuevo contenedor mediante el comando: lxc launch ubuntu:16.04
+- Que se puede utilizar `sudo lxd init` para configurar diferentes aspectos de LXD como la red o el backend de almacenamiento. Aunque las opciones por defecto son razonables y no es necesario cambiarlas.**_(deberemos lanzarlo antes de seguir creando contenedores.)_**
+- Que se puede lanzar un nuevo contenedor mediante el comando: `lxc launch ubuntu:20.04`
 
-Lanzar un nuevo contenedor es tan sencillo como ejecutar el comando indicado, en cuyo caso nos lanzará un nuevo contenedor con un nombre generado dinámicamente, o bien especificar el nombre del contenedor (u1 en este ejemplo) al ejecutar: lxc launch ubuntu:16.04 u1. Al ser la primera vez que se utiliza la imagen ubuntu:16.04 primero se descargará de forma automática, se guardará en el repositorio local y después se lanzará el contenedor u1.
+```bash title="iniciar configuración"
+sudo lxd init
+Would you like to use LXD clustering? (yes/no) [default=no]: yes
+What IP address or DNS name should be used to reach this node? [default=192.168.1.37]:
+Are you joining an existing cluster? (yes/no) [default=no]:
+What name should be used to identify this node in the cluster? [default=julio-Lenovo-ideapad-330-15ICH]:
+Setup password authentication on the cluster? (yes/no) [default=no]:
+Do you want to configure a new local storage pool? (yes/no) [default=yes]:
+Name of the storage backend to use (zfs, btrfs, dir, lvm) [default=zfs]:
+Create a new ZFS pool? (yes/no) [default=yes]:
+Would you like to use an existing empty block device (e.g. a disk or partition)? (yes/no) [default=no]:
+Size in GB of the new loop device (1GB minimum) [default=13GB]:
+Do you want to configure a new remote storage pool? (yes/no) [default=no]:
+Would you like to connect to a MAAS server? (yes/no) [default=no]:
+Would you like to configure LXD to use an existing bridge or host interface? (yes/no) [default=no]:
+Would you like to create a new Fan overlay network? (yes/no) [default=yes]:
+What subnet should be used as the Fan underlay? [default=auto]:
+Would you like stale cached images to be updated automatically? (yes/no) [default=yes]
+Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]:
+```
 
-usuario@soyuz:~$ lxc launch ubuntu:16.04 u1
+Lanzar un nuevo contenedor es tan sencillo como ejecutar el comando indicado, en cuyo caso nos lanzará un nuevo contenedor con un nombre generado dinámicamente, o bien especificar el nombre del contenedor (u1 en este ejemplo) al ejecutar: lxc launch ubuntu:16.04 u1. Al ser la primera vez que se utiliza la imagen ubuntu:16.04 **primero se descargará de forma automática**, se guardará en el repositorio local y después se lanzará el contenedor u1.
+
+```bash title="Lanzar contenedores sobre imágenes"
+julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc launch ubuntu:20.04 u1
 Creando u1
 Retrieving image: 100%
 Iniciando u1
-usuario@soyuz:~$
-Podemos ver el estado del nuevo contenedor al ejecutar: lxc list
+julio@julio-Lenovo-ideapad-330-15ICH:~$
+```
 
-usuario@soyuz:~$ lxc list
-+--------+---------+------+------+------------+-----------+
-| NOMBRE | ESTADO | IPV4 | IPV6 | TIPO | SNAPSHOTS |
-+--------+---------+------+------+------------+-----------+
-| u1 | RUNNING | | | PERSISTENT | 0 |
-+--------+---------+------+------+------------+-----------+
-usuario@soyuz:~$
-Y comprobar que ahora sí contamos con una imagen descargada: lxc image list
+Podemos ver el estado del nuevo contenedor al ejecutar: `sudo lxc list`
 
-usuario@soyuz:~$ lxc image list
-+-------+--------------+--------+---------------------------------------------+--------+----------+------------------------------+
-| ALIAS | FINGERPRINT | PUBLIC | DESCRIPCIÓN | ARQ | TAMAÑO | UPLOAD DATE |
-+-------+--------------+--------+---------------------------------------------+--------+----------+------------------------------+
-| | f452cda3bccb | no | ubuntu 16.04 LTS amd64 (release) (20160627) | x86_64 | 310.30MB | Jul 14, 2016 at 8:29am (UTC) |
-+-------+--------------+--------+---------------------------------------------+--------+----------+------------------------------+
-usuario@soyuz:~$
+```bash title="Estado contenedores"
+julio@julio-Lenovo-ideapad-330-15ICH:~$ sudo lxc list
++------+---------+--------------------+------+-----------+-----------+--------------------------------+
+| NAME |  STATE  |        IPV4        | IPV6 |   TYPE    | SNAPSHOTS |            LOCATION            |
++------+---------+--------------------+------+-----------+-----------+--------------------------------+
+| u1   | RUNNING | 240.37.0.72 (eth0) |      | CONTAINER | 0         | julio-Lenovo-ideapad-330-15ICH |
++------+---------+--------------------+------+-----------+-----------+--------------------------------+
+```
+
+Y comprobar que ahora sí contamos con una imagen descargada: `sudo lxc image list`
+
+```bash title="Estado de la imágenes que hemos descargado"
+julio@julio-Lenovo-ideapad-330-15ICH:~$ sudo lxc image list
++-------+--------------+--------+---------------------------------------------+--------------+-----------+----------+-------------------------------+
+| ALIAS | FINGERPRINT  | PUBLIC |                 DESCRIPTION                 | ARCHITECTURE |   TYPE    |   SIZE   |          UPLOAD DATE          |
++-------+--------------+--------+---------------------------------------------+--------------+-----------+----------+-------------------------------+
+|       | 67c172d007a3 | no     | ubuntu 20.04 LTS amd64 (release) (20230908) | x86_64       | CONTAINER | 425.65MB | Sep 13, 2023 at 11:01am (UTC) |
++-------+--------------+--------+---------------------------------------------+--------------+-----------+----------+-------------------------------+
+
+```
+
 A partir de una imagen se pueden lanzar diferentes contenedores. Y naturalmente es posible tener diferentes imágenes que sirvan como base para lanzar contenedores (unos con OpenSSH instalado, otros con la pila LAMP) o imágenes de diferentes distribuciones de GNU/Linux (Ubuntu, CentOS, Fedora...).
 
 Las imágenes se pueden importar/exportar desde/a un fichero tarball y a partir de un contenedor es posible publicar una imagen.
 
-Utilizando contenedores
+## Utilizando contenedores
+
 Las operaciones básicas con los contenedores son:
 
-Función: Comando:
-Listar contenedores lxc list
-Lanzar un contenedor nuevo lxc launch <imagen> [nombre]
-Detener un contenedor lxc stop <nombre>
-Encender un contenedor lxc start <nombre>
-Obtener un shell en un contenedor lxc exec <nombre> -- /bin/bash
-Borrar un contenedor o snapshot lxc delete <nombre>
+| Función:                          | Comando:                         |
+| --------------------------------- | -------------------------------- |
+| Listar contenedores               | `lxc list   `                    |
+| Lanzar un contenedor nuevo        | `lxc launch <imagen> [nombre]`   |
+| Detener un contenedor             | `lxc stop <nombre> `             |
+| Encender un contenedor            | `lxc start <nombre>     `        |
+| Obtener un shell en un contenedor | `lxc exec <nombre> -- /bin/bash` |
+| Borrar un contenedor o snapshot   | `lxc delete <nombre>`            |
 
 Es posible utilizar el comando lxc launch para lanzar un nuevo contenedor a partir de una imagen (por ejemplo: lxc launch ubuntu:16.04 u1). Una vez creado el contenedor estará en ejecución y se podrá detener o volver a encender respectivamente con los comandos lxc stop y lxc start. Cuando el contenedor ya no sea necesario se puede borrar con lxc delete.
 
@@ -141,30 +177,30 @@ También es posible abrir un terminal en un contenedor para ejecutar comandos de
 
 Un pequeño ejemplo de uso:
 
-usuario@soyuz:~$ lxc list
+julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc list
 +--------+---------+------+------+------------+-----------+
 | NOMBRE | ESTADO | IPV4 | IPV6 | TIPO | SNAPSHOTS |
 +--------+---------+------+------+------------+-----------+
 | u1 | RUNNING | | | PERSISTENT | 0 |
 +--------+---------+------+------+------------+-----------+
-usuario@soyuz:~$ lxc exec u1 -- /bin/bash
+julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc exec u1 -- /bin/bash
 root@u1:~# uname -a
 Linux u1 4.4.0-28-generic #47-Ubuntu SMP Fri Jun 24 10:09:13 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
 root@u1:~# exit
 exit
-usuario@soyuz:~$ lxc stop u1
-usuario@soyuz:~$ lxc list
+julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc stop u1
+julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc list
 +--------+---------+------+------+------------+-----------+
 | NOMBRE | ESTADO | IPV4 | IPV6 | TIPO | SNAPSHOTS |
 +--------+---------+------+------+------------+-----------+
 | u1 | STOPPED | | | PERSISTENT | 0 |
 +--------+---------+------+------+------------+-----------+
-usuario@soyuz:~$ lxc delete u1
-usuario@soyuz:~$ lxc list
+julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc delete u1
+julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc list
 +--------+--------+------+------+------+-----------+
 | NOMBRE | ESTADO | IPV4 | IPV6 | TIPO | SNAPSHOTS |
 +--------+--------+------+------+------+-----------+
-usuario@soyuz:~$
+julio@julio-Lenovo-ideapad-330-15ICH:~$
 Con los contenedores además de las operaciones mostradas es posible:
 
 Crear instantáneas (snapshots) y restaurar su estado incluyendo su memoria.
@@ -189,10 +225,10 @@ Pero es posible utilizar los cgroups para limitar los recursos o especificar pri
 
 Veamos qué configuración tiene un contenedor recién creado:
 
-usuario@soyuz:~$ lxc launch ubuntu:16.04 u1
+julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc launch ubuntu:16.04 u1
 Creando u1
 Iniciando u1
-usuario@soyuz:~$ lxc config show u1
+julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc config show u1
 name: u1
 profiles:
 
@@ -206,11 +242,11 @@ profiles:
   path: /
   type: disk
   ephemeral: false
-  usuario@soyuz:~$
+  julio@julio-Lenovo-ideapad-330-15ICH:~$
   Y como es posible fijar un límite para el consumo de memoria principal:
 
-usuario@soyuz:~$ lxc config set u1 limits.memory 512MB
-usuario@soyuz:~$ lxc config show u1
+julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc config set u1 limits.memory 512MB
+julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc config show u1
 name: u1
 profiles:
 
@@ -225,10 +261,10 @@ profiles:
   path: /
   type: disk
   ephemeral: false
-  usuario@soyuz:~$
+  julio@julio-Lenovo-ideapad-330-15ICH:~$
   Y el cambio es visible desde el punto de vista del contenedor:
 
-usuario@soyuz:~$ lxc exec u1 -- /bin/bash
+julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc exec u1 -- /bin/bash
 root@u1:~# free -m
 total used free shared buff/cache available
 Mem: 512 11 421 8 79 421
@@ -254,13 +290,13 @@ Los discos son básicamente directorios o dispositivos de bloques en el sistema 
 
 En el siguiente ejemplo se lanza el contenedor u1, se crea el directorio directorio1 en el sistema anfitrión, y se añade como un nuevo disco disponible en /mnt/disco1 en el contenedor.
 
-usuario@soyuz:~$ lxc launch ubuntu:16.04 u1
+julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc launch ubuntu:16.04 u1
 Creando u1
 Iniciando u1
-usuario@soyuz:~$ mkdir disco1
-usuario@soyuz:~$ lxc config device add u1 disco1 disk source=/home/usuario/disco1 path=/mnt/disco1
+julio@julio-Lenovo-ideapad-330-15ICH:~$ mkdir disco1
+julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc config device add u1 disco1 disk source=/home/usuario/disco1 path=/mnt/disco1
 Device disco1 added to u1
-usuario@soyuz:~$ lxc exec u1 -- /bin/bash
+julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc exec u1 -- /bin/bash
 root@u1:~# cd /mnt/
 root@u1:/mnt# ll
 total 6
@@ -274,18 +310,22 @@ Es posible añadir diferentes tipos de interfaces de red. Por ejemplo: physical 
 
 En el siguiente ejemplo se muestra cómo añadir una nueva interfaz de red en modo puente (eth1) utilizando el puente lxdbr0 de la máquina física.
 
-usuario@soyuz:~$ lxc launch ubuntu:16.04 u1
+julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc launch ubuntu:16.04 u1
 Creando u1
 Iniciando u1
-usuario@soyuz:~$ lxc config device add u1 eth1 nic nictype=bridged parent=lxdbr0
+julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc config device add u1 eth1 nic nictype=bridged parent=lxdbr0
 Device eth1 added to u1
-usuario@soyuz:~$ lxc exec u1 -- /bin/bash
+julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc exec u1 -- /bin/bash
 root@ubuntu:~# ifconfig eth1
-eth1 Link encap:Ethernet HWaddr 00:16:3e:61:45:e8  
- BROADCAST MULTICAST MTU:1500 Metric:1
+eth1 Link encap:Ethernet HWaddr 00:16:3e:61:45:e8
+BROADCAST MULTICAST MTU:1500 Metric:1
 RX packets:0 errors:0 dropped:0 overruns:0 frame:0
 TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
 collisions:0 txqueuelen:1000
 RX bytes:0 (0.0 B) TX bytes:0 (0.0 B)
 
 root@ubuntu:~#
+
+```
+
+```

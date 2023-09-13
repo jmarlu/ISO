@@ -3,6 +3,7 @@ site_url: https://example.com/
 nav:
   - Estructura: index.md
   - Virtualización: virtual.md
+  - LXD: lxd.md
   - Actividades: Actividades.md
 
 theme:
@@ -43,6 +44,7 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
   - footnotes
+  - tables
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.mark

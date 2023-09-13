@@ -2,6 +2,9 @@
   font-size: 1.1rem;
   line-height: 1.6;
 }
+.md-typeset table:not([class]) {
+  font-size: 1rem;
+}
 .md-nav {
   font-size: 0.9rem;
   font-weight: bold;
