@@ -26,10 +26,13 @@ LXD se puede instalar sobre Ubuntu 14.04 LTS agregando su propio PPA, pero en la
 
 La instalación en LXD en Ubuntu 14.04 LTS se realiza con los siguientes comandos:
 
+```bash title="Instalación"
 add-apt-repository ppa:ubuntu-lxc/lxd-stable
 apt-get update
 apt-get dist-upgrade
 apt-get install lxd
+```
+
 La instalación crea el grupo lxd que incluye a los usuarios que pueden utilizarlo. Pero como la información sobre los grupos a los que pertenece un usuario se lee en el momento de iniciar sesión, ahora será necesario salir y volver a entrar. O, alternativamente, ejecutar:
 
 newgrp lxd
@@ -37,6 +40,7 @@ En Ubuntu 16.04 LTS no es necesario hacer nada especial para instalar LXD. Únic
 
 Una vez instalado la gestión de los contenedores se realiza a través de la herramienta lxc. Al ejecutarla sin parámetros se muestran las diferentes opciones:
 
+```bash
 usuario@soyuz:~$ lxc
 Usage: lxc [subcommand] [options]
 Órdenes disponibles
@@ -70,6 +74,7 @@ Entorno:
 LXD_CONF Path to an alternate client configuration directory.
 LXD_DIR Path to an alternate server directory.
 usuario@soyuz:~$
+```
 
 Contenedores, imágenes y remotos
 Los contenedores se lanzan a partir de imágenes y las imágenes se almacenan en repositorios locales o remotos. LXD facilita la gestión de contenedores, imágenes y remotos (repositorios de imágenes). De hecho, gracias a que la mayoría de operaciones son automáticas es posible lanzar un contenedor desde el primer momento (lo que descargará de manera automática la imagen necesaria).
