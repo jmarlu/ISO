@@ -17,4 +17,13 @@ Visualiza el siguiente [vídeo](https://www.youtube.com/watch?v=iOQnZKJ3fls&ab_c
 
 Responde al cuestionario de la estructura y caracterización. Este cuestionario lo podéis realizar todas la veces que queráis hasta que tengáis todas las respuestas. Os servirá para estudiar el tema.
 
-## Actividad 3. Creación de máquinas virtuales.
+## Actividad 3. Creación de máquinas virtuales
+
+1. Crea una máquina virtual para cada uno de los siguientes sistemas operativos. Antes de crearlas se ha de tener en cuenta **los requisitos con los que dispone el sistema anfitrión**y que, en circunstancias normales, serán necesarias dos de estas máquinas encendidas a la vez. Debes planificar bien el consumo de recursos:
+
+   - una máquina para un cliente con Microsoft Windows 10 Professional (en su defecto puedes usar Microsoft Windows 7 Professional)
+   - una máquina para un cliente con Ubuntu Desktop
+   - una máquina para un servidor con Microsoft Windows Server
+   - una máquina para contener un servidor con Ubuntu Server
+
+Elabora un documento con las especificaciones de las máquinas que has elegido, tanto anfitrión como huéspedes, el proceso de creación de una de las máquinas y súbelo al Moodle del módulo.
