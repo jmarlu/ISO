@@ -3,6 +3,7 @@ site_url: https://example.com/
 nav:
   - Estructura: index.md
   - Virtualización: virtual.md
+  - Actividades: Actividades.md
 
 theme:
   name: material
@@ -11,8 +12,9 @@ theme:
     code: Roboto Mono
   features:
     - navigation.sections
-    - toc.integrate
     - navigation.top
+    - navigation.path
+    - navigation.footer
     - search.suggest
     - search.highlight
     - content.tabs.link

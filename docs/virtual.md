@@ -133,7 +133,7 @@ Para instalarla, una vez arrancada la máquina virtual, se accede al menú <span
 
 Aunque dispongamos de una red y la máquina huésped se encuentre dentro de esta red de alguna de las formas que se han visto en el apartado anterior, es posible que tanto el huésped como el anfitrión se comuniquen sin necesidad de estar contenidos dentro de ella. Además de ser una comunicación más rápida y cómoda, no interfiere en con el resto de equipos tanto virtuales como físicos.
 
-#### Carpetas compartidas .
+#### Carpetas compartidas
 
 En la máquina anfitrión se crea una carpeta a la que los huéspedes pueden acceder. El acceso se realizará en función del sistema operativo que contenga la máquina virtual. Si se trata de un sistema de Microsoft, se accederá a la carpeta como si de un recurso de red se tratase. Si se trata de un sistema operativo GNU/Linux o Solaris se proporciona un sistema de archivos especial diseñado para estas tareas denominado vboxsf.
 
