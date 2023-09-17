@@ -2,7 +2,7 @@
 
 LXD es un hypervisor para contenedores Linux desarrollado por Canonical Ltd. Es un complemento para los contenedores de Linux (LXC) que facilita su uso y añade nuevas posibilidades.
 
-La doumnetación oficial está en el siguiente [link](https://documentation.ubuntu.com/lxd/en/latest/)
+La documentación oficial está en el siguiente [link](https://documentation.ubuntu.com/lxd/en/latest/)
 
 En la red se puede encontrar mucha información sobre LXD, aquí únicamente se pretende presentar una pequeña introducción a los contenedores en general y a LXD en particular.
 
