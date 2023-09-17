@@ -2,6 +2,8 @@
 
 LXD es un hypervisor para contenedores Linux desarrollado por Canonical Ltd. Es un complemento para los contenedores de Linux (LXC) que facilita su uso y añade nuevas posibilidades.
 
+La doumnetación oficial está en el siguiente [link](https://documentation.ubuntu.com/lxd/en/latest/)
+
 En la red se puede encontrar mucha información sobre LXD, aquí únicamente se pretende presentar una pequeña introducción a los contenedores en general y a LXD en particular.
 
 ## ¿Qué son los contenedores?
@@ -24,13 +26,10 @@ Otras herramientas similares son:
 
 LXD se puede instalar sobre Ubuntu 14.04 LTS agregando su propio PPA, pero en la versión 16.04 LTS forma parte de los repositorios oficiales y viene acompañado de una gran novedad: ZFS. LXD puede utilizar diferentes storage-backends, por defecto se utiliza un directorio en el sistema de archivos pero combinar los contenedores con alguna herramienta que proporcione COW (como ZFS, Btrfs o LVM) permite mejorar la velocidad y economizar espacio al trabajar con snapshots o al copiar contenedores. Aunque para probar LXD bastará cualquier sistema de archivos.
 
-La instalación en LXD en Ubuntu se realiza con los siguientes comandos:
+La instalación en LXD en Ubuntu se realiza con el comando:
 
 ```bash title="Instalación"
-add-apt-repository ppa:ubuntu-lxc/lxd-stable
-apt-get update
-apt-get dist-upgrade
-apt-get install lxd
+sudo snap install lxd
 ```
 
 La instalación crea el grupo lxd que incluye a los usuarios que pueden utilizarlo. Pero como la información sobre los grupos a los que pertenece un usuario se lee en el momento de iniciar sesión, ahora será necesario salir y volver a entrar. O, alternativamente, ejecutar:
@@ -164,32 +163,35 @@ Las operaciones básicas con los contenedores son:
 
 | Función:                          | Comando:                         |
 | --------------------------------- | -------------------------------- |
-| Listar contenedores               | `lxc list   `                    |
+| Listar contenedores               | `lxc list`                       |
 | Lanzar un contenedor nuevo        | `lxc launch <imagen> [nombre]`   |
-| Detener un contenedor             | `lxc stop <nombre> `             |
-| Encender un contenedor            | `lxc start <nombre>     `        |
+| Detener un contenedor             | `lxc stop <nombre>`              |
+| Encender un contenedor            | `lxc start <nombre>`             |
 | Obtener un shell en un contenedor | `lxc exec <nombre> -- /bin/bash` |
 | Borrar un contenedor o snapshot   | `lxc delete <nombre>`            |
 
 Es posible utilizar el comando lxc launch para lanzar un nuevo contenedor a partir de una imagen (por ejemplo: lxc launch ubuntu:16.04 u1). Una vez creado el contenedor estará en ejecución y se podrá detener o volver a encender respectivamente con los comandos lxc stop y lxc start. Cuando el contenedor ya no sea necesario se puede borrar con lxc delete.
 
-También es posible abrir un terminal en un contenedor para ejecutar comandos de manera interactiva: lxc exec u1 -- /bin/bash
+También es posible abrir un terminal en un contenedor para ejecutar comandos de manera interactiva: `sudo lxc exec u1 -- /bin/bash`
 
 Un pequeño ejemplo de uso:
 
-julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc list
-+--------+---------+------+------+------------+-----------+
-| NOMBRE | ESTADO | IPV4 | IPV6 | TIPO | SNAPSHOTS |
-+--------+---------+------+------+------------+-----------+
-| u1 | RUNNING | | | PERSISTENT | 0 |
-+--------+---------+------+------+------------+-----------+
-julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc exec u1 -- /bin/bash
+```bash title="Utilización de contenedores"
+julio@julio-Lenovo-ideapad-330-15ICH:~$ sudo lxc list
++------+---------+--------------------+------+-----------+-----------+--------------------------------+
+| NAME |  STATE  |        IPV4        | IPV6 |   TYPE    | SNAPSHOTS |            LOCATION            |
++------+---------+--------------------+------+-----------+-----------+--------------------------------+
+| u1   | RUNNING | 240.37.0.72 (eth0) |      | CONTAINER | 0         | julio-Lenovo-ideapad-330-15ICH |
++------+---------+--------------------+------+-----------+-----------+--------------------------------+
+
+julio@julio-Lenovo-ideapad-330-15ICH:~$ sudo lxc exec u1 -- /bin/bash
 root@u1:~# uname -a
-Linux u1 4.4.0-28-generic #47-Ubuntu SMP Fri Jun 24 10:09:13 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+Linux u1 5.4.0-162-generic #179-Ubuntu SMP Mon Aug 14 08:51:31 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+
 root@u1:~# exit
 exit
-julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc stop u1
-julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc list
+julio@julio-Lenovo-ideapad-330-15ICH:~$ sudo lxc stop u1
+julio@julio-Lenovo-ideapad-330-15ICH:~$ sudo lxc list
 +--------+---------+------+------+------------+-----------+
 | NOMBRE | ESTADO | IPV4 | IPV6 | TIPO | SNAPSHOTS |
 +--------+---------+------+------+------------+-----------+
@@ -200,98 +202,136 @@ julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc list
 +--------+--------+------+------+------+-----------+
 | NOMBRE | ESTADO | IPV4 | IPV6 | TIPO | SNAPSHOTS |
 +--------+--------+------+------+------+-----------+
-julio@julio-Lenovo-ideapad-330-15ICH:~$
+```
+
 Con los contenedores además de las operaciones mostradas es posible:
 
-Crear instantáneas (snapshots) y restaurar su estado incluyendo su memoria.
-Copiar y/o mover contenedores entre diferentes servidores LXD.
-Copiar ficheros de y hacia el contenedor.
-Publicar una imagen a partir de un contenedor y, si se desea, obtener el tarball que la representa.
+- Crear instantáneas (snapshots) y restaurar su estado incluyendo su memoria.
+- Copiar y/o mover contenedores entre diferentes servidores LXD.
+- Copiar ficheros de y hacia el contenedor.
+- Publicar una imagen a partir de un contenedor y, si se desea, obtener el tarball que la representa.
 
-Sobre la configuración por defecto de la red en los contenedores
-La configuración de red por defecto para los contenedores está definida en el fichero /etc/default/lxd-bridge.
+## Sobre la configuración por defecto de la red en los contenedores
+
+La configuración de red por defecto para los contenedores está definida en el fichero `/etc/default/lxd-bridge`.
 
 Básicamente allí se especifica:
 
-Que en el anfitrión se declara un puente: lxdbr0 (recuerde que los puentes se pueden inspeccionar/gestionar con brctl)
-Que se modificará el perfil por defecto de los contenedores para que hagan uso del puente.
-Por defecto están vacíos, pero hay campos para especificar la IP del puente y el rango de concesiones DHCP a utilizar para los contenedores.
+- Que en el anfitrión se declara un puente: `lxdbr0` (recuerde que los puentes se pueden inspeccionar/gestionar con `brctl`)
+- Que se modificará el perfil por defecto de los contenedores para que hagan uso del puente.
+- Por defecto están vacíos, pero hay campos para especificar la IP del puente y el rango de concesiones DHCP a utilizar para los contenedores.
+
 La configuración de los equipos del aula utiliza el fichero /etc/network/interfaces para incluír la interfaz de red física como un puerto del puente, de tal manera que los contenedores puedan acceder a la LAN del aula tal y como lo hacen las estaciones físicas.
 
-¿Es posible limitar los recursos de un contenedor?
+## ¿Es posible limitar los recursos de un contenedor?
+
 Por supesto, de hecho resulta muy recomendable limitar y priorizar los recursos de los contenedores. Si no se imponen límites por defecto los contenedores comparten los recursos de la maquina anfitrión: CPU, memoria principal, espacio swap, interfaces de red y disco.
 
-Pero es posible utilizar los cgroups para limitar los recursos o especificar prioridades en su asignación. LXD permite manejar la configuración de un contenedor de forma individual o bien crear un perfíl que luego se puede aplicar a varios contenedores.
+LXD permite manejar la configuración de un contenedor de forma individual o bien crear un perfíl que luego se puede aplicar a varios contenedores.
 
 Veamos qué configuración tiene un contenedor recién creado:
 
-julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc launch ubuntu:16.04 u1
-Creando u1
-Iniciando u1
-julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc config show u1
-name: u1
+```bash title="Mostrar configuración de un contenedor"
+julio@julio-Lenovo-ideapad-330-15ICH:~$ sudo lxc config show u1
+[sudo] contraseña para julio:
+architecture: x86_64
+config:
+  image.architecture: amd64
+  image.description: ubuntu 20.04 LTS amd64 (release) (20230908)
+  image.label: release
+  image.os: ubuntu
+  image.release: focal
+  image.serial: "20230908"
+  image.type: squashfs
+  image.version: "20.04"
+  volatile.base_image: 67c172d007a3787c92ac4fa8de30c68d3540743f8235882c46460bbe68aa3546
+  volatile.eth0.host_name: veth5cba233b
+  volatile.eth0.hwaddr: 00:16:3e:ec:63:ed
+  volatile.idmap.base: "0"
+  volatile.idmap.current: '[{"Isuid":true,"Isgid":false,"Hostid":1000000,"Nsid":0,"Maprange":1000000000},{"Isuid":false,"Isgid":true,"Hostid":1000000,"Nsid":0,"Maprange":1000000000}]'
+  volatile.idmap.next: '[{"Isuid":true,"Isgid":false,"Hostid":1000000,"Nsid":0,"Maprange":1000000000},{"Isuid":false,"Isgid":true,"Hostid":1000000,"Nsid":0,"Maprange":1000000000}]'
+  volatile.last_state.idmap: '[{"Isuid":true,"Isgid":false,"Hostid":1000000,"Nsid":0,"Maprange":1000000000},{"Isuid":false,"Isgid":true,"Hostid":1000000,"Nsid":0,"Maprange":1000000000}]'
+  volatile.last_state.power: RUNNING
+  volatile.uuid: 4b1a0b9a-886c-4592-af66-7fa9aa30b46c
+devices: {}
+ephemeral: false
 profiles:
-
 - default
-  config:
-  volatile.base_image: f452cda3bccb2903e56d53e402b9d35334b4276783d098a879be5d74b04e62e2
-  volatile.eth0.hwaddr: 00:16:3e:74:be:3a
-  volatile.last_state.idmap: '[{"Isuid":true,"Isgid":false,"Hostid":100000,"Nsid":0,"Maprange":65536},{"Isuid":false,"Isgid":true,"Hostid":100000,"Nsid":0,"Maprange":65536}]'
-  devices:
-  root:
-  path: /
-  type: disk
-  ephemeral: false
-  julio@julio-Lenovo-ideapad-330-15ICH:~$
-  Y como es posible fijar un límite para el consumo de memoria principal:
+stateful: false
+description: ""
+```
 
-julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc config set u1 limits.memory 512MB
-julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc config show u1
-name: u1
-profiles:
+Y como es posible fijar un límite para el consumo de memoria principal:
 
-- default
-  config:
+```bash title="Establecer limites de un contenedor"
+julio@julio-Lenovo-ideapad-330-15ICH:~$ sudo lxc config set u1 limits.memory 512MB
+julio@julio-Lenovo-ideapad-330-15ICH:~$ sudo lxc config show u1
+architecture: x86_64
+config:
+  image.architecture: amd64
+  image.description: ubuntu 20.04 LTS amd64 (release) (20230908)
+  image.label: release
+  image.os: ubuntu
+  image.release: focal
+  image.serial: "20230908"
+  image.type: squashfs
+  image.version: "20.04"
   limits.memory: 512MB
-  volatile.base_image: f452cda3bccb2903e56d53e402b9d35334b4276783d098a879be5d74b04e62e2
-  volatile.eth0.hwaddr: 00:16:3e:74:be:3a
-  volatile.last_state.idmap: '[{"Isuid":true,"Isgid":false,"Hostid":100000,"Nsid":0,"Maprange":65536},{"Isuid":false,"Isgid":true,"Hostid":100000,"Nsid":0,"Maprange":65536}]'
-  devices:
-  root:
-  path: /
-  type: disk
-  ephemeral: false
-  julio@julio-Lenovo-ideapad-330-15ICH:~$
-  Y el cambio es visible desde el punto de vista del contenedor:
+  volatile.base_image: 67c172d007a3787c92ac4fa8de30c68d3540743f8235882c46460bbe68aa3546
+  volatile.eth0.host_name: veth5cba233b
+  volatile.eth0.hwaddr: 00:16:3e:ec:63:ed
+  volatile.idmap.base: "0"
+  volatile.idmap.current: '[{"Isuid":true,"Isgid":false,"Hostid":1000000,"Nsid":0,"Maprange":1000000000},{"Isuid":false,"Isgid":true,"Hostid":1000000,"Nsid":0,"Maprange":1000000000}]'
+  volatile.idmap.next: '[{"Isuid":true,"Isgid":false,"Hostid":1000000,"Nsid":0,"Maprange":1000000000},{"Isuid":false,"Isgid":true,"Hostid":1000000,"Nsid":0,"Maprange":1000000000}]'
+  volatile.last_state.idmap: '[{"Isuid":true,"Isgid":false,"Hostid":1000000,"Nsid":0,"Maprange":1000000000},{"Isuid":false,"Isgid":true,"Hostid":1000000,"Nsid":0,"Maprange":1000000000}]'
+  volatile.last_state.power: RUNNING
+  volatile.uuid: 4b1a0b9a-886c-4592-af66-7fa9aa30b46c
+devices: {}
+ephemeral: false
+profiles:
+- default
+stateful: false
+description: ""
+```
+
+Y el cambio es visible desde el punto de vista del contenedor:
+
+```bash title="Establecer limites de un contenedor"
 
 julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc exec u1 -- /bin/bash
 root@u1:~# free -m
 total used free shared buff/cache available
 Mem: 512 11 421 8 79 421
 Swap: 1021 2 1019
-root@u1:~#
-La propia documentación de LXD muestra qué configuraciones y límites se pueden definir.
+
+```
+
+La propia documentación de [LXD](https://documentation.ubuntu.com/lxd/en/latest/howto/instances_configure/) muestra qué configuraciones y límites se pueden definir.
 
 Algunos de los parámetros básicos son:
 
-Key Type Default Description
-boot.autostart boolean false Si está activo indica que se debe arrancar el contenedor cuando arranque LXD.
-limits.cpu string all Número o rango de CPUs para el contenedor.
-limits.cpu.allowance string 100% Cuota de CPU a utilizar por el contendor. Si se utiliza un % se trata de un límite blando, si se utiliza algo como "25ms/100ms" se trata de un límite duro.
-limits.memory string all Límite de memoria para el contendor. Es posible utilizar los sufijos: kB, MB, GB, TB, PB, EB.
-Cómo añadir discos o interfaces de red:
+| Key                  | Type    | Default | Description                                                                                                                                                  |
+| -------------------- | ------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| boot.autostart       | boolean | false   | Si está activo indica que se debe arrancar el contenedor cuando arranque LXD.                                                                                |
+| limits.cpu           | string  | all     | Número o rango de CPUs para el contenedor.                                                                                                                   |
+| limits.cpu.allowance | string  | 100%    | Cuota de CPU a utilizar por el contenedor. Si se utiliza un % se trata de un límite blando, si se utiliza algo como "25ms/100ms" se trata de un límite duro. |
+| limits.memory        | string  | all     | Límite de memoria para el contenedor. Es posible utilizar los sufijos: kB, MB, GB, TB, PB, EB.                                                               |
+
+## Cómo añadir discos o interfaces de red:
+
 La configuración por defecto de un contenedor ya incluye un disco con el sistema raíz y una interfaz de red. Pero es posible añadir nuevas interfaces de red o discos. Estos dispositivos se pueden añadir:
 
 De manera particular a un contenedor
 De manera general a un perfil que utilizarán varios contenedores
-Discos:
+
+### Discos
 
 Los discos son básicamente directorios o dispositivos de bloques en el sistema anfitrión que se montan en el lugar indicado del contenedor.
 
 En el siguiente ejemplo se lanza el contenedor u1, se crea el directorio directorio1 en el sistema anfitrión, y se añade como un nuevo disco disponible en /mnt/disco1 en el contenedor.
 
-julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc launch ubuntu:16.04 u1
-Creando u1
+```bash title="Añadiendo un disco duro"
+
 Iniciando u1
 julio@julio-Lenovo-ideapad-330-15ICH:~$ mkdir disco1
 julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc config device add u1 disco1 disk source=/home/usuario/disco1 path=/mnt/disco1
@@ -304,15 +344,16 @@ drwxr-xr-x 3 root root 3 Jul 27 08:24 ./
 drwxr-xr-x 22 root root 22 Jul 27 07:20 ../
 drwxrwxr-x 2 nobody nogroup 4096 Jul 27 08:22 disco1/
 root@u1:/mnt#
-Interfaces de red:
+```
+
+### Interfaces de red
 
 Es posible añadir diferentes tipos de interfaces de red. Por ejemplo: physical (una interfaz física del anfitrión que se dedica en exclusiva a un contenedor) o bridged (una interfaz del contenedor que estará asociada a una interfaz en el equipo físico que formará parte del puente indicado).
 
 En el siguiente ejemplo se muestra cómo añadir una nueva interfaz de red en modo puente (eth1) utilizando el puente lxdbr0 de la máquina física.
 
-julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc launch ubuntu:16.04 u1
-Creando u1
-Iniciando u1
+```bash title="Añadiendo red"
+
 julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc config device add u1 eth1 nic nictype=bridged parent=lxdbr0
 Device eth1 added to u1
 julio@julio-Lenovo-ideapad-330-15ICH:~$ lxc exec u1 -- /bin/bash
@@ -323,9 +364,5 @@ RX packets:0 errors:0 dropped:0 overruns:0 frame:0
 TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
 collisions:0 txqueuelen:1000
 RX bytes:0 (0.0 B) TX bytes:0 (0.0 B)
-
-root@ubuntu:~#
-
-```
 
 ```

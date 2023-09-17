@@ -123,6 +123,19 @@ En la actualidad, la instalación de un sistema operativo es un proceso completa
 
 No existen muchas diferencias entre el proceso de instalación de un sistema operativo cliente y uno de red, al menos en sistemas operativos de Microsoft. Por lo que respecta a distribuciones basadas en GNU/Linux usadas en este manual, sí existen algunas diferencias entre instalar un sistema operativo cliente o uno de red. Las diferencias se ilustran en el siguiente apartado.
 
+## Instalación de Ubuntu Server
+
+El proceso de instalación de Ubuntu Server no es muy diferente del de Ubuntu Desktop pero al contrario que éste, necesita instalar ciertas características que todavía no se ha tratado. Por este motivo se realizará una pequeña guía de instalación destacando las configuraciones que son requeridas durante el proceso y propias de un servicio de directorio, como el servicio de DNS:
+
+- tras elegir el idioma y configuración del teclado, procederá a detectar el hardware del sistema y configurarlo, entre ellos, los dispositivos de red. Turno para la configuración predeterminada de red y el nombre de la máquina.
+- turno de los usuarios. Configurará un usuario para usar en lugar de la cuenta de superusuario. El asistente es autoexplicativo: nombre del usuario, nombre de la cuenta, contraseña, ubicación y cifrado de la cuenta.
+- la instalación seguirá con el particionado del disco y la copia de ficheros en el disco duro. Como de costumbre, ofrecerá un particionado automático y otro manual. En cada ocasión se procederá según requerimientos.
+- una vez copiados los datos, se descargarán las actualizaciones necesarias, se configurará el gestor de paquetes así como las actualizaciones del sistema operativo. En el siguiente paso es dónde se encuentra la diferencia a la que se hacía referencia. Ubuntu Server permite instalar diferentes servicios durante el proceso de instalación del sistema operativo. Se seleccionará la opción “Herramientas estándar del sistema” y se instalarán los servicios necesarios de forma manual a medida que sean necesarios tras la instalación.
+
+![Alt text](img/virtualizacion/img10.jpg)
+
+La instalación de **Microsoft Windows Server** no ofrece esta posibilidad, siendo con posterioridad cuando el SOR sea promocionado a servidor y dotado de estas herramientas, tema que se abordará en la unidad de trabajo número 5.
+
 ## Herramientas de virtualización
 
 Para el estudio de los contenidos que se detallan es este punto será necesario la instalación, en cada sistema operativo contenido en una máquina virtual, la herramienta **Oracle Guest Additions**.

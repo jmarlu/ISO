@@ -1,1 +1,38 @@
-Question { =Answer }
+
+::IT1::Señala dos software de usuario {
+    ~%50%Gestores de Archivos
+    ~%50%Navegadores
+    ~%-100%Pantalla
+    ~%-100%Sistema operativo
+}
+
+
+
+::IT2::Señala los 2 tipos de lenguajes de programación de alto nivel existen {
+    ~%50%Interpretados
+    ~%50%Compilados
+    ~%-100%Ofimática
+    ~%-100%Comandos
+}
+
+::IT3::Qué software se encarga de manejar al resto de programas? { ="Sistema operativo" }
+
+
+::IT4:: El sistema operativo es aquel que controla el { =Hardware} 
+
+::IT5:: El sistem operativo asigna recursos de hardware al  {=software}
+
+::IT6:: Las {="Unidades Aritmético Lógicas"} se encargan de hacer las operaciones matemáticas o lógicas.
+    
+::IT7:: Los registros son {="Unidades de Almacenamiento"} del procesador.Sirven para poder manipular los datos.
+
+::IT8:: El {="contador de programa"} nos permite saber la instrucción que se está ejecutando en cada momento.
+
+
+::IT9:: ordena de mayor a menor nivel.  {
+    =Software usuario -> 5
+    =Lenguajes de alto nivel (interpretados y compilados) -> 4
+    =Sistema operativo -> 3
+    =Kernel de Linux -> 2
+    = Hardware -> 1
+}
