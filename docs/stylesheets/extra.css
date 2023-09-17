@@ -3,7 +3,7 @@
   line-height: 1.6;
 }
 .md-typeset table:not([class]) {
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 .md-nav {
   font-size: 0.9rem;
@@ -12,4 +12,9 @@
 
 .menu {
   background-color: #d4e3f2;
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  font-size: 0.96rem;
 }
