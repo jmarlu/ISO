@@ -17,6 +17,27 @@ Visualiza el siguiente [vídeo](https://www.youtube.com/watch?v=iOQnZKJ3fls&ab_c
 
 Responde al _cuestionario de la estructura y caracterización_. Este cuestionario lo podéis realizar todas la veces que queráis hasta que tengáis todas las respuestas. Os servirá para estudiar el tema.
 
+## Actividad BIOS
+
+El manejo de la BIOS puede resultar en la pérdida de prestaciones del equipo, al menos temporalmente. Por ese motivo es posible hacer esta práctica de dos formas:
+
+- trabajando sobre un emulador de BIOS:
+
+      - https://www.grs-software.de/sims/bios/phoenix/pages/
+      - https://geekprank.com/bios/
+
+sobre la BIOS/UEFI de un equipo real (si usas esta opción tendrás que hacer fotos con tu dispositivo móvil de la pantalla). **Tan sólo localiza las opciones pero no apliques los cambios. De este modo evitaremos problemas.**
+
+Hay que tener en cuenta que algunas de las preguntas no las podrás contestar al no existir dicha opción en la simulación, pero será suficiente para hacerse una idea de su funcionamiento.
+
+1. Al arrancar el PC, la BIOS ejecuta inmediatamente una serie de test, muy rápidos, sobre el funcionamiento de los componentes del sistema. Estos test consumen una parte del tiempo de arranque de PC, de forma que se pueden deshabilitar en la BIOS, aunque conviene ejecutarlos de vez en cuando.
+   Deshabilita estos test iniciales buscando una entrada en la BIOS con el título **"Quick Boot", "Quick POST" o "Quick Power on SelfTest"** y habilitándola.
+2. Es normal que los equipos estén configurados para arrancar desde CD/DVD u otro dispositivo de almacenamiento antes de arrancar desde el disco duro. Su utilidad es importante, ya que nos permite arrancar desde un medio alternativo si nuestro sistema operativo no responde. Pero lo cierto es que podemos desactivar esta opción, pidiendo al ordenador que solo arranque desde el disco duro, ya que en caso de problemas, siempre podremos restaurar el arranque desde otro medio. **Comprueba la secuencia de arranque en la BIOS y configúrala para arrancar directamente desde el disco duro.**
+3. Es posible evitar las modificaciones no deseadas, limitando el acceso a la configuración de la BIOS a personas no autorizadas. Es posible añadir una contraseña para impedir el acceso al sistema operativo a personas no autorizadas. Asigna una contraseña de acceso al sistema.
+4. Si queremos que el ordenador detenga su arranque cuando se da cualquier problema en la ejecución del POST. ¿Qué opción debemos habilitar en la BIOS?
+5. Tras realizar varios cambios en la BIOS, te das cuenta de que el sistema no está funcionando correctam
+   ente. ¿Qué opción tenemos para restaurar los valores por defecto del sistema y solucionar el problema?
+
 ## Actividad 3. Virtualización. Virtual Box
 
 1. Crea una máquina virtual para cada uno de los siguientes sistemas operativos. Antes de crearlas se ha de tener en cuenta **los requisitos con los que dispone el sistema anfitrión** y que, en circunstancias normales, serán necesarias **dos de estas máquinas** encendidas a la vez. Debes planificar bien el consumo de recursos:
@@ -100,4 +121,6 @@ Para llevar a cabo este ejercicio date cuenta que tienes que instalar en windows
 
       **Ejemplo:** En el **Ejercicio 4 de la Actividad 3** cuando se debe instalar el sistema operativo, por ejemplo se podría hacer una captura de pantalla cuando se ponga el nombre se usuario ,cuando se haga dos particiones como te indica el ejercicio y así sucesivamente con los objetivos que te he marcado en ese ejercicio. De esta manera, demuestras que es tu máquina y que has realizado aquello que te he pedido. **NO TIENES QUE HACER CAPTURAS DE TODOS LOS PASOS**.
 
-      **SOLO LAS ACTIVIDADES 1,2,3,4 SON OBLIGATORIAS.**
+!!! warning
+
+      **SOLO LAS ACTIVIDADES 1,2,3,4,BIOS SON OBLIGATORIAS.**

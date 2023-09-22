@@ -98,7 +98,6 @@
 }
 
 ::clasificación_1:: ¿Cuál de las siguientes afirmaciones describe mejor la diferencia fundamental entre un sistema operativo en red y uno distribuido?
-
 {
  =En un sistema operativo en red, los dispositivos se comunican entre sí y comparten recursos, mientras que en un sistema operativo distribuido, los dispositivos actúan de manera independiente sin compartir recursos.
  ~Un sistema operativo en red se ejecuta en una única computadora central que controla todas las operaciones de la red, mientras que un sistema operativo distribuido se ejecuta en múltiples computadoras interconectadas que trabajan juntas de manera coordinada.
@@ -125,7 +124,6 @@
 }
 
 ::licencias_2:: ¿Por qué se llama "GNU/Linux" al sistema operativo en lugar de simplemente "Linux"?
-
  {
     ="GNU" se refiere a un conjunto de herramientas y utilidades de software libre desarrolladas por el Proyecto GNU, que se utilizan en conjunto con el núcleo Linux.
     ~"GNU" es el nombre del núcleo (kernel) del sistema operativo, mientras que "Linux" es el nombre del conjunto completo del sistema operativo.

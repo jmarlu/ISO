@@ -4,12 +4,21 @@ nav:
   - Home: index.html
   - UD1 S.O. ESTRUCTURA Y VIRTUALIZACIÓN:
       - Estructura: ./UD1/Estructura.md
+      - Bios: ./UD1/bios.md
       - Virtualización: ./UD1/virtual.md
       - LXD: ./UD1/lxd.md
       - Actividades: ./UD1/Actividades.md
 
+  - UD2 CONFIGURACIÓN DE LOS SO:
+      - Introducción Terminal: ./UD2/IntroTerminal.md
+      - Estructura Directorios: ./UD2/EstructuraDirectorios.md
+      - Administración de memoria secundaria: ./UD2/AdminMemoriaSecundaria.md
+
 theme:
   name: material
+  icon:
+    admonition:
+      example: octicons/terminal-16
   font:
     text: Roboto
     code: Roboto Mono
@@ -23,6 +32,7 @@ theme:
     - content.tabs.link
     - content.code.annotate
     - content.code.copy
+    - toc.integrate
   language: es
   palette:
     - scheme: default
@@ -38,8 +48,8 @@ theme:
       primary: teal
       accent: lime
 markdown_extensions:
-  - pymdownx.highlight:
-      anchor_linenums: true
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - admonition
@@ -50,10 +60,16 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.mark
+  - pymdownx.keys
   - attr_list
+  - md_in_html
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 extra_css:
   - stylesheets/extra.css
