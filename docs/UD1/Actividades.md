@@ -17,7 +17,7 @@ Visualiza el siguiente [vídeo](https://www.youtube.com/watch?v=iOQnZKJ3fls&ab_c
 
 Responde al _cuestionario de la estructura y caracterización_. Este cuestionario lo podéis realizar todas la veces que queráis hasta que tengáis todas las respuestas. Os servirá para estudiar el tema.
 
-## Actividad BIOS
+## Actividad 3. BIOS
 
 El manejo de la BIOS puede resultar en la pérdida de prestaciones del equipo, al menos temporalmente. Por ese motivo es posible hacer esta práctica de dos formas:
 
@@ -38,7 +38,7 @@ Hay que tener en cuenta que algunas de las preguntas no las podrás contestar al
 5. Tras realizar varios cambios en la BIOS, te das cuenta de que el sistema no está funcionando correctam
    ente. ¿Qué opción tenemos para restaurar los valores por defecto del sistema y solucionar el problema?
 
-## Actividad 3. Virtualización. Virtual Box
+## Actividad 4. Virtualización. Virtual Box
 
 1. Crea una máquina virtual para cada uno de los siguientes sistemas operativos. Antes de crearlas se ha de tener en cuenta **los requisitos con los que dispone el sistema anfitrión** y que, en circunstancias normales, serán necesarias **dos de estas máquinas** encendidas a la vez. Debes planificar bien el consumo de recursos:
 
@@ -65,7 +65,7 @@ Hay que tener en cuenta que algunas de las preguntas no las podrás contestar al
 7. Realiza el **clonado** de las máquinas que disponen de un sistema operativo de red.
 8. Realiza una **clonación enlazada** de cada uno de los clientes. Estas nuevas máquinas **serán utilizadas para la realización de las actividades. Las máquinas originales se guardarán como copia de seguridad en caso necesario**.
 
-## Actividad 4. Creación de máquinas virtuales. LXD
+## Actividad 5. Creación de máquinas virtuales. LXD
 
 Con finalidades didácticas se va a utilizar como host anfitrión de los contenedores una MV con Ubuntu Desktop. Pero realmente esta configuración tendrá más gracia **si el host es el ordenador físico**.
 
@@ -85,7 +85,7 @@ Con finalidades didácticas se va a utilizar como host anfitrión de los contene
 Vamos a crear contenedores lxc, pero ahora desde Windows. Para lo cual deberás ver el siguiente [video](https://www.youtube.com/watch?v=KcSB2B3N4Fg). La actividad consistirá
 Para llevar a cabo este ejercicio date cuenta que tienes que instalar en windows el gestor de paquetes llamado [chocolatey](https://chocolatey.org/). -->
 
-## Actividades 5.De refuerzo.
+## Actividades 6.De refuerzo.
 
 1.  Añade un nuevo disco duro virtual a las máquinas virtuales que contendrán los sistemas operativos de red. Estos discos tendrán una capacidad de 1 TB, SATA y de expansión dinámica. Para hacerlo, sigue estos pasos:
 
@@ -102,7 +102,7 @@ Para llevar a cabo este ejercicio date cuenta que tienes que instalar en windows
     - ahora ve a <span class="menu">Configuración</span> → <span class="menu">Sistema</span> y comprueba que la unidad óptica está delante del disco duro en la secuencia de arranque. Si no es así, modifica el orden con las flechas que aparecen a la derecha
     - **inicia la máquina** y sigue el asistente de instalación del sistema operativo.
 
-## Actividades 6. De Ampliación.
+## Actividades 7. De Ampliación.
 
 1.  Investiga el modo de utilización de los modos de medios virtuales inmutable, compartible y multiconexión. Identifica sus diferencias y pon un ejemplo de uso en cada caso.
 2.  Para las máquinas virtuales con un sistema operativo de red, encripta el disco duro principal. Recuerda que para ello deberás instalar las herramientas de VirtualBox Extension Pack. Redacta una breve guía de como se realizan estos pasos y súbela al Moodle del módulo.
@@ -123,4 +123,4 @@ Para llevar a cabo este ejercicio date cuenta que tienes que instalar en windows
 
 !!! warning
 
-      **SOLO LAS ACTIVIDADES 1,2,3,4,BIOS SON OBLIGATORIAS.**
+      **SOLO LAS ACTIVIDADES 1,2,3,4,5 SON OBLIGATORIAS.**

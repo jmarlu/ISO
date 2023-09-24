@@ -12,7 +12,12 @@ nav:
   - UD2 CONFIGURACIÓN DE LOS SO:
       - Introducción Terminal: ./UD2/IntroTerminal.md
       - Estructura Directorios: ./UD2/EstructuraDirectorios.md
+      - Gestión Archivos: ./UD2/gestionArchivos.md
+      - Redirecciones: ./UD2/redirecciones.md
+      - Filtros: ./UD2/filtros.md
+      - Búsqueda Archivos: ./UD2/busquedaArchivos.md
       - Administración de memoria secundaria: ./UD2/AdminMemoriaSecundaria.md
+      - Permisos básicos: ./UD2/permisosBasicos.md
 
 theme:
   name: material
