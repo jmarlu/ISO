@@ -14,17 +14,18 @@ Accede al Moodle del módulo y realiza la _RELACIÓN 2-II de ejercicios_ de coma
 
 ## Actividad 4. Desarrollo
 
-1. Los servidores cuentan con varios discos duros instalados en la unidad anterior. En los segundos discos de los SOR, crea una tabla de partición MBR con tres particiones de aproximadamente el mismo tamaño cada una. En Microsoft Windows Server realiza esta tarea a través de **GUI** y en Ubuntu Server con **CLI** y el comando `fdisk`.
-2. Asigna un sistema de ficheros adecuado a cada partición. Recuerda que en Ubuntu Server será necesario realizar esta tarea a través de CLI con el comando `mkfs`.
-3. Monta las particiones creadas en el punto anterior en las carpetas **Datos, Perfiles y Cifrado**. Crea las carpetas donde estimes oportuno. Esta configuración se realizará tanto en GNU/Linux como en Microsoft Windows.
-4. Realiza los cambios necesarios para que las carpetas citadas en el ejercicio anterior se monten de forma automática durante el arranque de Ubuntu Server. Para ello deberás modificar el fichero fstab.
-5. Modifica el gestor de arranque del sistema operativo Ubuntu Desktop para que tan sólo ofrezca dos opciones de arranque; Arranacar el sistema con Ubuntu y Prueba de memoria. Las opciones deben tener estos nombres por pantalla.
-6. En esta práctica se van a instalar dos sistemas operativos en una misma máquina virtual (y disco duro). Debemos crear un sistema de arranque que nos permita elegir el sistema operativo con el que deseamos arrancar nuestro equipo. Para ello, sigue los pasos que se describen a continuación.
-   1. Crea una máquina virtual denominada “Dual” que tenga un disco duro virtual de 1 TB en expansión dinámica, y una memoria principal de 1024 MB.
-   2. Particiona el disco para contener un sistema operativo cliente de Microsoft, uno basado en GNU/Linux y dos particiones de datos, con los nombres **DOCUMENTOS y EXPEDIENTES** que podrán ser accedidas sea cual sea el sistema operativo que se arranque. Crea un esquema con las particiones, su tamaño y el sistema de archivos que se usará en cada caso. El particionado se realizará con el sistema MBR.
-   3. Instala los sistemas operativos en el siguiente orden: **Microsoft Windows 10 Professional o Microsoft Windows 7 Professional y Ubuntu Desktop**.
-   4. Al finalizar la instalación, debe quedar un menú de inicio con varios sistemas operativos. Recuerda que si pulsas la tecla ESC durante el arranque de la máquina virtual, podrás acceder al menú **GRUB**.
-   5. Una vez instalados los sistemas operativos en el mismo disco duro, modifica el **GRUB** de para que el sistema operativo a iniciar por defecto sea el de Microsoft y que espere 15 segundos antes de iniciarlo. Realiza esta tarea en CLI.
+1.  Los servidores cuentan con varios discos duros instalados en la unidad anterior. En los segundos discos de los SOR, crea una tabla de partición MBR con tres particiones de aproximadamente el mismo tamaño cada una. En Microsoft Windows Server realiza esta tarea a través de **GUI** y en Ubuntu Server con **CLI** y el comando `fdisk`.
+2.  Asigna un sistema de ficheros adecuado a cada partición. Recuerda que en Ubuntu Server será necesario realizar esta tarea a través de CLI con el comando `mkfs`.
+3.  Monta las particiones creadas en el punto anterior en las carpetas **Datos, Perfiles y Cifrado**. Crea las carpetas donde estimes oportuno. Esta configuración se realizará tanto en GNU/Linux como en Microsoft Windows.
+4.  Realiza los cambios necesarios para que las carpetas citadas en el ejercicio anterior se monten de forma automática durante el arranque de Ubuntu Server. Para ello deberás modificar el fichero fstab.
+5.  Modifica el gestor de arranque del sistema operativo Ubuntu Desktop para que tan sólo ofrezca dos opciones de arranque; Arranacar el sistema con Ubuntu y Prueba de memoria. Las opciones deben tener estos nombres por pantalla.
+6.  En esta práctica se van a instalar dos sistemas operativos en una misma máquina virtual (y disco duro). Debemos crear un sistema de arranque que nos permita elegir el sistema operativo con el que deseamos arrancar nuestro equipo. Para ello, sigue los pasos que se describen a continuación. 1. Crea una máquina virtual denominada “Dual” que tenga un disco duro virtual de 1 TB en expansión dinámica, y una memoria principal de 1024 MB:
+
+    - Particiona el disco para contener un sistema operativo cliente de Microsoft, uno basado en GNU/Linux y dos particiones de datos, con los nombres **DOCUMENTOS y EXPEDIENTES** que podrán ser accedidas sea cual sea el sistema operativo que se arranque. Crea un esquema con las particiones, su tamaño y el sistema de archivos que se usará en cada caso. El particionado se realizará con el sistema MBR.
+
+    - Instala los sistemas operativos en el siguiente orden: **Microsoft Windows 10 Professional o Microsoft Windows 7 Professional y Ubuntu Desktop**.
+    - Al finalizar la instalación, debe quedar un menú de inicio con varios sistemas operativos. Recuerda que si pulsas la tecla ESC durante el arranque de la máquina virtual, podrás acceder al menú **GRUB**.
+    - Una vez instalados los sistemas operativos en el mismo disco duro, modifica el **GRUB** de para que el sistema operativo a iniciar por defecto sea el de Microsoft y que espere 15 segundos antes de iniciarlo. Realiza esta tarea en CLI.
 
 ## Actividad 5. De Ampliación
 
