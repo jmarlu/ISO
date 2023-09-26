@@ -1,0 +1,49 @@
+::Pregunta DC1:: 
+Introduce un comando para mostrar el nombre, tamaño y permisos de todos los  ficheros de tu directorio de trabajo, ordenados por tamaño del fichero.7{= ls -l $HOME | tr -s ' ' ' ' | cut -d ' ' -f1,5,8 | sort -t ' ' -k2 -n
+}
+
+::Pregunta DC2:: 
+Introduce un comando para mostrar el UID, nombre de usuario y directorio de trabajo de todos los usuarios del sistema.{=cat /etc/passwd | cut -d ':' -f 1,4,6
+}
+
+::Pregunta DC3::
+ Introduce un comando para mostrar el UID, nombre de usuario y directorio de trabajo del usuario root.{=cat /etc/passwd | cut -d ':' -f 1,4,6 | grep root
+}
+
+::Pregunta DC4::
+Introduce un comando que cuente los ficheros existentes en el directorio $HOME.{=ls $HOME | wc -w}
+
+::Pregunta DC5::
+ Busca los ficheros de tu usuario mayores de 1MB y sobre los que solo el propietario tenga permisos de escritura. Los resultados deben guardarse en el
+fichero res5 y los errores en el fichero err5.{=find / -user usuario -size +1M -perm /u+w,g-w,o-w > res5 2>err5}
+
+::Pregunta DC6::
+Repite el ejercicio anterior pero contando el número de dichos ficheros.{=find / -user usuario -size +1M -perm /u+w,g-w,o-w 2>err6 | wc -l >res6
+}
+
+::Pregunta DC7::
+Busca los ficheros del usuario root menores de 1GB y que empiecen por la letra 'd' y empaquetalos en el fichero /root/ficheros_d.tar mediante el comando `tar`. Busca ayuda sobre este comado.
+{=find / -user root -size -1G -name “d*” -exec tar -cvf /root/ficheros_d.tar \{\} \\ }
+
+
+::Pregunta DC8::
+Busca los ficheros de tu usuario de más de 50MB y modifica el propietario al usuario root.
+{=find / -user usuario -size +50M -exec chown root \{\} \ }
+
+::pregunta DC9::
+ Introduce un comando para obtener las 3 últimas lineas del fichero t1  El resultado debe almacenarse en el fichero $HOME/ej9.
+ {=tail -n3 t1 > $HOME/ej9}
+
+::Pregunta DC10::
+Añade los permisos de ejecución a todos (usuario,grupo, otros) a los ficheros del directorio actual que tengan extensión ”txt”.{
+    =find . -type f -name "*.txt" -exec chmod a+x \{\} \;
+}
+
+::Pregunta DC11::
+Quita todos los permisos a  otros de  todos los archivos del directorio actual que comiencen con cualquiera de estas letras “a”,”r”,”u”,”k” o “t” tanto en
+mayúsculas como en minúsculas y que tengan extensión “txt”.
+{
+    =find . -type f -name '[aArRuU]*.txt' -exec chmod o-r \{\} \;
+}
+
+

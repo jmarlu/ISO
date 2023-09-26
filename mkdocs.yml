@@ -17,7 +17,9 @@ nav:
       - Filtros: ./UD2/filtros.md
       - Búsqueda Archivos: ./UD2/busquedaArchivos.md
       - Administración de memoria secundaria: ./UD2/AdminMemoriaSecundaria.md
+      - Gestor de Arranque: ./UD2/gestorArranque.md
       - Permisos básicos: ./UD2/permisosBasicos.md
+      - Actividades: ./UD2/Actividades.md
 
 theme:
   name: material

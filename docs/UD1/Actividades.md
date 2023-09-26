@@ -15,7 +15,7 @@ Visualiza el siguiente [vídeo](https://www.youtube.com/watch?v=iOQnZKJ3fls&ab_c
 
 ## Actividad 2. Teoría de la Estructura
 
-Responde al _cuestionario de la estructura y caracterización_. Este cuestionario lo podéis realizar todas la veces que queráis hasta que tengáis todas las respuestas. Os servirá para estudiar el tema.
+Responde al _cuestionario de la estructura y caracterización_. Este cuestionario solo tenéis tres intentos. Os servirá para estudiar el tema.
 
 ## Actividad 3. BIOS
 
@@ -102,7 +102,7 @@ Para llevar a cabo este ejercicio date cuenta que tienes que instalar en windows
     - ahora ve a <span class="menu">Configuración</span> → <span class="menu">Sistema</span> y comprueba que la unidad óptica está delante del disco duro en la secuencia de arranque. Si no es así, modifica el orden con las flechas que aparecen a la derecha
     - **inicia la máquina** y sigue el asistente de instalación del sistema operativo.
 
-## Actividades 7. De Ampliación.
+## Actividad 7. De Ampliación.
 
 1.  Investiga el modo de utilización de los modos de medios virtuales inmutable, compartible y multiconexión. Identifica sus diferencias y pon un ejemplo de uso en cada caso.
 2.  Para las máquinas virtuales con un sistema operativo de red, encripta el disco duro principal. Recuerda que para ello deberás instalar las herramientas de VirtualBox Extension Pack. Redacta una breve guía de como se realizan estos pasos y súbela al Moodle del módulo.

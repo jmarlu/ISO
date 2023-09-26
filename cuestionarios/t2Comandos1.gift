@@ -57,7 +57,7 @@ Introduce el comando para listar los nombres de los ficheros del directorio actu
 Crea un directorio con tu nombre en el directorio $HOME y añádelo a la variable de entorno PATH.
 {
   =mkdir $HOME/TuNombre
-  =export PATH=$PATH:$HOME/TuNombre #Exporta a cualquier terminal que tengamos. 
+  =export PATH=$PATH\:$HOME/TuNombre #Exporta a cualquier terminal que tengamos. 
 }
 
 ::Pregunta IC8::
@@ -90,10 +90,10 @@ Introduce un comando para mostrar el contenido del fichero /etc/passwd. ¿Para q
 ::Pregunta IC11::
 Introduce un comando que devuelva SOLO los datos del usuario root, del fichero /etc/passwd.
 {
-  =grep "^root:" /etc/passwd #el comando `grep` selecciona aquellas filas que empiecen por root
+  =grep "^root\:" /etc/passwd #el comando `grep` selecciona aquellas filas que empiecen por root
   ~cat /etc/passwd | grep root
-  ~awk -F':' '/^root:/ {print $0}' /etc/passwd
-  ~sed -n '/^root:/p' /etc/passwd
+  ~awk -F'\:' '/^root\:/ \{print $0\}' /etc/passwd
+  ~sed -n '/^root\:/p' /etc/passwd
 }
 
 ::Pregunta IC12::
@@ -108,10 +108,10 @@ Introduce los comandos necesarios para mostrar el contenido del fichero /etc/sha
 ::Pregunta IC13::
 Introduce un comando para mostrar el contenido del fichero /etc/passwd y cambie el carácter : por el carácter _.
 {
-  =cat /etc/passwd | tr ':' '_' #has reemplazado el carácter `:` por `_` en el archivo /etc/passwd con el filtro `tr`
-  ~sed 's/:/_/g' /etc/passwd
-  ~awk -F':' '{OFS="_"}1' /etc/passwd
-  ~replace ":" "_" -- /etc/passwd
+  =cat /etc/passwd | tr '\:' '_' #has reemplazado el carácter `\:` por `_` en el archivo /etc/passwd con el filtro `tr`
+  ~sed 's/\:/_/g' /etc/passwd
+  ~awk -F'\:' '\{OFS="_"\}1' /etc/passwd
+  ~replace "\:" "_" -- /etc/passwd
 }
 
 ::Pregunta IC14::
@@ -119,7 +119,7 @@ Introduce un comando que cuente los ficheros existentes en el directorio $HOME.
 {
   =ls -l $HOME | grep "^-" | wc -l #Un fichero regular, linux, empieza siempre con un - 
   ~find $HOME -maxdepth 1 -type f | wc -l
-  ~dir /b /a-d /s %USERPROFILE% | find /c ":"
+  ~dir /b /a-d /s %USERPROFILE% | find /c "\:"
   ~du -a $HOME | wc -l
 }
 
@@ -128,7 +128,7 @@ Introduce un comando que cuente los ficheros existentes en el directorio $HOME y
 {
   =find $HOME -type f | wc -l # Esta opción es la más optima.
   ~ls -R $HOME | grep "^-" | wc -l
-  ~dir /s /b /a-d %USERPROFILE% | find /c ":"
+  ~dir /s /b /a-d %USERPROFILE% | find /c "\:"
   ~du -a $HOME | wc -l
 }
 
@@ -159,6 +159,15 @@ Muestra un comando para visualizar el contenido del fichero /etc/shadow. La sali
   ~sudo cat /etc/shadow > $HOME/salida_ls.txt 2> $HOME/err
 }
 
+::Pregunta IC19::
+Dado esta secuencia comando1 < datos.txt 2> error.txt. ¿Cuál de las siguientes afirmaciones es correcta?
+{
+~La salida estándar del comando1 se redirige desde el archivo datos.txt y los errores se redirigen al archivo error.txt.
+=La salida estándar del comando1 se redirige al archivo datos.txt y los errores se redirigen al archivo error.txt.
+~El comando1 leerá la entrada estándar desde el archivo datos.txt y redirigirá los errores a la pantalla.
+~El comando1 escribirá en el archivo datos.txt y redirigirá los errores a la pantalla.
+}
+
 ::Pregunta IC20::
 Introduce el comando para mostrar por pantalla SOLO los permisos y el nombre de todos los ficheros existentes en el directorio /etc.
 {
@@ -167,8 +176,6 @@ Introduce el comando para mostrar por pantalla SOLO los permisos y el nombre de 
   ~ls -lh /etc |  tr -s ' ' ' ' | cut -d ' ' -f1,9
   ~ls -l /etc | awk '\{print $2, $9\}'
 }
-
-Respuesta: Correcto, el comando `ls -l /etc | awk '{print $1, $9}'` muestra los permisos y el nombre de todos los ficheros en el directorio /etc.
 
 ::Pregunta IC21::
 Introduce un comando para mostrar por pantalla SOLO el nombre de usuario e ID del usuario root.
@@ -181,17 +188,17 @@ Introduce un comando para mostrar por pantalla SOLO el nombre de usuario e ID de
 
 ::Pregunta IC22::
 Crea un archivo de texto llamado t1 en $HOME con el texto ls -l >t1. Seguidamente:
-* Introduce el comando para modificar sus permisos para que solo el propietario del fichero pueda modificar su contenido.
-* Introduce el comando para modificar sus permisos para que cualquiera pueda ejecutar dicho archivo.
-* Introduce el comando para cambiar el propietario del fichero al usuario root.
-* Introduce el comando para que cualquiera pueda modificar el fichero.
+  Introduce el comando para modificar sus permisos para que solo el propietario del fichero pueda modificar su contenido.
+  Introduce el comando para modificar sus permisos para que cualquiera pueda ejecutar dicho archivo.
+  Introduce el comando para cambiar el propietario del fichero al usuario root.
+  Introduce el comando para que cualquiera pueda modificar el fichero.
 {
   =touch $HOME/t1 && echo "ls -l >t1" > $HOME/t1 && chmod u+w,,o-w,g-w t1 && chmod a+x t1 && sudo chown root t1 && chmod a+w t1
   ~touch $HOME/t1 && echo "ls -l >t1" > $HOME/t1 && chmod u+w $HOME/t1 && chmod +x $HOME/t1 && chown root $HOME/t1 && chmod o+w $HOME/t1
   ~touch $HOME/t1 && echo "ls -l >t1" > $HOME/t1 && chmod u+w $HOME/t1 && chmod +x $HOME/t1 && sudo chown root $HOME/t1 && chmod o+w $HOME/t1
   ~touch $HOME/t1 && echo "ls -l >t1" > $HOME/t1 && chmod u+w $HOME/t1
 }
-IC
+
 ::Pregunta IC23::
 Introduce un comando para obtener las 3 últimas líneas del fichero t1. El resultado debe almacenarse en el fichero $HOME/ej8.(Hay dos comandos que no están en teoría, tail ni head  investiga)
 {
@@ -214,8 +221,8 @@ Introduce un comando que busque en $HOME los ficheros que empiecen por la letra 
 Introduce un comando para poner a root como el usuario propietario de un fichero de tu usuario.
 {
   =sudo chown root $HOME/archivo
-  ~chown root:root $HOME/archivo
-  ~chown usuario:root $HOME/archivo
+  ~chown root\:root $HOME/archivo
+  ~chown usuario\:root $HOME/archivo
   ~chown root $HOME/*
 }
 
@@ -246,7 +253,7 @@ Introduce un comando que busque todos los ficheros del sistema menores de 1MB y 
   ~find $HOME -type f -user root -size -1M > /root/ficheros_pequeños
 }
 
-::Pregunta 29::
+::Pregunta IC29::
 Introduce un comando que busque todos los ficheros del usuario guest que ocupen más de 5000MB y con permisos de escritura y los borre.
 {
   =find /home/guest -type f -user guest -size +5000M -writable -exec rm -r \{\} \;
@@ -255,7 +262,7 @@ Introduce un comando que busque todos los ficheros del usuario guest que ocupen 
   ~find /home/guest -type f -user guest -size +5000M -writable -exec rm -f \{\} \;
 }
 
-::Pregunta 30::
+::Pregunta IC30::
 Introduce un comando que busque los ficheros de tu usuario y con permisos de lectura, escritura y ejecución para todo el mundo.
 {
   =find $HOME -type f -perm -ugo\=rwx 2>/dev/null
@@ -264,7 +271,7 @@ Introduce un comando que busque los ficheros de tu usuario y con permisos de lec
   ~find $HOME -type f -perm -u\=rwx,g=rwx,o=rwx
 }
 
-::Pregunta 31::
+::Pregunta IC31::
 Introduce un comando que muestre SOLO el tamaño, nombre y permisos de los ficheros de tu usuario existentes en tu directorio de trabajo.
 {
   =ls -l | grep $USER | tr -s ' ' ' ' | cut -d ' ' -f 1,5,9

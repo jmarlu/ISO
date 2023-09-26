@@ -45,7 +45,6 @@ Las unidades de trabajo (UT) se han planificado según el [calendario escolar 20
 - UD2.Configuración de sistemas operativos.(16 horas, del 10/10/23 al 20/10/23)
 - UD3.Administración de software base y aplicaciones.(16 horas, del 23/10/23 al 3/11/23)
 - UD4.Instalación de servicios de directorio. (16 horas, del 6/11/23 al 17/11/23)
--
 
 #### 2º Trimestre
 
