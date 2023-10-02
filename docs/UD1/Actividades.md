@@ -40,30 +40,32 @@ Hay que tener en cuenta que algunas de las preguntas no las podrás contestar al
 
 ## Actividad 4. Virtualización. Virtual Box
 
-1. Crea una máquina virtual para cada uno de los siguientes sistemas operativos. Antes de crearlas se ha de tener en cuenta **los requisitos con los que dispone el sistema anfitrión** y que, en circunstancias normales, serán necesarias **dos de estas máquinas** encendidas a la vez. Debes planificar bien el consumo de recursos:
+1.  Crea una máquina virtual para cada uno de los siguientes sistemas operativos. Antes de crearlas se ha de tener en cuenta **los requisitos con los que dispone el sistema anfitrión** y que, en circunstancias normales, serán necesarias **dos de estas máquinas** encendidas a la vez. Debes planificar bien el consumo de recursos:
 
-   - una máquina para un cliente con Microsoft Windows 10 Professional .
-   - una máquina para un cliente con Ubuntu Desktop.
-   - una máquina para un servidor con Microsoft Windows Server.
-   - una máquina para contener un servidor con Ubuntu Server.
+    - una máquina para un cliente con Microsoft Windows 10 Professional .
+    - una máquina para un cliente con Ubuntu Desktop.
+    - una máquina para un servidor con Microsoft Windows Server.
+    - una máquina para contener un servidor con Ubuntu Server.
 
-2. Crea una red virtual interna NAT para cada servidor e introduce en ella todas las máquinas virtuales separadas por sistemas operativos; los de Microsoft en una red y los de GNU/Linux en otra. Asegúrate que las direcciones MAC de las tarjetas de red no se repitan.
-3. En las máquinas virtuales que contienen un **sistema operativo de red**, configura una segunda tarjeta de red e instala un nuevo controlador **SAS**. Agrega un nuevo disco duro de **300 GB **de capacidad al nuevo controlador y con expansión dinámica.
+2.  Crea una red virtual interna NAT para cada servidor e introduce en ella todas las máquinas virtuales separadas por sistemas operativos; los de Microsoft en una red y los de GNU/Linux en otra. Asegúrate que las direcciones MAC de las tarjetas de red no se repitan.
+3.  En las máquinas virtuales que contienen un **sistema operativo de red**, configura una segunda tarjeta de red e instala un nuevo controlador **SAS**. Agrega un nuevo disco duro de **300 GB **de capacidad al nuevo controlador y con expansión dinámica.
 
-4. **Descarga** las imágenes de los sistemas operativos cliente e instala cada uno de ellos en la máquina virtual correspondiente. Deberás instalar Microsoft Windows 10 Professional y Ubuntu Desktop siguiendo estas indicaciones:
-   - deberás usar **todo el disco duro** para la instalación
-   - el nombre de la máquina queda a tu discreción
-   - instala las **Guest Additions** en cada máquina, esto facilitará el trabajo con ellas
-5. Instala los sistemas operativos de red en la máquina virtual correspondiente. Deberás instalar Microsoft Windows Server y Ubuntu Server siguiendo estas indicaciones:
+4.  **Descarga** las imágenes de los sistemas operativos cliente e instala cada uno de ellos en la máquina virtual correspondiente. Deberás instalar Microsoft Windows 10 Professional y Ubuntu Desktop siguiendo estas indicaciones:
 
-   - deberás usar **todo el disco duro** para la instalación del sistema operativo Microsoft Windows
-   - **crea dos particiones**, una de ellas será **swap**, durante el proceso de instalación de **Ubuntu Server**
-   - el nombre de la máquina queda a tu discreción
-   - instala las **Guest Additions** en cada máquina, esto facilitará el trabajo con ellas
+    - deberás usar **todo el disco duro** para la instalación
+    - el nombre de la máquina queda a tu discreción
+    - instala las **Guest Additions** en cada máquina, esto facilitará el trabajo con ellas
 
-6. Crea una **carpeta compartida** en cada máquina virtual que conecte el directorio **/home** de tu usuario a una carpeta en el escritorio del usuario administrador. **Se podrá escribir** en ella en todos los casos.
-7. Realiza el **clonado** de las máquinas que disponen de un sistema operativo de red.
-8. Realiza una **clonación enlazada** de cada uno de los clientes. Estas nuevas máquinas **serán utilizadas para la realización de las actividades. Las máquinas originales se guardarán como copia de seguridad en caso necesario**.
+5.  Instala los sistemas operativos de red en la máquina virtual correspondiente. Deberás instalar Microsoft Windows Server y Ubuntu Server siguiendo estas indicaciones:
+
+    - deberás usar **todo el disco duro** para la instalación del sistema operativo Microsoft Windows
+    - **crea dos particiones**, una de ellas será **swap**, durante el proceso de instalación de **Ubuntu Server**
+    - el nombre de la máquina queda a tu discreción
+    - instala las **Guest Additions** en cada máquina, esto facilitará el trabajo con ellas
+
+6.  Crea una **carpeta compartida** en cada máquina virtual que conecte el directorio **/home** de tu usuario a una carpeta en el escritorio del usuario administrador. **Se podrá escribir** en ella en todos los casos.
+7.  Realiza el **clonado** de las máquinas que disponen de un sistema operativo de red.
+8.  Realiza una **clonación enlazada** de cada uno de los clientes. Estas nuevas máquinas **serán utilizadas para la realización de las actividades. Las máquinas originales se guardarán como copia de seguridad en caso necesario**.
 
 ## Actividad 5. Creación de máquinas virtuales. LXD
 

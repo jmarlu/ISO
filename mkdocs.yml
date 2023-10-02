@@ -21,6 +21,14 @@ nav:
       - Permisos básicos: ./UD2/permisosBasicos.md
       - Actividades: ./UD2/Actividades.md
 
+  - UD3.Administración de software base y aplicaciones:
+      - Instalación en Windows: ./UD3/InstaWindow.md
+      - Instalación en Linux: ./UD3/InstaLinux.md
+      - Gestión de procesos: ./UD3/procesosLinux.md
+      - Gestión de Servicios: ./UD3/GestiServicios.md
+      - Programación de Tareas: ./UD3/programaTareas.md
+      - Actualización del Sistema: ./UD3/actuSisOp.md
+      - Registro de Windows: ./UD3/registroWindow.md
 theme:
   name: material
   icon:
