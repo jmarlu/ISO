@@ -29,6 +29,7 @@ nav:
       - Programación de Tareas: ./UD3/programaTareas.md
       - Actualización del Sistema: ./UD3/actuSisOp.md
       - Registro de Windows: ./UD3/registroWindow.md
+      - Actividades: ./UD3/Actividades.md
 theme:
   name: material
   icon:

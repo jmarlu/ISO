@@ -1,0 +1,64 @@
+::Pregunta ACI1:: 
+¿Cuál es el sufijo de un archivo de paquete Debian?
+{
+    =deb
+    ~txt
+    ~rpm
+    ~zip
+}
+
+::Pregunta ACI2::
+Instala desde los repositorios el comando alien
+{=sudo apt-get install alien}
+
+::Pregunta ACI3::
+ ¿Qué herramienta permite convertir paquetes RPM en Debian y viceversa?
+{
+    =alien
+    ~rpmtodeb
+    ~deb2rpm 
+    ~tar
+}
+
+::Pregunta ACI4::
+Descarga el paquete nmap.rpm de la siguiente web https\://nmap.org/download. Conviertelo a un fichero "nmap.deb" 
+y después instalalo desde la consola. 
+{=alien nmap.rpm; sudo dpkg -i nmap.deb }
+
+::Pregunta ACI5::
+ ¿Cómo listar todos los paquetes .deb instalados que contengan la palabra "passwd" en su
+nombre?. Aquellos que empiezan por ii están instalados.
+{=dpkg -l "*nombre*" | grep ˆii}
+
+::Pregunta ACI6::
+¿Cómo saber a qué paquete pertenece el archivo /bin/bash?
+{=dpkg -S /bin/bash}
+
+::Pregunta ACI7::
+¿Qué comando permite conocer el contenido de un paquete nmap instalado?
+{=dpkg -L package}
+
+::Pregunta ACI8::
+ Dé la ruta del archivo que contiene la lista de los repositorios APT.
+{=/etc/apt/sources.list}
+
+::Pregunta ACI9::
+Actualiza la base local de los repositorios
+{=apt-get update}
+
+::Pregunta ACI10::
+Actualiza todos los programas desde los repositorios
+{=apt-get upgrade}
+
+::Pregunta ACI11::
+Busca en los repositorios nmap
+{=sudo apt-cache search nmap}
+
+::Pregunta ACI12::
+ Desintala el paquete coreutils. ¿puedes?
+{=sudo dpkg -r coreutils; No , es un paquete indispensable }
+
+::Pregunta ACI13::
+Ahora quiero instalar y eliminar paquetes que no son necesarios al mismo tiempo
+{=sudo apt dist-upgrade}
+

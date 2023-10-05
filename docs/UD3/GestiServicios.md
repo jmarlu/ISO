@@ -92,7 +92,7 @@ Alias=ctrl-alt-del.target
 
 ```
 
-Nos fijamos en **Requires** y **After**. En este objetivo requiere (Requires) de un servicio en concreto y para su ejecución ese servicio tienen que estar parado (After).
+Nos fijamos en **Requires** y **After**. En este objetivo requiere (Requires) de un servicio en concreto y su ejecución después de la unidad que pone (After).
 
 ## Acciones
 
@@ -168,3 +168,53 @@ JOB    = Pending job for the unit.
 To show all installed unit files use 'systemctl list-unit-files'.
 
 ```
+
+## Systemd timers
+
+Los temporizadores son una forma opcional de programar tareas en el sistema operativo.
+Las unidades systemd hacen posible la creación de tareas complicadas.
+A continuación se muestran dos ejemplos, uno con crontab anterior y otro con systemd.
+crear una tarea programada que guarde información de fecha en el archivo /tmp/date cada 10 minutos.
+
+```bash title="Ejemplo con crontab"
+*/10 **** /usr/bin/date >> /tmp/date
+
+```
+
+Ahora con systemd
+
+- Creemos un archivo /etc/systemd/system/date.service con el siguiente contenido:
+
+  ```bash title="Contenido del servicio"
+  [Unit]
+  Description=Guardamos la fecha en  /tmp/date
+  [Service]
+  Type=oneshot
+  ExecStart=/usr/bin/sh -c '/usr/bin/date >> /tmp/date'
+  ```
+
+- Luego creemos un archivo de temporizador /etc/systemd/system/date.timer con el siguiente contenido
+
+```bash title="Contenido del temporizador"
+ [Unit]
+Description=date.service es ejecutado cada 10 minutos
+
+[Timer]
+OnCalendar=*:0/10
+```
+
+- Inicia el temporizador con el siguiente comando:
+
+  ```bash title="Comando para iniciar el temporizador"
+  systemctl start date.timer
+
+  #listado de los temporizadores
+  systemctl list-timers
+  NEXT                         LEFT          LAST                         PASSED       UNIT                         ACTIVATES
+  Wed 2023-10-04 12:36:26 CEST 8min left     Tue 2023-10-03 11:48:10 CEST 24h ago      logrotate.timer              logrotate.service
+  Wed 2023-10-04 12:36:26 CEST 8min left     Tue 2023-10-03 11:48:10 CEST 24h ago      man-db.timer                 man-db.service
+  Wed 2023-10-04 12:36:26 CEST 8min left     Tue 2023-10-03 22:39:05 CEST 13h ago      phpsessionclean.timer        phpsessionclean.service
+  Wed 2023-10-04 12:36:28 CEST 8min left     Tue 2023-10-03 22:30:05 CEST 13h ago      anacron.timer                anacron.service
+  Wed 2023-10-04 13:32:32 CEST 1h 4min left  Tue 2023-10-03 12:16:38 CEST 24h ago      apt-daily-upgrade.timer      apt-daily-upgrade.service
+  Wed 2023-10-04 16:44:22 CEST 4h 16min left Tue 2023-10-03 12:31:34 CEST 23h ago      motd-news.timer              motd-news.service
+  ```

@@ -1,0 +1,27 @@
+::Pregunta ACS1:: 
+Comprueba el estado del servicio systemd-networkd
+{=systemctl status systemd-networkd}
+
+::Pregunta ACS2::
+Para y comienza el servicio systemd-networkd
+{=systemctl stop systemd-networkd; systemctl start systemd-networkd}
+
+::Pregunta ACS3::
+Configura el el demonio systemd-networkd para que el comience durante el inicio del sistema y acontinuación quital
+{=systemctl enable systemd-networkd; systemctl disable systemd-networkd}
+
+::Pregunta ACS4::
+Comprueba si systemd-networkd esta configurado para comenzar en el inicio del sistema. 
+{=Ps -ef | grep sleep;kill -9 PID}
+
+::Pregunta ACS5::
+lista todas las unidades que gestiona systemctl
+{=systemctl list-unit-files  = systemctl -l}
+
+::Pregunta ACS6::
+Si hacemos cambios en alguna unidad 
+{=systemctl daemon-reload}
+
+// ::Pregunta ACS7::
+// ¿Qué son Systemd timers?
+// {=Son una forma opcional cron para planificar tareas}.

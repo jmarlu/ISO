@@ -1,0 +1,80 @@
+::Pregunta AC1:: 
+Introduce un comando para dar permisos de ejecución a todos los usuarios en todos los ficheros
+de $HOME. Este comando debe guardar los resultados en el fichero res1 y los errores en el fichero
+err2. Además debe lanzarse en background.
+{=Chmod +R a+x $HOME>res1 2>err2 &}
+
+::Pregunta AC2::
+Introduce un comando para almacenar la información detallada de todos los procesos del sistema
+en el fichero procesos_1. Los procesos deben estar ordenados por nombre de comando.
+{=Ps -ef | tr -s ' ' ' ' | sort -t ' ' -k8 >procesos_1}
+
+::Pregunta AC3::
+3.- Introduce un comando para ejecutar en segundo plano un comando que se quede en pausa
+durante 60 minutos. Introduce un comando para verificar si el comando que has lanzado sigue
+activo en memoria.
+{=Sleep 60m & ; ps -ef | grep sleep}
+
+::Pregunta AC4::
+Introduce un comando para localizar el PID del proceso anterior. Seguidamente introduce otro
+comando para eliminar dicho proceso.
+{=Ps -ef | grep sleep;kill -9 PID}
+
+::Pregunta AC5::
+Introduce un comando para que el sistema ejecute mañana a las 20 horas y 10 minutos. 
+Este comando nos muestra en un fichero res1 el contenido de los ficheros del directorio $HOME, mayores de
+1KBytes. Esta acción se puede programar con el comando `at`, ya que no es una acción períodica . 
+Este comando la podemos introducir en un fichero  y despues ejecutar ese fichero. Busca ayuda sobre este comando   
+{=vim orden ; find /home/guest -size +1k -exec cat \{\} > /home/guest/res1 ;Cerramos el fichero y ejecutamos\:
+at -f orden 20\:10 021509  # suponiendo que estemos a 14/2/2009
+}
+
+::Pregunta AC6::
+Introduce un comando para que el sistema ejecute el día 30 de este mes, una tarea para copiar los
+ficheros del directorio /home/guest, mayores de 1MB, dentro del directorio /root. La salida de error
+de este comando debe almacenarse en el fichero /root/errores_copia, sin sobrescribir su contenido
+previo.{=vim orden; find /home/guest -size +1M -exec cp\{\} /root 2> /root/errores_copia;Cerramos el fichero y ejecutamos\:
+at -f orden 20\:00 033009 ;\#suponiendo que estemos a 14/3/2009}
+
+::Pregunta AC7::
+Introduce el comando necesario para mostrar la cola de tareas programas con el comando at.
+{=atq}
+
+
+::Pregunta AC8::
+Crea una tarea periódica que almacene el estado de la memoria del sistema en un fichero llamado memoria_2, sin eliminar su contenido previo.La tarea debe ejecutarse todos los viernes de cada mes a las 22\:00.
+{=vim orden ;00 22 * * 5 free >> /home/guest/memoria_2;Cerramos el fichero y ejecutamos\:; crontab orden}
+
+::Pregunta AC9::
+Crea una tarea periódica que se ejecute todos los días a las 8\:00 y almacene en el fichero /root/usuarios_conectados, la lista de usuarios que han entrado al sistema.
+{=vim orden; 00 08 * * * who >> /home/guest/memoria_2;Cerramos el fichero y ejecutamos\: ;crontab orden}
+
+::Pregunta AC10::
+Crea una tarea periódica que se ejecute cada 10 minutos y almacenen en el fichero /root/procesos, la lista de procesos existentes en memoria, ordenada por tiempo de ejecución.
+{=vim orden; 00,10,20,30,40,50 * * * * ps -ef | tr -s ' ' ' ' | sort -t ' ' -k7; Cerramos el fichero y ejecutamos\: ; crontab orden}
+
+::Pregunta AC11::
+Muestra en pantalla un monitor con la información detallada de los procesos que se están ejecutando en el sistema. Mira la ayuda del comando top
+{=top}
+
+::Pregunta AC12::
+ Muestra un árbol con la jerarquía de los procesos de memoria.{=pstree}
+
+::Pregunta AC13::
+1.Lanza un proceso en segundo plano,que espere durante 1 hora.
+2.Desde otra consola, envía la señal SIGTERM sobre el proceso anterior.
+3. Desde la segunda consola manda una señal SIGTERM sobre la primera consola.
+{=Sleep 1h &
+; Kill -15 PID
+;Kill -15 PID
+}
+
+::Pregunta AC14::
+Introduce un comando para mostrar en pantalla la información detallada de todos los procesos
+de root existentes en el sistema.
+{= Ps -f -u root }
+
+::Pregunta AC15::
+ Introduce un comando para mostrar el PID de todas las consolas modo texto existentes en el
+sistema.
+{=ps -ef | grep tty | tr -s ' ' ' ' | cut -d ' ' -f2}

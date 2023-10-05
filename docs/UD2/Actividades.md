@@ -14,11 +14,11 @@ Describe, de forma resumida, cuáles son las funciones de cada carpeta en el mod
 
 ## Actividad 4. Desarrollo
 
-1. Los servidores cuentan con varios discos duros instalados en la unidad anterior. En los segundos discos de los SOR, crea una tabla de partición MBR con tres particiones de aproximadamente el mismo tamaño cada una. En Microsoft Windows Server realiza esta tarea a través de **GUI** y en Ubuntu Server con **CLI** y el comando `fdisk`.
-2. Asigna un sistema de ficheros adecuado a cada partición. Recuerda que en Ubuntu Server será necesario realizar esta tarea a través de CLI con el comando `mkfs`.
+1. Los **servidores** cuentan con varios discos duros instalados en la unidad anterior. En los segundos discos de los SOR, crea una tabla de partición MBR con tres particiones de aproximadamente el mismo tamaño cada una. En Microsoft Windows Server realiza esta tarea a través de **GUI** y en Ubuntu Server con **CLI** y el comando `fdisk`.
+2. Asigna un sistema de ficheros adecuado a cada partición. Recuerda que en **Ubuntu Server** será necesario realizar esta tarea a través de CLI con el comando `mkfs`.
 3. Monta las particiones creadas en el punto anterior en las carpetas **Datos, Perfiles y Cifrado**. Crea las carpetas donde estimes oportuno. Esta configuración se realizará tanto en GNU/Linux como en Microsoft Windows.
-4. Realiza los cambios necesarios para que las carpetas citadas en el ejercicio anterior se monten de forma automática durante el arranque de Ubuntu Server. Para ello deberás modificar el fichero fstab.
-5. Modifica el gestor de arranque del sistema operativo Ubuntu Desktop para que tan sólo ofrezca dos opciones de arranque; Arranacar el sistema con Ubuntu y Prueba de memoria. Las opciones deben tener estos nombres por pantalla.
+4. Realiza los cambios necesarios para que las carpetas citadas en el ejercicio anterior se monten de forma automática durante el arranque de **Ubuntu Server**. Para ello deberás modificar el fichero fstab.
+5. Modifica el gestor de arranque del sistema operativo **Ubuntu Desktop** para que tan sólo ofrezca dos opciones de arranque; Arrancar el sistema con Ubuntu y Prueba de memoria. Las opciones deben tener estos nombres por pantalla.
 
 ## Actividad 5. Dual
 

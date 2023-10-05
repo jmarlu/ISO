@@ -48,7 +48,7 @@ Hay que tener en cuenta que algunas de las preguntas no las podrás contestar al
     - una máquina para contener un servidor con Ubuntu Server.
 
 2.  Crea una red virtual interna NAT para cada servidor e introduce en ella todas las máquinas virtuales separadas por sistemas operativos; los de Microsoft en una red y los de GNU/Linux en otra. Asegúrate que las direcciones MAC de las tarjetas de red no se repitan.
-3.  En las máquinas virtuales que contienen un **sistema operativo de red**, configura una segunda tarjeta de red e instala un nuevo controlador **SAS**. Agrega un nuevo disco duro de **300 GB **de capacidad al nuevo controlador y con expansión dinámica.
+3.  En las máquinas virtuales que contienen un **sistema operativo de red**, configura una segunda tarjeta de red e instala un nuevo controlador **SAS**. Agrega un nuevo disco duro de **300 GB** de capacidad al nuevo controlador y con expansión dinámica.
 
 4.  **Descarga** las imágenes de los sistemas operativos cliente e instala cada uno de ellos en la máquina virtual correspondiente. Deberás instalar Microsoft Windows 10 Professional y Ubuntu Desktop siguiendo estas indicaciones:
 
