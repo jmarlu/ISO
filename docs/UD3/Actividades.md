@@ -35,27 +35,27 @@
 7.  Configura las entradas de registro de Microsoft Windows 10 Professional de este modo (recuerda realizar
     capturas de pantalla antes y después del cambio):
 
-        - deshabilita las notificaciones del Control de Cuentas de Usuario.
-        - agrega el programa notepad.exe al inicio de **Microsoft Windows**.
-        - cambiar la ubicación predeterminada de las carpetas especiales en **Microsoft Windows** a la partición del disco duro donde no esté instalado el sistema operativo (recuerda que durante el proceso de instalación se crearon varias particiones en el disco).
-        - deshabilitar los dispositivos USB. Es una buena práctica de seguridad.
+    - deshabilita las notificaciones del Control de Cuentas de Usuario.
+    - agrega el programa notepad.exe al inicio de **Microsoft Windows**.
+    - cambiar la ubicación predeterminada de las carpetas especiales en **Microsoft Windows** a la partición del disco duro donde no esté instalado el sistema operativo (recuerda que durante el proceso de instalación se crearon varias particiones en el disco).
+    - deshabilitar los dispositivos USB. Es una buena práctica de seguridad.
 
     comprueba que los cambios han surtido efecto.
 
 ## ACTIVIDADES 3. De refuerzo
 
-1. Accede a Moodle y descarga en el escritorio de una máquina cliente con Ubuntu Desktop la versión rpm de Mozilla Firefox. Ahora deberás convertirla a un paquete deb con la aplicación Alien. pare ello, sigue estos pasos:
+1.  Accede a Moodle y descarga en el escritorio de una máquina cliente con Ubuntu Desktop la versión rpm de Mozilla Firefox. Ahora deberás convertirla a un paquete deb con la aplicación Alien. pare ello, sigue estos pasos:
 
-   - abre un terminal y accede al escritorio. Escribe el siguiente comando:
-     `sudo alien -d nombre_del_paquete.rpm`
-     ¿Por qué es necesario realizar esta conversión entre el formato de paquetes?
-   - una vez convertido, utiliza Alien para instalar el paquete con el comando:
-     `sudo alien -i nombre_del_paquete.deb`
-     ¿Es posible instalar este paquete de alguna otra forma?. ¿Cuáles?.
+    - abre un terminal y accede al escritorio. Escribe el siguiente comando:
+      `sudo alien -d nombre_del_paquete.rpm`
+      ¿Por qué es necesario realizar esta conversión entre el formato de paquetes?
+    - una vez convertido, utiliza Alien para instalar el paquete con el comando:
+      `sudo alien -i nombre_del_paquete.deb`
+      ¿Es posible instalar este paquete de alguna otra forma?. ¿Cuáles?.
 
-2. Utiliza el script que encontrarás en Moodle para realizar esta tarea. Descárgalo en un cliente con Ubuntu Desktop y muévelo a la carpeta /home del usuario actual. Añade el permiso de ejecución al usuario con el comando `chmod 777 script.sh`. Una vez modificado, programa una tarea a través de los siguientes pasos:
-   - Abre el fichero de configuración de programación de tareas con el comando:
-     `sudo crontab -e`
-   - añade al final del archivo el siguiente texto y guarda los cambios: `\* \* \* \* \* ~/Escritorio/script.sh`
-   - ¿Qué significa cada uno de los asteriscos de esta configuración?. Comprueba que el script funciona.
-   - modifica las líneas del fichero crontab para que esta tarea se ejecute todos los minutos de las horas comprendidas entre las 8 y las 20 de todos los días del mes en curso, sea cual sea el día de la semana
+2.  Utiliza el script que encontrarás en Moodle para realizar esta tarea. Descárgalo en un cliente con Ubuntu Desktop y muévelo a la carpeta /home del usuario actual. Añade el permiso de ejecución al usuario con el comando `chmod 777 script.sh`. Una vez modificado, programa una tarea a través de los siguientes pasos:
+    - Abre el fichero de configuración de programación de tareas con el comando:
+      `sudo crontab -e`
+    - añade al final del archivo el siguiente texto y guarda los cambios: `\* \* \* \* \* ~/Escritorio/script.sh`
+    - ¿Qué significa cada uno de los asteriscos de esta configuración?. Comprueba que el script funciona.
+    - modifica las líneas del fichero crontab para que esta tarea se ejecute todos los minutos de las horas comprendidas entre las 8 y las 20 de todos los días del mes en curso, sea cual sea el día de la semana
