@@ -35,6 +35,7 @@ nav:
       - Sistema de organización de redes: ./UD4/sistemaRedes.md
       - Configuración del protocolo TCP/IP: ./UD4/IP.md
       - Instalación del servicio de Directorio: ./UD4/instaServDirectorio.md
+      - Actividades: ./UD4/Actividades.md
 theme:
   name: material
   icon:
