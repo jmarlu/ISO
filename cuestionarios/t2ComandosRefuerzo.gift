@@ -1,0 +1,241 @@
+::Pregunta RCDirectorios1:: 
+Ve al directorio /etc/netplan, después verifique la ruta de su directorio actual.{=cd /etc/netplan
+}
+
+::Pregunta RCDirectorios2:: 
+Remonta al directorio padre y verifíquelo.{= cd ..; pwd}
+
+::Pregunta RCDirectorios3::
+ Vaya a su directorio personal sin teclear su ruta.{= cd; pwd}
+
+::Pregunta RCDirectorios4::
+Vuelve al directorio precedente sin teclear su ruta.{= cd -}
+
+::Pregunta RCDirectorios5::
+Vuelve a su directorio personal y lista los archivos presentes.{= cd; ls}
+
+::Pregunta RCDirectorios6::
+ Liste ahora todos los archivos (incluso los ocultos).{= cd; ls -a}
+
+::Pregunta RCDirectorios7::
+Visualiza de forma detallada el contenido del directorio /etc sin cambiar de directorio de trabajo.{ls -l /etc}
+
+::Pregunta RCDirectorios8::
+Visualiza el árbol de archivos contenidos en /var, siempre sin cambiar de directorio de trabajo.{ls -R /var}
+
+::Pregunta RCDirectorios9::
+Visualiza de forma detallada el contenido del directorio /var/log ordenando los archivos del más antiguo al más reciente.{=ls -ltr /var/log
+}
+
+::Pregunta RCDirectorios10::
+Visualiza la información detallada del directorio /home sin listar su contenido.{=ls -ld /home}
+
+::Pregunta RCDirectorios11::
+¿Cuál es el formato de los archivos /etc/passwd, /usr/bin/passwd, /bin/ls y /usr (comando file)?{= file /etc/passwd /usr/bin/passwd /bin/ls /usr
+}
+
+::Pregunta RCDirectorios12::
+Visualice también la información contenida en los inodos del archivo /etc/passwd (comando stat).{=stat /etc/passwd /usr/bin/passwd /bin/ls /usr
+}
+
+::Pregunta RCDirectorios13::
+Cree un directorio con el nombre "prueba" en el directorio personal. Y crea la siguiente estructura de directorios sin cambiar de directorio.
+./color/frio forma/angulo curva (date cuenta que ángulo y curva estan en el mismo nivel, igual que color y forma)
+{= mkdir \~/prueba;mkdir -p color/frío forma/ángulo;  mkdir forma/curva}
+
+::Pregunta RCDirectorios14::
+Cree el árbol dir1/dir2/dir3/dir4 en el directorio personal y Lista todo el contenido del directorio actual{=mkdir -p dir1/dir2/dir3/dir4
+;ls -R}
+
+::Pregunta RCDirectorios15::
+Suprima el directorio dir1. ¿Es posible?{= rmdir dir1 rmdir\: \`dir1\’\: El directorio no está vacío}
+
+::Pregunta RCDirectorios16::
+Suprima el árbol de directorios dir1/dir2/dir3/dir4, después verifíquelo listando el
+directorio actual de forma recursiva.{= rmdir -p dir1/dir2/dir3/dir4 =rm -r dir1/dir2/dir3/dir4}
+
+::Pregunta RCArchivos1::
+Visualiza página por página el contenido del archivo /etc/services. {=more /etc/services
+=cat /etc/services  = less/etc/services}
+
+::Pregunta RCArchivos2::
+Consulta la página del manual del comando od y visualice ahora el contenido del archivo /bin/false en hexad.{=od -tx /bin/false
+}
+
+::Pregunta RCArchivos3::
+visualiza las cadenas de caracteres contenidas en el archivo /bin/false.(comando strings){= strings /bin/false
+}
+
+::Pregunta RCArchivos4::
+Copie el archivo /etc/services en su directorio prueba.¿A quién pertenece el archivo que acaba de copiar? ¿Cuál es la fecha de la última modificación?{=pwd (/home/usuario/prueba);cp /etc/services .}
+
+::Pregunta RCArchivos5::
+Crea archivos que no contengan ningún dato y con los nombres siguientes\: redondo, triángulo, cuadrado, rectángulo, verde y azul.
+{=touch redondo triángulo cuadrado rectángulo verde azul}
+
+::Pregunta RCArchivos6::
+Mueva el archivo redondo al directorio curva, y los archivos triángulo, cuadrado y rectángulo al directorio ángulo.
+{= mv redondo forma/curva;mv triángulo cuadrado rectángulo forma/ángulo}
+
+::Pregunta RCArchivos7::
+Mueva ahora los archivos verde y azul al directorio frío.{=mv azul verde color/frio}
+
+::Pregunta RCArchivos8::
+Vaya al directorio color y muestre el contenido del directorio de forma recursiva.{=cd color
+;ls -R}
+
+::Pregunta RCArchivos9::
+Copie el directorio frío con el nuevo nombre\: caliente. {= cp -R frio caliente}
+
+::Pregunta RCArchivos10::
+Vaya al directorio caliente y renombre el archivo azul como rojo y verde como amarillo.{= mv azul rojo
+;mv verde amarillo
+}
+
+::Pregunta RCPermisosDefecto1::
+Visualiza la máscara que define los permisos por defecto en la creación de archivos. ¿Qué significa el valor visualizado?{= umask
+"Este valor significa que los archivos recién creados tendrán los permisos siguientes\: 0775 o rwxrwxr-x para los directorios, 0664 o rw-rw-r-- para los archivos ordinarios.
+"}
+
+::Pregunta RCPermisosDefecto2::
+ Cree un archivo vacio fic1 y un directorio dir1. ¿Los permisos del archivo fic1 y del directorio dir1 corresponden al valor de la
+máscara visualizada anteriormente?{=  touch fic1;mkdir dir1;ls -l }
+
+::Pregunta RCPermisosDefecto2::
+Modifique su máscara que define los permisos por defecto al valor 27. ¿Qué significa?{=umask 27
+;"Este nuevo valor significa que los archivos recién creados tendrán los permisos
+siguientes\: 0750 o rwxr-x--- para los directorios, 0640 o rw-r----- para los archivos ordinarios.
+"}
+
+::Pregunta RCPermisosDefecto3::
+Cree un archivo vacio fic2 y un directorio dir2. Verifique que los permisos del archivo fic2 y del directorio dir2 corresponden al
+nuevo valor de la máscara. ¿Los permisos del archivo fic1 y del directorio dir1
+han cambiado?{= touch fic2; mkdir dir2}
+
+::Pregunta RCPermisosDirectorio1::
+Dé los permisos r, w y x a otros usuarios al directorio dir1 utilizando la notación simbólica.{=chnod a+rwx dir1}
+
+::Pregunta RCPermisosDirectorio2::
+Dé los mismos permisos que al directorio dir1 a dir2 utilizando la notación octal.{=chmod 777 dir2
+}
+
+::Pregunta RCPermisosDirectorio3::
+Cree el directorio /tmp/usuario. Dele también los mismos permisos que a los directorios dir1 y dir2 precedentes.{= mkdir /tmp/usuario;
+chmod 777 /tmp/usuario
+}
+
+::Pregunta RCPermisosDirectorio4::
+Cree el archivo secret en el directorio /tmp/usuario.Modifique los permisos del archivo secret dejando únicamente el permiso de lectura al usuario.{=touch /tmp/tux/secret
+;chmod 400 /tmp/tux/secret
+}
+
+::Pregunta RCFind1::
+Ve a su directorio personal y visualiza la lista de TODOS los archivos.{= find .
+}
+
+::Pregunta RCFind2::
+ Visualiza la lista de todos los archivos presentes en los directorios /bin y /lib.{=find /bin /lib
+}
+
+::Pregunta RCFind3::
+Crea un directorio en prueaba que se llame k y dentro de el los ficheros  fica ficb ficc
+ ficd.Lista los archivos de su subdirectorio prueba visualizando únicamente los nombres de los directorios. Después procede del mismo modo visualizando
+únicamente los nombres de los archivos ordinarios.{= find prueba -type d ;  find prueba -type f}
+
+::Pregunta RCFind4::
+Ve al subdirectorio prueba y visualiza todos los nombres de archivos que comiencen por la cadena "fic" presentes en el árbol.
+{= find . -name "fic*""}
+
+::Pregunta RCFind5::
+Busque en todo el árbol del sistema, todos los archivos con un tamaño superior a diez megabytes o con los permisos de acceso 4755.
+¿Hay mensajes de error? En caso afirmativo, ¿por qué?
+Suprima los mensajes de error posibles con una redirección.
+{= find / -size +10000k -o -perm 4755 2>/dev/null}
+
+::Pregunta RCFind6::
+visualiza el formato(comado file) de cada archivo donde el nombre comience por la letra
+"p" en el árbol del directorio /etc.Suprima los mensajes de error posibles con una redirección.
+{= find /etc -name "p*"" -exec file \{\} \; 2> /dev/null
+}
+
+::Pregunta RCFind7::
+Busque de nuevo en su subdirectorio prueba, todos los nombres de archivos que comiencen por la cadena "fic" presentes en el árbol. Y suprima
+los archivos donde el nombre contenga una cifra.{=find /home/usuario/prueba -name ’fic*’
+ -ok rm \{\} \;
+}
+
+::Pregunta RCGrep1::
+Visualiza el PID de los procesos bash actualmente iniciados en el sistema.{= ps -ef | grep bash
+}
+
+::Pregunta RCGrep2::
+Visualiza todas las líneas del archivo /etc/services que contengan la cadena de caracteres "http".{= grep http /etc/services
+}
+
+::Pregunta RCGrep3::
+Filtre de nuevo el archivo /etc/services esta vez, con la cadena de caracteres "http" como palabra.{= grep -w http /etc/services
+}
+
+::Pregunta RCGrep4::
+Visualiza las líneas del archivo /etc/passwd que no contengan la cadena de caracteres "home".{= grep -v home /etc/passwd
+}
+
+::Pregunta RCGrep5::
+¿Cuántas líneas del archivo /etc/passwd contienen la cadena de caracteres "sbin"?{= grep -c sbin /etc/passwd
+}
+
+::Pregunta RCGrep6::
+¿Qué archivos del directorio /etc contienen la cadena de caracteres "usuario"?
+Suprima los mensajes de error eventuales con una redirección.{ grep -l usuario /etc/* 2>/dev/null
+}
+
+::Pregunta RCGrep7::
+¿En qué números de líneas se encuentra la cadena de caracteres "usuario" en los
+archivos anteriores?Suprima los mensajes de error eventuales con una redirección.
+{= grep -n usuario /etc/* 2>/dev/null}
+
+::Pregunta RCGrep8::
+Visualiza todas las líneas del archivo /etc/services que contengan la cadena de
+caracteres "iana", sin importar el tipo de caracteres (mayúsculas/minúsculas).
+{= grep -i iana services}
+
+::Pregunta RCGrep9::
+Cuantas lineas en blanco tiene el archivo /etc/services .
+{= grep "^$" /etc/services | wc -l}
+
+::Pregunta RCCut1::
+visualiza el primer y el tercer campo del archivo /etc/group (nombre del grupo
+y GID correspondiente).{=cut -f1,3 -d\: /etc/group}
+
+::Pregunta RCCut2::
+Visualiza una lista detallada de los archivos presentes en el directorio /etc.
+Después conserve únicamente la información siguiente: permisos del archivo;tamaño del archivo;nombre del archivo.
+{=ls -l /etc | cut -c 2-10,26-31,45-}
+
+::Pregunta RCSost1::
+Ordena el archivo /etc/passwd alfabéticamente por el nombre de conexión (login) de cada usuario.{= sort /etc/passwd
+}
+
+::Pregunta RCSost2::
+Ordena el archivo /etc/passwd alfabéticamente por el nombre completo (campo GECOS) de cada usuario.{= sort -k5 -t\: /etc/passwd
+}
+
+::Pregunta RCSost3::
+Ordena el archivo /etc/passwd numéricamente por el UID de cada usuario.{= sort -k3 -t\: -n /etc/passwd
+}
+
+::Pregunta RCSost4::
+Visualiza una lista detallada de archivos presentes en el directorio /etc.Después ordena los archivos de mayor a menor.
+{=ls -l /etc/ | sort -k5 -n -r #Esta solucion funciona pero porque la salida de ls -l esta formateda si no tendríamos que utilizar un tr}
+
+::Pregunta RCTr1::
+Visualiza el fichero /etc/passwd todo en mayúsculas {=cat /etc/passwd | tr 'a-z' 'A-Z'}
+
+::Pregunta RCTr2::
+Visualiza el fichero /etc/passwd en una linea {=cat /etc/passwd | tr '\n' ' '}
+
+::Pregunta RCTr3::
+Visualiza el fichero /etc/passwd con el delimitador de campo tabulador en lugar de los dos puntos(\:){=cat /etc/passwd | tr '\:' '\t'}
+
+::Pregunta RCTr4::
+Quita TODOS los tabuladores(uno o mas) por punto y coma del fichero /etc/services {=cat  /etc/services | tr -s '\t ' ';'}
