@@ -1,0 +1,4 @@
+::Pregunta ExamenRA1::
+Lance un contenedor con Ubuntu (la última versión) tenga por nombre u1 y lance un shell para trabajar en él. 
+{=sudo lxd init;lxc launch ubuntu\:22.04 u1; lxc shell u1}
+

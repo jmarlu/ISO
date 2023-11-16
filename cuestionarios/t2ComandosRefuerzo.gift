@@ -101,13 +101,13 @@ Visualiza la máscara que define los permisos por defecto en la creación de arc
  Cree un archivo vacio fic1 y un directorio dir1. ¿Los permisos del archivo fic1 y del directorio dir1 corresponden al valor de la
 máscara visualizada anteriormente?{=  touch fic1;mkdir dir1;ls -l }
 
-::Pregunta RCPermisosDefecto2::
+::Pregunta RCPermisosDefecto3::
 Modifique su máscara que define los permisos por defecto al valor 27. ¿Qué significa?{=umask 27
 ;"Este nuevo valor significa que los archivos recién creados tendrán los permisos
 siguientes\: 0750 o rwxr-x--- para los directorios, 0640 o rw-r----- para los archivos ordinarios.
 "}
 
-::Pregunta RCPermisosDefecto3::
+::Pregunta RCPermisosDefecto4::
 Cree un archivo vacio fic2 y un directorio dir2. Verifique que los permisos del archivo fic2 y del directorio dir2 corresponden al
 nuevo valor de la máscara. ¿Los permisos del archivo fic1 y del directorio dir1
 han cambiado?{= touch fic2; mkdir dir2}

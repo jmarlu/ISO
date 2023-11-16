@@ -2,6 +2,8 @@ site_name: IMPLANTACIÓN DE SISTEMAS OPERATIVOS
 site_url: https://example.com/
 nav:
   - Home: index.html
+  - Examenes:
+      # - Examen 1EVA: ./Examenes/Examen1EVA/examen.md
   - UD1 S.O. ESTRUCTURA Y VIRTUALIZACIÓN:
       - Estructura: ./UD1/Estructura.md
       - Bios: ./UD1/bios.md
@@ -36,6 +38,15 @@ nav:
       - Configuración del protocolo TCP/IP: ./UD4/IP.md
       - Instalación del servicio de Directorio: ./UD4/instaServDirectorio.md
       - Actividades: ./UD4/Actividades.md
+
+  - UD5.Configuración de servicios de directorio:
+      - Configuración de la resolución de nombres DNS: ./UD5/dns.md
+      - Instalación y configuración del servicio DHCP: ./UD5/dhcp.md
+      - Conexión de clientes a un controlador de dominio: ./UD5/conxClientesWindows.md
+      - Conexión de clientes a un controlador de dominio en GNU/Linux: ./UD5/conxClientesLinux.md
+      - Administración remota: ./UD5/adminRemota.md
+      - Actividades: ./UD5/Actividades
+
 theme:
   name: material
   icon:
