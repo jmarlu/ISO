@@ -4,14 +4,14 @@ nav:
   - Home: index.html
   # - Examenes:
   #     # - Examen 1EVA: ./Examenes/Examen1EVA/examen.md
-  - UD1 S.O. ESTRUCTURA Y VIRTUALIZACIÓN:
+  - UD1 S.O. Estructura y Virtualización:
       - Estructura: ./UD1/Estructura.md
       - Bios: ./UD1/bios.md
       - Virtualización: ./UD1/virtual.md
       - LXD: ./UD1/lxd.md
       - Actividades: ./UD1/Actividades.md
 
-  - UD2 CONFIGURACIÓN DE LOS SO:
+  - UD2 Configuración de los SO:
       - Introducción Terminal: ./UD2/IntroTerminal.md
       - Estructura Directorios: ./UD2/EstructuraDirectorios.md
       - Gestión Archivos: ./UD2/gestionArchivos.md
@@ -45,8 +45,27 @@ nav:
       - Conexión de clientes a un controlador de dominio: ./UD5/conxClientesWindows.md
       - Conexión de clientes a un controlador de dominio en GNU/Linux: ./UD5/conxClientesLinux.md
       - Administración remota: ./UD5/adminRemota.md
-      - Actividades: ./UD5/Actividades
+      - Actividades: ./UD5/Actividades.md
 
+  - UD6.Administración de usuarios locales y de red:
+      - Administración de usuarios: ./UD6/adminUsers.md
+      - Objetos predeterminados de Active Directory: ./UD6/objActive.md
+      - Política de contraseñas: ./UD6/polContra.md
+      - Scripts de inicio de sesión: ./UD6/scriptsInicio.md
+      - Directivas de seguridad locales: ./UD6/direcSegLocal.md
+      - Perfiles de usuario, móviles y obligatorios: ./UD6/perUsers.md
+      - Carpetas personales. Redireccionamiento de las carpetas de usuario: ./UD6/carpetasUsers.md
+      - Variables de entorno: ./UD6/varEntorno.md
+      - Actividades: ./UD6/Actividades.md
+
+  - UD7.Administración de objetos y políticas de grupo:
+      - Estrategias de anidamiento: ./UD7/estrategiaAnidamiento.md
+      - Grupos de seguridad: ./UD7/gruposSeguridad.md
+      - Unidades organizativas: ./UD7/unidadesOrganiza.md
+      - Equipos del dominio: ./UD7/equiposDominio.md
+      - Directivas de grupo: ./UD7/directivasGrupo.md
+      - Administración de directivas de grupo: ./UD7/adminDirecGrupo.md
+      - Actividades: ./UD7/Actividades.md
 theme:
   name: material
   icon:

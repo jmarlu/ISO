@@ -1,0 +1,15 @@
+# Unidades organizativas
+
+Las unidades organizativas son objetos de directorio que contienen **a otros objetos**, pero que cuentan con la particularidad de que se pueden **subordinar** unas a otras. Además, el número de unidades organizativas que se pueden crear en el dominio Active Directory es **ilimitado**. Una vez que se ha creado una es posible poblarla con otros objetos, como usuarios, equipos, grupos y otras unidades organizativas.
+
+Cuando se traslada un objeto contenedor a una nueva ubicación, se trasladan automáticamente todos los objetos incluidos en el contenedor al mismo tiempo y también se modifican las referencias a esos objetos en el resto de objetos del directorio. Cuando se **elimina** un objeto contenedor, **todos los objetos incluidos en el contenedor se eliminan también**. Algo a tener en cuenta es que las políticas de grupo, concepto que se tratará en lo sucesivo, permisos y atributos serán **propagados** al contenido de la unidad organizativa que los ostenta. Es decir, si se aplica cierto conjunto de restricciones a una unidad organizativa, esas restricciones afectará a todos los objetos que contiene.
+
+Volviendo al ejemplo anterior de la pequeña empresa. La organización de los recursos de la empresa no tiene por que coincidir con los del dominio, aunque si así fuese, todo funcionaría de una forma más orgánica. Cada departamento está compuesto por una serie de objetos de dominio; cuentas de usuario, equipos, grupos y recursos compartidos. Una buena organización sería crear una unidad organizativa para cada departamento y que ésta contenga todos los objetos que le pertenezcan. Tras dicha organización será mucho más sencillo dotar de permisos a los recursos de un departamento.
+
+Al contrario que ocurre con las cuentas de usuario y los grupos, un objeto de domino sólo puede estar contenida en una única unidad organizativa. Recuerda que **cada objeto es único en todo el directorio**, no se pueden duplicar.
+
+Se puede utilizar la herramienta <span class="menu">Usuarios y equipos de Active Directory</span> para remodelar el árbol en cualquier momento trasladando objetos a diferentes contenedores, cambiándoles el nombre y eliminándolos.
+
+Además de suponer una interesante herramienta para la organización de los objetos del dominio, las unidades organizativas cuentan con la ventaja de poder ostentar conjuntos de directivas de grupo de forma personalizada. Las directivas de grupo son una potente herramienta de administración que será tratada en lo sucesivo. Si se aplica un conjunto de estas directivas, afectarán a todos los objetos que contiene.
+
+En Ubuntu Server estas operaciones se realizan a través de los comandos propios de cada objeto. No existe un subcomando para organizar estos contenedores como el de usuarios o grupos. La gestión de las unidades organizativas se realiza a través de **ficheros LDIF**. Es un método poco intuitivo, pero se está trabajando para que en nuevas versiones Samba introduzca la administración de estos objetos a través de `samba-tool ou` de igual modo que los usuarios y grupos.

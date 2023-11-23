@@ -1,4 +1,4 @@
-# Actividades de la UD4
+# Actividades de la UD5
 
 ## Actividad 1
 
@@ -17,27 +17,26 @@
 
 1.  Instala el rol de **DHCP en ServidorWindows** (no configures nada durante la instalación del servicio). Una vez terminada la instalación, configura el servicio de la siguiente manera:
 
-        - crea un nuevo ámbito con todas las IP de la red
-        - crea dos reservas; una con las 10 primeras IP de la red y otra con las 10 últimas
-        - excluye de la asignación la IP del servidor
-        - la duración de la concesión debe ser de 15 horas
+    1.  crea un nuevo ámbito con todas las IP de la red
+    2.  crea dos reservas; una con las 10 primeras IP de la red y otra con las 10 últimas
+    3.  excluye de la asignación la IP del servidor
+    4.  la duración de la concesión debe ser de 15 horas
 
 2.  Instala el rol de **DHCP en ServidorUbuntu** y configura el servicio de la siguiente manera:
-
-    - crea dos ámbitos: uno con el tercer byte de la dirección de tipo B a 0, y el otro con el resto de las direcciones disponibles.
-    - crea dos reservas; una con las 5 primeras IP de la red y otra con las 5 últimas
-    - reserva de la asignación la IP del servidor
-    - la duración de la concesión debe ser de 15 horas, al igual que en el caso anterior
+    1.  crea dos ámbitos: uno con el tercer byte de la dirección de tipo B a 0, y el otro con el resto de las direcciones disponibles.
+    2.  crea dos reservas; una con las 5 primeras IP de la red y otra con las 5 últimas
+    3.  reserva de la asignación la IP del servidor
+    4.  la duración de la concesión debe ser de 15 horas, al igual que en el caso anterior
 
 ## Actividad 3
 
 1.  Introduce el cliente **CW1001** en el dominio controlado por ServidorWindows. Recuerda que deberás realizar algunas configuraciones previas en los clientes.
 
-**IMPORTANTE:** Antes de continuar esta práctica, realiza una clonación enlazada de los clientes **CW10XX** las veces que necesites en lugar de crear máquinas nuevas. Recuerda que deberás cambiar el nombre del equipo, _la MAC de la NIC y la IP si es fija_.
+    **IMPORTANTE:** Antes de continuar esta práctica, realiza una clonación enlazada de los clientes **CW10XX** las veces que necesites en lugar de crear máquinas nuevas. Recuerda que deberás cambiar el nombre del equipo, _la MAC de la NIC y la IP si es fija_.
 
-2. Clona de forma enlazada el cliente CW1001 y mételo en el domino controlado por ServidorUbuntu. Recuerda que deberás realizar algunas configuraciones previas en los clientes.
+2.  Clona de forma enlazada el **cliente CU1801** y mételo en el domino controlado por ServidorUbuntu. Recuerda que deberás realizar algunas configuraciones previas en los clientes
 
-**IMPORTANTE:** Al igual que en el caso anterior, realiza una clonación enlazada de los clientes **CU18XX** las veces que necesites en lugar de crear máquinas nuevas. Recuerda que deberás _cambiar el nombre del equipo, la MAC de la NIC y la IP_ si es fija.
+    **IMPORTANTE:** Al igual que en el caso anterior, realiza una clonación enlazada de los clientes **CU18XX** las veces que necesites en lugar de crear máquinas nuevas. Recuerda que deberás _cambiar el nombre del equipo, la MAC de la NIC y la IP_ si es fija.
 
 ## Actividad 4
 
@@ -107,4 +106,4 @@
 
 !!! warning
 
-      **SOLO LAS ACTIVIDADES 1,2 SON OBLIGATORIAS.**
+      **SOLO LAS ACTIVIDADES 1,2,3,4 SON OBLIGATORIAS.**
