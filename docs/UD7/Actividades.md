@@ -18,10 +18,10 @@
 5.  Desinstala el navegador web instalado con anterioridad en el cliente **CW1001** desde **ServidorWindows** utilizando para ello la Cuenta de Equipo de este cliente.
 6.  En **ServidorWindows**, a través de la utilidad de Administración de políticas de grupo modifica las siguientes directivas de **Default Domain Policy** y comprueba que los cambios introducidos surten efecto.
 
-          - **habilita Active Desktop**, esto nos permitirá realizar cambios en el escritorio de los usuarios
-          - Como **papel tapiz** de todos los usuarios descarga y configura este (http://tuxlink.files.wordpress.com/2007/10/leopard-server-wallpaper.jpg). La posición debe ser Centrada
-          - quita el menú ayuda del menú de Inicio
-          - los usuarios no deben cambiar ninguno de las configuraciones de escritorio. Esta norma afectará a varias directivas situadas, eso sí, en el mismo contenedor
+    - **habilita Active Desktop**, esto nos permitirá realizar cambios en el escritorio de los usuarios
+    - Como **papel tapiz** de todos los usuarios descarga y configura este (http://tuxlink.files.wordpress.com/2007/10/leopard-server-wallpaper.jpg). La posición debe ser Centrada
+    - quita el menú ayuda del menú de Inicio
+    - los usuarios no deben cambiar ninguno de las configuraciones de escritorio. Esta norma afectará a varias directivas situadas, eso sí, en el mismo contenedor
 
 Para comprobar algunas cambios deberás usar el comando `gpupdate /force` en el cliente.
 
