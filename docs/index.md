@@ -79,7 +79,7 @@ La evaluación es un proceso continuo y formativo basado en la calificación de 
 
 !!! warning
 
-    Por lo tanto LA CALIFICACIÓN FINAL DEL MÓDULO se obtendrá de la **media ponderada de las calificaciones de cada RA**. Todos los RA tienen el **mismo peso**
+    Por lo tanto LA CALIFICACIÓN FINAL DEL MÓDULO se obtendrá de la **media ponderada de las calificaciones de cada RA**. Todos los RA no tienen el **mismo peso**
 
 #### Procedimientos de Evaluación
 
