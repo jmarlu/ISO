@@ -1,0 +1,2081 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/UD2/AdminMemoriaSecundaria/">
+      
+      
+        <link rel="prev" href="../busquedaArchivos/">
+      
+      
+        <link rel="next" href="../gestorArranque/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>Administración de memoria secundaria - IMPLANTACIÓN DE SISTEMAS OPERATIVOS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25Zm1.75-.25a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25ZM7.25 8a.749.749 0 0 1-.22.53l-2.25 2.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L5.44 8 3.72 6.28a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l2.25 2.25c.141.14.22.331.22.53Zm1.5 1.5h3a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5Z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#administracion-de-la-memoria-secundaria" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="IMPLANTACIÓN DE SISTEMAS OPERATIVOS" class="md-header__button md-logo" aria-label="IMPLANTACIÓN DE SISTEMAS OPERATIVOS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IMPLANTACIÓN DE SISTEMAS OPERATIVOS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Administración de memoria secundaria
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="IMPLANTACIÓN DE SISTEMAS OPERATIVOS" class="md-nav__button md-logo" aria-label="IMPLANTACIÓN DE SISTEMAS OPERATIVOS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    IMPLANTACIÓN DE SISTEMAS OPERATIVOS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD1 S.O. Estructura y Virtualización
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            UD1 S.O. Estructura y Virtualización
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD1/Estructura/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Estructura
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD1/bios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD1/virtual/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Virtualización
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD1/lxd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LXD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD1/Actividades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD2 Configuración de los SO
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            UD2 Configuración de los SO
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IntroTerminal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción Terminal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EstructuraDirectorios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Estructura Directorios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gestionArchivos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestión Archivos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redirecciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Redirecciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../filtros/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Filtros
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../busquedaArchivos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Búsqueda Archivos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Administración de memoria secundaria
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Administración de memoria secundaria
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sistemas-de-particionado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sistemas de particionado
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sistemas de particionado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mbr-master-boot-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      MBR (Master Boot Record)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpt-globally-unique-identifier-partition-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPT (Globally Unique IDentifier Partition Table)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creacion-de-particiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creación de particiones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sistemas-de-ficheros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sistemas de ficheros
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#puntos-de-montaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      Puntos de montaje
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Puntos de montaje">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#montaje-automatico-con-fstab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Montaje automático con fstab
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mantenimiento-de-discos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mantenimiento de discos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gestorArranque/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestor de Arranque
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../permisosBasicos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permisos básicos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Actividades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD3.Administración de software base y aplicaciones
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            UD3.Administración de software base y aplicaciones
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/InstaWindow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalación en Windows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/InstaLinux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalación en Linux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/procesosLinux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestión de procesos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/GestiServicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestión de Servicios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/programaTareas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programación de Tareas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/actuSisOp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actualización del Sistema
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/registroWindow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Registro de Windows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/Actividades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD4.Instalación de servicios de Directorios
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            UD4.Instalación de servicios de Directorios
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4/sistemaRedes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sistema de organización de redes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4/IP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuración del protocolo TCP/IP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4/instaServDirectorio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalación del servicio de Directorio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4/Actividades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD5.Configuración de servicios de directorio
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            UD5.Configuración de servicios de directorio
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/dns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuración de la resolución de nombres DNS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/dhcp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalación y configuración del servicio DHCP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/conxClientesWindows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conexión de clientes a un controlador de dominio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/conxClientesLinux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conexión de clientes a un controlador de dominio en GNU/Linux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/adminRemota/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Administración remota
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/Actividades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD6.Administración de usuarios locales y de red
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            UD6.Administración de usuarios locales y de red
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/adminUsers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Administración de usuarios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/objActive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Objetos predeterminados de Active Directory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/polContra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Política de contraseñas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/scriptsInicio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scripts de inicio de sesión
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/direcSegLocal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Directivas de seguridad locales
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/perUsers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Perfiles de usuario, móviles y obligatorios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/carpetasUsers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Carpetas personales. Redireccionamiento de las carpetas de usuario
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/varEntorno/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variables de entorno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/Actividades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD7.Administración de objetos y políticas de grupo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            UD7.Administración de objetos y políticas de grupo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/estrategiaAnidamiento/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Estrategias de anidamiento
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/gruposSeguridad/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Grupos de seguridad
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/unidadesOrganiza/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unidades organizativas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/equiposDominio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Equipos del dominio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/directivasGrupo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Directivas de grupo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/adminDirecGrupo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Administración de directivas de grupo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/Actividades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="administracion-de-la-memoria-secundaria">Administración de la memoria secundaria</h1>
+<p>Tras el proceso de instalación de un sistema operativo es necesario abordar la configuración de la memoria secundaria. Es preciso conocer cual es la estructura física del sistema de almacenamiento de información, su manejo así como el sistema de directorios y ficheros a utilizar.</p>
+<p>Cada sistema operativo posee su propia estructura de directorios lógica y es conveniente estar familiarizado con ella para su correcta administración. También será necesario conocer los diferentes sistemas de ficheros y adecuarlos a los diferentes usos del sistema.</p>
+<h2 id="sistemas-de-particionado">Sistemas de particionado</h2>
+<p>Una vez comprobada la compatibilidad, es preciso configurar la memoria secundaria para que pueda contener los archivos del sistema operativo. Tanto si el disco duro utilizado es nuevo como si no, deberemos revisar las particiones de ese dispositivo.</p>
+<p>Los discos duros se dividen en áreas denominadas particiones. Cada partición es una unidad lógica de almacenamiento que se puede formatear para almacenar información. Durante el proceso de instalación, la mayoría de los sistemas operativos crean particiones del espacio disponible en el disco duro y lo formatean de forma automática. Aunque siempre solicitando la autorización del usuario. La información cómo están dividido este espacio se denomina tabla de particionado y su tratamiento dependerá del sistema gestor elegido.</p>
+<p>Un sistema operativo se almacena en una partición de disco y un disco con varias particiones puede almacenar varios sistemas operativos. Son dos los estándares de esquemas de partición más utilizados: <strong>MBR y GPT</strong>.</p>
+<h3 id="mbr-master-boot-record">MBR (Master Boot Record)</h3>
+<p>Presentado en 1983, tiene 512 bytes de longitud y contiene el cargador de arranque y un programa ejecutable que permite al usuario elegir entre varios sistemas operativos. Además contiene información de la partición activa. Se ha convertido en el estándar de facto, pero presenta ciertas limitaciones que se solucionaron en el sistema <strong>GPT</strong>. Se utiliza en ordenadores con <strong>firmware basado en BIOS</strong>, aunque también es compatible con el sistema <strong>UEFI</strong>. MBR posee diferentes tipos de particiones:</p>
+<ul>
+<li><strong>partición primaria</strong>, que suelen contener los archivos del sistema operativo. No se pueden subdividir en secciones más pequeñas pero sí se le puede asignar un sistema de archivos. En un disco duro tan sólo pueden coexistir hasta cuatro particiones primarias. Si el sistema necesita de más particiones primarias, o bien instala otro disco duro, o bien utiliza una partición extendida.</li>
+<li><strong>partición extendida</strong>, que se puede dividir hasta en 23 particiones, aunque no se le pueda asignar una sistema de archivos y tan sólo se puede asignar una de estas particiones por disco. Cada una de las partes de una unidad extendida se denomina unidades lógicas. Este tipo de particiones se crearon para superar el límite de cuatro particiones primarias por disco.</li>
+<li><strong>unidad lógica</strong>, es una sección de una partición extendida a la que se le puede asignar un sistema de ficheros. Toda unidad lógica se encuentra contenida en una partición extendida, y como mínimo, debe existir una unidad lógica en una partición extendida para que un sistema operativo pueda usar ese espacio.</li>
+<li><strong>partición activa</strong>, es la que se utiliza para almacenar y para iniciar un sistema operativo. Sólo una de las particiones primarias por disco se puede marcar como activa al mismo tiempo. Las particiones activas sólo se encuentran en las unidades con tablas de partición de MBR.</li>
+</ul>
+<p>Una configuración común para el disco duro de un ordenador, es crear una partición primaria para el sistema operativo y permitir que una partición extendida ocupe el espacio restante. Cualquier partición adicional necesaria se puede crear dentro de la partición extendida, hasta un máximo de 23.</p>
+<h3 id="gpt-globally-unique-identifier-partition-table">GPT (Globally Unique IDentifier Partition Table)</h3>
+<p>Sustituye el esquema de partición MBR y está basado en la creación de un identificador único para cada una de las particiones. En este sistema, al contrario que ocurre en MBR, tan sólo existen particiones primarias. No presenta limitaciones a la hora de crear particiones más que las que le imponga el sistema operativo. Por ejemplo, los sistemas operativos de Microsoft admiten hasta 128 particiones, y éste será su límite.</p>
+<p>También mejora la capacidad de los discos duros que pasa de 2 TB en el sistema MBR a teóricamente 9,4 ZB (no se existe todavía un disco duro con esta capacidad para poder comprobarlo).
+Otra de las ventajas reside en que la información de la tabla de particiones no sólo se encuentra almacenada al inicio del disco, como en los sistemas MBR, sino que tiene una copia de dicha tabla fragmentada y repartida por todo el disco. De esta forma, es posible recuperarla tas su pérdida.</p>
+<table>
+<thead>
+<tr>
+<th>MBR</th>
+<th>GPT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Máximo 4 particiones primarias</td>
+<td>Máximo 128 particiones en Windows</td>
+</tr>
+<tr>
+<td>Tamaño máximo de partición 2 TB</td>
+<td>Tamaño máxima de partición 9,4 ZB</td>
+</tr>
+<tr>
+<td>Sin copia de la tabla de partición</td>
+<td>Con copia de la tabla de la partición</td>
+</tr>
+<tr>
+<td>Datos de arranque en un lugar</td>
+<td>Datos de arranque repartido por el disco</td>
+</tr>
+<tr>
+<td>Cualquier PC soporta MBR</td>
+<td>PC basado en UEFI y de 64 bits</td>
+</tr>
+</tbody>
+</table>
+<p>Durante el proceso de instalación del sistema operativo se realiza el particionado del disco duro donde se instala, como mínimo. Es muy habitual que se necesite cambiar este particionado o editar nuevos discos. Se dispone para ello de varias utilidades propias del sistema operativo o de terceros.</p>
+<h2 id="creacion-de-particiones">Creación de particiones</h2>
+<p>Los sistemas operativos basados en GNU/Linux utilizan ficheros de dispositivo para referirse a los dispositivos de hardware. Todos estos ficheros se ubican en la carpeta del sistema <code>/dev</code>. Las unidades de almacenamiento no son una excepción y es aquí donde se podrán encontrar los ficheros que hacen referencia tanto a dispositivos de almacenamiento como a sus particiones.
+De este modo, el primer disco duro conectado en GNU/Linux se conoce como <code>/dev/hda</code>.</p>
+<div class="highlight"><span class="filename">Listado de HD</span><pre><span></span><code>/dev/hda<span class="w"> </span>–<span class="w"> </span>Dispositivo<span class="w"> </span>maestro<span class="w"> </span>en<span class="w"> </span>la<span class="w"> </span>IDE<span class="w"> </span><span class="m">1</span><span class="w"> </span>o<span class="w"> </span>SATA<span class="w"> </span><span class="m">0</span>
+/dev/hdb<span class="w"> </span>–<span class="w"> </span>Dispositivo<span class="w"> </span>esclavo<span class="w"> </span>en<span class="w"> </span>la<span class="w"> </span>IDE<span class="w"> </span><span class="m">1</span><span class="w"> </span>o<span class="w"> </span>SATA<span class="w"> </span><span class="m">1</span>
+/dev/hdc<span class="w"> </span>–<span class="w"> </span>Dispositivo<span class="w"> </span>maestro<span class="w"> </span>en<span class="w"> </span>la<span class="w"> </span>IDE<span class="w"> </span><span class="m">2</span><span class="w"> </span>o<span class="w"> </span>SATA<span class="w"> </span><span class="m">2</span>
+/dev/hdd<span class="w"> </span>–<span class="w"> </span>Dispositivo<span class="w"> </span>esclavo<span class="w"> </span>en<span class="w"> </span>la<span class="w"> </span>IDE<span class="w"> </span><span class="m">2</span><span class="w"> </span>o<span class="w"> </span>SATA<span class="w"> </span><span class="m">3</span>
+</code></pre></div>
+<p>Si los discos duros en lugar de ser IDE son <strong>SCSI o SATA</strong>(cosa habitual en la actualidad), en lugar de indicar hda sería nombrado <code>sda</code>.</p>
+<p>Cuando un disco se particiona, se utiliza un número a continuación del nombre del disco duro para representarla. Así, <code>/dev/hda2</code> se refiere a la segunda partición del disco duro maestro de IDE 1. Como en un disco duro no pueden existir más de cuatro particiones primarias, éstas reciben números del 1 al 4. Si creamos una partición extendida, ésta no recibe ningún numero (igual que en Microsoft Windows no se le asigna una letra) y a las unidades lógicas que se crean dentro de dicha partición extendida se le asignan números a partir del 5.</p>
+<div class="highlight"><pre><span></span><code>/dev/hdb1
+</code></pre></div>
+<p>Primera partición primaria del disco duro 2 (esclavo en el primer canal IDE).</p>
+<div class="highlight"><pre><span></span><code>/dev/sda5
+</code></pre></div>
+<p>Primera unidad lógica del disco duro cero (primer disco SATA).</p>
+<p>Ahora que se conoce el tratamiento que los sistemas operativos dan a las particiones, se procederá a su
+creación a través, tanto del terminal como de interfaz gráfica.</p>
+<p>En línea de comandos existe una aplicación denominada <code>fdisk</code> que ofrece una guía para elaborar el particionado. Este comando reconoce hasta 83 tipos de particiones diferentes y cuatro sistemas de particionado, aunque solo se trabajará con una pequeña parte de ellas. Al ejecutarlo, la aplicación guiará al usuario a través de menús que facilitarán todas las tareas. Para lanzar la aplicación es necesario usar esta estructura</p>
+<div class="highlight"><span class="filename">Comando fdisk</span><pre><span></span><code>fdisk<span class="w"> </span>&lt;opciones&gt;<span class="w"> </span>&lt;disco&gt;
+</code></pre></div>
+<p>en donde <code>&lt;disco&gt;</code> utiliza la nomenclatura descrita en el apartado anterior. De esta forma, si se requiere mostrar la información de particionado de un disco duro se usará</p>
+<div class="highlight"><span class="filename">Listado de particiones</span><pre><span></span><code>fdisk<span class="w"> </span>-l<span class="w"> </span>/dev/sda
+</code></pre></div>
+<p>Es necesario tener presente que <code>fdisk</code> es un comando del sistema y requiere permisos de administración para realizar su tarea. Es por esto que requiere ser ejecutado o con una cuenta que tenga los permisos adecuados o suplantando a dicho usuario. Como se trabaja en un entorno Ubuntu, es posible utilizar el comando sudo anteponiéndolo de cualquier otro comando.</p>
+<p>Para realizar el particionado de un segundo disco que se acaba de conectar al sistema, se empleará el siguiente</p>
+<div class="highlight"><span class="filename">Particionar</span><pre><span></span><code>fdisk<span class="w"> </span>/dev/sdb
+</code></pre></div>
+<p>Tras lanzar el comando y pulsar la letra m, se accederá a un completo menú con el que se podrá realizar el particionado.</p>
+<p>Todas las opciones de esta herramienta son autoexplicativas. No obstante, si el disco instalado no ha tenido nunca una partición, es necesario seguir estos pasos:</p>
+<ul>
+<li>localiza el conjunto de opciones Crea una nueva etiqueta, indicando el tipo de tabla de partición. Habitualmente se trabajará con el antiguo modelo <strong>MBR</strong> (representado con la opción crea una nueva tabla de particiones DOS vacía), o con el recomendado <strong>GPT</strong> (opción g del menú).</li>
+<li>localiza el grupo de opciones General y particiona el disco en función de las necesidades. El programa irá guiando al usuario a través de menús. Si se elige un sistema de particionado MBR (DOS en el menú), es recomendable crear primero las particiones primarias, luego las extendidas y por último las unidades lógicas.</li>
+<li>una vez terminado el particionado del disco, es necesario utilizar la opción escribe la tabla en el disco y sale, <strong>correspondiente a la letra w</strong>.</li>
+</ul>
+<p>Hay que tener en cuenta que, por defecto, fdisk expresa las unidades en sectores, algo a lo que el usuario no está acostumbrado. Es posible especificar el tamaño de las particiones con el siguiente código: <strong>K</strong> para kilobytes, <strong>M</strong> para megabytes, <strong>G</strong> para gigabytes,<strong>T</strong> para terabytes y P para petabytes. Cuando el asistente pregunte el sector del final de la partición, si es necesario que esa partición tenga un tamaño de 100 gygabytes, bastará con especificar <strong>+100G o +100000M.</strong></p>
+<h2 id="sistemas-de-ficheros">Sistemas de ficheros</h2>
+<p>Tras la instalación del sistema operativo es habitual que se requiera la instalación de varias unidades de almacenamiento extra. Tan sólo será necesaria la conexión de esta unidad al puerto pertinente y encender el ordenador. Si el disco duro es nuevo o no posee información de particionado, ese dispositivo no podrá ser utilizado por el sistema operativo. Hay que dotarlo de estructura de estructura lógica, es decir, de un sistema de particionado y de un sistema de ficheros compatible con el sistema operativo utilizado.
+De forma muy resumida, los sistemas de archivos (file system) estructuran la información guardada en una unidad de almacenamiento. Cada sistema operativo utiliza su propio sistema de archivos, aunque los hay que son compatibles en diferentes versiones. El tipo de sistema de archivos se determina en el proceso de dar formato a cada una de las particiones.
+Todo sistema de ficheros debe permitir crear, borrar y modificar ficheros, permitir el acceso controlado a la información, el acceso a los ficheros mediante nombres simbólicos, optimizar el rendimiento, ofrecer soporte multiusuario y minimizar las pérdidas de información, entre otras características.
+Pero, ¿qué es un archivo o fichero?. Se trata de un mecanismo de abstracción que sirve como unidad lógica de almacenamiento de información. El fichero agrupa una colección de datos relacionados entre sí y definidas por su creador. A todo fichero le corresponde un nombre único que lo identifique entre los demás ficheros.</p>
+<p>Cualquier sistema operativo distingue entre varios tipos básicos de ficheros:</p>
+<ul>
+<li><strong>regulares</strong> o normales, ficheros que contienen datos (información).</li>
+<li><strong>directorios</strong>, aquellos ficheros cuyo contenido es información sobre otros ficheros.</li>
+<li><strong>de dispositivo</strong>, existen dispositivos cuya E/S se realiza como si fuesen ficheros, por lo tanto es razonable asociarles ficheros para simplificar y hacer más transparente el intercambio de información con dichos dispositivos.</li>
+<li>
+<p><strong>de enlace</strong>, son ficheros que apuntan a otros ficheros. Habitualmente suelen existir enlaces <strong>simbólicos y físicos o duros</strong>.</p>
+<ul>
+<li><strong>físicos</strong>, se refiere a un mismo archivo usando dos nombres distintos. El enlace duro apuntará al archivo original y guarda el mismo aspecto y comportamiento. Hay que tener en cuenta que no pueden existir enlaces duros entre dos archivos de particiones separadas, debido a limitaciones de su estructura física.</li>
+<li><strong>simbólicos</strong>, utilizados para salvar la imposibilidad anterior. A diferencia de los enlaces duros, que apuntan a un archivo por su estructura física (i-nodo), un enlace simbólico apunta a otro archivo por su nombre. Esto permite enlazar (apuntar) a otros archivos localizados en otras particiones, e incluso en otras unidades de red. En otro sistemas operativos se funcionan de forma similar a los accesos directos.</li>
+</ul>
+</li>
+</ul>
+<p>Existen diferentes tipos de sistemas de archivo:</p>
+<ul>
+<li><strong>de disco</strong>, diseñados exclusivamente para almacenar archivos en una unidad de disco conectada directamente al ordenador. Algunos de los sistemas de archivos más usuales de este tipo son <strong>ext4, Reiser, FAT32, NTFS, WINFS, ZFS.</strong></li>
+<li><strong>distribuidos o de red</strong>, son sistemas que acceden a sus archivos a través de una red. Algunos de los más comunes son AFS, AppleShare, CIFS (también conocido como SMB o Samba, usado en redes Microsoft), NSS (para sistemas Novell Netware 5) o NFS. Permiten el acceso a recursos independientemente del sistema de archivos originario en el que se encuentre.</li>
+<li><strong>transaccionales</strong>, es una clase especial de sistema de ficheros encargado de almacenar los eventos o transacciones. Se utilizan para asegurar la integridad del sistema comprobando que toda operación debe estar acabada. En caso de que ocurra algún error y una operación quede a medias, queda reflejado en el journal (bitácora o registro) y en el siguiente arranque se puede comprobar las operaciones no completadas y deshacerlas. Algunos sistemas de ficheros que implementan esta característica son ReiserFs, ext3 y ext4.</li>
+<li><strong>virtuales</strong>, se trata de una capa de abstracción encima de un sistema de archivos más concreto. El propósito de un VFS es permitir que las aplicaciones cliente tengan acceso a diversos tipos de sistemas de archivos concretos de una manera uniforme. Puede ser utilizada para tender un puente para poder utilizar sistemas de archivos de Windows, de Mac OS y Unix indistintamente.</li>
+<li><strong>de propósito especial</strong>, son básicamente aquellos que no pueden clasificarse en ninguna de las dos formas anteriores. Algunos de ellos son <strong>CDFS</strong> (utilizado como sistema de archivos de CD-ROM), <strong>DEVFS</strong> (sistema de archivos virtual usado por Unix, cuyo propósito es controlar los archivos de dispositivos que se hallan almacenados en los directorios /sys y /dev de la estructura de archivos convencional) <strong>SWAP</strong>, utilizado en sistemas GNU/Linux para la zona de gestión de memoria virtual y de intercambio.</li>
+</ul>
+<p>La creación de particiones y asignación de un sistema de ficheros son tareas básicas que un administrador debe conocer. Estas tareas se pueden realizar a través de interfaz gráfica como en terminal.</p>
+<p>Una vez terminado el particionado del disco, para poder utilizarlo hay que dotarlo de un sistema de ficheros compatible con el sistema operativo que vaya a utilizar este dispositivo. En el terminal se dispone del comando mkfs con el se puede realizar esta tarea de forma simple</p>
+<div class="highlight"><span class="filename">Creación de sistema de ficheros</span><pre><span></span><code>mkfs<span class="w"> </span>&lt;opciones&gt;<span class="w"> </span>&lt;<span class="w"> </span>-t<span class="w"> </span>tipo_sistema_ficheros&gt;<span class="w"> </span>&lt;dispositivo&gt;
+</code></pre></div>
+<p>De esta forma el siguiente comando asignará el sistema de archivos ext4 a la primera partición primaria del segundo disco duro del sistema</p>
+<div class="highlight"><span class="filename">Ejemplo creación de sistema de ficheros</span><pre><span></span><code>mkfs<span class="w"> </span>-t<span class="w"> </span>ext4<span class="w"> </span>/dev/sdb1
+</code></pre></div>
+<p>La herramienta mkfs soporta multitud de sistemas de ficheros. Los más utilizados, y los que con total seguridad serán necesarios para la administración de cualquier sistema serán <strong>ext3, ext4, SWAP, vfat (para dispositivos USB extraíbles), FAT32 y NTFS</strong></p>
+<h2 id="puntos-de-montaje">Puntos de montaje</h2>
+<p>GNU/Linux no utiliza letras para acceder a las particiones, así que ¿cómo es posible grabar un archivo por ejemplo en /dev/hdb6?. En Microsoft Windows se copiaría el archivo en D: o E: o la letra que asignemos a esa partición, pero esto no se hace de este modo en GNU/Linux. Cada dispositivo de almacenamiento (partición, disquete, CD) que se utilice debe ser montado sobre un <strong>punto de montaje</strong>.</p>
+<p>Recuerda que en GNU/Linux solo existe un espacio de almacenamiento, un único árbol que empieza en el raíz y que contiene todo lo que tenemos en nuestro sistema. Esto se consigue asociando cada partición a un directorio mediante un proceso denominado montaje. Montar una partición hace que su espacio de almacenamiento se encuentre disponible accediendo al directorio especificado (conocido como punto de montaje).</p>
+<p>Por ejemplo, si se monta la partición <code>/dev/sda5</code> en <code>/usr</code>, significa que todos los ficheros y directorios a partir de /usr se ubican físicamente en <code>/dev/sda5</code>. Por lo tanto, el fichero <code>/usr/feo.txt</code> estará almacenado en <code>/dev/sda5</code>, cosa que no ocurre con el fichero <code>/home/FEO/otrofeo.txt.</code></p>
+<p>Continuando con el ejemplo, también es posible que uno o más directorios dentro de <code>/usr</code> sean puntos de montaje de otras particiones. Se puede montar la partición <code>/dev/sda7</code> en <code>/usr/local</code>, lo que significa que el fichero <code>/usr/local/fea.txt</code> estará en <code>/dev/sda7</code>, no en <code>/dev/sda5</code>.</p>
+<p>Cuando se conecta una unidad de almacenamiento o un lector óptico, el sistema tiene que crear un punto de montaje para poderlo utilizar. Este punto de montaje en casos de dispositivo extraíbles, como memorias USB, suele ser una carpeta que creamos manualmente en el sistema o se crea automáticamente en la carpeta denominada <code>/media</code>. Esto solo ocurre en distribuciones basadas en Ubuntu (saltándose la estructura FHS).</p>
+<p>El uso general del comando mount es el siguiente:</p>
+<div class="highlight"><span class="filename">Comando mount</span><pre><span></span><code>mount<span class="w"> </span>-t<span class="w"> </span>&lt;tipo_de_dispotivo&gt;<span class="w"> </span>&lt;directorio_de_destino&gt;
+</code></pre></div>
+<p>Cuando se ejecuta el comando <code>mount</code> sin argumentos, mostrará un listado de lo que está montado en el sistema y la carpeta sobre la que lo hace.</p>
+<div class="highlight"><span class="filename">Salida del comando mount</span><pre><span></span><code>mount
+/dev/sda1<span class="w"> </span>on<span class="w"> </span>/<span class="w"> </span><span class="nb">type</span><span class="w"> </span>ext4<span class="w"> </span><span class="o">(</span>rw,errors<span class="o">=</span>remount-ro<span class="o">)</span>
+proc<span class="w"> </span>on<span class="w"> </span>/proc<span class="w"> </span><span class="nb">type</span><span class="w"> </span>proc<span class="w"> </span><span class="o">(</span>rw,noexec,nosuid,nodev<span class="o">)</span>
+sysfs<span class="w"> </span>on<span class="w"> </span>/sys<span class="w"> </span><span class="nb">type</span><span class="w"> </span>sysfs<span class="w"> </span><span class="o">(</span>rw,noexec,nosuid,nodev<span class="o">)</span>
+none<span class="w"> </span>on<span class="w"> </span>/sys/fs/fuse/connections<span class="w"> </span><span class="nb">type</span><span class="w"> </span>fusectl<span class="w"> </span><span class="o">(</span>rw<span class="o">)</span>
+none<span class="w"> </span>on<span class="w"> </span>/sys/kernel/debug<span class="w"> </span><span class="nb">type</span><span class="w"> </span>debugfs<span class="w"> </span><span class="o">(</span>rw<span class="o">)</span>
+none<span class="w"> </span>on<span class="w"> </span>/sys/kernel/security<span class="w"> </span><span class="nb">type</span><span class="w"> </span>securityfs<span class="w"> </span><span class="o">(</span>rw<span class="o">)</span>
+udev<span class="w"> </span>on<span class="w"> </span>/dev<span class="w"> </span><span class="nb">type</span><span class="w"> </span>devtmpfs<span class="w"> </span><span class="o">(</span>rw,mode<span class="o">=</span><span class="m">0755</span><span class="o">)</span>
+devpts<span class="w"> </span>on<span class="w"> </span>/dev/pts<span class="w"> </span><span class="nb">type</span><span class="w"> </span>devpts<span class="w"> </span><span class="o">(</span>rw,noexec,nosuid,gid<span class="o">=</span><span class="m">5</span>,mode<span class="o">=</span><span class="m">0620</span><span class="o">)</span>
+tmpfs<span class="w"> </span>on<span class="w"> </span>/run<span class="w"> </span><span class="nb">type</span><span class="w"> </span>tmpfs<span class="w"> </span><span class="o">(</span>rw,noexec,nosuid,size<span class="o">=</span><span class="m">10</span>%,mode<span class="o">=</span><span class="m">0755</span><span class="o">)</span>
+none<span class="w"> </span>on<span class="w"> </span>/run/lock<span class="w"> </span><span class="nb">type</span><span class="w"> </span>tmpfs<span class="w"> </span><span class="o">(</span>rw,noexec,nosuid,nodev,size<span class="o">=</span><span class="m">5242880</span><span class="o">)</span>
+none<span class="w"> </span>on<span class="w"> </span>/run/shm<span class="w"> </span><span class="nb">type</span><span class="w"> </span>tmpfs<span class="w"> </span><span class="o">(</span>rw,nosuid,nodev<span class="o">)</span>
+none<span class="w"> </span>on<span class="w"> </span>/run/user<span class="w"> </span><span class="nb">type</span><span class="w"> </span>tmpfs<span class="w"> </span><span class="o">(</span>rw,noexec,nosuid,nodev,size<span class="o">=</span><span class="m">104857600</span>,mode<span class="o">=</span><span class="m">0755</span><span class="o">)</span>
+/dev/sda5<span class="w"> </span>on<span class="w"> </span>/home<span class="w"> </span><span class="nb">type</span><span class="w"> </span>ext4<span class="w"> </span><span class="o">(</span>rw<span class="o">)</span>
+binfmt_misc<span class="w"> </span>on<span class="w"> </span>/proc/sys/fs/binfmt_misc<span class="w"> </span><span class="nb">type</span><span class="w"> </span>binfmt_misc<span class="w"> </span><span class="o">(</span>rw,noexec,nosuid,nodev<span class="o">)</span>
+</code></pre></div>
+<p>De toda la información que nos ofrece el comando es importante prestar atención a las particiones. En este caso existen dos particiones el <code>/home y /</code></p>
+<div class="highlight"><pre><span></span><code>/dev/sda1<span class="w"> </span>on<span class="w"> </span>/<span class="w"> </span><span class="nb">type</span><span class="w"> </span>ext4<span class="w"> </span><span class="o">(</span>rw,errors<span class="o">=</span>remount-ro<span class="o">)</span>
+/dev/sda5<span class="w"> </span>on<span class="w"> </span>/home<span class="w"> </span><span class="nb">type</span><span class="w"> </span>ext4<span class="w"> </span><span class="o">(</span>rw<span class="o">)</span>
+</code></pre></div>
+<p>Con el siguiente comando se monta la segunda partición primaria del segundo disco SATA en la carpeta personal del usuario Feo</p>
+<div class="highlight"><pre><span></span><code>mount<span class="w"> </span>/dev/sdb2<span class="w"> </span>/home/Feo/datos
+</code></pre></div>
+<p>Tras montar el volumen, a través de la carpeta <code>/home/Feo/datos</code> accederé a la partición <code>/dev/sdb2</code>.</p>
+<p>Es posible dotar de diferentes puntos de montaje a una misma partición. Esto quiere decir que existirán dos puertas de entrada. Esta configuración es requerida cuando varios programas necesiten acceso a una misma partición. Es una situación rara, pero llegado el caso es posible del siguiente modo.</p>
+<p>Se necesita un segundo punto de montaje en la misma partición del ejemplo anterior. Crear un segundo punto de montaje es tan sencillo como enlazar el existente a otra carpeta, para ello se usará el modificador <code>-B</code>:</p>
+<div class="highlight"><pre><span></span><code>mount<span class="w"> </span>-B<span class="w"> </span>/home/Feo/datos<span class="w"> </span>/home/MuyFeo/documentos
+</code></pre></div>
+<p>Cuando se monta una partición en una carpeta, por defecto se le asignan los permisos de escritura y lectura para el usuario que monta esa unidad. Es posible limitar esos permisos añadiendo al final del comando el modificador <code>-r</code>:</p>
+<div class="highlight"><pre><span></span><code>mount<span class="w"> </span>/dev/sda5<span class="w"> </span>/home/Feo/Escritorio/Datos<span class="w"> </span>-r
+</code></pre></div>
+<p>De este modo se monta la primera unidad lógica del primer disco duro SATA en la carpeta Datos (situada en el escritorio del usuario Feo) con permisos de lectura (r de read en inglés).</p>
+<p>También es habitual montar la unidad de CD-ROM en una carpeta para tener acceso a ella:</p>
+<div class="highlight"><pre><span></span><code>mount<span class="w"> </span>-t<span class="w"> </span>iso9660<span class="w"> </span>-o<span class="w"> </span>ro<span class="w"> </span>/dev/cdrom<span class="w"> </span>/media/cdrom
+</code></pre></div>
+<p>Es muy útil desmontar estas unidades cuando se haya terminado con su uso. Para ello usaremos el comando umount y especificando la carpeta que se necesita desmontar</p>
+<div class="highlight"><pre><span></span><code>umount<span class="w"> </span>/home/Feo/Escritorio/Datos
+</code></pre></div>
+<p>Es posible desmontar varias unidades en un mismo comando umount si las separamos con espacios. Hay que tener cuidado con el desmontaje de unidades ya que es posible que algún programa esté utilizando un archivo de ese dispositivo. Si esto ocurriese, el sistema advierte que la partición está en uso y no procederá con el desmontaje. Podemos obligar al sistema operativo que cuando deje de estar utilizada, procesa con su desmontaje. Usaremos la opción -l para ello:</p>
+<div class="highlight"><pre><span></span><code>umount<span class="w"> </span>/home/Feo/Escritorio/Datos<span class="w"> </span>-l
+</code></pre></div>
+<p>Si existe certeza de que ningún fichero está usando el disco y tenemos que desmontarlo a pesar de las advertencias, se dispone del modificador <code>-f</code></p>
+<div class="highlight"><pre><span></span><code>umount<span class="w"> </span>-f<span class="w"> </span>/home/Feo/Escritorio/Datos
+</code></pre></div>
+<p>Lo que hay que tener muy en cuenta es que este montaje de carpetas es temporal, es decir, tan solo es válido mientras la sesión del usuario siga activa. Una vez esta sesión sea finalizada, por ejemplo reiniciando el equipo, todas estas particiones se perderán, teniendo que volver a montarlas tras el reinicio de una nueva sesión.</p>
+<h3 id="montaje-automatico-con-fstab">Montaje automático con fstab</h3>
+<p>GNU/Linux ofrece la posibilidad de hacer esos montajes permanentes, o más bien que se monten de forma automática al inicio de cada sesión. En realidad esta tarea ya la realiza el sistema operativo con las particiones del sistema, así no hay que montar la partición del disco duro cada vez que iniciamos la sesión. Esta configuración se hace a través del fichero fstab.</p>
+<p>El fichero fstab (File System TABle) que se encuentra en el directorio <code>/etc</code>, es parte de la configuración del sistema y muestra la lista de discos y particiones disponibles. Este fichero monta las particiones listadas al iniciar el equipo con las configuraciones que tenemos realizadas mediante <code>mount</code>.
+El uso básico es de esta forma:</p>
+<div class="highlight"><span class="filename">Distibucion de cada una de las lineas</span><pre><span></span><code>dispositivo<span class="w"> </span>punto_de_montaje<span class="w"> </span>sistema_de_archivos<span class="w"> </span>opciones<span class="w"> </span>frecuencia_dump<span class="w"> </span>pass_num
+</code></pre></div>
+<p>Entre una sección y otra les separa una tabulación. Cada opción significa:</p>
+<ul>
+<li><strong>dispositivo</strong>, es el nombre del dispositivo y la localización del mismo, normalmente en /dev. En Ubuntu las entradas del fstab también pueden comenzar con el Universal unique Identifier (UUID) que se asignan al sistema de ficheros cuando se formatea.</li>
+<li><strong>punto_de_montaje</strong>, que es el punto de montaje donde los datos se añaden al sistema de ficheros.</li>
+<li>
+<p><strong>sistema_de_archivos</strong>, que hace referencia al tipo de sistema de ficheros que puede ser uno de los siguientes:</p>
+<ul>
+<li>ext3/ext4, la mayoría de los sistemas hoy en día lo usan. Se le denomina journaled lo que significa que si el sistema se apaga de forma anormal, no se pierden datos.</li>
+<li>swap, partición para la gestión de la memoria virtual.</li>
+<li>ntfs y vfat, particiones de Microsoft Windows y memorias USB.</li>
+<li>auto, detección automática del tipo de sistema de ficheros.</li>
+</ul>
+</li>
+<li>
+<p><strong>opciones</strong>, son las opciones con las que se monta la unidad:</p>
+<ul>
+<li><strong>auto/noauto</strong>, con auto la partición será montada automáticamente en el arranque.</li>
+<li><strong>exec/noexec</strong>, si es posible ejecutar binarios o no en esa partición.</li>
+<li><strong>ro/rw</strong>, si se permite sólo lectura ro y lectura escritura rw.</li>
+<li><strong>user/nouser</strong>, si es posible que cualquier usuario monte esta unidad. Con nouser sólo el usuario root tendrá privilegios para montar una partición.</li>
+<li><strong>sync/async</strong>, los ficheros pueden ser escritos de forma síncrona o asíncrona. Las operaciones de escritura de los discos duros no son sincronizadas, la escritura empieza mucho después de que se ejecute el comando. Si está configurada la forma asíncrona los ficheros son escritos con éxito pero no lo estarán físicamente.</li>
+<li><strong>defaults</strong>, configura las opciones por defecto, que son: rw, suid, dev, exev, auto, nouser y async</li>
+</ul>
+</li>
+<li>
+<p><strong>frecuencia_error</strong>, indica la frecuencia con la que se realizará la de comprobación de errores. Si es cero, es que no lo comprobará y si es uno, sí lo hará.</p>
+</li>
+<li><strong>pass-num</strong>, controla el orden en el que fsck comprueba los errores de la partición en el arranque. Puede tomar como valores 0, 1 y 2. Siendo 1 la partición raíz, 2 otras particiones y 0 pero deshabilitar el chequeo</li>
+</ul>
+<p>Si es necesario montar una partición de inicio, será obligatorio incluir una línea al final del fichero fstab siguiendo el patrón descrito. Para ello, será necesario abrir el fichero /etc/fstab con permisos de administración para poder editarlo:</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/fstab
+</code></pre></div>
+<p>Una vez abierto, añadir esta línea al final del fichero:</p>
+<div class="highlight"><pre><span></span><code>/dev/sda2<span class="w"> </span>/media/datos<span class="w"> </span>auto<span class="w"> </span>rw,user,auto<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+</code></pre></div>
+<p>Esta nueva estrada en el fichero fstab indica que al inicio de sesión montará la partición <code>/dev/sda2</code> en la carpeta <code>/media/datos</code>, detectará de forma automática el sistema de ficheros, configurará las opciones de lectura escritura, cualquier usuario podrá montar esta partición y se montará de forma automática durante el inicio de sesión. Además la búsqueda de errores está deshabilitada (el último cero es para indicar que no haga la comprobación de ficheros de forma predeterminada).</p>
+<p>Aunque al principio pueda parecer una estrategia complicada, el uso de este sistema de montaje de particiones presenta muchas más ventajas que la asignación de letras por partición. No en vano, Microsoft Windows ya hace tiempo que implementa este sistema en sus sistemas operativos, además del uso de letras.</p>
+<h3 id="mantenimiento-de-discos">Mantenimiento de discos</h3>
+<p>Una vez construida la estructura necesaria para un disco duro, dividiendo el disco en particiones, asignándole un sistema de ficheros y montando esa unidad, es importante vigilar la integridad y rendimiento de dicho dispositivo. Para ello se dispone de la herramienta fsck la cual corrige problemas de inconsistencia en discos duros. Para realizar esta comprobación es muy recomendable que el disco se encuentre desmontado, ya que de otra forma podría causar daños al sistema de ficheros de la unidad de almacenamiento.</p>
+<div class="highlight"><span class="filename">Sintaxis del comando fsck</span><pre><span></span><code>fsck<span class="w"> </span>&lt;opciones&gt;<span class="w"> </span>&lt;dispositivo&gt;
+</code></pre></div>
+<p>De esta forma, si se necesita comprobar la integridad de la segunda partición del tercer disco duro instalado, este será el comando a ejecutar</p>
+<div class="highlight"><span class="filename">Ejmplo de fsck</span><pre><span></span><code>fsck<span class="w"> </span>/dev/sdc2
+</code></pre></div>
+<p>También posible la comprobación de todas las particiones de un disco en una sola orden si tan sólo se especifica el disco, lo cual simplifica la tarea</p>
+<div class="highlight"><span class="filename">Ejmplo de fsck</span><pre><span></span><code>fsck<span class="w"> </span>/dev/sdc
+</code></pre></div>
+<p>Las opciones que <code>fsck</code> puede tomar, son las siguientes:</p>
+<ul>
+<li><code>-a</code> confirmar automáticamente los mensajes</li>
+<li><code>-c</code> comprobar bloques en el disco</li>
+<li><code>-f</code> forzar la verificación aunque todo parezca normal</li>
+<li><code>-v</code> muestra más información</li>
+<li><code>-r</code> modo interactivo, espera nuestra respuesta ante cualquier mensaje</li>
+<li><code>-y</code> asume sí como respuesta predeterminada</li>
+</ul>
+<p>Otra de las tareas de mantenimiento que es recomendable llevar a cabo en los discos duros es su desfragmentación. Cuando un archivo se guarda en un disco duro, éste se divide en partes de igual tamaño que el bloque del disco. Este tamaño depende del sistema de ficheros que se utilice. Estos fragmentos de fichero no se guardan de forma contigua, sino que el sistema operativo los sitúa de forma aleatoria mejorando así la velocidad de escritura. No prevee una estrategia de ordenación, sino que los guarda allá donde exista un bloque libre.</p>
+<p>Esta circunstancia facilita la escritura, pero penaliza la velocidad de lectura. Al leer un archivo, el transductor del disco debe recorrer posiciones aleatorias, empleando más tiempo en esta tarea. El proceso de desfragmentación recorre el disco buscando las partes que componen un fichero y las reúne para que el proceso de lectura sea más rápido. Dicho de otra manera, realiza el trabajo de planificación que en el proceso de escritura no se ha realizado.</p>
+<p>Este problema afecta sobre todo a los sistemas de archivo basados en tablas de índices y en mucha menos medida a los basados en nodos-i. Así, los sistemas de fichero <strong>ext3 y ext4 no padecen de este problema</strong>, y sí <strong>FAT32, FAT16, vfat y NTFS</strong>. Este es el motivo por el cual se relaciona este problema con sistema operativos de la familia de Microsoft.</p>
+<p>La herramienta de desfragmentación en Microsoft Windows se encuentra en <span class="menu">Inicio</span> → <span class="menu">Herramientas administrativas de Windows</span> → <span class="menu">Desfragmentar y optimizar unidades</span>.</p>
+<p><img alt="Herramienta de optimización de discos de Microsoft Windows 10" src="../img/img1.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../busquedaArchivos/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Búsqueda Archivos">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Búsqueda Archivos
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../gestorArranque/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Gestor de Arranque">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Gestor de Arranque
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.path", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "toc.integrate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>
