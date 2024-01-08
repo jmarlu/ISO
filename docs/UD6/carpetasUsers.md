@@ -8,7 +8,7 @@ Los directorios o carpetas personales son almacenes que proporciona un servidor 
 - los contenidos no son parte de los perfiles de usuario, por lo que no afectan al tráfico de la red durante el inicio de sesión.
 
 Para realizar esta tarea es necesario compartir una carpeta y asignar esa carpeta a cada usuario.
-![configuración de la carpeta compartida](img/1000000000000DDB000008F3399F3F67371EADBB.jpg)
+![configuración de la carpeta compartida](img/10000000000005B30000072AF39FF71E3C028AE6.jpg)
 
 En Microsoft Windows Server se accede a través de la ficha de usuario y se introduce la ruta de la carpeta según el espacio de nombres del servidor. Un aspecto a tener en cuenta es que, si queremos que una carpeta compartida no se muestre cuando cualquier otro usuario del sistema obtenga la lista de carpetas compartidas por el servidor, deberemos añadir el carácter '$' al final.
 

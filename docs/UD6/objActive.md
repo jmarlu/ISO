@@ -10,6 +10,10 @@ Los contenedores con los que arranca un dominio en Microsoft Windows Server son:
 - **foreign security principals**, contenedor para entidades de seguridad de dominios de confianza externos. Es recomendable que los administradores no deben modificar manualmente el contenido de este contenedor ya que estas políticas se generan de forma automática al crear relaciones de confianza entre dominios.
 - **managed service accounts** , contenedor para objetos que permiten la administración de servicios ajenos a Active Directory.
 
+!!! note annotate "Realación de confianza"
+
+      Una **relación de confianza** es una relación establecida  entre dos dominios de forma que permite a los usuarios de uno ser reconocidos por los controladores de dominio del otro. Estas relaciones permiten administrar desde un solo punto de la red a todos los usuarios y recursos de los que dispone el directorio.
+
 Todos estos contenedores están destinados a asegurar el funcionamiento de los servicios de directorio y su configuración dependerá de la relación entre ellos. En cuanto a los usuarios creados por defecto, todo sistema de directorio debe contener al menos estos tres:
 
 - **administrador**, cuenta integrada para la administración del dominio.
