@@ -66,6 +66,13 @@ nav:
       - Directivas de grupo: ./UD7/directivasGrupo.md
       - Administración de directivas de grupo: ./UD7/adminDirecGrupo.md
       - Actividades: ./UD7/Actividades.md
+
+  - UD8.Administración de recursos y permisos de acceso:
+      - Control de acceso a recursos: ./UD8/controlAcceso.md
+      - Derechos de inicio de sesión y privilegios de usuario: ./UD8/derechosInicio.md
+      - Permisos de red y locales: ./UD8/permisosRed.md
+      - Herencia: ./UD8/herencia.md
+      - Cuotas de disco: ./UD8/cuoatasDisco.md
 theme:
   name: material
   icon:

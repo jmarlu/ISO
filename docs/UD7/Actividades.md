@@ -78,3 +78,12 @@ Crea dos usuarios en tu empresa pertenecientes al departamento TIC y asígnales 
    - en la empresa habrá una serie de empleados denominados **“Ayudantes TIC”** que tendrán una serie de privilegios para poder ayudar a los encargados del directorio. Éstos usuarios podrán realizar las siguientes configuraciones: modificar la configuración de red, el registro, instalar y desinstalar programas y modificar la apariencia del Escritorio.
    - algunos de los usuario del departamento **Comercial** requerirán salir de las oficinas con sus equipos portátiles, por lo que deberán disponer de ciertos privilegios: cambiar la configuración de red y tendrán acceso de lectura y de escritura a las unidades extraíbles.
    - se establecerá un tamaño máximo de 500 MB para la papelera de reciclaje a todos los usuarios, excepto a los miembros de TIC y Gerencia que no tendrán esta política establecida.
+
+!!! note annotate "Manera de entrega de las actividades"
+
+      Redacta una guía de los pasos a seguir para realizar esta actividad y súbela al **Moodle** del módulo.
+      De tal forma que en cada uno de los pasos incluya una imagen que **verifique** que se ha realizado aquello que se pide en cada uno de los ejercicios. Como en las anteriores actividades
+
+!!! warning
+
+      **SOLO LAS ACTIVIDADES 1,2 SON OBLIGATORIAS.**

@@ -57,6 +57,7 @@ De esta manera, el cambio de grupo del ejemplo anterior es posible hacerlo de la
 
 ```bash title=""
 chgrp sudoers carpetaFea
+
 ```
 
 El uso de estos comando no reviste dificultad alguna.
