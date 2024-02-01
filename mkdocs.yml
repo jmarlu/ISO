@@ -73,6 +73,8 @@ nav:
       - Permisos de red y locales: ./UD8/permisosRed.md
       - Herencia: ./UD8/herencia.md
       - Cuotas de disco: ./UD8/cuoatasDisco.md
+      - Actividades: ./UD8/Actividades.md
+
 theme:
   name: material
   icon:
