@@ -11,30 +11,30 @@
 
 ## Actividad 2
 
-1. Crea los grupos nacidos de tu organización en ServidorWindows a través de GUI e introduce a los usuarios que correspondan en cada grupo. Deberás crear una breve descripción de las funciones de este grupo. Documenta el proceso y crea un documento con los pasos que sigues.
-2. Crea los grupos ServidorUbuntu a través de CLI e introduce a los usuarios que correspondan en cada grupo, del mismo modo que lo has realizado en ServidorWindows. También deberás especificar sus funciones en su descripción. Documenta el proceso, incluyendo los comandos que usas, y crea un documento con los pasos que sigues.
-3. Turno para las unidades organizativas. Crea las unidades organizativas necesarias en ServidorWindows a través de CLI e introduce a los grupos y/o usuarios necesarios según tu planificación.
-4. En el ServidorUbuntu, crea las unidades organizativas necesarias y distribuye los objetos de forma adecuada para el correcto funcionamiento de tu empresa.
-5. Desinstala el navegador web instalado con anterioridad en el cliente **CW1001** desde **ServidorWindows** utilizando para ello la Cuenta de Equipo de este cliente.
-6. En **ServidorWindows**, a través de la utilidad de Administración de políticas de grupo modifica las siguientes directivas de **Default Domain Policy** y comprueba que los cambios introducidos surten efecto.
+1.  Crea los grupos nacidos de tu organización en ServidorWindows a través de GUI e introduce a los usuarios que correspondan en cada grupo. Deberás crear una breve descripción de las funciones de este grupo. Documenta el proceso y crea un documento con los pasos que sigues.
+2.  Crea los grupos ServidorUbuntu a través de CLI e introduce a los usuarios que correspondan en cada grupo, del mismo modo que lo has realizado en ServidorWindows. También deberás especificar sus funciones en su descripción. Documenta el proceso, incluyendo los comandos que usas, y crea un documento con los pasos que sigues.
+3.  Turno para las unidades organizativas. Crea las unidades organizativas necesarias en ServidorWindows a través de CLI e introduce a los grupos y/o usuarios necesarios según tu planificación.
+4.  En el ServidorUbuntu, crea las unidades organizativas necesarias y distribuye los objetos de forma adecuada para el correcto funcionamiento de tu empresa.
+5.  Desinstala el navegador web instalado con anterioridad en el cliente **CW1001** desde **ServidorWindows** utilizando para ello la Cuenta de Equipo de este cliente.
+6.  En **ServidorWindows**, a través de la utilidad de Administración de políticas de grupo modifica las siguientes directivas de **Default Domain Policy** y comprueba que los cambios introducidos surten efecto.
 
-   - **habilita Active Desktop**, esto nos permitirá realizar cambios en el escritorio de los usuarios
-   - Como **papel tapiz** de todos los usuarios descarga y configura este (http://tuxlink.files.wordpress.com/2007/10/leopard-server-wallpaper.jpg). La posición debe ser Centrada
-   - quita el menú ayuda del menú de Inicio
-   - los usuarios no deben cambiar ninguno de las configuraciones de escritorio. Esta norma afectará a varias directivas situadas, eso sí, en el mismo contenedor
+    - **habilita Active Desktop**, esto nos permitirá realizar cambios en el escritorio de los usuarios
+    - Como **papel tapiz** de todos los usuarios descarga y configura este (http://tuxlink.files.wordpress.com/2007/10/leopard-server-wallpaper.jpg). La posición debe ser Centrada
+    - quita el menú ayuda del menú de Inicio
+    - los usuarios no deben cambiar ninguno de las configuraciones de escritorio. Esta norma afectará a varias directivas situadas, eso sí, en el mismo contenedor
 
-7. Crea una nueva política de grupo que afecte a todos los objetos del dominio controlados por ServidorWindows denominada **“Normas Empresa”**. Esta nueva política tendrá las siguientes configuraciones:
+7.  Crea una nueva política de grupo que afecte a todos los objetos del dominio controlados por ServidorWindows denominada **“Normas Empresa”**. Esta nueva política tendrá las siguientes configuraciones:
 
-   - los usuarios del dominio no podrán acceder a las **herramientas para cambiar el registro**. Cuando se inicie la sesión de un usuario del dominio, será necesario el inicio de los programas **bloc de notas (notepad.exe)** y Explorador de Windows (explorer.exe). Ambos se encuentran ubicados en el directorio **C:\Windows**
-   - **deshabilita el protector de pantalla** y como medida de seguridad adicional, que la pestaña de Protector de Pantalla no sea visible
-   - limitar el **idioma** de los usuarios a Español evitando que se puedan agregar nuevos
-   - no queremos que los usuarios agregan ninguna **impresora**. Tampoco queremos que eliminen ninguna impresora
-   - no queremos que los usuarios puedan Agregar o quitar ningún **programa**
-   - queremos deshabilitar cualquier acceso a la **configuración de red** para evitar que puedan cambiar ni ver ninguna configuración
-   - impediremos que los equipos busquen **actualizaciones automáticas** durante las sesiones de los usuarios del dominio
+    - los usuarios del dominio no podrán acceder a las **herramientas para cambiar el registro**. Cuando se inicie la sesión de un usuario del dominio, será necesario el inicio de los programas **bloc de notas (notepad.exe)** y Explorador de Windows (explorer.exe). Ambos se encuentran ubicados en el directorio **C:\Windows**
+    - **deshabilita el protector de pantalla** y como medida de seguridad adicional, que la pestaña de Protector de Pantalla no sea visible
+    - limitar el **idioma** de los usuarios a Español evitando que se puedan agregar nuevos
+    - no queremos que los usuarios agregan ninguna **impresora**. Tampoco queremos que eliminen ninguna impresora
+    - no queremos que los usuarios puedan Agregar o quitar ningún **programa**
+    - queremos deshabilitar cualquier acceso a la **configuración de red** para evitar que puedan cambiar ni ver ninguna configuración
+    - impediremos que los equipos busquen **actualizaciones automáticas** durante las sesiones de los usuarios del dominio
 
-8. En todos los equipos de la empresa debe existir una alternativa de navegador. Realiza las configuraciones necesarias en ServidorWindows para instalar el **navegador Mozilla Firefox** en todos los equipos al inicio de la próxima sesión.
-9. Es muy común que los usuarios dejen su **sesión abierta** mientras se ausentan de su puesto de trabajo, esto permitiría que un usuario malintencionado acceda a información o a aplicaciones sin autorización. Configura una directiva para que se bloquee la sesión pasados **cinco minutos** y sea necesario volver a introducir la contraseña de usuario para reiniciar la sesión. Serán necesarias la activación de **tres directivas** para realizar esta tarea.
+8.  En todos los equipos de la empresa debe existir una alternativa de navegador. Realiza las configuraciones necesarias en ServidorWindows para instalar el **navegador Mozilla Firefox** en todos los equipos al inicio de la próxima sesión.
+9.  Es muy común que los usuarios dejen su **sesión abierta** mientras se ausentan de su puesto de trabajo, esto permitiría que un usuario malintencionado acceda a información o a aplicaciones sin autorización. Configura una directiva para que se bloquee la sesión pasados **cinco minutos** y sea necesario volver a introducir la contraseña de usuario para reiniciar la sesión. Serán necesarias la activación de **tres directivas** para realizar esta tarea.
 10. Como has observado, la configuración de las políticas de grupo es un trabajo arduo. Realiza una copia de seguridad de las políticas de seguridad copiando los archivos que la conforman a un lugar seguro. Utiliza un comando para ello y programa esta copia. Realiza esta configuración en **ServidorWindows**
 
 ## Actividad 3. REFUERZO
