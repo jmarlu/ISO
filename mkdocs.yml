@@ -74,7 +74,18 @@ nav:
       - Herencia: ./UD8/herencia.md
       - Cuotas de disco: ./UD8/cuoatasDisco.md
       - Actividades: ./UD8/Actividades.md
-
+  - UD9.Scripts en Linux:
+      - Creación de Scripts: ./UD9/Scripts.md
+      - Variables: ./UD9/Variables.md
+      - Aritmetica: ./UD9/Aritmetica.md
+      - Comparadores: ./UD9/Comparadores.md
+      - Estructura IF: ./UD9/IF.md
+      - Operadores Binarios: ./UD9/Operadores_Binarios.md
+      - Argumentos: ./UD9/Argumentos.md
+      - Esructura CASE: ./UD9/Case.md
+      - Esructura WHILE: ./UD9/While_Until.md
+      - Esructura FOR: ./UD9/For.md
+      - Break y Continue: ./UD9/Break.md
 theme:
   name: material
   icon:
@@ -108,6 +119,7 @@ theme:
         name: Switch to light mode
       primary: teal
       accent: lime
+
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
@@ -132,5 +144,6 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+
 extra_css:
   - stylesheets/extra.css
