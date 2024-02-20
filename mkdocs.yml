@@ -86,6 +86,7 @@ nav:
       - Esructura WHILE: ./UD9/While_Until.md
       - Esructura FOR: ./UD9/For.md
       - Break y Continue: ./UD9/Break.md
+      - Actividades: ./UD9/Actividades.md
 theme:
   name: material
   icon:

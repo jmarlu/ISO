@@ -5,7 +5,21 @@
 - Devuelve verdadero cuando las dos expresiones son verdaderas, en otros casos devuelve falso.
 - Se aplica mediante el uso de “&&”.
 
-Ejemplo: El programa compara dos argumentos, y dirá si son diferentes de a y b o no.
+### Ejemplo 1
+
+```bash title=""
+# El directorio /tmp/svg no existe;
+$[[ -d /tmp/svg ]] && cd /tmp/svg
+
+$ echo $?        # Código del comando [[ ]]
+1
+$ pwd
+/export/home/ubuntu
+```
+
+### Ejemplo 2
+
+El programa compara dos argumentos, y dirá si son diferentes de a y b o no.
 
 ```bash
 read -p "Introduce el numero de vidas " vidas
@@ -25,6 +39,20 @@ fi
 
 - El comando OR devuelve verdadero cuando al menos una de sus expresiones se cumple.
 - Se representa usando “||” doble barra vertical.
+
+### Ejemplo 1
+
+```bash title=""
+
+#El directorio /tmp/svg no existe;
+$ pwd
+/export/home/ubuntu
+$ [[ -d /tmp/svg ]] || echo "El directorio /tmp/svg no existe"
+El directorio /tmp/svg no existe
+El directorio /tmp/svg existe; por tanto, el comando echo no se ejecuta.
+```
+
+### Ejemplo 2
 
 ```bash
 read -p "Indica tu nombre " nombre

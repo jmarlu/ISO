@@ -2,40 +2,39 @@
 
 Una estructura de programación IF sirve para generar condiciones:
 
-* Si se cumple cierta condición realizaremos una acción, si no, realizaremos otra:
+- Si se cumple cierta condición realizaremos una acción, si no, realizaremos otra:
 
-!!! info "Estructura IF simple" 
-	``` bash
+!!! info "Estructura IF simple"
+` bash
 	if [ CONDICIÓN ]
 	then
 		ACCIONES
 	fi
-	```
+	`
 
 Cosas que se deben tener en cuenta:
 
-* Hay que dejar un espacio en blanco entre los corchetes.
-* Podemos hacer condiciones usando variables, haciendo uso del $, puesto que queremos comparar su contenido.
-* Es recomendable tabular (indentar) las acciones para que  quede más limpio el código.
-* Siempre debe terminar la estructura con “fi”
+- Hay que dejar un espacio en blanco entre los corchetes.
+- Podemos hacer condiciones usando variables, haciendo uso del $, puesto que queremos comparar su contenido.
+- Es recomendable tabular (indentar) las acciones para que quede más limpio el código.
+- Siempre debe terminar la estructura con “fi”
 
-Podemos crear condiciones con alternativas, donde si no se cumple una condición se realiza otra  lista de acciones:
+Podemos crear condiciones con alternativas, donde si no se cumple una condición se realiza otra lista de acciones:
 
-!!! info "Estructura IF ELSE" 
-	``` bash
+!!! info "Estructura IF ELSE"
+` bash
 	if [ condición ]
 	then
 		ACCIONES
 	else
 		ACCIONES
 	fi
-	```
-
+	`
 
 Se pueden anidar muchas condiciones diferentes con el elemento “elif”:
 
-!!! info "Estructura IF ELSE" 
-	``` bash
+!!! info "Estructura IF ELSE"
+` bash
 	if [ condición ]
 	then
 		ACCIONES
@@ -48,13 +47,13 @@ Se pueden anidar muchas condiciones diferentes con el elemento “elif”:
 	else
 		ACCIONES
 	fi
-	```
+	`
 
 ## Ejemplos.
 
 ### Ejemplo 1.
 
-``` bash
+```bash
 read -p  "Cual es tu nombre? " nombre
 
 if [ $nombre = "Salva" ]
@@ -65,7 +64,7 @@ fi
 
 ### Ejemplo 2.
 
-``` bash
+```bash
 read -p  "Cual es tu nombre? " nombre
 
 if [ $nombre = "Salva" ]
@@ -81,7 +80,7 @@ fi
 
 ### Ejemplo 3.
 
-``` bash
+```bash
 read -p  "Cual es tu nombre? " nombre
 
 if [ $nombre = "Salva" ]
@@ -100,7 +99,7 @@ fi
 
 ### Ejemplo 4.
 
-``` bash
+```bash
 read -p "Cual es tu edad? " edad
 
 if [ $edad -ge 33 ]
@@ -113,7 +112,7 @@ fi
 
 ### Ejemplo 5.
 
-``` bash
+```bash
 read -p "Inserta un nombre de archivo: " fic
 
 if [ -f $fic ]
@@ -126,7 +125,7 @@ fi
 
 ### Ejemplo 6.
 
-``` bash
+```bash
 read -p "Inserta un directorio: " dir
 
 if [ -e $dir ]
@@ -139,7 +138,7 @@ fi
 
 ### Ejemplo 7.
 
-``` bash
+```bash
 read -p  "Indica un ficher o directorio: " recurso
 
 if [ -f $recurso ]
@@ -154,6 +153,26 @@ then
 else
         echo "El $recurso ni si quiera existe"
 fi
+```
+
+### Ejemplo 8. Operador [[]]
+
+Con el comando test:
+
+```bash title=""
+
+if [ -w $arch1 -a \( -e $dir1 -o -e $dir2 \) ]
+then
+...
+```
+
+Con el comando [[]]:
+
+```bash title=""
+
+if [[-w $arch1 && ( -e $dir1 || -e $dir2 )]]
+then
+...
 ```
 
 ## Vídeos de Ejemplo.
