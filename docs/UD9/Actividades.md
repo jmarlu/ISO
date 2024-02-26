@@ -2,104 +2,104 @@
 
 ## Introducción
 
-1.  Cree un directorio `bin` en el directorio de inicio. En `bin`, cree o recupere el programa corto siguiente (script shell que muestra una frase en la pantalla):
+1. Cree un directorio `bin` en el directorio de inicio. En `bin`, cree o recupere el programa corto siguiente (script shell que muestra una frase en la pantalla):
 
-    ```bash title=""
-    pwd
-    /home/ubuntu/bin
-    $ vi  micomando
-    echo "Ejecución de micomando"
-    $ chmod u+x micomando
-    ```
+   ```bash title=""
+   pwd
+   /home/ubuntu/bin
+   $ vi  micomando
+   echo "Ejecución de micomando"
+   $ chmod u+x micomando
+   ```
 
-    Modifique la variable PATH de forma que este comando funcione:
+   Modifique la variable PATH de forma que este comando funcione:
 
-    ```bash title=""
-    $ micomando
-    $ Ejecución de micomando
-    ```
+   ```bash title=""
+   micomando
+   Ejecución de micomando
+   ```
 
-2.  Programa que muestre por pantalla “Bienvenido, introduce tus nombres y apellidos”. Acto seguido podremos introducir nuestro nombre y el script devolverá “Que tengas un buen día
-    XXXXXXXX”. Guarda el fichero como `Script1_1.sh`.
+2. Programa que muestre por pantalla “Bienvenido, introduce tus nombres y apellidos”. Acto seguido podremos introducir nuestro nombre y el script devolverá “Que tengas un buen día
+   XXXXXXXX”. Guarda el fichero como `Script1_1.sh`.
 
-    ```bash title=""
-    $ ./Script1_1.sh
-    Bienvenido, introduce tu nobre y apellidos:
-    Julio Martinez
-    Que tengas un prospero dia Julio Martinez
-    ```
+   ```bash title=""
+   $ ./Script1_1.sh
+   Bienvenido, introduce tu nobre y apellidos:
+   Julio Martinez
+   Que tengas un prospero dia Julio Martinez
+   ```
 
-    A continuación crea el script `“Script1_1_2.sh”` en el cual por un lado de pida el nombre y por otro el apellido, para finalmente usar ambas variables en una misma frase.
+   A continuación crea el script `“Script1_1_2.sh”` en el cual por un lado de pida el nombre y por otro el apellido, para finalmente usar ambas variables en una misma frase.
 
-    ```bash title=""
-    Inserta un nombre: Julio
-    Inserta un apellido: Martinez
-    Bienvenido Julio, tu apellido es Martinez
-    ```
+   ```bash title=""
+   Inserta un nombre: Julio
+   Inserta un apellido: Martinez
+   Bienvenido Julio, tu apellido es Martinez
+   ```
 
-3.  Crea un script que solicite un nombre de usuario, una ruta del home a crear y un intérprete. Finalmente debe mostrar un mensaje indicando que el usuario se ha creado (`useradd o adduser` :smile: ).
+3. Crea un script que solicite un nombre de usuario, una ruta del home a crear y un intérprete. Finalmente debe mostrar un mensaje indicando que el usuario se ha creado (`useradd o adduser` :smile: ).
 
-    Es importante usar la opción que efectivamente genere la carpeta home al crear el usuario. Guarda el script como `“Script1_2.sh”`
+   Es importante usar la opción que efectivamente genere la carpeta home al crear el usuario. Guarda el script como `“Script1_2.sh”`
 
-    ```bash title=""
-    Inserta un nombre de usuario: Lorenzo
-    Inserta una ruta de directorio home: /home/lamas
-    Elige un shell de comandos: /bin/bash
-    Usuario creado correctamente.
-    ```
+   ```bash title=""
+   Inserta un nombre de usuario: Lorenzo
+   Inserta una ruta de directorio home: /home/lamas
+   Elige un shell de comandos: /bin/bash
+   Usuario creado correctamente.
+   ```
 
-4.  Cree los f1, f2,f3 en un directorio y metase dentro de el. Ejecute y explique que hace cada uno de los siguientes comandos.
+4. Cree los f1, f2,f3 en un directorio y metase dentro de el. Ejecute y explique que hace cada uno de los siguientes comandos.
 
-    1.  `echo \*`
-    2.  `echo \*`
-    3.  `echo "\*"`
-    4.  `echo ’\*’`
-    5.  `edad=20`
-    6.  `echo $edad`
-    7.  `echo \$edad`
-    8.  `echo "$edad"`
-    9.  `echo ’$edad’`
-    10. `echo "Tú eres $(logname) y tienes -> $edad años"`
-    11. `echo Tú eres $(logname) y tienes -> $edad años`
+   1. `echo \*`
+   2. `echo \*`
+   3. `echo "\*"`
+   4. `echo ’\*’`
+   5. `edad=20`
+   6. `echo $edad`
+   7. `echo \$edad`
+   8. `echo "$edad"`
+   9. `echo ’$edad’`
+   10. `echo "Tú eres $(logname) y tienes -> $edad años"`
+   11. `echo Tú eres $(logname) y tienes -> $edad años`
 
-5.  Definir las siguientes variables:
+5. Definir las siguientes variables:
 
-    ```bash title=""
-    $ s1=si
-    $ s2=no
-    $ vacia=""
-    $ arch1=informe.pdf
-    ```
+   ```bash title=""
+   s1=si
+   s2=no
+   vacia=""
+   arch1=informe.pdf
+   ```
 
-    1. pruebe si $s1 es igual a $s2.
-    2. Pruebe si $s1 es diferente de $s2.
-    3. Pruebe si $vacia está vacía.
-    4. Pruebe si $vacia no está vacía.
+   1. pruebe si $s1 es igual a $s2.
+   2. Pruebe si $s1 es diferente de $s2.
+   3. Pruebe si $vacia está vacía.
+   4. Pruebe si $vacia no está vacía.
 
-6.  tests numéricos.Definir las variables num1 y num2 con los valores siguientes:
+6. tests numéricos.Definir las variables num1 y num2 con los valores siguientes:
 
-    ```bash title=""
+   ```bash title=""
 
-        $ num1=2
-        $ num2=100
+       num1=2
+       num2=100
 
-    ```
+   ```
 
-    Verifique si $num1 es mayor que $num2 empleando los comandos [ ], [[]] y (( )).
+   Verifique si $num1 es mayor que $num2 empleando los comandos [ ], [[]] y (( )).
 
-7.  Operadores lógicos de los comandos [ ], [[]] y operadores lógicos del shell
-    Ejecute los comandos siguientes:
+7. Operadores lógicos de los comandos [ ], [[]] y operadores lógicos del shell
+   Ejecute los comandos siguientes:
 
-    ```bash title=""
+   ```bash title=""
 
-    $ > arch
-    $ chmod 444 arch
-    $ ls -l arch
-    -r--r--r-- 1 ubuntu ubuntu  0  2 feb  17:23 arch
-    ```
+   $ > arch
+   $ chmod 444 arch
+   $ ls -l arch
+   -r--r--r-- 1 ubuntu ubuntu  0  2 feb  17:23 arch
+   ```
 
-    1. Si el archivo $arch no es ejecutable, muestre ”Permiso x no indicado”.
-    2. Si el archivo $arch no es ni ejecutable ni accesible para escritura, muestre ”Permisos wx no indicados”.
+   1. Si el archivo $arch no es ejecutable, muestre ”Permiso x no indicado”.
+   2. Si el archivo $arch no es ni ejecutable ni accesible para escritura, muestre ”Permisos wx no indicados”.
 
 ## IF
 
@@ -134,12 +134,12 @@
 
 A continuación se indican las opciones:
 
-1.  Realizar un ping.
-    1.  Ejemplo de uso: ping 8.8.8.8
-2.  Realizar traceroute.
-    1.  Ejemplo de uso: traceroute 8.8.8.8
-3.  Realizar comando whois.
-    1.  Ejemplo de uso: whois 8.8.8.8
+1. Realizar un ping.
+   1. Ejemplo de uso: ping 8.8.8.8
+2. Realizar traceroute.
+   1. Ejemplo de uso: traceroute 8.8.8.8
+3. Realizar comando whois.
+   1. Ejemplo de uso: whois 8.8.8.8
 
 Ejemplo:
 
@@ -313,39 +313,43 @@ información sobre /home/ubuntu/p
 
 **Antes de nada instala el paquete: openssh-server.**
 
-1.  Crea un programa que añada únicamente a los ficheros (no a los directorios) permisos de ejecución a los grupos del usuario (nada más al grupo del usuario, no al usuario propietario ni al resto). El script debe hacer un ls –l al final sobre el directorio trabajado para ver los cambios.
-2.  Realiza un script que reciba 3 argumentos, una extensión de fichero y dos nombres de directorios. El script deberá:
+1. Crea un programa que añada únicamente a los ficheros (no a los directorios) permisos de ejecución a los grupos del usuario (nada más al grupo del usuario, no al usuario propietario ni al resto). El script debe hacer un ls –l al final sobre el directorio trabajado para ver los cambios.
+2. Realiza un script que reciba 3 argumentos, una extensión de fichero y dos nombres de directorios. El script deberá:
 
-    1.  Comprobar que ha recibido 3 argumentos, en caso contrario mostrará un error.
-    2.  Comprobar que el segundo y tercer argumento son directorios, en caso contrario mostrará un error.
-    3.  Posteriormente dará al usuario la opción de “mover” o “copiar”:
-    4.  En caso de seleccionar “mover”, se moverán todos los ficheros con dicha extensión (argumento número 1) del primer directorio (argumento número 2) al segundo directorio (argumento número 3).
-    5.  En caso de seleccionar “copiar” realizará lo mismo pero copiando en vez de moviendo.
+   1. Comprobar que ha recibido 3 argumentos, en caso contrario mostrará un error.
+   2. Comprobar que el segundo y tercer argumento son directorios, en caso contrario mostrará un error.
+   3. Posteriormente dará al usuario la opción de “mover” o “copiar”:
+   4. En caso de seleccionar “mover”, se moverán todos los ficheros con dicha extensión (argumento número 1) del primer directorio (argumento número 2) al segundo directorio (argumento número 3).
+   5. En caso de seleccionar “copiar” realizará lo mismo pero copiando en vez de moviendo.
 
-3.  A partir de un fichero de texto llamado “equipos.txt” con los siguientes campos separados por espacios en blanco:
+3. A partir de un fichero de texto llamado “equipos.txt” con los siguientes campos separados por espacios en blanco:
 
-    1. IP.
-    2. Nombre del Equipo.
-    3. Memoria en disco libre en GBytes.
-    4. Memoria RAM total en GBytes.
+   1. IP.
+   2. Nombre del Equipo.
+   3. Memoria en disco libre en GBytes.
+   4. Memoria RAM total en GBytes.
 
-    El script esperará recibir un argumento que representará la capacidad de memoria en disco mínima que deba tener un equipo. Acto seguido el script mostrará una alerta de todos aquellos equipos que tienen menos de dicha capacidad disponible. Se debe de comprobar que efectivamente se ha introducido uno y solo un argumento al script.
+   El script esperará recibir un argumento que representará la capacidad de memoria en disco mínima que deba tener un equipo. Acto seguido el script mostrará una alerta de todos aquellos equipos que tienen menos de dicha capacidad disponible. Se debe de comprobar que efectivamente se ha introducido uno y solo un argumento al script.
 
-4.  **Sigue las siguientes indicaciones:**
+4. **Sigue las siguientes indicaciones:**
 
-    1.  Instala los paquetes `“ssh”, “sshpass” y “openssh-server”`. En una máquina
-    2.  Arranca el servicio ssh:
-        1. `service ssh start`
-    3.  Accede a la configuración del servicio` /etc/ssh/sshd_config`:
-        1. Descomenta y cambia la línea“`PermitRootLogin yes`”.
-        2. Esta medida está desaconsejada de cara a la seguridad informática, la hacemos únicamente para facilitar la resolución de este ejercicio.
-    4.  Reinicia el servicio ssh para que surjan efectos los cambios.
-        1. `service ssh restart`
-    5.  Crea una contraseña para root:
-        1. `sudo su`
-        2. `passwd` (con esta contraseña se la tenemos que pasar a todos `sshpass`)
-    6.  Crea tres clones enlazados a partir de la anterior con distinta ip y mac.
-    7.  Abre las tres máquinas en terminales por separado, revisa su IP (`ip –a`) y comprueba que tienen conectividad. Posteriormente prueba a entrar al contenedor con ssh (`ssh IP`)
+   1. Instala los paquetes `“ssh”, “sshpass” y “openssh-server”`. En una máquina
+   2. Arranca el servicio ssh:
+      1. `service ssh start`
+   3. Accede a la configuración del servicio`/etc/ssh/sshd_config`:
+      1. Descomenta y cambia la línea“`PermitRootLogin yes`”.
+      2. Esta medida está desaconsejada de cara a la seguridad informática, la hacemos únicamente para facilitar la resolución de este ejercicio.
+   4. Reinicia el servicio ssh para que surjan efectos los cambios.
+      1. `service ssh restart`
+   5. Crea una contraseña para root:
+      1. `sudo su`
+      2. `passwd` (con esta contraseña se la tenemos que pasar a todos `sshpass`)
+   6. Crea tres clones enlazados a partir de la anterior con distinta ip y mac.
+   7. Abre las tres máquinas en terminales por separado, revisa su IP (`ip –a`) y comprueba que tienen conectividad. Posteriormente prueba a entrar al contenedor con ssh (`ssh IP`)
 
-    Crea un script llamado **creaUsuarios.sh** que se encontrará en la máquina original. Dicho script leerá de dos ficheros. El primero es una lista de hosts (**hosts.txt**) y el segundo es una lista de usuarios (**usuarios.txt**).
-    El script debe acceder a cada equipo, borrar dicho usuario junto con su contenido si existía y crearlos de nuevo.
+   Crea un script llamado **creaUsuarios.sh** que se encontrará en la máquina original. Dicho script leerá de dos ficheros. El primero es una lista de hosts (**hosts.txt**) y el segundo es una lista de usuarios (**usuarios.txt**).
+   El script debe acceder a cada equipo, borrar dicho usuario junto con su contenido si existía y crearlos de nuevo.
+
+!!! warning
+
+      **TODAS LAS ACTIVIDADES SON OBLIGATORIAS.** Además, cuando os pidan en el ejercicio que generéis un fichero script , es el que me tenéis que subir, y cuando no lo pida tenéis que subir un fichero pdf con las capturas como siempre. Aunque haya un solo fichero es conveniente que lo subáis comprimido.
