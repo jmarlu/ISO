@@ -34,7 +34,7 @@ do
 done
 ```
 
-  <img src="imagenes/27.png" width="300"/>
+  <img src="../imagenes/27.png" width="300"/>
 
 ### Ejemplo de lista usando variables.
 
@@ -86,7 +86,7 @@ do
 done
 ```
 
-  <img src="imagenes/28.png" width="50"/>
+  <img src="../imagenes/28.png" width="50"/>
 
 ### Ejemplo recorriendo un fichero SIN espacios en blanco.
 
