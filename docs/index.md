@@ -53,10 +53,10 @@ Las unidades de trabajo (UT) se han planificado según el [calendario escolar 20
 - UD7.Administración de objetos y políticas de grupo.(16 horas, del 22/01/24 al 3/01/24)
 - UD8.Administración de recursos y permisos de acceso.(16 horas, del 05/02/24 al 16/02/24)
 - UD9.Introducción a Shell Script en GNU/Linux (16 horas, del 19/02/24 al 1/03/24)
+- UD10 Introducción a PowerShell en Microsoft Windows.(16 horas, del 04/03/24 al 15/03/24)
 
 #### 3er Trimestre
 
-- UD10 Introducción a PowerShell en Microsoft Windows.(16 horas, del 04/03/24 al 15/03/24)
 - UD11. Integridad y seguridad de la información. (16 horas, del 09/04/24 al 19/04/24)
 - UD12. Respaldo de la información y del sistema operativo.(16 horas, del 22/04/24 al 03/05/24)
 - UD13. Asistencia Remota al usuario y resolución de incidencias(16 horas, del 06/04/24 al 17/04/24)

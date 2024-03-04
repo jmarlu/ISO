@@ -87,6 +87,12 @@ nav:
       - Esructura FOR: ./UD9/For.md
       - Break y Continue: ./UD9/Break.md
       - Actividades: ./UD9/Actividades.md
+  - UD10.Introducción a PowerShell:
+      - Introducción: ./UD10/021_IntroducciónPwSh.md
+      - Sintaxis: ./UD10/022_PowerShell_Sintaxis.md
+      - Control de flujo: ./UD10/023_PowerShell_ControlFlujo.md
+      - Vectores y funciones: ./UD10/024_PowerShell_VectoresFunciones.md
+      - Actividades: ./UD10/Actividades.md
 theme:
   name: material
   icon:
