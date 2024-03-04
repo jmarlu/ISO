@@ -46,26 +46,30 @@ En esta parte se indicará tan sólo la sintaxis de las estructuras alternativas
 ```
 
 !!! example
-`pwsh
-        $saludo = Read-Host "Escribe un saludo"
-        switch ($saludo){
-            "Buenos días" { Write-Host "Saludaste en Castellano" }
-            "Bon dia" { Write-Host "Saludaste en Catalán" }
-            "Bo dias" { Write-Host "Saludaste en Gallego" }
-            "Egun on" { Write-Host "Saludaste en Euskera" }
-            "Good morning" { Write-Host "Saludaste en Inglés" }
-            "Bonjour" { Write-Host "Saludaste en Francés" }
-            "Buon Giorno" { Write-Host "Saludaste en Italiano" }
-            "Bom día" { Write-Host "Saludaste en Portugués" }
-            "Guten Tag" { Write-Host "Saludaste en Alemán" }
-            {$_ -is [string]} { Write Host "La variable que has pasado es una cadena" }
-            default { "Eso no parece un saludo" }
-        }
-   `
+
+        ```pwsh
+                $saludo = Read-Host "Escribe un saludo"
+                switch ($saludo){
+                    "Buenos días" { Write-Host "Saludaste en Castellano" }
+                    "Bon dia" { Write-Host "Saludaste en Catalán" }
+                    "Bo dias" { Write-Host "Saludaste en Gallego" }
+                    "Egun on" { Write-Host "Saludaste en Euskera" }
+                    "Good morning" { Write-Host "Saludaste en Inglés" }
+                    "Bonjour" { Write-Host "Saludaste en Francés" }
+                    "Buon Giorno" { Write-Host "Saludaste en Italiano" }
+                    "Bom día" { Write-Host "Saludaste en Portugués" }
+                    "Guten Tag" { Write-Host "Saludaste en Alemán" }
+                    {$_ -is [string]} { Write Host "La variable que has pasado es una cadena" }
+                    default { "Eso no parece un saludo" }
+                }
+
+        ```
 
 !!! note
-_ Existe la posibilidad de colocar operadores lógicos como opciones de un `switch`, si estos operadores lógicos devuelven un valor verdadero, se ejecutará esa parte del código, si se evalúa a falso, no realizará esa parte del código.
-_ El carácter $\_ hace referencia a la variable $saludo, de ese modo es posible realizar operaciones lógicas con el valor pasado.
+
+    - Existe la posibilidad de colocar operadores lógicos como opciones de un `switch`, si estos operadores lógicos devuelven un valor verdadero, se ejecutará esa parte del código, si se evalúa a falso, no realizará esa parte del código.
+
+    - El carácter $\_ hace referencia a la variable $saludo, de ese modo es posible realizar operaciones lógicas con el valor pasado.
 
 - Además de todo esto, `switch` posee una serie de opciones que no están presentes en GNU/Linux, aunque es posible realizarlas de otra manera.
 
@@ -78,26 +82,30 @@ _ El carácter $\_ hace referencia a la variable $saludo, de ese modo es posible
 | `-regex`         | Sólo aplicable a `[string]`. Permite usar expresiones regulares en la comparación.  |
 
 !!! example
-`-regex`
-`pwsh
-    $target = 'https://bing.com'
-    switch -Regex ($target){
-        '^ftp\://.*$' { "$_ is an ftp address"; Break }
-        '^\w+@\w+\.com|edu|org$' { "$_ is an email address"; Break }
-        '^(http[s]?)\://.*$' { "$_ is a web address that uses $($matches[1])"; Break }
-    }
-   `
+
+         `-regex`
+
+        ```pwsh
+            $target = 'https://bing.com'
+            switch -Regex ($target){
+            '^ftp\://.*$' { "$_ is an ftp address"; Break }
+            '^\w+@\w+\.com|edu|org$' { "$_ is an email address"; Break }
+            '^(http[s]?)\://.*$' { "$_ is a web address that uses $($matches[1])"; Break }
+        }
+        ```
 
 !!! example
-`-wildcard`
-`pwsh
-    switch -wildcard ( Read-Host "Escribe un número de teléfono" ){
-        "8*" { Write-Host "Es un teléfono fijo: $_"; break }
-        "9*" { Write-Host "Es un teléfono fijo: $_"; break }
-        "6*" { Write-Host "Es un teléfono móvil: $_"; break }
-        default { "$_ no parece un teléfono" }
-    }
-   `
+
+            `-wildcard`
+
+        ```pwsh
+             switch -wildcard ( Read-Host "Escribe un número de teléfono" ){
+              "8*" { Write-Host "Es un teléfono fijo: $_"; break }
+              "9*" { Write-Host "Es un teléfono fijo: $_"; break }
+              "6*" { Write-Host "Es un teléfono móvil: $_"; break }
+                default { "$_ no parece un teléfono" }
+            }
+        ```
 
 - El comando break que aparece al final de cada opción indica que si encuentra una coincidencia no siga buscando más y rompa el switch, ahorrándose así el resto de comprobaciones.
 
@@ -134,13 +142,15 @@ for ( inicialización; condición; incremento ){
 - Por ejemplo, la creación de la tabla de multiplicar de un número especificado por el usuario. Para resolver este problema sí se conoce el número de iteraciones necesarias, concretamente diez.
 
 !!! example
-`pwsh
+
+    ```pwsh
     $numero = Read-Host "Dame un número"
     Write-Host "Esta es la tabla del $num"
     for ( $i=0; $i -lt 11; $i++){
         Write-Host " $i x $numero = "($i*$numero)
     }
-   `
+
+    ```
 
 #### foreach
 
@@ -148,22 +158,23 @@ La estructura `foreach` en PowerShell es el equivalente a for en shellscript. Es
 
 ```pwsh
 foreach ( elemento in conjunto ){
-    bloque de código a ejecutar por cada elemento del conjunto
+ bloque de código a ejecutar por cada elemento del conjunto
 }
 ```
 
 Al igual que ocurre en GNU/Linux, el conjunto puede serlo de cualquier tipo de objetos, incluso los ficheros de una carpeta. En el siguiente ejemplo se buscan los ficheros que en su nombre contengan la cadena de texto que el usuario ha especificado:
 
 !!! example
-`pwsh
-    $ruta = "C:\Users\Administrador\Desktop"
-    $busca = Read-Host "Escribe el texto a buscar"
-    foreach ($archivo in Get-ChildItem $ruta){
-        if ($archivo.Name.IndexOf($busca) -ge 0){
-        Write-Host $archivo.Name
-        }
-    }
-   `
+
+        ```pwsh
+            $ruta = "C:\Users\Administrador\Desktop"
+            $busca = Read-Host "Escribe el texto a buscar"
+            foreach ($archivo in Get-ChildItem $ruta){
+                if ($archivo.Name.IndexOf($busca) -ge 0){
+                Write-Host $archivo.Name
+                }
+            }
+        ```
 
 !!! note
 
