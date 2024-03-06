@@ -65,11 +65,11 @@ También podemos hacer uso de la | para integrar dos opciones posibles, es decir
 
 Por ejemplo en el siguiente ejemplo, la primera comprobación será verdadera si nombre vale “álvaro” o “pepe”
 
-<img src="../imagenes/24.png"
+<img src="../imagenes/24.png"/>
 
-<img src="../imagenes/25.png"
+<img src="../imagenes/25.png"/>
 
-### Ejemplo 4. El uso de ;;&.
+### Ejemplo 4. El uso de ;;&
 
 <center>
 !!! danger 
