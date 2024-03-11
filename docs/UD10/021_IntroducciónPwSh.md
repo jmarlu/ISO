@@ -31,19 +31,19 @@
 
 !!! example
 
-    `pwsh
+    ``` PowerShell
         Write-Host "Hola!. Esto es mi primer script en PowerShell"
         Write-Host "Y esto es una segunda línea"
-    `
+    ```
 
 - A continuación, se guarda el script desde el menú `Acción → Guardar Como…` asignándole un nombre.
 - Para ejecutarlo tan sólo es necesario escribir su nombre en el terminal de PowerShell anteponiendo un punto y una barra.
 
 !!! example
 
-    `pwsh
-        ./Script.ps1
-    `
+    ``` PowerShell
+      ./Script.ps1
+    ```
 
 ## PowerShell ISE
 

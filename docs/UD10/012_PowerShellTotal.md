@@ -32,14 +32,16 @@
 - Los comandos incluidas en PowerShell reciben el nombre de **cmdlets (command-let)** y posee conjuntos específicos para trabajar con _Active Directory, Exchange_, entre otros roles de servidor.
 
 !!! info
-**cmdlets** Existen cientos de cdmlet en la _versión 5.1_ de PowerShell. Es posible consultar la ayuda de cada uno de ellos en la página oficial de Microsoft.
+
+    **cmdlets** Existen cientos de cdmlet en la _versión 5.1_ de PowerShell. Es posible consultar la ayuda de cada uno de ellos en la página oficial de Microsoft.
 
 - Otra ventaja de PowerShell es que se dispone de la mayoría de comandos que del CLI tradicional de Microsoft. De ese modo, es posible ejecutar el comando `dir` en lugar del `Get-ChildItem`, cmdlet que realiza la misma tarea. En realidad lo que está usando es un alias del segundo para lanzar el primero.
 - Dispone de autocompletado de comandos y parámetros que facilitará las tareas de creación de scripts. Basta con comenzar a escribir un cmdlet y pulsarla tecla Tab.
 - Si utilizamos **PowerShell ISE** al escribir aparecerá una ventana con todos los cmdlets que coincidan con el texto escrito, incluso puede aparecer un recuadro con ayuda sobre su sintaxis. Para aceptar la sugerencia se pulsar la tecla Intro .
 
 !!! note
-Los nombres de todos los cmdlets están formados por un verbo, un guión y un nombre en singular. Habitualmente, se escribe con mayúsculas la primera letra de cada palabra, pero no se trata más que de una norma de estilo, porque **PowerShell no distingue entre mayúsculas y minúsculas.**
+
+    Los nombres de todos los cmdlets están formados por un verbo, un guión y un nombre en singular. Habitualmente, se escribe con mayúsculas la primera letra de cada palabra, pero no se trata más que de una norma de estilo, porque **PowerShell no distingue entre mayúsculas y minúsculas.**
 
 ## Primer Script
 
@@ -47,18 +49,20 @@ Los nombres de todos los cmdlets están formados por un verbo, un guión y un no
 - La diferencia con ellos es que aquí será necesario dotarlos de una extensión; `ps1`.
 
 !!! example
-`yaml
+
+    ```
     Write-Host "Hola!. Esto es mi primer script en PowerShell"
     Write-Host "Y esto es una segunda línea"
-   `
+    ````
 
 - A continuación, se guarda el script desde el menú `Acción → Guardar Como…` asignándole un nombre.
 - Para ejecutarlo tan sólo es necesario escribir su nombre en el terminal de PowerShell anteponiendo un punto y una barra.
 
 !!! example
-`yaml
-    ./Script.ps1
-   `
+
+    ```
+     ./Script.ps1
+     ```
 
 - Aunque también es posible ejecutar el script desde la **herramienta gráfica** pulsando la tecla `F5`, ejecutar una parte de él con `F8` o detener la ejecución con `Ctrl+Intro`.
 
@@ -69,24 +73,26 @@ Los nombres de todos los cmdlets están formados por un verbo, un guión y un no
 - Es práctico comenzar con esta ayuda ya que la sintaxis de los cmdlets, aunque sea lógica y sencilla, también lo es amplia y desconocida.
 
 <figure>
-  <img src="../imagenes/01/InterfazPowerShell.png" width="800"/>
-  <figcaption>Interfaz de la herramienta Windows PowerShell ISE</figcaption>
+<img src="../imagenes/01/InterfazPowerShell.png" width="800"/>
+<figcaption>Interfaz de la herramienta Windows PowerShell ISE</figcaption>
 </figure>
 
 !!! info - Uno de los aspectos más interesantes que posee esta aplicación es la barra de información que muestra un listado de todos los **cmdlets** de esta herramienta. Permite filtrarlos por función y consultar la ayuda de cada uno de ellos. - También posee un formulario destinado a generar el código de un **cmdlet** de forma automática.
 
 !!! example
-_ Creación de un comando que realice una copia de seguridad de los scripts de trabajo en una memoria externa. Es necesario el uso de Copy-Item para ello, pero no se conoce su sintaxis.
-_ Si escribimos este **cmdlet** en el recuadro `Nombre` y se pulsa sobre `Mostrar Ayuda`, aparecerá un formulario con sus opciones. Tras completar las necesarias y pulsando el botón `Insertar` situado en la parte inferior, el código completo será escrito la parte destinada al terminal.
+
+- Creación de un comando que realice una copia de seguridad de los scripts de trabajo en una memoria externa. Es necesario el uso de Copy-Item para ello, pero no se conoce su sintaxis.
+- Si escribimos este **cmdlet** en el recuadro `Nombre` y se pulsa sobre `Mostrar Ayuda`, aparecerá un formulario con sus opciones. Tras completar las necesarias y pulsando el botón `Insertar` situado en la parte inferior, el código completo será escrito la parte destinada al terminal.
 
 <figure>
-  <img src="../imagenes/01/PS_ISE_EJEM.png" width="800"/>
-  <figcaption>Creación automática de scripts en Windows PowerShell ISE.</figcaption>
+<img src="../imagenes/01/PS_ISE_EJEM.png" width="800"/>
+<figcaption>Creación automática de scripts en Windows PowerShell ISE.</figcaption>
 </figure>
 
 ## Comentarios
 
 !!! note
+
 Los comentarios en **PowerShell** se realizan precediendo a la línea con el carácter `#` si se trata de una sola línea y `<#` y `#>` si es multilínea.
 
 ## Parámetros en PowerShell
@@ -94,17 +100,21 @@ Los comentarios en **PowerShell** se realizan precediendo a la línea con el car
 - Como ocurría en GNU/Linux, los parámetros que reciba el script se deben recoger de forma interna en una variable para poder operar con ellos.
 
 !!! example
-`yaml
-    param ([string]$nombre)
-    Write-Host "Hola!. Esto es mi primer script en PowerShell"
-    Write-Host "Y esto es una segunda línea"
-    Write-Host "Hola de nuevo, tu nombre es $nombre"
-   `
+
+````
+
+      param ([string]$nombre)
+      Write-Host "Hola!. Esto es mi primer script en PowerShell"
+      Write-Host "Y esto es una segunda línea"
+      Write-Host "Hola de nuevo, tu nombre es $nombre"
+      ```
+
+````
 
 !!! note
-_ El script anterior esperará un parámetro de tipo `string` que será contenido en la variable nombre.
-_ En la cuarta línea mostrará el contenido de la variable por pantalla.
 
+- El script anterior esperará un parámetro de tipo `string` que será contenido en la variable nombre.
+- En la cuarta línea mostrará el contenido de la variable por pantalla.
 - Para poder ejecutar este script, será necesario acompañarlo de un parámetro del siguiente modo.
 
 ```yaml
@@ -121,6 +131,7 @@ _ En la cuarta línea mostrará el contenido de la variable por pantalla.
 - Para definir variables es posible utilizar el método **explícito** (además con **New-Variable** y sus opciones), pero también se puede utilizar el método **implícito** anteponiendo el símbolo **$** delante del nombre.
 
 !!! info
+
 **Get-Variable** En cualquier momento puedes obtener una lista completa de las variables que se hayan definido hasta ese momento. Para lograrlo, basta con utilizar Get- Variable.
 
 ### Implicita
@@ -138,10 +149,10 @@ _ En la cuarta línea mostrará el contenido de la variable por pantalla.
 
 !!! example
 `yaml
-    $numero = 9.99
-    $Final_2021 = 30
-    ${Mi variable} = “Contiene espacios en el nombre”
-   `
+  $numero = 9.99
+  $Final_2021 = 30
+  ${Mi variable} = “Contiene espacios en el nombre”
+ `
 
 - En la forma implicita el shell establece el tipo de dato de la variable en función del dato que se le asigne en su creación.
 - En el ejemplo anterior `$numero` es de forma automática de tipo `[double]`, ya que al crearla se ha inicializado con un número con decimales.
@@ -161,10 +172,10 @@ _ `Write-Host $feo.GetType().Name.`
 
 !!! example
 `yaml
-    [float] $numero = 9.99
-    [int] $Final_2021 = 30
-    [string] ${Mi variable} = “Contiene espacios en el nombre”
-   `
+  [float] $numero = 9.99
+  [int] $Final_2021 = 30
+  [string] ${Mi variable} = “Contiene espacios en el nombre”
+ `
 
 Al contrario que en el caso anterior, cuando el dato asignado no coincida con el tipo esperado, pueden ocurrir dos cosas:
 
@@ -230,12 +241,12 @@ Además de estos operadores existen dos específicos para el incremento (`++`) y
 
 !!! example
 `yaml
-    Write-Host ((6 -ge 4) -and (7 -le 7))
-    Write-Host ((10 -gt 1) -or (2 -lt 2))
-    Write-Host ((1 -gt 0) -xor (4 -le 1))
-    Write-Host ( -not (12 -lt 10))
-    Write-Host (!(12 -lt 10))
-    `
+  Write-Host ((6 -ge 4) -and (7 -le 7))
+  Write-Host ((10 -gt 1) -or (2 -lt 2))
+  Write-Host ((1 -gt 0) -xor (4 -le 1))
+  Write-Host ( -not (12 -lt 10))
+  Write-Host (!(12 -lt 10))
+  `
 
 !!! note
 En el ejemplo anterior si se ejecuta el script en un terminal PowerShell, todos los resultados serán verdaderos.
@@ -319,21 +330,21 @@ default { código a ejecutar si ninguna de las opciones coincide }
 
 !!! example
 `yaml
-        $saludo = Read-Host "Escribe un saludo"
-        switch ($saludo){
-            "Buenos días" { Write-Host "Saludaste en Castellano" }
-            "Bon dia" { Write-Host "Saludaste en Catalán" }
-            "Bo dias" { Write-Host "Saludaste en Gallego" }
-            "Egun on" { Write-Host "Saludaste en Euskera" }
-            "Good morning" { Write-Host "Saludaste en Inglés" }
-            "Bonjour" { Write-Host "Saludaste en Francés" }
-            "Buon Giorno" { Write-Host "Saludaste en Italiano" }
-            "Bom día" { Write-Host "Saludaste en Portugués" }
-            "Guten Tag" { Write-Host "Saludaste en Alemán" }
-            {$_ -is [string]} { Write Host "La variable que has pasado es una cadena" }
-            default { "Eso no parece un saludo" }
-        }
-   `
+      $saludo = Read-Host "Escribe un saludo"
+      switch ($saludo){
+          "Buenos días" { Write-Host "Saludaste en Castellano" }
+          "Bon dia" { Write-Host "Saludaste en Catalán" }
+          "Bo dias" { Write-Host "Saludaste en Gallego" }
+          "Egun on" { Write-Host "Saludaste en Euskera" }
+          "Good morning" { Write-Host "Saludaste en Inglés" }
+          "Bonjour" { Write-Host "Saludaste en Francés" }
+          "Buon Giorno" { Write-Host "Saludaste en Italiano" }
+          "Bom día" { Write-Host "Saludaste en Portugués" }
+          "Guten Tag" { Write-Host "Saludaste en Alemán" }
+          {$_ -is [string]} { Write Host "La variable que has pasado es una cadena" }
+          default { "Eso no parece un saludo" }
+      }
+ `
 
 !!! note
 _ Existe la posibilidad de colocar operadores lógicos como opciones de un `switch`, si estos operadores lógicos devuelven un valor verdadero, se ejecutará esa parte del código, si se evalúa a falso, no realizará esa parte del código.
@@ -352,24 +363,24 @@ _ El carácter $\_ hace referencia a la variable $saludo, de ese modo es posible
 !!! example
 `-regex`
 `yaml
-    $target = 'https://bing.com'
-    switch -Regex ($target){
-        '^ftp\://.*$' { "$_ is an ftp address"; Break }
-        '^\w+@\w+\.com|edu|org$' { "$_ is an email address"; Break }
-        '^(http[s]?)\://.*$' { "$_ is a web address that uses $($matches[1])"; Break }
-    }
-   `
+  $target = 'https://bing.com'
+  switch -Regex ($target){
+      '^ftp\://.*$' { "$_ is an ftp address"; Break }
+      '^\w+@\w+\.com|edu|org$' { "$_ is an email address"; Break }
+      '^(http[s]?)\://.*$' { "$_ is a web address that uses $($matches[1])"; Break }
+  }
+ `
 
 !!! example
 `-wildcard`
 `yaml
-    switch -wildcard ( Read-Host "Escribe u número de teléfono" ){
-        "8*" { Write-Host "Es un teléfono fijo: $_"; break }
-        "9*" { Write-Host "Es un teléfono fijo: $_"; break }
-        "6*" { Write-Host "Es un teléfono móvil: $_"; break }
-        default { "$_ no parece un teléfono" }
-    }
-   `
+  switch -wildcard ( Read-Host "Escribe u número de teléfono" ){
+      "8*" { Write-Host "Es un teléfono fijo: $_"; break }
+      "9*" { Write-Host "Es un teléfono fijo: $_"; break }
+      "6*" { Write-Host "Es un teléfono móvil: $_"; break }
+      default { "$_ no parece un teléfono" }
+  }
+ `
 
 - El comando break que aparece al final de cada opción indica que si encuentra una coincidencia no siga buscando más y rompa el switch, ahorrándose así el resto de comprobaciones.
 
@@ -407,12 +418,12 @@ bloque de código a ejecutar mientras condición sea verdadera
 
 !!! example
 `yaml
-    $numero = Read-Host "Dame un número"
-    Write-Host "Esta es la tabla del $num"
-    for ( $i=0; $i -lt 11; $i++){
-        Write-Host " $i x $numero = "($i*$numero)
-    }
-   `
+  $numero = Read-Host "Dame un número"
+  Write-Host "Esta es la tabla del $num"
+  for ( $i=0; $i -lt 11; $i++){
+      Write-Host " $i x $numero = "($i*$numero)
+  }
+ `
 
 #### foreach
 
@@ -428,14 +439,14 @@ Al igual que ocurre en GNU/Linux, el conjunto puede serlo de cualquier tipo de o
 
 !!! example
 `yaml
-    $ruta = "C:\Users\Administrador\Desktop"
-    $busca = Read-Host "Escribe el texto a buscar"
-    foreach ($archivo in Get-ChildItem $ruta){
-        if ($archivo.Name.IndexOf($busca) -ge 0){
-        Write-Host $archivo.Name
-        }
-    }
-   `
+  $ruta = "C:\Users\Administrador\Desktop"
+  $busca = Read-Host "Escribe el texto a buscar"
+  foreach ($archivo in Get-ChildItem $ruta){
+      if ($archivo.Name.IndexOf($busca) -ge 0){
+      Write-Host $archivo.Name
+      }
+  }
+ `
 
 !!! note
 Las opciones que ofrece PowerShell en cuanto a estructuras de control parece una oferta más completa que la de shellscript, aunque para las tareas que se van a realizar en este módulo, ambos sistemas poseen herramientas suficientes.
@@ -447,11 +458,11 @@ Las opciones que ofrece PowerShell en cuanto a estructuras de control parece una
 
 !!! example
 `yaml
-    $Vacia = @{}
-    $Enteros = 1,2,3,4,5
-    $Texto = “Lunes”,“Martes”,”Miércoles”, “Jueves”,”Viernes”
-    $EnterosRango = 1..10
-   `
+  $Vacia = @{}
+  $Enteros = 1,2,3,4,5
+  $Texto = “Lunes”,“Martes”,”Miércoles”, “Jueves”,”Viernes”
+  $EnterosRango = 1..10
+ `
 
 De esta forma se han definido cuatro vectores; el segundo contendrá enteros y el tercero cadenas de caracteres. La última línea asigna los valores desde el 1 al 10 utilizando el operador rango `..` .
 
@@ -462,19 +473,19 @@ El operador de **rango** representa una secuencia de enteros, con los límites s
 
 !!! example
 `yaml
-    $EnterosFor = @(For($i;$i < 5;$i++){$i})
-    $Comando = Get-Process | Sort-Object ProcessName
-   `
+  $EnterosFor = @(For($i;$i < 5;$i++){$i})
+  $Comando = Get-Process | Sort-Object ProcessName
+ `
 
 En la primera línea `$enteros` será completado a través del resultado de una estructura iterativa, mientras que la segunda contendrá el resultado del cmdlet indicado. Además de todas estas formas de declaración, también se puede realizar a través del cmdlet `New-Variable`
 
 !!! example
 `yaml
-    New-Variable -Name Enteros -Value 1,2,3,4,5 -Force
-    New-Variable -Name Texto -Value "Lunes","Martes","Miércoles","Jueves","Viernes" –Force
-    New-Variable -Name EnterosRango -Value (1..5) -Force
-    New-Variable -Name EnterosFor -value (. {For($i=1;$i -lt 5;$i++){$i}}) -Force
-   `
+  New-Variable -Name Enteros -Value 1,2,3,4,5 -Force
+  New-Variable -Name Texto -Value "Lunes","Martes","Miércoles","Jueves","Viernes" –Force
+  New-Variable -Name EnterosRango -Value (1..5) -Force
+  New-Variable -Name EnterosFor -value (. {For($i=1;$i -lt 5;$i++){$i}}) -Force
+ `
 
 !!! note
 El atributo `-Force` sobrescribe la variable si esta ya existe, de ese modo no saltará ningún error a la hora de definir estas variables.
@@ -483,17 +494,17 @@ El atributo `-Force` sobrescribe la variable si esta ya existe, de ese modo no s
 
 !!! example
 `yaml
-    $Texto.Length # mostrará 5 por pantalla
-    $Texto[2].Length # mostrará 9, las letras de “Miércoles”
-   `
+  $Texto.Length # mostrará 5 por pantalla
+  $Texto[2].Length # mostrará 9, las letras de “Miércoles”
+ `
 
 - Para añadir elementos al final de un vector se utiliza el operador `+=`.
 
 !!! example
 `yaml
-    $Enteros += 6
-    $Texto += “Sábado”, “Domingo”
-   `
+  $Enteros += 6
+  $Texto += “Sábado”, “Domingo”
+ `
 
 !!! note
 La primera línea añade el entero 6 al vector `$Enteros`, mientras que en la segunda se añaden los elementos “Sábado” y “Domingo” al vector `$Texto`.
@@ -516,12 +527,12 @@ El paso de parámetros a una función se realiza de idéntica forma que en shell
 
 !!! example
 `yaml
-    Function Get-Sumar {
-        param ([integer] $a, [integer] $b)
-        $sumar = $a + $b
-        Write-Host “La suma es $sumar”
-    }
-    `
+  Function Get-Sumar {
+      param ([integer] $a, [integer] $b)
+      $sumar = $a + $b
+      Write-Host “La suma es $sumar”
+  }
+  `
 
 !!! note
 Si se ejecuta la siguiente instrucción: `Get-Sumar 2 8` La salida del terminal será `La suma es 10`.
@@ -559,30 +570,34 @@ Escribe el código de los scripts en **PowerShell** que se detallan en cada ejer
 
 120. Crea un script PowerShell que rellene un vector con diez números de **forma aleatoria** y que los **muestre** por pantalla de la siguiente forma:
 
-
-    * en **orden inverso** a como han sido introducidos los valores.
-    * los valores ordenados de **menor a mayor** en una sola línea.
-    * los valores ordenados de **mayor a menor** en una sola línea la suma total de sus valores.
-    * cantidad de valores pares que contiene el vector.
-    * la **suma total** de números impares.
-    * la **media aritmética** de los valores que contiene el vector.
+- en **orden inverso** a como han sido introducidos los valores.
+- los valores ordenados de **menor a mayor** en una sola línea.
+- los valores ordenados de **mayor a menor** en una sola línea la suma total de sus valores.
+- cantidad de valores pares que contiene el vector.
+- la **suma total** de números impares.
+- la **media aritmética** de los valores que contiene el vector.
 
 121. Crea un script PowerShell para que haga una **copias de seguridad** de todos los archivos del directorio de trabajo del usuario actual. Deberá realizar las siguientes acciones:
 
-
-    * **comprobará** si el archivo ya existe en la copia de seguridad, si es así comprobará cual de los dos es más reciente y que tamaño tienen. Si es más reciente o posee un tamaño mayor, lo copiará. En cualquier otro caso, no lo copia.
-    * llevará un **registro** de todos los archivos copiados cada vez que se ejecute mediante un archivo de bitácora. Guarda este fichero el directorio que contiene el script.
+- **comprobará** si el archivo ya existe en la copia de seguridad, si es así comprobará cual de los dos es más reciente y que tamaño tienen. Si es más reciente o posee un tamaño mayor, lo copiará. En cualquier otro caso, no lo copia.
+- llevará un **registro** de todos los archivos copiados cada vez que se ejecute mediante un archivo de bitácora. Guarda este fichero el directorio que contiene el script.
 
 Crea una **función** para cada tarea realizada en este script.
 
 122. Diseña un script PowerShell que muestre un menú al usuario con cuatro operaciones disponibles: **Crear directorio, Eliminar directorio, Mostrar directorio, Informe de directorio, Copia de directorio y Salir**. Una vez elegida una opción correcta, el programa debe **solicitar un nombre de directorio** y hacer la operación seleccionada. Tras esto debe mostrar un mensaje con el resultado de la operación. Crea una función para cada una de estas opciones.
 
-
-    * Si se elige la opción **Informe de directorio**, mostrará por pantalla el número de ficheros que contiene, cuantos son carpetas, cuantos directorios y el tamaño total de ellos. Si la carpeta no existe, mostrará un error.
-    * Si elige la opción **Copia de directorio**, preguntará la carpeta de destino y mostrará fichero a fichero la copia.
+- Si se elige la opción **Informe de directorio**, mostrará por pantalla el número de ficheros que contiene, cuantos son carpetas, cuantos directorios y el tamaño total de ellos. Si la carpeta no existe, mostrará un error.
+- Si elige la opción **Copia de directorio**, preguntará la carpeta de destino y mostrará fichero a fichero la copia.
 
 123. Realiza un script PowerShell que permita crear un informe de las IP libres en la red en la que se encuentra el equipo. Debe contener las siguientes opciones:
 
+- **el informe contendrá** un listado de todas las IP de la red a la que pertenece el equipo indicando si está libre o no (usa el comando ping).
+- en el informe debe aparecer el **tipo de red** (A, B o C) en el que está inmerso el ordenador con el **nombre de la red, su broadcast y su máscara de subred.**
 
-    * **el informe contendrá** un listado de todas las IP de la red a la que pertenece el equipo indicando si está libre o no (usa el comando ping).
-    * en el informe debe aparecer el **tipo de red** (A, B o C) en el que está inmerso el ordenador con el **nombre de la red, su broadcast y su máscara de subred.**
+```
+
+```
+
+```
+
+```

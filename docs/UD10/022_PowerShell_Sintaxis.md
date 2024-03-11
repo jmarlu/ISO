@@ -7,20 +7,22 @@
 - Por lo tanto para acceder a los parámetros introducidos se debe acceder al valor de la posición que se desee.
 
 !!! example
-`pwsh
+
+    ```PowerShell
     [string]$param1= $args[0]
     Write-Host "Hola!. Esto es mi primer script en PowerShell"
     Write-Host "Y esto es una segunda línea"
     Write-Host "El primer parámetro introducido es $param1"
-   `
+    ```
 
 !!! note
-_ El script anterior esperará un parámetro de tipo `string` que será contenido en la variable $param1.
-_ En la cuarta línea mostrará el contenido de la variable por pantalla.
+
+    - El script anterior esperará un parámetro de tipo `string` que será contenido en la variable $param1.
+    - En la cuarta línea mostrará el contenido de la variable por pantalla.
 
 - Para poder ejecutar este script, será necesario acompañarlo de un parámetro del siguiente modo.
 
-```pwsh
+```PowerShell
 ./Script.ps1 "Fº Javier Hernández Illán"
 ```
 
@@ -34,7 +36,8 @@ _ En la cuarta línea mostrará el contenido de la variable por pantalla.
 - Para definir variables es posible utilizar el método **explícito** (además con **New-Variable** y sus opciones), pero también se puede utilizar el método **implícito** anteponiendo el símbolo **$** delante del nombre.
 
 !!! info
-**Get-Variable** En cualquier momento puedes obtener una lista completa de las variables que se hayan definido hasta ese momento. Para lograrlo, basta con utilizar Get- Variable.
+
+    **Get-Variable** En cualquier momento puedes obtener una lista completa de las variables que se hayan definido hasta ese momento. Para lograrlo, basta con utilizar Get- Variable.
 
 ### Implícita
 
@@ -50,21 +53,27 @@ _ En la cuarta línea mostrará el contenido de la variable por pantalla.
 | `[bool]`     | Valor lógico booleano               |
 
 !!! example
-`pwsh
-    $numero = 9.99
-    $Final_2021 = 30
-    ${Mi variable} = "Contiene espacios en el nombre"
-   `
+
+    ```PowerShell
+        $numero = 9.99
+        $Final_2021 = 30
+        ${Mi variable} = "Contiene espacios en el nombre"
+
+    ```
 
 - En la forma implícita el shell establece el tipo de dato de la variable en función del dato que se le asigne en su creación.
 - En el ejemplo anterior `$numero` es de forma automática de tipo `[double]`, ya que al crearla se ha inicializado con un número con decimales.
 - Por contra la variable `$Final_2021` es de tipo `[int]` ya que se ha guardado un número entero en ella.
 
 !!! info
-_ **GetType** Para poder obtener el tipo de dato de una variable hay que usar el método `GetType().Name` sobre cualquier variable:
-_ `Write-Host $numero.GetType().Name.`
 
-!!! tip - Una variable cuya definición de tipo se ha realizado de forma implícita, podrá cambiar el tipo de dato almacenado durante la ejecución del programa sin experimentar ningún tipo de error. - Esta práctica aunque cómoda **no es muy recomendable**.
+    -**GetType** Para poder obtener el tipo de dato de una variable hay que usar el método `GetType().Name` sobre cualquier variable:
+
+    `Write-Host $numero.GetType().Name.`
+
+!!! tip
+
+    Una variable cuya definición de tipo se ha realizado de forma implícita, podrá cambiar el tipo de dato almacenado durante la ejecución del programa sin experimentar ningún tipo de error. - Esta práctica aunque cómoda **no es muy recomendable**.
 
 ### Explicita
 
@@ -73,11 +82,12 @@ _ `Write-Host $numero.GetType().Name.`
 - Para ello se usa la forma explícita de crear variables y junto con su creación se define el tipo de dato que va a contener.
 
 !!! example
-`pwsh
+
+    ```PowerShell
     [float] $numero = 9.99
     [int] $Final_2021 = 30
     [string] ${Mi variable} = "Contiene espacios en el nombre"
-   `
+    ```
 
 Al contrario que en el caso anterior, cuando el dato asignado no coincida con el tipo esperado, pueden ocurrir dos cosas:
 
@@ -91,13 +101,14 @@ PowerShell posee dos cmdlets para realizar estas tareas.
 1. El primero de ellos es **Write-Host** y tiene un comportamiento similar al **echo** en GNU/Linux.
 2. El segundo comando para interactuar con el usuario es **Read-Host** el cual permite imprimir un mensaje por el terminal y recoger aquello que el usuario ha escrito. Funciona de forma muy parecida al comando **read** en el terminal de GNU/Linux.
 
-```pwsh
+```PowerShell
 [string] $marine = Read-Host "¿Cuál es el nombre del marine de Doom?"
 Write-Host "No se sabe, pero lo has intentado con $marine
 ```
 
 !!! note
-Este script detendrá su ejecución en la línea donde aparece **Read-Host**, esperará a que el usuario conteste a la pregunta y seguirá con la ejecución, del mismo modo que ocurre con shellscript.
+
+    Este script detendrá su ejecución en la línea donde aparece **Read-Host**, esperará a que el usuario conteste a la pregunta y seguirá con la ejecución, del mismo modo que ocurre con shellscript.
 
 ## Operadores
 
@@ -107,7 +118,7 @@ Este script detendrá su ejecución en la línea donde aparece **Read-Host**, es
 - Son las mismas que en el caso anterior: `+`, `-`, `*` , `/` y `%`.
 - Su uso es más sencillo puesto que es el propio terminal en que realiza los cálculos aritméticos y no a través de un comando.
 
-```pwsh
+```PowerShell
 [int] $a=10
 [float] $b=20
 [int] $res=$a+$b
@@ -119,7 +130,8 @@ Write-Host "$a x $b = " ($a*$b)
 También se dispone de expansores de terminal como en GNU/Linux.
 
 !!! note
-Nótese que en la última línea aparece directamente el producto **$a*$b** ya que al rodear la operación con paréntesis, se convierte en un expansor, realiza la operación en su interior y envía el resultado fuera.
+
+    Nótese que en la última línea aparece directamente el producto **$a*$b** ya que al rodear la operación con paréntesis, se convierte en un expansor, realiza la operación en su interior y envía el resultado fuera.
 
 Existen variantes que simplifican el uso de algunos operadores.
 
@@ -142,16 +154,18 @@ Además de estos operadores existen dos específicos para el incremento (`++`) y
 | `-not o !` | Devuelve verdadero cuando la expresión da el valor falso.                  |
 
 !!! example
-`pwsh
+
+    ```PowerShell
     Write-Host ((6 -ge 4) -and (7 -le 7))
     Write-Host ((10 -gt 1) -or (2 -lt 2))
     Write-Host ((1 -gt 0) -xor (4 -le 1))
     Write-Host ( -not (12 -lt 10))
     Write-Host (!(12 -lt 10))
-    `
+    ```
 
 !!! note
-En el ejemplo anterior si se ejecuta el script en un terminal PowerShell, todos los resultados serán verdaderos.
+
+    En el ejemplo anterior si se ejecuta el script en un terminal PowerShell, todos los resultados serán verdaderos.
 
 - Como en todos los lenguajes de programación fuertemente tipados, existen operadores lógicos para comprobar el tipo de dato de una variable, que resultan muy útiles para la interacción con los usuarios.
 
@@ -184,3 +198,7 @@ los operadores tipo lógicos devuelven tan sólo un valor booleano que puede ten
 | `-notlike`     | Evalúa un patrón "no es como". | `"Perro" -notlike "Pe*"` es falso  |
 | `-contains`    | Contiene un valor.             | `1,2,3 -contains 2` es verdadero   |
 | `-notcontains` | No contiene un valor.          | `1,2,3 -notcontains 2`es falso     |
+
+```
+
+```

@@ -86,7 +86,7 @@ Function <NOMBRE> {
 
 !!! example
 
-    ```pwsh
+        ``` pwsh
         Function Get-Sumar {
             param ([integer] $a, [integer] $b)
             $sumar = $a + $b
