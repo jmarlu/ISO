@@ -110,6 +110,36 @@ boot
 
 ```
 
+Pero si lo ejecutamos de la siguiente forma:
+
+```PowerShell title=""
+ PS /home/julio> Get-Member -InputObject $result
+
+   TypeName: System.Object[]
+
+Name           MemberType            Definition
+----           ----------            ----------
+Add            Method                int IList.Add(System.Object value)
+Address        Method                System.Object&, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e Address(int )
+```
+
+Nos está indicando que esta compuesto de un array de objetos.
+
+!!! note title=¿Qué es un array(vector)?
+
+    Pues, a una zona de almacenamiento contiguo que contiene una serie de elementos del mismo tipo, en este caso otros objetos de tipo ficheros o directorios.
+    Esto no lo indica los [].
+
+Ahora si vemos el siguiente ejemplo.
+
+```PowerShell title=""
+PS /home/julio/tmp/temp> $result.Length
+27
+
+```
+
+Lo que nos está indicando es que tenemos 27 ficheros y carpetas
+
 ## Gestión de carpetas y archivos
 
 Cuando en Linux utilizamos el comando `ls` (funciona en PowerShell) lista todos los elementos que tiene en una carpeta. También en el comando DOS/CMD `dir` podemos realizar la misma tarea.
@@ -148,6 +178,128 @@ Ejemplos:
         d-r-- 8/1/2024 12:02 home
   ```
 
-```
+- Mostrar todos los archivos con extensión texto
+
+  ```PowerShell title=""
+  PS /home/julio/Documentos/CursoBigdate/tmp/hive>  Get-ChildItem / -Include *.txt -Recurse
+
+  ```
+
+- Obtener el nombre de todos los archivos cuyo tamaño es superior a 32 KB.
+  ```PowerShell title=""
+  Get-ChildItem  / -Recurse | Where-Object {$_.Length -gt 32KB}
+  ```
+  - Obtener los archivos cuya fecha de última modificación sea posterior al 01(mes)/03(dia)/2023(año)
+
+```PowerShell title=""
+
+Get-ChildItem | Where-Object {$_.LastWriteTime -gt ’01/03/2023’}
 
 ```
+
+Pero como nos podemos desplazar entre los directorios. Lo seguimos haciendo con el comando `cd` pero el comando verdadero se llama `Set-Location`
+
+Ejemplo:
+
+```PowerShell title=""
+PS /home/julio> Set-Location /
+PS />
+
+```
+
+Para la creación de una carpeta se realiza con el comando `New-item`.
+
+Ejemplo:
+
+```PowerShell title=""
+
+PS /home/julio> Set-Location /
+PS /> Set-Location ~
+PS /home/julio> New-Item -ItemType directory -Name TempPS
+
+
+    Directory: /home/julio
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           10/4/2024    12:02                TempPS
+
+PS /home/julio>
+
+```
+
+En el anterior ejemplo cambiamos de localización y creamos un directorio.
+
+En el siguiente ejemplo vamos a eliminar todos los archivos .log contenidos en la carpeta C:\Temp. Lo podemos hacer de distinta manera con o sin Pipe.
+
+```PowerShell title=""
+PS /home/julio>  Remove-Item ~/temp/*.log
+PS /home/julio>
+
+# o con tuberías.
+
+ PS /home/julio> Get-ChildItem ~/temp/* -Include *.txt -Recurse | Remove-Item
+
+```
+
+En el siguiente ejemplo vamos a mover los ficheros log de una carpeta a otra.
+
+```PowerShell title=""
+PS /home/julio/temp> ls
+archivo.log
+PS /home/julio/temp> Move-Item *.log ../
+PS /home/julio/temp>
+
+```
+
+Hemos movidos desde la carpeta actual todos los archivos log ha la carpeta padre.
+
+El mismos procedimiento sería con los directorios.
+
+Ahora vamos a renombrar el fichero log que tenemos de dos formas.
+
+```PowerShell title=""
+PS /home/julio/temp>  Rename-Item -Path archivo.log -Newname archivo.txt
+PS /home/julio/temp> ls
+archivo.txt
+PS /home/julio/temp>
+#O
+Rename-Item archivo.log  archivo.txt
+```
+
+Observa las dos formas. La primera tenemos dos modificadores o opciones y en la segunda no.
+
+Vamos a copiar archivos o carpetas.
+
+```PowerShell title=""
+PS /home/julio/temp> Copy-Item ./archivo.txt /home/julio/tmp/
+# Copiamos un archivo
+#Ahora vamos a copiar una estructura completa
+PS /home/julio> Copy-Item -Path ./temp -Destination ./tmp -Recurse
+PS /home/julio> Get-ChildItem tmp
+
+
+    Directory: /home/julio/tmp
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           11/4/2024    11:18                temp
+-----           11/4/2024    11:10              0 archivo.txt
+-----            6/3/2024    17:39            237 equipos.txt
+
+PS /home/julio> sl ./tmp/temp/
+PS /home/julio/tmp/temp> dir
+
+
+    Directory: /home/julio/tmp/temp
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           11/4/2024    11:18                casa
+-----           11/4/2024    11:10              0 archivo.txt
+
+
+
+```
+
+

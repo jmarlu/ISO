@@ -1,0 +1,5 @@
+/* @theme el-meu-tema */
+@import "default";
+h1 {
+  color: violet !important;
+}
