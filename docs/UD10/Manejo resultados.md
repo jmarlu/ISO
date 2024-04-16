@@ -146,3 +146,32 @@ d----- Program Files (x86)                   08/05/2021 10:20:24
 d-r--- Users                                 08/05/2021 10:06:51
 d----- Windows                               08/05/2021 10:06:51
 ```
+
+## Redirección
+
+Para redirigir el flujo de salida hacia un archivo podemos utilizar `> y >>`, de la misma manera que en linux Veamos varios ejemplos.
+
+```PowerShell title="Mandar a un archivo"
+PS C:\Users\Administrador.WIN-OT4FJF7Q1AT> Get-Process > .\temp\process.txt
+
+PS C:\Users\Administrador.WIN-OT4FJF7Q1AT\temp> Get-Content .\process.txt
+
+Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
+-------  ------    -----      -----     ------     --  -- -----------
+     92       6      868       4688       0,00   2204   0 AggregatorHost
+    258      14     8600      26888       0,36   4836   1 conhost
+```
+
+Por ejemplo si queremos redirigir el canal de error, que es el mismo que en linux, a un archivo, lo podemos realizar de la siguiente manera.
+
+```PowerShell title=""
+ C:\Users\Administrador.WIN-OT4FJF7Q1AT\temp>  Get-ChildItem C:\Temp\DirInexistente 2> .\err.txt
+>>
+PS C:\Users\Administrador.WIN-OT4FJF7Q1AT\temp> Get-Content .\err.txt
+Get-ChildItem : No se encuentra la ruta de acceso 'C:\Temp\DirInexistente' porque no existe.
+En línea: 1 Carácter: 2
++  Get-ChildItem C:\Temp\DirInexistente 2> .\err.txt
++  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Temp\DirInexistente:String) [Get-ChildItem], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+```

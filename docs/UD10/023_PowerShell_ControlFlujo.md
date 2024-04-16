@@ -176,6 +176,26 @@ Al igual que ocurre en GNU/Linux, el conjunto puede serlo de cualquier tipo de o
             }
         ```
 
+Otro ejemplo con el misma salida.
+
+!!! example
+
+        ``` PowerShell title=""
+        Foreach ($elemento in Get-Process) {
+
+        "{0} arrancado el : {1}" -f $elemento.Name, $elemento.StartTime
+        }
+
+        ```
+
+        En este segundo forma se utiliza un pipeline.
+        ``` PowerShell title=""
+        Get-Process | Foreach {
+        ’{0} arrancado el : {1}’ -f $_.Name, $_.StartTime
+        }
+
+        ```
+
 !!! note
 
     Las opciones que ofrece PowerShell en cuanto a estructuras de control parece una oferta más completa que la de shellscript, aunque para las tareas que se van a realizar en este módulo, ambos sistemas poseen herramientas suficientes.
