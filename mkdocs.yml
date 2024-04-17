@@ -92,11 +92,10 @@ nav:
       - Introducción: ./UD10/021_IntroducciónPwSh.md
       - Comandos: ./UD10/comandos.md
       - Manejo de Resultados: ./UD10/Manejo resultados.md
-      - Manejo de Resultados: ./UD10/Manejo resultados.md
       - Sintaxis: ./UD10/022_PowerShell_Sintaxis.md
       - Control de flujo: ./UD10/023_PowerShell_ControlFlujo.md
       - Vectores y funciones: ./UD10/024_PowerShell_VectoresFunciones.md
-      - Administración:./UD10/Estandares WMI-CIM.md
+      - Administración: ./UD10/Estandares WMI-CIM.md
       - Actividades: ./UD10/Actividades.md
 theme:
   name: material
