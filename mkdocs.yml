@@ -97,6 +97,14 @@ nav:
       - Vectores y funciones: ./UD10/024_PowerShell_VectoresFunciones.md
       - Administración: ./UD10/Estandares WMI-CIM.md
       - Actividades: ./UD10/Actividades.md
+  - UD11. Integridad y seguridad de la información.:
+      - Seguridad del sistema y de los datos: ./UD11/01_seguridadIntegridad.md
+      - Volúmenes distribuidos: ./UD11/02_VolumenesDistribuidos.md7
+      - Sistemas de tolerancia a fallos: ./UD11/03_toleranciaFallos.md
+      - Encriptación de datos: ./UD11/04_encriptDatos.md
+      - Compresión de datos: ./UD11/05_compresionDatos.md
+      - Discos de arranque y de recuperación.: ./UD11/06_discosArranque
+      - Actividades: ./UD11/Actividades.md
 theme:
   name: material
   icon:
