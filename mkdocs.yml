@@ -103,7 +103,7 @@ nav:
       - Sistemas de tolerancia a fallos: ./UD11/03_toleranciaFallos.md
       - Encriptación de datos: ./UD11/04_encriptDatos.md
       - Compresión de datos: ./UD11/05_compresionDatos.md
-      - Discos de arranque y de recuperación.: ./UD11/06_discosArranque
+      - Discos de arranque y de recuperación.: ./UD11/06_discosArranque.md
       - Actividades: ./UD11/Actividades.md
 theme:
   name: material
