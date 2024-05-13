@@ -37,7 +37,7 @@ Redacta un documento que describa los pasos a seguir así como los comandos nece
 
 ## ACTIVIDADES DE AMPLIACIÓN
 
-1.  Realiza las configuraciones necesarias para crear un RAID 10 en cada uno de los servidores. Debe tener una capacidad de 2 TB. Monta este nuevo volumen donde creas oportuno. Ya sabes, redacta un documento con los pasos y comandos que sigues para su instalación.
+1.  Realiza las configuraciones necesarias para crear un **RAID 10** en cada uno de los servidores. Debe tener una capacidad de 2 TB. Monta este nuevo volumen donde creas oportuno. Ya sabes, redacta un documento con los pasos y comandos que sigues para su instalación.
 
 Necesitarás varios discos duros virtuales más para realizar esta práctica. Llegados a este punto el sistema puede volverse inestable (recuerda que estamos trabajando con sistemas operativos virtualizados). Puedes reutilizar los discos de prácticas anteriores o eliminarlos y colocar los que necesites para la realización de esta práctica.
 
