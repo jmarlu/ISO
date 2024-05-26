@@ -4,7 +4,8 @@ nav:
   - Home: index.html
   # - Examenes:
   #     - Examen 1EVA: ./Examenes/Examen1EVA/examen.md
-  #     - Examne 2EVA: ./Examenes/Examen2EVA/examen.md
+  #     - Examen 2EVA: ./Examenes/Examen2EVA/examen.md
+        - Examen 3EVA: ./Examenes/Examen3EVA/examenbis.md
   - UD1 S.O. Estructura y Virtualización:
       - Estructura: ./UD1/Estructura.md
       - Bios: ./UD1/bios.md
@@ -105,6 +106,13 @@ nav:
       - Compresión de datos: ./UD11/05_compresionDatos.md
       - Discos de arranque y de recuperación.: ./UD11/06_discosArranque.md
       - Actividades: ./UD11/Actividades.md
+
+  - UD12.Respaldo de la información y del sistema operativo:
+      - Copias de seguridad del Sistema: ./UD12/01CopiasSeguriad.md
+      - Recuperación del sistema. Opciones de restauración del Sistema: ./UD12/02Recuperacion.md
+      - Clonación: ./UD12/03Clonacion.md
+      - Configuración y uso de instalaciones desatendidas: ./UD12/04IntalaciónDesatendidas.md
+      - Actividades: ./UD12/Actividades.md
 theme:
   name: material
   icon:
