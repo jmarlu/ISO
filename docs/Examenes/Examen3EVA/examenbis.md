@@ -6,59 +6,42 @@ Dado el siguiente script :
 
 ```PowerShell title="ScriptCopiaSeguridad"
 
-        $FolderPath= 'C:\Users\Administrador.WIN-OT4FJF7Q1AT\temp'
         $ChangeTypes = [System.IO.WatcherChangeTypes]::Created, [System.IO.WatcherChangeTypes]::Deleted, [System.IO.WatcherChangeTypes]::Changed,[System.IO.WatcherChangeTypes]::Renamed
-        Write-Host $FolderPath
-        $watcher = New-Object System.IO.FileSystemWatcher
-        $watcher.Path = $FolderPath
-        $watcher.Filter='\*'
-        $watcher.IncludeSubdirectories = $true
-        $watcher.EnableRaisingEvents = $true
-        $watcher.NotifyFilter=$ChangeTypes
-        $Timeout=1000
+Write-Host $FolderPath
+$watcher = New-Object System.IO.FileSystemWatcher
+$watcher.Path = $FolderPath
+$watcher.Filter='\*'
+$watcher.IncludeSubdirectories = $true
+$watcher.EnableRaisingEvents = $true
+$watcher.NotifyFilter=$ChangeTypes
+$Timeout=1000
 
-        function Backup-Folder {
-        $backupFolder = "C:\Backup" # Carpeta donde se almacenarán los respaldos
+function Backup-Folder {
+    $backupFolder = "C:\Backup"  # Carpeta donde se almacenarán los respaldos
 
-            # Crear la carpeta de respaldo si no existe
-            if (-not (Test-Path -Path $backupFolder)) {
-                New-Item -ItemType Directory -Path $backupFolder | Out-Null
-            }
+    # Crear la carpeta de respaldo si no existe
+    if (-not (Test-Path -Path $backupFolder)) {
+        New-Item -ItemType Directory -Path $backupFolder
+    }º
 
-            # Nombre del archivo de respaldo
-            $backupFileName = "Backup_$FolderPath= 'C:\Users\Administrador.WIN-OT4FJF7Q1AT\temp'
-        $ChangeTypes = [System.IO.WatcherChangeTypes]::Created, [System.IO.WatcherChangeTypes]::Deleted, [System.IO.WatcherChangeTypes]::Changed,[System.IO.WatcherChangeTypes]::Renamed
-        Write-Host $FolderPath
-        $watcher = New-Object System.IO.FileSystemWatcher
-        $watcher.Path = $FolderPath
-        $watcher.Filter='\*'
-        $watcher.IncludeSubdirectories = $true
-        $watcher.EnableRaisingEvents = $true
-        $watcher.NotifyFilter=$ChangeTypes
-        $Timeout=1000
+    # Nombre del archivo de respaldo
+    $backupFileName = "Backup_$(Get-Date -Format 'yyyyMMdd_HHmmss').zip"
+    $backupFilePath = Join-Path -Path $backupFolder -ChildPath $backupFileName
 
-        function Backup-Folder {
-        $backupFolder = "C:\Backup" # Carpeta donde se almacenarán los respaldos
+    # Crear el archivo de respaldo
+    Compress-Archive -Path $FolderPath -DestinationPath $backupFilePath -Force
 
-            # Crear la carpeta de respaldo si no existe
-            if (-not (Test-Path -Path $backupFolder)) {
-                New-Item -ItemType Dire$(Get-Date -Format 'yyyyMMdd_HHmmss').zip"
-            $backupFilePath = Join-Path -Path $backupFolder -ChildPath $backupFileName
+    Write-Output "Backup realizado: $backupFilePath"
+}
 
-            # Crear el archivo de respaldo
-            Compress-Archive -Path $FolderPath -DestinationPath $backupFilePath -Force
+do {
 
-            Write-Output "Backup realizado: $backupFilePath"
+    $result = $watcher.WaitForChanged($ChangeTypes, $Timeout)
+     if ($result.TimedOut) { continue }
+     Backup-Folder
 
-        }
+} while ($true)
 
-        do {
-
-            $result = $watcher.WaitForChanged($ChangeTypes, $Timeout)
-            if ($result.TimedOut) { continue }
-            Backup-Folder
-
-        } while ($true)
 ```
 
 ## Ejercicio 1
