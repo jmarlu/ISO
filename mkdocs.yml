@@ -2,10 +2,10 @@ site_name: IMPLANTACIÓN DE SISTEMAS OPERATIVOS
 site_url: https://example.com/
 nav:
   - Home: index.html
-  - Exámenes:
-      #     - Examen 1EVA: ./Examenes/Examen1EVA/examen.md
-      #     - Examen 2EVA: ./Examenes/Examen2EVA/examen.md
-      # - Examen 3EVA: ./Examenes/Examen3EVA/examenbis.md
+    # - Exámenes:
+    #     - Examen 1EVA: ./Examenes/Examen1EVA/examen.md
+    #     - Examen 2EVA: ./Examenes/Examen2EVA/examen.md
+    # - Examen 3EVA: ./Examenes/Examen3EVA/examenbis.md
 
   - UD1 S.O. Estructura y Virtualización:
       - Estructura: ./UD1/Estructura.md
