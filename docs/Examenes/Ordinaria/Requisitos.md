@@ -26,10 +26,10 @@ Actividades Obligatorias que tenéis que superar y entregar:
 
 Estas actividades serán entregadas en pdf o tendrás que realizar los cuestionarios.
 
-Descripción del examen (Si y solo si tenéis el RA5 suspendido):
+**Descripción del examen** (Si y solo si tenéis el RA5 suspendido):
 
-Estará compuesto por dos ejercicios un script sobre Linux y otro de Powershell. Todos ellos pertenecientes al **RA5**.
+Estará compuesto por dos ejercicios: un script sobre Linux y otro de Powershell. Todos ellos pertenecientes al **RA5**.
 
-!!! example "Posible Caso"
+!!! example "Ejemplo"
 
     Un alumno tiene sólo suspendido el RA5 se tendrá que presentar al examen y entregarme las actividades   Actividad 2.7, Actividad 2.8 en Aules en la **sección Ordinaria**.
