@@ -1,11 +1,11 @@
 # Actividades
 
-## Introducción
+## Actividad 1
 
 1. Instala cuatro discos duros de 1TB de tamaño, expansión dinámica y del tipo SAS en cada uno de los servidores. Utiliza un nuevo controlador para contener todos los discos. Deberás apagar la máquina virtual para poder hacerlo, pero recuerda que en la realidad este hardware se puede instalar “en caliente”. Describe el proceso que sigues para hacer esta instalación y activar los discos en el sistema operativo en un documento.
 2. En el equipo **ServidorWindows**, configura dos grupos de almacenamiento denominado grupo1 (primer y tercer disco instalados) y grupo2 (segundo y cuarto disco instalados). Luego transforma cada uno en un volumen con sistema de archivos NTFS. Asigna las letras X: al primero y K: al segundo. Comprueba que todo funciona de forma adecuada. Escribe un documento con los pasos que sigues para realizar esta configuración
 
-## ACTIVIDADES DE DESARROLLO
+## Actividad 2
 
 1. En el servidor **ServidorUbuntu**, divide los cuatro discos en tres particiones del mismo tamaño (aproximadamente). Con LVM configura tres volúmenes lógicos:
    - el primero con las primeras particiones de los tres primeros discos y con el nombre “Feo1”
@@ -35,7 +35,7 @@ Redacta un documento que describa los pasos a seguir así como los comandos nece
 
 10. Crea un **disco de arranque **en una unidad USB real capturada por la máquina virtual a través de la utilidad dd. El disco de arranque será de la versión Ubuntu Desktop utilizada en los clientes. Comprueba que funciona de forma correcta. Redacta una guía con los pasos que sigues y los comandos necesarios para realizar esta tarea.
 
-## ACTIVIDADES DE AMPLIACIÓN
+## Actividad 3
 
 1.  Realiza las configuraciones necesarias para crear un **RAID 10** en cada uno de los servidores. Debe tener una capacidad de 2 TB. Monta este nuevo volumen donde creas oportuno. Ya sabes, redacta un documento con los pasos y comandos que sigues para su instalación.
 
