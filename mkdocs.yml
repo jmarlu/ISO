@@ -7,6 +7,8 @@ nav:
       #     - Examen 2EVA: ./Examenes/Examen2EVA/examen.md
       # - Examen 3EVA: ./Examenes/Examen3EVA/examenbis.md
       - Examen Ordinaria: ./Examenes/Ordinaria/Requisitos.md
+          - Examen: ./Examenes/Ordinaria/ExamenOrd.md
+
   - UD1 S.O. Estructura y Virtualización:
       - Estructura: ./UD1/Estructura.md
       - Bios: ./UD1/bios.md
