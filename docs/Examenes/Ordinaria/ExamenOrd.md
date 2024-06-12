@@ -2,7 +2,7 @@
 
 ## Ejercicio 1 (RA5 --> 50%)
 
-Genera un script con el nombre `script2.sh` que:
+Genera un script con el nombre `expore.sh` que:
 
 - Espere **dos argumentos**, el primero de ellos será un directorio y el segundo un fichero. Se debe comprobar que se han pasado exactamente 2 argumentos y que el primero de ellos es
   un directorio y el segundo un fichero.**Condición para corregir el ejercicio.(2pts)**
@@ -20,6 +20,10 @@ Genera un script con el nombre `script2.sh` que:
   con el nombre correspondiente, por cada línea con fic debe crear un fichero con el nombre correspondiente. **(4pts)**
 - Al finalizar el script debe de indicar el número de ficheros/directorios creados. Por un lado debe indicar los ficheros creados y por otro los directorios, NO LA SUMA DE AMBOS. Por
   ejemplo Ficheros creados: 2 Directorios creados: 2 **(4pts)**
+
+!!! note "Ejercicio shellScript"
+
+    Me tenéis que entregar el fichero explore.sh
 
 ## Ejercicio 2 (RA5 --> 30%)
 
@@ -66,11 +70,11 @@ do {
 
 ```
 
-## Ejercicio 1
+### Ejercicio 1 (60%)
 
 Analiza y describe **con vuestras palabras (no copiar y pegar) y pormenorizadamnete**, es decir todas sus instrucciones y concluye con la utilidad del mismo. Para ello tendrás la ayuda que nos proporciona windows tanto online como offline.
 
-## Ejercicio 2
+### Ejercicio 2 (40%)
 
 Modifica el mismo para que sea obligatorio la introducción como parámetro del directorio en cuestión es decir:
 
@@ -82,3 +86,10 @@ Modifica el mismo para que sea obligatorio la introducción como parámetro del 
 !!! note "Ejercicio Powershell"
 
     Me tenéis que entregar dos ficheros el primero con las explicaciones en formato pdf y el segundo .ps1.
+
+!!! note "Porcentaje de las notas"
+
+    Para este RA los porcentajes son las siguietentes:
+    - Ejercicio 1 examen 50%
+    - Ejercicio 2 examen 30%
+    - Actividades 20%
