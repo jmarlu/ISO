@@ -1,8 +1,8 @@
-# Examen Ordinario.
+# Examen Extraordinario
 
 ## Ejercicio 1 (RA5 --> 50%)
 
-Genera un script con el nombre `expore.sh` que:
+Genera un script con el nombre `explore.sh` que:
 
 - Espere **dos argumentos**, el primero de ellos será un directorio y el segundo un fichero. Se debe comprobar que se han pasado exactamente 2 argumentos y que el primero de ellos es
   un directorio y el segundo un fichero.**Condición para corregir el ejercicio.(2pts)**
