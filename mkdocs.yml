@@ -15,7 +15,7 @@ nav:
       - Estructura: ./UD1/Estructura.md
       - Bios: ./UD1/bios.md
       - Virtualización: ./UD1/virtual.md
-      - LXD: ./UD1/lxd.md
+      # - LXD: ./UD1/lxd.md
       - Actividades: ./UD1/Actividades.md
 
   - UD2 Configuración de los SO:

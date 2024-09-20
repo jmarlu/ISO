@@ -67,7 +67,7 @@ Hay que tener en cuenta que algunas de las preguntas no las podrás contestar al
 7.  Realiza el **clonado** de las máquinas que disponen de un sistema operativo de red.
 8.  Realiza una **clonación enlazada** de cada uno de los clientes. Estas nuevas máquinas **serán utilizadas para la realización de las actividades. Las máquinas originales se guardarán como copia de seguridad en caso necesario**.
 
-## Actividad 5. Creación de máquinas virtuales. LXD
+<!-- ## Actividad 5. Creación de máquinas virtuales. LXD
 
 Con finalidades didácticas se va a utilizar como host anfitrión de los contenedores una MV con Ubuntu Desktop. Pero realmente esta configuración tendrá más gracia **si el host es el ordenador físico**.
 
@@ -80,14 +80,14 @@ Con finalidades didácticas se va a utilizar como host anfitrión de los contene
 7. Encender un contenedor detenido
 8. ¿Qué cantidad de memoria RAM está disponible para el contenedor? ¿Cómo la puede limitar a 1GiB?
 9. Agregue una segunda interfaz de red al contenedor.
-10. Eliminar un contenedor
+10. Eliminar un contenedor -->
 
 <!-- ## Actividad 5. Creación de máquinas virtuales en Windows.LXD.
 
 Vamos a crear contenedores lxc, pero ahora desde Windows. Para lo cual deberás ver el siguiente [video](https://www.youtube.com/watch?v=KcSB2B3N4Fg). La actividad consistirá
 Para llevar a cabo este ejercicio date cuenta que tienes que instalar en windows el gestor de paquetes llamado [chocolatey](https://chocolatey.org/). -->
 
-## Actividades 6.De refuerzo.
+## Actividades. De refuerzo.
 
 1.  Añade un nuevo disco duro virtual a las máquinas virtuales que contendrán los sistemas operativos de red. Estos discos tendrán una capacidad de 1 TB, SATA y de expansión dinámica. Para hacerlo, sigue estos pasos:
 
@@ -104,7 +104,7 @@ Para llevar a cabo este ejercicio date cuenta que tienes que instalar en windows
     - ahora ve a <span class="menu">Configuración</span> → <span class="menu">Sistema</span> y comprueba que la unidad óptica está delante del disco duro en la secuencia de arranque. Si no es así, modifica el orden con las flechas que aparecen a la derecha
     - **inicia la máquina** y sigue el asistente de instalación del sistema operativo.
 
-## Actividad 7. De Ampliación.
+## Actividad. De Ampliación.
 
 1.  Investiga el modo de utilización de los modos de medios virtuales inmutable, compartible y multiconexión. Identifica sus diferencias y pon un ejemplo de uso en cada caso.
 2.  Para las máquinas virtuales con un sistema operativo de red, encripta el disco duro principal. Recuerda que para ello deberás instalar las herramientas de VirtualBox Extension Pack. Redacta una breve guía de como se realizan estos pasos y súbela al Moodle del módulo.
