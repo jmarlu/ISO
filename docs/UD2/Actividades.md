@@ -82,4 +82,4 @@ Conecta un nuevo disco duro a la máquina que contiene el sistema operativo de r
 
 !!! warning
 
-      **SOLO LAS ACTIVIDADES 1,2,3,4,5 SON OBLIGATORIAS.**
+      **SOLO LAS ACTIVIDADES 1,2,3,4,5 SON OBLIGATORIAS.**. No se puede utilizar comandos no vistos en la teoría a no ser que en el ejercicio lo indique.

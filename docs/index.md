@@ -41,25 +41,25 @@ Las unidades de trabajo (UT) se han planificado según el [calendario escolar 20
 
 #### 1er Trimestre
 
-- UD1.Sistemas operativos.Virtualización. (16 horas, del 25/09/23 al 06/10/23)
-- UD2.Configuración de sistemas operativos.(16 horas, del 10/10/23 al 20/10/23)
-- UD3.Administración de software base y aplicaciones.(16 horas, del 23/10/23 al 3/11/23)
-- UD4.Instalación de servicios de directorio. (16 horas, del 6/11/23 al 17/11/23)
+- UD1.Sistemas operativos.Virtualización. (16 horas)
+- UD2.Configuración de sistemas operativos.(16 horas)
+- UD3.Administración de software base y aplicaciones.(16 horas)
+- UD4.Instalación de servicios de directorio. (16 horas)
 
 #### 2º Trimestre
 
-- UD5.Configuración de servicios de directorio (16 horas, del 20/11/23 al 1/11/23)
-- UD6.Administración de usuarios locales y de red.(16 horas, del 8/01/24 al 19/01/24)
-- UD7.Administración de objetos y políticas de grupo.(16 horas, del 22/01/24 al 3/01/24)
-- UD8.Administración de recursos y permisos de acceso.(16 horas, del 05/02/24 al 16/02/24)
-- UD9.Introducción a Shell Script en GNU/Linux (16 horas, del 19/02/24 al 1/03/24)
-- UD10 Introducción a PowerShell en Microsoft Windows.(16 horas, del 04/03/24 al 15/03/24)
+- UD5.Configuración de servicios de directorio (16 horas)
+- UD6.Administración de usuarios locales y de red.(16 horas)
+- UD7.Administración de objetos y políticas de grupo.(16 horas)
+- UD8.Administración de recursos y permisos de acceso.(16 horas)
+- UD9.Introducción a Shell Script en GNU/Linux (16 horas)
+- UD10 Introducción a PowerShell en Microsoft Windows.(16 horas)
 
 #### 3er Trimestre
 
-- UD11. Integridad y seguridad de la información. (16 horas, del 09/04/24 al 19/04/24)
-- UD12. Respaldo de la información y del sistema operativo.(16 horas, del 22/04/24 al 03/05/24)
-- UD13. Asistencia Remota al usuario y resolución de incidencias(16 horas, del 06/04/24 al 17/04/24)
+- UD11. Integridad y seguridad de la información. (16 horas)
+- UD12. Respaldo de la información y del sistema operativo.(16 horas)
+- UD13. Asistencia Remota al usuario y resolución de incidencias(16 horas)
 
 <!--
 ````mermaid
