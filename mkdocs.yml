@@ -5,10 +5,10 @@ nav:
   - Exámenes:
       #     - Examen 1EVA: ./Examenes/Examen1EVA/examen.md
       #     - Examen 2EVA: ./Examenes/Examen2EVA/examen.md
-      # - Examen 3EVA: ./Examenes/Examen3EVA/examenbis.md
-      # - Examen Ordinaria: ./Examenes/Ordinaria/ExamenOrd.md
-      # - Examen Ordinaria Requisitos: ./Examenes/Ordinaria/Requisitos.md
-      # - Examen Extraordinaria Requisitos: ./Examenes/Extraordinaria/Requisitos.md
+      #    - Examen 3EVA: ./Examenes/Examen3EVA/examenbis.md
+      #    - Examen Ordinaria: ./Examenes/Ordinaria/ExamenOrd.md
+      #    - Examen Ordinaria Requisitos: ./Examenes/Ordinaria/Requisitos.md
+      #   - Examen Extraordinaria Requisitos: ./Examenes/Extraordinaria/Requisitos.md
       # - Examen Extraordinaria: ./Examenes/Extraordinaria/ExamenExtra.md
 
   - UD1 S.O. Estructura y Virtualización:
