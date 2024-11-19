@@ -8,8 +8,8 @@ nav:
       # - Examen 3EVA: ./Examenes/Examen3EVA/examenbis.md
       # - Examen Ordinaria: ./Examenes/Ordinaria/ExamenOrd.md
       # - Examen Ordinaria Requisitos: ./Examenes/Ordinaria/Requisitos.md
-      - Examen Extraordinaria Requisitos: ./Examenes/Extraordinaria/Requisitos.md
-      - Examen Extraordinaria: ./Examenes/Extraordinaria/ExamenExtra.md
+      # - Examen Extraordinaria Requisitos: ./Examenes/Extraordinaria/Requisitos.md
+      # - Examen Extraordinaria: ./Examenes/Extraordinaria/ExamenExtra.md
 
   - UD1 S.O. Estructura y Virtualización:
       - Estructura: ./UD1/Estructura.md
