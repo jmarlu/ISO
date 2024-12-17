@@ -121,6 +121,8 @@ sudo apt-get install krb5-user samba sssd ntp
 
 ```
 
+Aquí tenéis un [link] (https://ubuntu.com/server/docs/how-to-set-up-sssd-with-active-directory) de donde he sacado estos apuntes.
+
 Durante la instalación de Kerberos, se preguntará el reino (realm) al que se unirá. En realidad, se refiere al nombre del dominio, que debe ser escrito en mayúsculas. En el ejemplo: _MIEMPRESAFEA.LOCAL_
 
 Una vez instalados los paquetes con sus dependencias, se procederá a su configuración, empezando con Kerberos. Con la información especificada durante la instalación, el nombre del dominio, o reino en la terminología Kerberos, debería ser suficiente. Sin embargo, es recomendable añadir un par de datos a su configuración para que se comporte de forma adecuada en el dominio:

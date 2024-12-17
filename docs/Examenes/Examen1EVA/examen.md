@@ -23,4 +23,4 @@ soluciones:
 
 1. Crea una tarea con systemd.timer, que se lance el 10 de diciembre de 2024, consistente en contar el número de ficheros mayores de 2MB, del usuario root. El resultado de este comando debe almacenarse en el fichero `~/ej1`
 2. Configurar el sistema para montar en el arranque, la partición `/dev/sdb` en el directorio `~/D2`,**sobre el disco duro anteriormente montado**, en **modo lectura y escritura** de forma que **no** se permita la ejecución de programas de dicha partición. Además debe chequearse periódicamente la partición en el arranque del sistema.¿Cómo vemos todos los elementos que tenemos montados?
-3. Para el servicio SSH y asegúrate de que no se ejecuta durante el inicio del sistema.(reinicia la máquina). Vuelve a activarlo.(primero tendrás que verificar que tengas ese servicio y si no lo tendrás que instalar en el contenedor)
+3. Para el servicio SSH y asegúrate de que no se ejecuta durante el inicio del sistema.(reinicia la máquina). Vuelve a activarlo.(primero tendrás que verificar que tengas ese servicio y si no lo tendrás que instalar en la máquina)
