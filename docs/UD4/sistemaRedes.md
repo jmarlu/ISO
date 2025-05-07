@@ -1,4 +1,4 @@
-y# Sistema de organización de redes
+# Sistema de organización de redes
 
 Si no se concibe un ordenador sin sistema operativo que lo administre, tampoco debe existir una red de cierta entidad sin sistema operativo de red que la gestione. Éste será el encargado de gestionar los elementos que componen la red a través de una serie de herramientas y capacidades que los sistemas operativos clientes, los vistos hasta el ahora, no disponen. Ofrecen y administran recursos y servicios al resto de ordenadores que componen la red vigilando el acceso y uso de los mismos.
 

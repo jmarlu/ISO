@@ -262,3 +262,67 @@ A continuación se muestran los problemas de red más comunes y algunas solucion
 | La detección de redes y el uso compartido de archivos están desactivados (sólo Microsoft Windows). | Activar la detección de redes y el uso compartido de archivos (sólo Microsoft Windows). |
 
 Esta es una pequeña muestra de los problemas y las posibles soluciones específicas de red. El espectro de posibles problemas y soluciones es mucho más amplio.
+
+## ¿Cómo vamos a trabajar?
+
+Voy a explicar el modo más difícil que es en Linux. Vamos a disponer de la siguiente configuración.
+
+![alt text](img/ConfiguraciónREd.png)
+
+Si observamos, tenemos dos interfaces de red en la máquina virtual de Ubuntu server. **La primera interfaz** adaptador puente (**en el primer tema está explicado**) la utilizaremos para configurar y manipular el Servidor ubuntu mediante ssh. **La segunda interfaz**, vamos a utilizar una red Nat que nos crea una red privada con salida a Internet.
+
+Vamos a configurar el servidor Ubuntu la red NAT . Previamente debe estar creada y configurada en Virtual Box.
+
+![alt text](img/virtualRedNat.png).
+
+Como vemos en la siguiente imagen he creado una red nat llamada NATlinux. Con un **rango de IPS** , en el que se ha **deshabilitado** el DHCP. Que supone esta configuración que en el interfaz de red que se crea en la maquina virtual asociado a esta configuración, pues que no se le puede asignar una IP fuera de ese rango y tampoco se asigna una IP de forma automática.
+
+```bash title="configuración de los ficheros de red"
+
+ad@ServidorUbuntu:/etc/netplan$ sudo cat 01-netcfg.yaml
+[sudo] password for ad:
+     network:
+       version: 2
+       ethernets:
+         enp0s3: # Interfaz para realizar una red con el cliente y crear poder salir a internet
+           dhcp4: false
+           addresses:
+             - 10.0.3.3/24 # Dirección que se le pone al host
+           routes:
+             - to: default #Esto cambia con la anterior configuración
+               via: 10.0.3.1
+           nameservers:
+             search: [ ejemplo.local ]
+             addresses:
+               - 8.8.8.8
+               - 8.8.4.4
+         enp0s8: #Interfaz para comunicarnos con el ordenador anfitrión mediante ssh y facilitarnos su configuración
+           dhcp4: true (el router asignará una ip, es decir como si estuviera en la red)
+
+```
+
+Puede ser que dentro de `/etc/netplan/` haya varios fichero. Estos vienen marcados con un número en su nombre **que va a dar la prioridad.**
+Como configuramos el cliente que se va a conectar con ubuntu server.
+
+```bash title="configuración de los ficheros de red del cliente Ubuntu "
+
+sudo cat /etc/netplan/01-network-manager-all.yaml
+
+# Let NetworkManager manage all devices on this system
+network:
+  version: 2
+  renderer: NetworkManager
+  ethernets:
+    enp0s3:
+        dhcp4: no (# No tenemos DHCP, si no fuera true y lo de bajo no valdría)
+        addresses:
+          - 10.0.3.5/24
+        routes:
+            - to: default
+              via: 10.0.3.1
+        nameservers:
+          search: [example.local]
+          addresses:
+            - 10.0.3.3
+
+```

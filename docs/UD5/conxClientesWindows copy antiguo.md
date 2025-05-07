@@ -67,7 +67,8 @@ Además de este fichero, es necesario modificar el /etc/hosts. Aquí es el prime
 ```bash title=""
 127.0.0.1 localhost
 127.0.1.1 cliente-ubuntu01 cliente-ubuntu01.miempresafea.local
-
+10.0.3.3(#Cambiarla por la de tu servidor) ServidorUbuntu.miempresafea.local ServidorUbuntu
+10.0.3.3 (#Cambiarla por la de tu servidor)  miempresafea.local miempresafea
 
 # The following lines are desirable for IPv6 capable hosts
 
@@ -124,6 +125,54 @@ sudo apt install sssd-ad sssd-tools realmd adcli
 ```
 
 Aquí tenéis un [link] (https://documentation.ubuntu.com/server/how-to/sssd/with-active-directory/?_gl=1*ml0eoq*_gcl_au*MTkwMTQwNjgzMi4xNzM3NjM1MzU3&_ga=2.145475508.104790640.1738153494-1149087011.1715791238) de donde he sacado estos apuntes.
+
+Durante la instalación de Kerberos, se preguntará el reino (realm) al que se unirá. En realidad, se refiere al nombre del dominio, que debe ser escrito en mayúsculas. En el ejemplo: _MIEMPRESAFEA.LOCAL_
+
+Una vez instalados los paquetes con sus dependencias, se procederá a su configuración, empezando con Kerberos. Con la información especificada durante la instalación, el nombre del dominio, o reino en la terminología Kerberos, debería ser suficiente. Sin embargo, es recomendable añadir un par de datos a su configuración para que se comporte de forma adecuada en el dominio:
+
+- **ticket_lifetime**: indica el tiempo durante el que será válida la autenticación obtenida mediante el servidor Kerberos.
+- **renew_lifetime**: indica el tiempo durante el que se puede pedir la renovación de una autenticación anterior. Si el tiempo indicado aquí es mayor que el expresado en ticket_lifetime, será posible renovar la concesión antes de la sesión caduque, sin tener que volver a iniciar sesión.
+
+Esta información se va incluir en el archivo /etc/krb5.conf
+
+```bash
+sudo vim /etc/krb5.conf
+
+```
+
+Hay que asegurar que el reino coincide con el dominio comprobando esta sección del fichero
+
+```bash
+
+[libdefaults]
+default_realm = MIEMPRESAFEA.LOCAL
+Además, se añaden los dos valores anteriores, quedando esta sección de la siguiente manera
+[libdefaults]
+default_realm = MIEMPRESAFEA.LOCAL
+ticket_lifetime = 24h #
+renew_lifetime = 5d
+```
+
+Se establece que la concesión del ticket es de 24 horas y que es posible renovarlo durante 5 días. Se guardan los cambios y se cierra la ventana del editor.
+
+Turno de Samba, requisito necesario para poder comunicarse con Active Directory. El archivo de configuración es `/etc/samba/smb.conf` que se editará como de costumbre. Hay que localizar la sección [global] del fichero y realizar los siguientes cambios
+
+```bash title=""
+[global]
+
+## Browsing/Identification
+
+# Change this to the workgroup/NT-domain namo your Samba server will part of
+
+    workgroup = MIEMPRESAFEA
+    client singing = yes
+    client use spnego = yes
+    Kerberos method = secrets and keytab
+    realm = MIEMPRESAFEA.LOCAL
+    security = ads
+```
+
+No es ocioso encarecer que tanto el workgroup (nombre NetBIOS) y el realm (nombre de domino) se deben adaptar a cada proyecto.
 
 Por último, será necesaria la configuración del servidor **SSSD**, pero en este caso, habrá que crear un archivo de configuración desde cero. Hay que tener en cuenta que los permisos y el propietario de este fichero serán del usuario que lo ha creado, y no es el servicio que lo va a usar. Por este motivo, una vez terminada su edición, habrá que dotarlo de los permisos y propiedad adecuados, los del usuario root
 

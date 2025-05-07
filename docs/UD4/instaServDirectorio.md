@@ -68,15 +68,19 @@ Al finalizar el proceso de instalación y tras el reinicio, en el panel de admin
 ## Instalación de servicios de directorio en Ubuntu Server
 
 El proceso de instalación en sistemas basados en GNU/Linux es mucho más descriptivo e interesante. Los servicios se han de instalar uno a uno y conectarse entre sí. Esta instalación ofrece una nueva visión del proceso mucho más cercana y con menos capas de abstracción, lo que se traduce en un aumento de las complicaciones para el administrador. A pesar de ello, este sistema permite un mayor control sobre los componentes y una visión más clara de como funciona el servicio de directorio al completo.
+
 Antes de iniciar la instalación de Samba y convertir el equipo en un controlador de dominio, es recomendable actualizar los repositorios de apt-get y revisar las actualizaciones del sistema operativo. Así se asegurará que se utiliza la última versión del software.
 
-```bash title="Actulización de la base de datos y de los paquetes"
+```bash title="Actualización de la base de datos y de los paquetes"
 sudo apt-get update
 sudo apt-get upgrade
 
 ```
 
 La primera comprobación que hay que realizar el que el nombre del equipo sea el correcto. Para ello comprobamos el fichero `/etc/hostname`, en el caso de este ejemplo el nombre del equipo es ServidorUbuntu. Si es necesario cambiar el nombre, es posible modificando el nombre en este fichero. Los cambios aparecerán tras el reinicio de la sesión.
+También podemos cambiar el nombre del servidor mediante el comando:
+
+`sudo hostnamectl set-hostname ServidorUbuntu`
 
 Otro fichero que se ha de configurar es el `/etc/hosts`, que nos permite relacionar la IP y el nombre del equipo. Se establecerá la correspondencia entre la IP del servidor, el nombre de equipo y el **FQDN (Fully Qualified Domain Name)** de este modo: ServidorUbuntu.miempresafea.local.
 
@@ -90,7 +94,7 @@ El fichero debe quedar de este modo:
 
 ```bash title="Fichero de configuración"
 127.0.0.1 localhost
-192.168.100.100 ServidorUbuntu.miempresafea.local ServidorUbuntu
+10.0.3.3 (**Nota: tendréis que cambiarlo, ya que esta es mi IP**) ServidorUbuntu.miempresafea.local ServidorUbuntu
 # The following lines are desirable for IPv6 capable hosts
 
 ::1 localhost ip6-localhost ip6-loopback
@@ -99,10 +103,70 @@ ff02::2 ip6-allrouters
 
 ```
 
+Vamos a comprobar el nombre del dominio completo(FQDN) del servidor con el siguiente comando
+
+`hostname -f`
+
+Ahora vamos a verificar que resuelve la dirección IP
+
+`ping -c2 ServidorUbuntu.miempresafea.local`
+
+También será necesario eliminar el archivo `resolv.conf` encargado de redireccionar las peticiones de DNS. Pero antes de todo tenemos que parar el servicio asociado.
+
+`sudo systemctl disable --now systemd-resolved`
+
+Primero se comprueba la existencia de enlace.
+
+```bash title=""
+ll /etc/resolv.conf
+```
+
+comando que mostrará la configuración de dicho enlace.Si existe deberíamos quitar el enlace con
+
+```bash title="quiter el enlace"
+sudo unlink /etc/resolv.conf
+```
+
+Ahora deberíamos quitar la inmutabilidad del archivo con el siguiente comando:
+
+```bash title=""
+sudo chattr -a -i /etc/resolv.conf
+```
+
+Y se elimina el archivo
+
+```bash title="borrar"
+sudo rm /etc/resolv.conf
+```
+
+y se crea uno nuevo con la configuración requerida
+
+```bash title=""
+sudo nano /etc/resolv.conf
+```
+
+que contendrá los siguientes datos
+
+```bash title="Datos del fichero resolv"
+domain MIEMPRESAFEA.LOCAL
+nameserver 127.0.0.1
+nameserver 8.8.8.8 (google)
+nameserver 10.0.3.3 (**Nota: tendréis que cambiarlo ya que esta es mi ip**)
+search MIEMPRESAFEA.LOCAL
+```
+
+Ahora hay que hacer inmutable el archivo /etc/resolv.conf
+
+```bash title="inmutabilidad"
+sudo chattr +i /etc/resolv.conf
+```
+
+## Instalación de SAMBA
+
 Ya está todo listo para instalar Samba en el servidor. Para variar, la instalación se realiza a través del siguiente comando:
 
 ```bash title="Instalación SAMBA"
-sudo apt-get install samba krb5-config winbind smbclient
+sudo apt install samba krb5-config winbind smbclient acl attr libpam-winbind libnss-winbind libpam-krb5 krb5-user dnsutils net-tools
 
 ```
 
@@ -125,6 +189,21 @@ Antes de pasar a configurar _samba_, es conveniente hacer una copia del fichero 
 sudo mv /etc/samba/cmb.conf /etc/samba/smb.conf.copia
 ```
 
+A continuación es necesario detener varios servicios instalados con anterioridad y que ahora serán gestionados a través de Samba. Se paran y se deshabilitan
+
+```bash title="deshabilitan servicios no necesarios"
+
+sudo systemctl stop smbd nmbd winbind systemd-resolved
+sudo systemctl disable smbd nmbd winbind
+```
+
+Ahora desenmascaramos el servicio que se encargará de las tareas de los que se acaban de desactivar
+
+```bash title="Desbloquear el servicio"
+sudo systemctl unmask samba-ad-dc
+sudo systemctl enable samba-ad-dc
+```
+
 Ahora sí, lanzamos el la configuración del servicio:
 
 ```bash title="Configuración de Samba"
@@ -137,7 +216,7 @@ Una vez lanzado el asistente, irá preguntando los datos necesarios para la conf
 - **Domain** → MIEMPRESAFEA
 - **Server** Role → dc
 - **DNSbackend** → SAMBA_INTERNAL
-- **DNSforwarder IP address** → 8.8.8.8 (este dato sí hay que cambiarlo ya que de este modo podremos salir al otras redes. Para ello usamos el servicio DNS de Google).
+- **DNSforwarder IP address** → 8.8.8.8 (este dato sí hay que cambiarlo ya que de este modo podremos salir a otras redes. Para ello usamos el servicio DNS de Google).
 - **Administrator** password → **P4ssw0rd** (durante el proceso de creación del directorio se crea al administrador que recibe el nombre de administrator, en inglés.)
 
 La opción elegida en la línea DNS backend, es la SAMBA_INTERNAL. Esto quiere decir que será el propio Samba el que gestionará el servicio de resolución de nombres. Esta es la opción más fácil de implementar, aunque es posible instalar otro servicio de DNS como **Bind 9**. En esta configuración se dejará la opción por defecto.
@@ -177,16 +256,6 @@ sudo mv /var/lib/samba/private/krb5.conf /etc/
 
 ```
 
-A continuación es necesario detener varios servicios instalados con anterioridad y que ahora serán gestionados a través de Samba. Se paran y se deshabilitan
-sudo systemctl stop smbd nmbd winbind systemd-resolved
-sudo systemctl disable smbd nmbd winbind systemd-resolved
-
-Ahora desenmascaramos el servicio que se encargará de las tareas de los que se acaban de desactivar
-
-```bash title="Desbloquear el servicio"
-systemctl unmask samba-ad-dc
-```
-
 Si todo ha ido de forma correcta, el terminal responderá con este mensaje
 
 ```bash title="Mensaje"
@@ -195,31 +264,6 @@ Removed /etc/systemd/system/samba-ad-dc.service
 ```
 
 Para más información. Mira este [link](https://wiki.samba.org/index.php/Managing_the_Samba_AD_DC_Service_Using_Systemd#Introduction)
-
-También será necesario eliminar el archivo `resolv.conf` encargado de redireccionar las peticiones de DNS. Primero se comprueba la existencia de enlace
-
-```bash title=""
-ll /etc/resolv.conf
-```
-
-comando que mostrará la configuración de dicho enlace. Se elimina
-
-```bash title="borrar"
-sudo rm /etc/resolv.conf
-```
-
-y se crea uno nuevo con la configuración requerida
-
-```bash title=""
-sudo nano /etc/resolv.conf
-```
-
-que contendrá los siguientes datos
-
-```bash title="Datos del fichero resolv"
-domain MIEMPRESAFEA.LOCAL
-nameserver 127.0.0.1
-```
 
 Ya está todo listo para activar el servicio de Samba
 
@@ -236,7 +280,7 @@ sudo systemctl enable samba-ad-dc
 Tras esto, se comprueba que el equipo ofrece el servicio de Active Directory y en qué nivel funcional lo hará
 
 ```bash title=""
-samba-tool domain level show
+sudo samba-tool domain level show
 ```
 
 comando que mostrará la siguiente información
@@ -250,6 +294,6 @@ Lowest function level of a DC: (Windows) 2008
 
 ```
 
-Un detalle a tener en cuenta es que, a diferencia de Microsoft Windows Server 2016, este sistema sí admite usuarios locales en el equipo. No es nada relevante ya este equipo se dedicará únicamente a la gestión del controlador de dominio, pero se puede comprobar como los usuarios locales no han desparecido de la máquina.
+Un detalle a tener en cuenta es que, a diferencia de Microsoft Windows Server, este sistema sí admite usuarios locales en el equipo. No es nada relevante ya este equipo se dedicará únicamente a la gestión del controlador de dominio, pero se puede comprobar como los usuarios locales no han desparecido de la máquina.
 
-En este punto del manual se dispone de dos controladores de dominio; uno configurado en Microsoft Windows Server 2016 y otro en Ubuntu Server. A partir de estas líneas se realizarán configuraciones en ambos servidores pero en dos redes distintas, de ese modo es posible practicar la administración de servicios de directorio desde GUI y desde CLI.
+En este punto del manual se dispone de dos controladores de dominio; uno configurado en Microsoft Windows Server y otro en Ubuntu Server. A partir de estas líneas se realizarán configuraciones en ambos servidores pero en dos redes distintas, de ese modo es posible practicar la administración de servicios de directorio desde GUI y desde CLI.
