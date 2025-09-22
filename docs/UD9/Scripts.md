@@ -9,26 +9,27 @@
 
 - ¿Con qué creo mis scripts?
 
-Para la creación de scripts usaremos el editor de texto nano:
+Para la creación de scripts usaremos el editor de texto **vim o con editor nano**.
 
-<center>
+El editor Vim es mas completo y cuando lo controlas es mucho mas rápido pero el editor nano también es muy valido para empezar . Aquí tienes comandos básicos:
 
-|        Controles         | <center> Funcionamiento </center>         |
+
+|        Controles         |  Funcionamiento                           |
 | :----------------------: | :---------------------------------------- |
-| `vim “NombreFichero”.sh` | Genera o Abre el fichero para su edición. |
+| `nano “NombreFichero”.sh` | Genera o Abre el fichero para su edición. |
 |      `Control + o`       | Guardar Cambios.                          |
 |      `Control + x`       | Salir.                                    |
 |      `Control + _`       | Ir a una línea.                           |
 |        `Alt + U`         | Deshacer.                                 |
 |        `Alt + E`         | Rehacer.                                  |
 
-</center>
+
 
 En la leyenda “^” equivale a “Control” y “M-“ equivale a “Alt”.
 
 <figure>
   <img src="../imagenes/nano.png" width="800"/>
-</figure>
+</figure> 
 
 - ¿Cómo empiezo mis scripts?
 

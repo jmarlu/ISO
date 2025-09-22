@@ -2,11 +2,10 @@
 
 Un argumento es un parámetros que se le pasa a una función o a un programa. Es decir, son variables de entrada. Puede haber más de uno o ninguno.
 
-<center>
 !!! danger "Script con argumentos" 
 	
       ./script.sh arg1 arg2 arg3 … argN
-</center>
+
 
 ### Ejemplo:
 
@@ -26,15 +25,15 @@ Ejecutamos el mismo script con diferentes argumentos, dando salidas distintas.
 
 ### Ejemplo 1\.
 
-<center>
+
 !!! info "Script con argumentos" 
 	
       `./soyUnScript.sh` salva 1010 "Salva Serrano" /home/Salva /bin/bash
-</center>
 
-<center>
 
-| Variable | <center> Contenido </center>                     |
+
+
+| Variable |  Contenido                      |
 | :------: | :----------------------------------------------- |
 |   `$0`   | soyUnScript.sh                                   |
 |   `$1`   | salva                                            |
@@ -45,15 +44,15 @@ Ejecutamos el mismo script con diferentes argumentos, dando salidas distintas.
 |   `$*`   | salva 1010 "Salva Serrano" /home/Salva /bin/bash |
 |   `$#`   | 5                                                |
 
-</center>
+
 
 - Los argumentos van separados por espacios y en caso de insertar un metacaracter, como por ejemplo asterisco (\*), es necesario escaparlo con \:
 
-<center>
+
 !!! warning "Escapar carácteres especiales" 
 	
       ./soyUnScript.sh 5 \\* 10
-</center>
+
 
 ### Ejemplo de $#
 

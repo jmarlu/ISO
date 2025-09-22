@@ -37,7 +37,7 @@ Un Resultado de Aprendizaje "**es una declaración de lo que el estudiante se es
 ### Unidades didácticas / Temporalización
 
 A continuación se muestran las unidades didácticas y **una estimación temporal** de cada una de ellas, repartidas en cada evaluación.
-Las unidades de trabajo (UT) se han planificado según el [calendario escolar 2024/2025](https://portal.edu.gva.es/03013224/wp-content/uploads/sites/231/2024/09/Calendario-1o-curso-24_25.pdf), siguiendo la distribución en quincenas para las UTs indicada en la ORDEN 30/2002 (<https://dogv.gva.es/datos/2022/05/18/pdf/2022_4219.pdf>), de 12 de mayo.
+Las unidades de trabajo (UT) se han planificado según el [calendario escolar 2025/2026](./calendario/CalendarioSemi25_26 6.pdf), siguiendo la distribución en quincenas para las UTs indicada en la ORDEN 30/2002 (<hhttps://dogv.gva.es/datos/2025/08/04/pdf/2025_29742_va.pdf>), de 12 de mayo.
 
 #### 1er Trimestre
 
