@@ -2,7 +2,7 @@
 
 ## INFORMACIÓN DEL MÓDULO (ISO)
 
-El módulo con el código 0369 tiene 224 horas anuales y 7 semanales. En la modalidad semipresencial en el horario tenéis horas **telemáticas** y horas **presenciales**.
+El módulo con el código 0369 tiene 233 horas anuales y 7 semanales. En la modalidad semipresencial en el horario tenéis horas **telemáticas** y horas **presenciales**.
 
 ### ¿Qué vamos a ver en este módulo?
 
