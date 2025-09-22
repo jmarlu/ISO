@@ -37,7 +37,7 @@ Un Resultado de Aprendizaje "**es una declaración de lo que el estudiante se es
 ### Unidades didácticas / Temporalización
 
 A continuación se muestran las unidades didácticas y **una estimación temporal** de cada una de ellas, repartidas en cada evaluación.
-Las unidades de trabajo (UT) se han planificado según el [calendario escolar 2025/2026](./calendario/CalendarioSemi25_26 6.pdf), siguiendo la distribución en quincenas para las UTs indicada en la ORDEN 30/2002 (<hhttps://dogv.gva.es/datos/2025/08/04/pdf/2025_29742_va.pdf>), de 12 de mayo.
+Las unidades de trabajo (UT) se han planificado según el [calendario escolar 2025/2026](./calendario/CalendarioSemi25_26 6.pdf), siguiendo la distribución en quincenas para las UTs indicada en la ORDEN 30/2022 (<https://dogv.gva.es/datos/2022/05/18/pdf/2022_4219.pdf>), de 12 de mayo.
 
 #### 1er Trimestre
 
@@ -79,7 +79,7 @@ La evaluación es un proceso continuo y formativo basado en la calificación de 
 
 !!! warning
 
-    Por lo tanto LA CALIFICACIÓN FINAL DEL MÓDULO se obtendrá de la **media ponderada de las calificaciones de cada RA**. Todos los RA no tienen el **mismo peso** y todos ellos TIENEN QUE ESTAR APROBADOS.
+    Por lo tanto LA CALIFICACIÓN FINAL DEL MÓDULO se obtendrá de la **media ponderada de las calificaciones de cada RA**. Todos los RA no tienen el **mismo peso** y todos ellos TIENEN QUE ESTAR APROBADOS. Y Tener en cuenta que aunque haya actividades que no se puntuen son muy importantes para la consecución del RA en cara al examen. 
 
 #### Procedimientos de Evaluación
 
