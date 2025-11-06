@@ -23,18 +23,42 @@ Además de este completo software, Microsoft Windows 10 Professional dispone de 
 
 En los sistemas operativos basados en **GNU/Linux** se dispone de varias herramientas basadas en CLI para realizar la administración de servicios, denominados demonios en terminología Unix. Cuando se configura un demonio en GNU/Linux se crean scripts para controlar su carga y descarga de memoria principal.
 
-Hay diferentes sistemas de arranque según la distribución , como init System V,
-upstart y el sistema de arranque de Mac OS X , pero systemd es que se está imponiendo en todas ellas.
+Hay diferentes sistemas de arranque según la distribución, como init System V,
+upstart y el sistema de arranque de Mac OS X, pero systemd es el que se está imponiendo en todas ellas.
 
-En systemd, el concepto de nivel de ejecución ya sólo existe para la compatibilidad con System V. Es decir los servicios se inicien de forma automática durante el arranque del sistema. Según el nivel se arrancan unos servicios o otros.
+En systemd, los antiguos niveles de ejecución (*runlevels*) de System V se sustituyen por objetivos (`*.target`). Equivalencias habituales:
+- Runlevel **0** → `poweroff.target`
+- Runlevel **1** → `rescue.target`
+- Runlevel **2** → `multi-user.target` (sin red en algunas distros heredadas)
+- Runlevel **3** → `multi-user.target`
+- Runlevel **4** → reservado/definido por el administrador (`multi-user.target` personalizado)
+- Runlevel **5** → `graphical.target`
+- Runlevel **6** → `reboot.target`
+
+Para preservar la compatibilidad, systemd crea enlaces simbólicos como `runlevel3.target` apuntando a sus objetivos homólogos y sigue interpretando los scripts heredados de `/etc/rc?.d` cuando una unidad lo solicita. Así, utilidades clásicas como `telinit 3` continúan funcionando aunque internamente se gestione todo mediante objetivos.
+
+```bash title="Ejemplos prácticos con runlevels y objetivos"
+systemctl get-default                        # Mostrar el objetivo (runlevel) configurado por defecto
+sudo systemctl set-default graphical.target  # Equivalente a fijar runlevel 5 en el arranque
+sudo systemctl isolate multi-user.target     # Cambiar al runlevel 3 sin reiniciar
+sudo systemctl isolate rescue.target         # Cambiar al runlevel 1 (modo rescate)
+sudo systemctl list-dependencies graphical.target  # Ver servicios implicados en el modo gráfico
+telinit 3                                    # Comando heredado que sigue siendo aceptado por systemd
+```
 
 ## Unidades objetivo y servicios
 
-El componente básico de systemd es la unidad o unit. Existen varias: servicios, sockets, periféricos, objetivos, etc. Un **objetivo** es básicamente el punto de sincronización entre unidades en espera. De este modo, dispondrá, por ejemplo, de unidades objetivo correspondientes a cada nivel de ejecución, pero puede llamarlas como quieras.
+El componente básico de systemd es la unidad o *unit*. Cada tipo de unidad describe una pieza concreta del sistema:
 
-Las objetivos o los servicios que deben ser gestionados por el sistema durante el arranque están en `/etc/system/system`, en forma de enlaces simbólicos o copias. Que se encuentran en `/lib/systemd/system`
+- `*.service`: procesos o demonios que se gestionan como servicios de larga duración.
+- `*.socket`: sockets que activan servicios bajo demanda cuando se produce actividad.
+- `*.target`: colecciones lógicas de unidades que permiten sincronizar dependencias y runlevels.
+- `*.timer`: programadores que sustituyen a `cron` para ejecutar servicios según un calendario.
+- `*.mount` y `*.automount`: puntos de montaje y reglas automáticas para sistemas de archivos.
 
-Los servicios acaban con el sufijo **.service**. Vamos a ver el contenidos de estos ficheros:
+Los objetivos (`*.target`) o servicios (`*.service`) que deben gestionarse durante el arranque se referencian en `/etc/systemd/system`, normalmente como enlaces simbólicos hacia los archivos proporcionados por los paquetes en `/lib/systemd/system`. De este modo, `/etc/systemd/system` alberga la personalización local que se activa cuando el sistema arranca.
+
+Los servicios terminan con el sufijo **.service**. Vamos a ver el contenido de uno de estos ficheros y qué aporta cada sección (`[Unit]`, `[Service]`, `[Install]`):
 
 ```bash title="contenido de ficheros.service"
 /etc/systemd/system$ cat syslog.service
@@ -61,7 +85,7 @@ Alias=syslog.service
 
 ```
 
-Si nos fijamos en la linea que tiene de **WantedBy**. Sirve para indicar que este servicio es necesario para el objetivo **multi-user.target** (lo que correspondrá por ejemplo al nivel 3 del init System V)
+Si nos fijamos en la línea que tiene **WantedBy**, veremos que indica el objetivo al que se vinculará el servicio cuando se ejecute `systemctl enable`. En este caso se habilita para **multi-user.target**, objetivo que equivale al runlevel 3 del antiguo init System V.
 
 Ahora vamos a ver el fichero .target de un objetivo.
 
@@ -92,11 +116,20 @@ Alias=ctrl-alt-del.target
 
 ```
 
-Nos fijamos en **Requires** y **After**. En este objetivo requiere (Requires) de un servicio en concreto y su ejecución después de la unidad que pone (After).
+Nos fijamos en **Requires** y **After**. La primera directiva obliga a que `systemd-poweroff.service` también esté activo, mientras que la segunda asegura que la unidad actual se ejecute después de él. Completar la lectura con directivas como **Wants** (dependencia recomendada) o **Before** (orden de arranque anterior a otra unidad) ayuda a entender cómo se modelan dependencias lógicas y temporales dentro de los objetivos.
 
 ## Acciones
 
 El comando `systemctl` permite controlar la ejecución de servicios.
+
+```bash title="Ejemplos prácticos de administración con systemctl"
+systemctl status ssh.service         # Consultar el estado y los últimos logs del servicio SSH
+sudo systemctl enable apache2.service# Habilitar Apache para que arranque automáticamente
+sudo systemctl disable cups.service  # Deshabilitar el servicio de impresión en el arranque
+sudo systemctl restart NetworkManager.service # Reiniciar el servicio de red
+sudo systemctl mask bluetooth.service          # Evitar que un servicio pueda iniciarse
+sudo systemctl unmask bluetooth.service        # Rehabilitar un servicio previamente bloqueado
+```
 
 ```bash title="Ejemplo, listado de unidades"
 
