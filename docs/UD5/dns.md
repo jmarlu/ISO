@@ -66,6 +66,31 @@ Para crear nuevas zonas de búsqueda, será necesario navegar hasta el lugar don
 
 Salvo en condiciones especiales, será el _propio controlador de dominio el que se encargue de gestionar el servicio de DNS_. Cada vez que se actualiza la información del directorio, se añaden, modifican o eliminan las entradas en el DNS. Se dejará la tarea de gestión en manos del servidor por tanto. No obstante es recomendable conocer el procedimiento para gestionar este servicio.
 
+### Uso de DNS en entornos AD (Windows o Samba)
+
+- El DC (Windows o Samba AD DC) debe ser el servidor DNS principal para sí mismo y para los clientes. No pongas 8.8.8.8 como primario; si necesitas salida a Internet, define reenviadores en el propio DC.
+- En el DC Samba: usa su DNS interno y configúralo como reenviador hacia los DNS externos. En `/etc/samba/smb.conf`, sección `[global]`, añade por ejemplo `dns forwarder = 1.1.1.1`.
+- En el propio DC Ubuntu apunta el DNS a sí mismo: en `/etc/netplan/*.yaml` (o NetworkManager) define `nameservers: [127.0.0.1]` o la IP interna del DC. En la UD4 se desactiva `systemd-resolved` y se fija `/etc/resolv.conf`; si sigues ese esquema, usa 127.0.0.1 y la IP del DC, pero evita que un DNS público quede primero. Alternativamente, puedes dejar `systemd-resolved` activo apuntando al DC.
+- En clientes Ubuntu que se unan al dominio (SSSD/realmd): apunta el DNS al DC (Windows o Samba) y comprueba con `resolvectl status` y `dig _ldap._tcp.tu-dominio SRV` antes de `realm join`.
+
+Ejemplo de netplan (sustituye la interfaz y la IP del DC):
+
+```yaml
+network:
+  version: 2
+  ethernets:
+    ens33:
+      addresses: [10.0.3.3/24]
+      gateway4: 10.0.3.1
+      nameservers:
+        addresses: [10.0.3.3]   # IP del DC (o 127.0.0.1 si es el propio DC)
+```
+
+#### Notas sobre `/etc/resolv.conf` e inmutabilidad
+
+- Si cambias `/etc/resolv.conf` a mano, netplan o systemd-resolved lo reescriben. Por eso en la UD4 se marcaba inmutable. Alternativa más limpia: deja el enlace simbólico de `/etc/resolv.conf` al stub de systemd-resolved y configura los DNS en netplan apuntando al DC; así persiste sin necesidad de `chattr +i`.
+- `dns forwarder` en `smb.conf` debe apuntar a un DNS externo (ISP, 1.1.1.1, 8.8.8.8) que el DC usará como reenviador para dominios fuera del AD. No pongas aquí la IP del DC ni de otros DC del mismo dominio.
+
 En Ubuntu Server la gestión se realiza a través de `samba-tool dns`.
 
 ```bash title="Comando"

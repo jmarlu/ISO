@@ -46,10 +46,11 @@ La conexión de un cliente GNU/Linux a un entorno Active Directory no es complic
 Este proceso se realizará en varias fases:
 
 - configurar las características de red y nombre del cliente
-- instalar el software necesario (stack SSSD + realmd)
+- instalar el software necesario
 
       - **Kerberos**, para poder recibir tickets de validación por parte del servidor.
-      - **SSSD (System Security Services Daemon)**, permitirá la autenticación de los usuarios contra la base de datos Active Directory. En el servidor Samba anterior se usó Winbind, pero en el cliente nos quedamos con SSSD+realmd para que funcione igual con AD de Windows o con Samba.
+      - **Samba**, para controlar las acciones con Active Directory
+      - **SSSD (System Security Services Daemon)**, permitirá la autenticación de los usuarios contra la base de datos Active Directory. Durante la instalación del servidor Samba en apartados anteriores, se usó Winbind para realizar esta tarea. Esto se debe a que en el servidor instalado en GNU/Linux se conectarán equipos de Microsoft y Winbind ofrece una mejor compatibilidad.
       - **NTP (Network Time Protocol)**, responsable de sincronizar el funcionamiento del reloj del sistema con el servidor
 
 - añadir el nombre del equipo al host
@@ -61,7 +62,7 @@ El primer paso consisten en cambiar el nombre al equipo. A pesar de que durante 
 sudo hostnamectl set-hostname cliente-ubuntu01
 ```
 
-Además de este fichero, es necesario modificar el /etc/hosts. Aquí es el primer lugar en donde busca el sistema para resolver un nombre de dominio. Se edita el fichero añadiendo a la dirección loopback el nombre del equipo seguida del nombre del equipo que tendrá en el dominio, tal y como aparece en el siguiente ejemplo. **La resolución real debe venir del DNS del controlador de dominio (Windows o Samba); /etc/hosts solo sirve de apoyo local.**
+Además de este fichero, es necesario modificar el /etc/hosts. Aquí es el primer lugar en donde busca el sistema para resolver un nombre de dominio. Se edita el fichero añadiendo a la dirección loopback el nombre del equipo seguida del nombre del equipo que tendrá en el dominio, tal y como aparece en el siguiente ejemplo
 
 ```bash title=""
 127.0.0.1 localhost
@@ -116,22 +117,24 @@ ping ServidorUbuntu.miempresafea.local
 
 ### Instalación del software necesario
 
-Hora de instalar los paquetes necesarios. Es posible que algunos de éstos ya se encuentren instalados en el equipo, en ese caso apt saltará la instalación de ese paquete. Usaremos el stack SSSD con realmd/adcli, sin Winbind ni smbd en el cliente.
+Hora de instalar los paquetes necesarios. Es posible que algunos de éstos ya se encuentren instalados en el equipo, en ese caso apt saltará la instalación de ese paquete. Se incluyen Kerberos, Samba/Winbind y NTP porque más adelante se usan `kinit`, `net ads join`, y se reinician `smbd/nmbd` y `ntp`.
 
 ```bash
-sudo apt install sssd-ad sssd-tools realmd adcli krb5-user ntp
+sudo apt install sssd-ad sssd-tools realmd adcli krb5-user samba samba-common-bin winbind ntp
 ```
 
 Aquí tenéis un [link](https://documentation.ubuntu.com/server/how-to/sssd/with-active-directory/?_gl=1*ml0eoq*_gcl_au*MTkwMTQwNjgzMi4xNzM3NjM1MzU3&_ga=2.145475508.104790640.1738153494-1149087011.1715791238) de donde he sacado estos apuntes.
 
-`realm` genera la configuración de **SSSD** automáticamente al unir el equipo, pero si hay que revisarla o ajustarla debe conservar permisos 600 y propiedad root:root:
+Por último, será necesaria la configuración del servidor **SSSD**, pero en este caso, habrá que crear un archivo de configuración desde cero. Hay que tener en cuenta que los permisos y el propietario de este fichero serán del usuario que lo ha creado, y no es el servicio que lo va a usar. Por este motivo, una vez terminada su edición, habrá que dotarlo de los permisos y propiedad adecuados, los del usuario root
 
 ```bash
 sudo chown root:root /etc/sssd/sssd.conf
 sudo chmod 600 /etc/sssd/sssd.conf
 ```
 
-Un ejemplo de configuración válida (realm la crea) es:
+Pero mejor empezar por el principio y crear el archivo en la ubicación /etc/sssd/sssd.conf
+
+Ahora sólo es necesario completarlo con la siguiente configuración
 
 ```bash title=""
 [sssd]
@@ -142,14 +145,11 @@ domains = MIEMPRESAFEA.LOCAL
 [domain/MIEMPRESAFEA.LOCAL]
 id_provider = ad
 access_provider = ad
-fallback_homedir = /home/%u@%d
-use_fully_qualified_names = True
-ldap_id_mapping = True
-cache_credentials = True
+override_homedir = /home/%d/%u
 
 ```
 
-Un detalle importante es que al conectarse a un dominio con una cuenta de usuario, éste no va a disponer de una carpeta /home en el sistema, o al menos no de la forma tradicional. En la última línea del archivo de configuración se especifica que las carpetas de usuario que inicien sesión usando este servicio, van a estar almacenadas en la carpeta `/home/usuario@dominio`, separándolas del resto de usuarios locales. Algo similar ocurre en los sistemas operativos de la familia de Microsoft, ya que añaden el nombre del dominio a la carpeta de usuario. Será necesario cambiar los permisos al fichero antes de continuar.
+Un detalle importante es que al conectarse a un dominio con una cuenta de usuario, éste no va a disponer de una carpeta /home en el sistema, o al menos no de la forma tradicional. En la última línea del archivo de configuración se especifica que las carpetas de usuario que inicien sesión usando este servicio, van a estar almacenadas en la carpeta `/home/MIEMPRESAFEA.LOCAL/nombreusuario`, separándolas del resto de usuarios locales. Algo similar ocurre en los sistemas operativos de la familia de Microsoft, ya que añaden el nombre del dominio a la carpeta de usuario. Será necesario cambiar los permisos al fichero antes de continuar.
 
 Por último, es necesario revisar el fichero `/etc/nsswitch.conf`
 
@@ -171,25 +171,42 @@ Como siempre que se modifica un fichero de configuración de un servicio, será 
 
 ```bash title=""
 sudo systemctl restart ntp
+sudo systemctl restart smbd nmbd
 sudo systemctl restart sssd
 ```
 
 ### Unir el equipo al dominio
 
-Comprobamos primero que el dominio se descubre por DNS (sirve igual para un AD en Windows Server o en Samba):
+Antes de unirse al dominio es recomendable comprobar si el servidor Kerberos valida el equipo de forma correcta, ya que si no es así no se dispondrá de ticket alguno y no se podrá utilizar ninguno de los servicios del controlador de domino. Para ello se utilizará la cuenta Administrador (la única disponible por ahora)
 
 ```bash
-sudo resolvectl status  # verifica que el DNS apunta al DC
-sudo realm -v discover miempresafea.local
+sudo kinit administrador
 ```
 
-Si la salida es correcta, unimos el equipo:
+El comando `kinit` permite la solicitud de un ticket al servicio Kerberos de un usuario determinado. Es posible que no se produzca salida alguna por el terminal, lo cual indica que el proceso de identificación ha sido el correcto. Aún así, se utilizará el comando klist, el cual permite comprobar la información que posee el ticket de autentificación.
 
 ```bash
-sudo realm join miempresafea.local
+sudo klist
 ```
 
-El comando pedirá credenciales con permisos para unir equipos al dominio y generará automáticamente `/etc/sssd/sssd.conf`, fragmentos de Kerberos y los módulos PAM/NSS necesarios.
+el cual produce una salida parecida a esta
+
+```bash title=""
+ticket cache: FILE:/tmp/krb5cc_0
+Default principal: Administrador@MIEMPRESAFEA.LOCAL
+
+Valid starting Expires Service principal
+20/03/19 21:15:38 21/03/19 07:15:38 krbtgt/MIEMPRESAFEA.LOCAL@MIEMPRESAFEA.LOCAL
+renew until 25/03/19 21:15:23
+```
+
+Una vez obtenido el ticket que valida el uso de los servicios de controlador de dominio, tan sólo queda unir el equipo al dominio
+
+```bash
+sudo net ads join -k
+```
+
+Aparecerá un mensaje indicando que el equipo se ha unido de forma satisfactoria. No obstante, muestra un aviso que hace referencia a un fallo en la actualización del servicio de DNS. A pesar de esta advertencia, si en estos momentos se comprueba el controlador de dominio Microsoft Windows Server, se podrá comprobar que el equipo cliente ya aparece en el contenedor Computers.
 
 ### Habilitar inicio de sesión en modo gráfico
 
@@ -217,31 +234,7 @@ La pila de PAM para sesión debe incluir SSSD. Normalmente ya existe la línea
 session optional pam_sss.so
 ```
 
-Si no estuviera, añádela encima de `session required pam_unix.so` para que los usuarios de dominio puedan crear sesión mediante SSSD. Para crear automáticamente el /home de los usuarios de dominio, ejecuta:
-
-```bash
-sudo pam-auth-update --enable mkhomedir
-```
-
-### Verificar acceso y Kerberos
-
-- Consultar un usuario del dominio en NSS:
-
-```bash
-getent passwd usuario@miempresafea.local
-```
-
-- Ver grupos:
-
-```bash
-groups usuario@miempresafea.local
-```
-
-- Comprobar ticket Kerberos (si instalaste `krb5-user`):
-
-```bash
-klist
-```
+Si no estuviera, añádela encima de `session required pam_unix.so` para que los usuarios de dominio puedan crear sesión mediante SSSD.
 
 Ahora es posible iniciar sesión en el dominio desde la interfaz gráfica además de las cuentas locales.
 ![Inicio de sesión con un cliente Samba](img/10000000000004F50000025B21752AE31D4DC69B.jpg)

@@ -94,7 +94,7 @@ El fichero debe quedar de este modo:
 
 ```bash title="Fichero de configuración"
 127.0.0.1 localhost
-10.0.3.3 (**Nota: tendréis que cambiarlo, ya que esta es mi IP**) ServidorUbuntu.miempresafea.local ServidorUbuntu
+X.X.X.X (**Nota: tendréis que cambiarlo, ya que esta es mi IP**) ServidorUbuntu.miempresafea.local ServidorUbuntu
 # The following lines are desirable for IPv6 capable hosts
 
 ::1 localhost ip6-localhost ip6-loopback
@@ -111,55 +111,16 @@ Ahora vamos a verificar que resuelve la dirección IP
 
 `ping -c2 ServidorUbuntu.miempresafea.local`
 
-También será necesario eliminar el archivo `resolv.conf` encargado de redireccionar las peticiones de DNS. Pero antes de todo tenemos que parar el servicio asociado.
+ También es necesario asegurarse de que las consultas DNS usen el DC. En lugar de desactivar `systemd-resolved` y fijar un `resolv.conf` inmutable, vamos a mantenerlo activo y decirle qué DNS usar. Asegura primero que la IP del servidor es fija y que eliges la interfaz correcta (la que está en la red del cliente); en las prácticas suele ser `enp0s3` o similar, confírmala con `ip -br link`.
 
-`sudo systemctl disable --now systemd-resolved`
-
-Primero se comprueba la existencia de enlace.
-
-```bash title=""
-ll /etc/resolv.conf
+```bash title="Configurar DNS con systemd-resolved"
+# Sustituye enp0s3 por tu interfaz y X.X.X.X por la IP fija del DC (o la propia si el DNS corre local)
+sudo resolvectl dns enp0s3 X.X.X.X
+sudo resolvectl domain enp0s3 ~MIEMPRESAFEA.LOCAL
+resolvectl status   # verifica que solo aparece la IP del DC y el dominio correcto
 ```
 
-comando que mostrará la configuración de dicho enlace.Si existe deberíamos quitar el enlace con
-
-```bash title="quiter el enlace"
-sudo unlink /etc/resolv.conf
-```
-
-Ahora deberíamos quitar la inmutabilidad del archivo con el siguiente comando:
-
-```bash title=""
-sudo chattr -a -i /etc/resolv.conf
-```
-
-Y se elimina el archivo
-
-```bash title="borrar"
-sudo rm /etc/resolv.conf
-```
-
-y se crea uno nuevo con la configuración requerida
-
-```bash title=""
-sudo nano /etc/resolv.conf
-```
-
-que contendrá los siguientes datos
-
-```bash title="Datos del fichero resolv"
-domain MIEMPRESAFEA.LOCAL
-nameserver 127.0.0.1
-nameserver 8.8.8.8 (google)
-nameserver 10.0.3.3 (**Nota: tendréis que cambiarlo ya que esta es mi ip**)
-search MIEMPRESAFEA.LOCAL
-```
-
-Ahora hay que hacer inmutable el archivo /etc/resolv.conf
-
-```bash title="inmutabilidad"
-sudo chattr +i /etc/resolv.conf
-```
+Con esto, `/etc/resolv.conf` seguirá apuntando al stub 127.0.0.53 pero `systemd-resolved` dirigirá las consultas del dominio al DC. Si necesitas usar otra interfaz, repite los comandos ajustando el nombre de la interfaz: es crítico no equivocarse para que los clientes alcancen al servicio.
 
 ## Instalación de SAMBA
 
@@ -189,11 +150,11 @@ Antes de pasar a configurar _samba_, es conveniente hacer una copia del fichero 
 sudo mv /etc/samba/cmb.conf /etc/samba/smb.conf.copia
 ```
 
-A continuación es necesario detener varios servicios instalados con anterioridad y que ahora serán gestionados a través de Samba. Se paran y se deshabilitan
+A continuación es necesario detener varios servicios instalados con anterioridad y que ahora serán gestionados a través de Samba. Se paran y se deshabilitan (dejamos `systemd-resolved` activo porque acabamos de configurarlo como resolver).
 
 ```bash title="deshabilitan servicios no necesarios"
 
-sudo systemctl stop smbd nmbd winbind systemd-resolved
+sudo systemctl stop smbd nmbd winbind
 sudo systemctl disable smbd nmbd winbind
 ```
 
@@ -209,6 +170,8 @@ Ahora sí, lanzamos el la configuración del servicio:
 ```bash title="Configuración de Samba"
 sudo samba-tool domain provision
 ```
+
+Al lanzar el asistente confirma que el dominio se crea sobre la interfaz correcta (la que ve a los clientes, p.ej. `enp0s3`). Si necesitas fijarla, puedes añadir opciones como `--option="interfaces=lo enp0s3"` y `--option="bind interfaces only = yes"` para evitar que el servicio quede escuchando en una interfaz equivocada.
 
 Una vez lanzado el asistente, irá preguntando los datos necesarios para la configuración. Muchos de ellos ya han sido configurados con anterioridad y los mostrará entre corchetes. Si estos valores son correctos, no será necesaria su modificación:
 
