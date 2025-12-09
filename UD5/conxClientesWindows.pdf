@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [['$','$'], ['\\(','\\)']]}});</script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS": {"availableFonts":["TeX"],"scale": 150}});</script>
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/*
+Monokai style - ported by Luigi Maselli - http://grigio.org
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #272822; color: #ddd;
+}
+
+.hljs-tag,
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-strong,
+.hljs-name {
+  color: #f92672;
+}
+
+.hljs-code {
+  color: #66d9ef;
+}
+
+.hljs-class .hljs-title {
+  color: white;
+}
+
+.hljs-attribute,
+.hljs-symbol,
+.hljs-regexp,
+.hljs-link {
+  color: #bf79db;
+}
+
+.hljs-string,
+.hljs-bullet,
+.hljs-subst,
+.hljs-title,
+.hljs-section,
+.hljs-emphasis,
+.hljs-type,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+  color: #a6e22e;
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion,
+.hljs-meta {
+  color: #75715e;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-doctag,
+.hljs-title,
+.hljs-section,
+.hljs-type,
+.hljs-selector-id {
+  font-weight: bold;
+}
+
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="conexi%C3%B3n-de-clientes-a-un-controlador-de-dominio">Conexión de clientes a un controlador de dominio</h1>
+<h2 id="clientes-microsoft-windows">Clientes Microsoft Windows</h2>
+<p>Un controlador de dominio sin objetos que controlar sería un caro objeto de decoración. Cuando un cliente pasa a formar parte del dominio, éste queda adscrito a un ámbito con unas normas muy bien definidas y que se va a ver en la obligación de cumplir. Sin embargo, también va a tener acceso a una serie de recursos que, de ninguna otra manera, podría haber tenido acceso antes de la pertenencia al dominio.</p>
+<p>Todo cliente que quiera pertenecer a un dominio debe cumplir los requisitos exigidos por éste, que dependerán de los objetivos que persiga. Además, se deben seguir los siguientes pasos:</p>
+<ul>
+<li>configurar la red del cliente de forma adecuada para que coincidan con las del dominio</li>
+<li>ajustar el nombre del equipo del cliente si existen alguna nomenclatura especificada o cumpliendo las restricciones impuestas por el dominio</li>
+<li>unir el equipo cliente al dominio</li>
+<li>iniciar sesión con la cuenta de usuario especificada</li>
+</ul>
+<p>Una vez preparado el cliente, se detallan a continuación los pasos a seguir para unir un cliente con Microsoft Windows 10 Professional al dominio.</p>
+<p>El primer paso es comprobar que la configuración de red del cliente sea compatible. Es posible utilizar una IP fija, pero si el servidor dispone de un servicio DHCP es posible dejar la configuración automática para que el cliente solicite una antes de la la inclusión al dominio. Este es una práctica recomendable para los clientes, de esta forma la administración de las direcciones queda centralizada.</p>
+<p>Para que la asignación automática funcione es preciso que el cliente tenga claro a quien preguntar dónde se ubican el resto de elementos de la red. Para ello se utiliza el DNS, por lo que la única información que el cliente necesita será la dirección de IP del servicio de DNS, que habitualmente será la misma que la del servidor que presta el servicio.</p>
+<p>Es necesario comprobar que todo funciona de forma correcta, por lo que se abrirá un terminal en el cliente <code>cmd.exe</code> y se realizará un ping al servidor</p>
+<p><code>ping miempresafea.local</code></p>
+<p>Si se utiliza el nombre del servidor en lugar de su dirección IP, no sólo se comprobará que el equipo cliente está en la misma red que el servidor, sino también que la configuración DNS del cliente es correcta y que el servidor DNS del controlador de dominio está funcionando de forma adecuada.</p>
+<p><img src="file:///home/julio/Documentos/ISO/ISONew/UD1/docs/UD5/img/100000000000050E000005BA6DE7C6707A82A9DE.jpg" alt="Configuración de red cliente"></p>
+<p>El segundo paso será ajustar el nombre del equipo para adaptarlo a las reglas de dominio. Para comprobar el nombre actual del equipo, se accede a través de botón derecho sobre <span class="menu">Inicio</span> → <span class="menu">Sistema</span>. En la parte inferior, además de algunos detalles sobre el hardware del equipo, se encuentra su nombre (tanto el nombre NetBIOS como el nombre DNS), la descripción y el nombre del grupo de trabajo o dominio al que pertenece. El nombre del equipo es el que asigna Microsoft Windows de forma automática durante el proceso de instalación. También pertenece a un grupo de trabajo <strong>(WORKGROUP)</strong>, incluido en todos los equipos de la marca de Redmond desde las primeras versiones con soporte de trabajo en red.</p>
+<p>Desde esta pantalla es posible proceder al cambio de nombre, no obstante se realizará mediante de la ventana de <span class="menu">Sistema</span>, ya que el método común en todos los sistemas operativos de Microsoft. Se accede a través del <span class="menu">Panel de Control</span> → <span class="menu">Sistema y Seguridad</span> → <span class="menu">Sistema</span> → <span class="menu">Cambiar Configuración</span>. En la nueva ventana que aparece, se pulsará sobre el botón <span class="menu">Cambiar…</span>. Se escribe el nombre al cliente según especificaciones del dominio y se marcará la opción Domino, procediendo después a poner el nombre del dominio al que se va a acceder en el recuadro inferior.</p>
+<p>El cliente se conectará y solicitará las credenciales de algún usuario del dominio con permisos suficientes para realizar esta acción. Recuerda que para estas acciones se necesitan ciertos privilegios que las cuentas normales no poseen. Al aceptar los datos, la ventana de autenticación se cierra y en su lugar aparece un mensaje indicando que el equipo se ha unido correctamente al dominio. Tras este cambio el sistema operativo solicitará un reinicio para terminar con la configuración.</p>
+<p><img src="file:///home/julio/Documentos/ISO/ISONew/UD1/docs/UD5/img/1000000000000257000002EC89BB2130CF19E6BF.jpg" alt="Ventana del cambio del nombre del equipo"></p>
+<p>Tras el reinicio el sistema operativo, el cliente ofrece una nueva forma de inicio de sesión. Ahora es posible acceder a la sesión local, de igual forma que se hacía hasta el momento, pero se añade la posibilidad de hacerlo también en el domino al que se acaba de unir. Para acceder a uno u otro, hay que tener en cuenta varias cosas:</p>
+<ul>
+<li><strong>lugar de inicio de sesión</strong>, ahora es posible hacer lo forma local, especificando el nombre del equipo, o en el dominio, especificando el nombre del mismo,</li>
+<li><strong>usuario que inicia la sesión</strong>, si la ubicación de acceso es el equipo local, habrá que especificar un usuario de ese ámbito. Si por el contrario se requiere entrar en el dominio, habrá que utilizar un usuario del dominio creado en el servidor con anterioridad.</li>
+</ul>
+<p>Huelga decir que dependiendo de la ubicación elegida para el inicio de sesión será posible acceder a unos recursos u otros. Para comprobar que todo ha ido como debiera, se iniciará sesión en el dominio con un usuario del domino (en estos momentos tan sólo se dispone de la cuenta de administrador) y se comprueban los valores de Nombre de equipo y Miembro del que ofrece ahora la ventana de propiedades del sistema.</p>
+<h2 id="clientes-gnulinux">Clientes GNU/Linux</h2>
+<p>La conexión de un cliente GNU/Linux a un entorno Active Directory no es complicada, el problema es que estos clientes no vienen preparados por defecto para su integración. Esto obliga al administrador a realizar algunos pasos extra que alargan el proceso, aunque mucho de ellos es posible automatizarlos a través de un shellscript, como se verá en lo sucesivo.<br>
+Este proceso se realizará en varias fases:</p>
+<ul>
+<li>
+<p>configurar las características de red y nombre del cliente</p>
+</li>
+<li>
+<p>instalar el software necesario</p>
+<pre><code>- **Kerberos**, para poder recibir tickets de validación por parte del servidor.
+- **Samba**, para controlar las acciones con Active Directory
+- **SSSD (System Security Services Daemon)**, permitirá la autenticación de los usuarios contra la base de datos Active Directory. Durante la instalación del servidor Samba en apartados anteriores, se usó Winbind para realizar esta tarea. Esto se debe a que en el servidor instalado en GNU/Linux se conectarán equipos de Microsoft y Winbind ofrece una mejor compatibilidad.
+- **NTP (Network Time Protocol)**, responsable de sincronizar el funcionamiento del reloj del sistema con el servidor
+</code></pre>
+</li>
+<li>
+<p>añadir el nombre del equipo al host</p>
+</li>
+<li>
+<p>autenticación en el dominio</p>
+</li>
+</ul>
+<p>El primer paso consisten en cambiar el nombre al equipo. A pesar de que durante la instalación se configuró, es muy probable que no sea de utilidad para la inclusión en una estructura de dominio. Lo primero que tenemos que hacer es :</p>
+<pre class="hljs"><code><div>sudo hostnamectl <span class="hljs-built_in">set</span>-hostname cliente-ubuntu01
+</div></code></pre>
+<p>Además de este fichero, es necesario modificar el /etc/hosts. Aquí es el primer lugar en donde busca el sistema para resolver un nombre de dominio. Se edita el fichero añadiendo a la dirección loopback el nombre del equipo seguida del nombre del equipo que tendrá en el dominio, tal y como aparece en el siguiente ejemplo</p>
+<pre class="hljs"><code><div>127.0.0.1 localhost
+127.0.1.1 cliente-ubuntu01 cliente-ubuntu01.miempresafea.local
+10.0.3.3(<span class="hljs-comment">#Cambiarla por la de tu servidor) ServidorUbuntu.miempresafea.local ServidorUbuntu</span>
+10.0.3.3 (<span class="hljs-comment">#Cambiarla por la de tu servidor)  miempresafea.local miempresafea</span>
+
+<span class="hljs-comment"># The following lines are desirable for IPv6 capable hosts</span>
+
+::1 ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+</div></code></pre>
+<h3 id="si-no-disponemos-de-un-dhcp-instalado-en-el-servidor">Si NO disponemos de un DHCP instalado en el servidor.</h3>
+<p>En este caso, hay que configurar manualmente la configuración IP. Tenéis que ver el tema anterior.</p>
+<h3 id="si-disponemos-de-un-dhcp-instalado-en-el-servidor">Si disponemos de un DHCP instalado en el servidor.</h3>
+<p>Por lo que respecta a la dirección de red, se accede a través de la configuración de red, y se configurará de la siguiente manera:</p>
+<ul>
+<li>
+<p>método de obtención de IP en automático, ya que se dispone de DHCP.</p>
+</li>
+<li>
+<p>en servidores DNS hay que colocar la IP del servidor y añadir el secundario 8.8.8.8</p>
+<p><img src="file:///home/julio/Documentos/ISO/ISONew/UD1/docs/UD5/img/10000000000006F8000005F2D9D985D266E7E1A9.jpg" alt="Configuración de red del cliente"></p>
+</li>
+</ul>
+<p>El siguiente paso es configurar la resolución de nombres. Por defecto cuando Ubuntu tiene que resolver un nombre primero mira en el fichero <code>/etc/host</code> para hacerlo. Si la resolución no es satisfactoria busca en el servidor de <strong>DNS</strong>. Esta configuración no es la adecuada para un equipo que constantemente va a solicitar datos a un controlador de dominio. Además, esta configuración puede ocasionar algún problema que obstaculice la traducción.</p>
+<p>Para cambiar el orden de consulta y que lo haga primero al servicio de DNS disponible en la red, se accede al fichero <code>/etc/nsswitch.conf</code> y se edita cambiando el orden de los elementos que aparecen en la línea que comienza con la palabra host.<br>
+La línea inicial es esta</p>
+<pre class="hljs"><code><div>  hosts: files mdns4_minimal [NOT FOUND=<span class="hljs-built_in">return</span>] dns
+
+</div></code></pre>
+<p>que modificamos de la siguiente manera</p>
+<pre class="hljs"><code><div>hosts: files dns mdns4_minimal [NOT FOUND=<span class="hljs-built_in">return</span>]
+
+</div></code></pre>
+<p>De esta forma cambiamos el orden de consulta del sistema por defecto. Para comprobarlo, se hace un ping al servidor de DNS</p>
+<pre class="hljs"><code><div>ping miempresafea.local
+</div></code></pre>
+<h3 id="instalaci%C3%B3n-del-software-necesario">Instalación del software necesario</h3>
+<p>Hora de instalar los paquetes necesarios. Es posible que algunos de éstos ya se encuentren instalados en el equipo, en ese caso apt saltará la instalación de ese paquete.</p>
+<pre class="hljs"><code><div>sudo apt install sssd-ad sssd-tools realmd adcli
+</div></code></pre>
+<p>Aquí tenéis un [link] (https://documentation.ubuntu.com/server/how-to/sssd/with-active-directory/?_gl=1<em>ml0eoq</em>_gcl_au*MTkwMTQwNjgzMi4xNzM3NjM1MzU3&amp;_ga=2.145475508.104790640.1738153494-1149087011.1715791238) de donde he sacado estos apuntes.</p>
+<p>Durante la instalación de Kerberos, se preguntará el reino (realm) al que se unirá. En realidad, se refiere al nombre del dominio, que debe ser escrito en mayúsculas. En el ejemplo: <em>MIEMPRESAFEA.LOCAL</em></p>
+<p>Una vez instalados los paquetes con sus dependencias, se procederá a su configuración, empezando con Kerberos. Con la información especificada durante la instalación, el nombre del dominio, o reino en la terminología Kerberos, debería ser suficiente. Sin embargo, es recomendable añadir un par de datos a su configuración para que se comporte de forma adecuada en el dominio:</p>
+<ul>
+<li><strong>ticket_lifetime</strong>: indica el tiempo durante el que será válida la autenticación obtenida mediante el servidor Kerberos.</li>
+<li><strong>renew_lifetime</strong>: indica el tiempo durante el que se puede pedir la renovación de una autenticación anterior. Si el tiempo indicado aquí es mayor que el expresado en ticket_lifetime, será posible renovar la concesión antes de la sesión caduque, sin tener que volver a iniciar sesión.</li>
+</ul>
+<p>Esta información se va incluir en el archivo /etc/krb5.conf</p>
+<pre class="hljs"><code><div>sudo vim /etc/krb5.conf
+
+</div></code></pre>
+<p>Hay que asegurar que el reino coincide con el dominio comprobando esta sección del fichero</p>
+<pre class="hljs"><code><div>
+[libdefaults]
+default_realm = MIEMPRESAFEA.LOCAL
+Además, se añaden los dos valores anteriores, quedando esta sección de la siguiente manera
+[libdefaults]
+default_realm = MIEMPRESAFEA.LOCAL
+ticket_lifetime = 24h <span class="hljs-comment">#</span>
+renew_lifetime = 5d
+</div></code></pre>
+<p>Se establece que la concesión del ticket es de 24 horas y que es posible renovarlo durante 5 días. Se guardan los cambios y se cierra la ventana del editor.</p>
+<p>Turno de Samba, requisito necesario para poder comunicarse con Active Directory. El archivo de configuración es <code>/etc/samba/smb.conf</code> que se editará como de costumbre. Hay que localizar la sección [global] del fichero y realizar los siguientes cambios</p>
+<pre class="hljs"><code><div>[global]
+
+<span class="hljs-comment">## Browsing/Identification</span>
+
+<span class="hljs-comment"># Change this to the workgroup/NT-domain namo your Samba server will part of</span>
+
+    workgroup = MIEMPRESAFEA
+    client singing = yes
+    client use spnego = yes
+    Kerberos method = secrets and keytab
+    realm = MIEMPRESAFEA.LOCAL
+    security = ads
+</div></code></pre>
+<p>No es ocioso encarecer que tanto el workgroup (nombre NetBIOS) y el realm (nombre de domino) se deben adaptar a cada proyecto.</p>
+<p>Por último, será necesaria la configuración del servidor <strong>SSSD</strong>, pero en este caso, habrá que crear un archivo de configuración desde cero. Hay que tener en cuenta que los permisos y el propietario de este fichero serán del usuario que lo ha creado, y no es el servicio que lo va a usar. Por este motivo, una vez terminada su edición, habrá que dotarlo de los permisos y propiedad adecuados, los del usuario root</p>
+<pre class="hljs"><code><div>sudo chown root:root /etc/sssd/sssd.conf
+sudo chmod 600 /etc/sssd/sssd.conf
+</div></code></pre>
+<p>Pero mejor empezar por el principio y crear el archivo en la ubicación /etc/sssd/sssd.conf</p>
+<p>Ahora sólo es necesario completarlo con la siguiente configuración</p>
+<pre class="hljs"><code><div>[sssd]
+services = nss, pam
+config_file_version = 2
+domains = MIEMPRESAFEA.LOCAL
+
+[domain/MIEMPRESA.LOCAL]
+id_provider = ad
+access_provider = ad
+override_homedir = /home/%d/%u
+
+</div></code></pre>
+<p>Un detalle importante es que al conectarse a un dominio con una cuenta de usuario, éste no va a disponer de una carpeta /home en el sistema, o al menos no de la forma tradicional. En la última línea del archivo de configuración se especifica que las carpetas de usuario que inicien sesión usando este servicio, van a estar almacenadas en la carpeta <code>/home/MIEMPRESAFEA.LOCAL/nombreusuario</code>, separándolas del resto de usuarios locales. Algo similar ocurre en los sistemas operativos de la familia de Microsoft, ya que añaden el nombre del dominio a la carpeta de usuario. Será necesario cambiar los permisos al fichero antes de continuar.</p>
+<p>Por último, es necesario revisar el fichero <code>/etc/nsswitch.conf</code></p>
+<pre class="hljs"><code><div>passwd: compat sss
+group: compat sss
+shadow: compat sss
+…
+services: db files sss
+…
+netgroup: nis sss
+sudoers: files sss
+
+</div></code></pre>
+<p>Este archivo es el que indica el orden de la resolución de nombres, por lo que el nuevo servicio instalado debe figurar en él. Si no es así se ha de revisar la configuración antes de continuar ya que, si no es correcta, no usará el servicio SSSD para autentificar al usuario, buscará en los archivos locales, no lo encontrará y devolverá un error de inicio de sesión.</p>
+<p>Como siempre que se modifica un fichero de configuración de un servicio, será necesario su reinicio para que los cambios surtan efecto</p>
+<pre class="hljs"><code><div>sudo systemctl restart ntp
+sudo systemctl restart smbd nmbd
+sudo systemctl restart sssd
+</div></code></pre>
+<h3 id="unir-el-equipo-al-dominio">Unir el equipo al dominio</h3>
+<p>Antes de unirse al dominio es recomendable comprobar si el servidor Kerberos valida el equipo de forma correcta, ya que si no es así no se dispondrá de ticket alguno y no se podrá utilizar ninguno de los servicios del controlador de domino. Para ello se utilizará la cuenta Administrador (la única disponible por ahora)</p>
+<pre class="hljs"><code><div>sudo kinit administrador
+</div></code></pre>
+<p>El comando <code>kinit</code> permite la solicitud de un ticket al servicio Kerberos de un usuario determinado. Es posible que no se produzca salida alguna por el terminal, lo cual indica que el proceso de identificación ha sido el correcto. Aún así, se utilizará el comando klist, el cual permite comprobar la información que posee el ticket de autentificación.</p>
+<pre class="hljs"><code><div>sudo klist
+</div></code></pre>
+<p>el cual produce una salida parecida a esta</p>
+<pre class="hljs"><code><div>ticket cache: FILE:/tmp/krb5cc_0
+Default principal: Administrador@MIEMPRESAFEA.LOCAL
+
+Valid starting Expires Service principal
+20/03/19 21:15:38 21/03/19 07:15:38 krbtgt/MIEMPRESAFEA.LOCAL@MIEMPRESAFEA.LOCAL
+renew until 25/03/19 21:15:23
+</div></code></pre>
+<p>Una vez obtenido el ticket que valida el uso de los servicios de controlador de dominio, tan sólo queda unir el equipo al dominio</p>
+<pre class="hljs"><code><div>sudo net ads join -k
+</div></code></pre>
+<p>Aparecerá un mensaje indicando que el equipo se ha unido de forma satisfactoria. No obstante, muestra un aviso que hace referencia a un fallo en la actualización del servicio de DNS. A pesar de esta advertencia, si en estos momentos se comprueba el controlador de dominio Microsoft Windows Server, se podrá comprobar que el equipo cliente ya aparece en el contenedor Computers.</p>
+<h3 id="habilitar-inicio-de-sesi%C3%B3n-en-modo-gr%C3%A1fico">Habilitar inicio de sesión en modo gráfico</h3>
+<p>Es probable que al iniciar el cliente, en la interfaz gráfica de inicio de sesión tan sólo permita la entrada al equipo con usuarios locales o la sesión de invitado. Una vez más, para evitar esta circunstancia es necesario editar dos ficheros</p>
+<pre class="hljs"><code><div>sudo vim  /usr/shared/lightdm/lightdm.conf.d/50-unity-greeter.conf
+</div></code></pre>
+<p>y añadir al final del fichero</p>
+<pre class="hljs"><code><div>greeter-show-manual-login=<span class="hljs-literal">true</span>
+</div></code></pre>
+<p>Ahora se edita el fichero de configuración gráfica</p>
+<pre class="hljs"><code><div>sudo nano /etc/pam.d/common-session
+</div></code></pre>
+<p>Se localizan la siguiente línea</p>
+<pre class="hljs"><code><div>session required pam_unix.so
+</div></code></pre>
+<p>y se escribe encima de ella la siguiente opción, que lanzará la interfaz gráfica para conectar con el dominio</p>
+<pre class="hljs"><code><div>session [success=ok default=ignore] pam_lsass.so
+</div></code></pre>
+<p>Ahora es posible iniciar sesión en más ubicaciones que en modo local.<br>
+<img src="file:///home/julio/Documentos/ISO/ISONew/UD1/docs/UD5/img/10000000000004F50000025B21752AE31D4DC69B.jpg" alt="Inicio de sesión con un cliente Samba"></p>
+
+</body>
+</html>

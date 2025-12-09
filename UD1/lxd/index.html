@@ -1,0 +1,3729 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/UD1/lxd/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Contenedores con LXD/LXC - IMPLANTACIÓN DE SISTEMAS OPERATIVOS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M0%202.75C0%201.784.784%201%201.75%201h12.5c.966%200%201.75.784%201.75%201.75v10.5A1.75%201.75%200%200%201%2014.25%2015H1.75A1.75%201.75%200%200%201%200%2013.25Zm1.75-.25a.25.25%200%200%200-.25.25v10.5c0%20.138.112.25.25.25h12.5a.25.25%200%200%200%20.25-.25V2.75a.25.25%200%200%200-.25-.25ZM7.25%208a.75.75%200%200%201-.22.53l-2.25%202.25a.749.749%200%200%201-1.275-.326.75.75%200%200%201%20.215-.734L5.44%208%203.72%206.28a.749.749%200%200%201%20.326-1.275.75.75%200%200%201%20.734.215l2.25%202.25c.141.14.22.331.22.53m1.5%201.5h3a.75.75%200%200%201%200%201.5h-3a.75.75%200%200%201%200-1.5%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#contenedores-con-lxdlxc" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="IMPLANTACIÓN DE SISTEMAS OPERATIVOS" class="md-header__button md-logo" aria-label="IMPLANTACIÓN DE SISTEMAS OPERATIVOS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IMPLANTACIÓN DE SISTEMAS OPERATIVOS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Contenedores con LXD/LXC
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="IMPLANTACIÓN DE SISTEMAS OPERATIVOS" class="md-nav__button md-logo" aria-label="IMPLANTACIÓN DE SISTEMAS OPERATIVOS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    IMPLANTACIÓN DE SISTEMAS OPERATIVOS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 S.O. Estructura y Virtualización
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD1 S.O. Estructura y Virtualización
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Estructura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estructura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../virtual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtualización
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 Configuración de los SO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD2 Configuración de los SO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/IntroTerminal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción Terminal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/EstructuraDirectorios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estructura Directorios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/gestionArchivos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión Archivos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/redirecciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redirecciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/filtros/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filtros
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/busquedaArchivos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Búsqueda Archivos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/AdminMemoriaSecundaria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administración de memoria secundaria
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/gestorArranque/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestor de Arranque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/permisosBasicos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Permisos básicos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3.Administración de software base y aplicaciones
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD3.Administración de software base y aplicaciones
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/InstaWindow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación en Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/InstaLinux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación en Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/procesosLinux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión de procesos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/GestiServicios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión de Servicios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/programaTareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programación de Tareas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/actuSisOp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actualización del Sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/registroWindow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registro de Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD4.Instalación de servicios de Directorios
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD4.Instalación de servicios de Directorios
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4/sistemaRedes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sistema de organización de redes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4/IP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuración del protocolo TCP/IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4/instaServDirectorio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación del servicio de Directorio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD5.Configuración de servicios de directorio
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD5.Configuración de servicios de directorio
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/dns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuración de la resolución de nombres DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/dhcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación y configuración del servicio DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/conxClientesWindows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conexión de clientes a un controlador de dominio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/adminRemota/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administración remota
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD6.Administración de usuarios locales y de red
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD6.Administración de usuarios locales y de red
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/adminUsers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administración de usuarios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/objActive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objetos predeterminados de Active Directory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/polContra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Política de contraseñas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/scriptsInicio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scripts de inicio de sesión
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/direcSegLocal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Directivas de seguridad locales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/perUsers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Perfiles de usuario, móviles y obligatorios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/carpetasUsers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Carpetas personales. Redireccionamiento de las carpetas de usuario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/varEntorno/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables de entorno
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD7.Administración de objetos y políticas de grupo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD7.Administración de objetos y políticas de grupo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/estrategiaAnidamiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estrategias de anidamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/gruposSeguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grupos de seguridad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/unidadesOrganiza/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidades organizativas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/equiposDominio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Equipos del dominio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/directivasGrupo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Directivas de grupo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/adminDirecGrupo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administración de directivas de grupo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD8.Administración de recursos y permisos de acceso
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD8.Administración de recursos y permisos de acceso
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/controlAcceso/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control de acceso a recursos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/derechosInicio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Derechos de inicio de sesión y privilegios de usuario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/permisosRed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Permisos de red y locales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/herencia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Herencia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/cuotasDisco/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cuotas de disco
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD9.Scripts en Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD9.Scripts en Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creación de Scripts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Aritmetica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aritmetica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Comparadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comparadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/IF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estructura IF
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Operadores_Binarios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operadores Binarios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Argumentos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argumentos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Esructura CASE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/While_Until/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Esructura WHILE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/For/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Esructura FOR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Break/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Break y Continue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD10.Introducción a PowerShell
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD10.Introducción a PowerShell
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/021_Introducci%C3%B3nPwSh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/comandos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comandos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/Manejo%20resultados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manejo de Resultados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/022_PowerShell_Sintaxis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sintaxis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/023_PowerShell_ControlFlujo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control de flujo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/024_PowerShell_VectoresFunciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vectores y funciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/Estandares%20WMI-CIM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administración
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD11. Integridad y seguridad de la información.
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD11. Integridad y seguridad de la información.
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/01_seguridadIntegridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seguridad del sistema y de los datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/02_VolumenesDistribuidos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Volúmenes distribuidos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/03_toleranciaFallos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sistemas de tolerancia a fallos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/04_encriptDatos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Encriptación de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/05_compresionDatos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compresión de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/06_discosArranque/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Discos de arranque y de recuperación.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD12.Respaldo de la información y del sistema operativo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD12.Respaldo de la información y del sistema operativo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD12/01CopiasSeguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copias de seguridad del Sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD12/02Recuperacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recuperación del sistema. Opciones de restauración del Sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD12/03Clonacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clonación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD12/04InstalacionDesatendidas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuración y uso de instalaciones desatendidas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD12/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="contenedores-con-lxdlxc">Contenedores con LXD/LXC</h1>
+<p>LXD es un hypervisor para contenedores Linux desarrollado por Canonical Ltd. Es un complemento para los contenedores de Linux (LXC) que facilita su uso y añade nuevas posibilidades.</p>
+<p>La documentación oficial está en el siguiente <a href="https://documentation.ubuntu.com/lxd/en/latest/">link</a></p>
+<p>En la red se puede encontrar mucha información sobre LXD, aquí únicamente se pretende presentar una pequeña introducción a los contenedores en general y a LXD en particular.</p>
+<h2 id="que-son-los-contenedores">¿Qué son los contenedores?</h2>
+<p>Aparentemente en un contenedor se ejecuta un sistema operativo GNU/Linux independiente de otros contenedores y del propio SO anfitrión. Se trata de un producto de la virtualización pero, en lugar de utilizar máquinas virtuales dentro de las cuales se ejecuta un sistema operativo que puede ser diferente del anfitrión, aquí se utilizan técnicas de virtualización a nivel de sistema operativo. De modo que sólo hay un núcleo, en nuestro caso el Linux que se ejecuta en el equipo anfitrión, que mediante diferentes funciones (namespaces, cgroups, ...) muestra vistas parciales a algunos procesos para que crean que se ejecutan en un sistema aislado.</p>
+<p>Así que el sistema anfitrión y todos los contenedores utilizan el mismo núcleo. En el sistema anfitrión se pueden ver todos los procesos y en cada uno de los contenedores únicamente los propios. La red, la raíz del sistema de archivos, los ficheros de dispositivo y otros recursos también están virtualizados así que cada contenedor puede tener su propia interfaz de red y sistema de archivos raíz. Incluso es posible que un contenedor utilice una distribución de GNU/Linux diferente del resto pero, eso sí, compartiendo el único núcleo que se ejecuta en el equipo anfitrión.</p>
+<p>Las ventaja de los contenedores frente a las máquinas virtuales tradicionales es la eficiencia. Un contenedor es mucho más ligero pues no necesita recrear el hardware de la máquina virtual ni ejecutar dentro otro sistema operativo. Los procesos que se ejecutan en un contenedor al fin y al cabo son procesos nativos del equipo anfitrión. Por lo tanto se consigue un mayor rendimiento y es posible ejecutar en un mismo ordenador un número mucho mayor de contenedores que de máquinas virtuales. Hay artículos en los que se menciona <a href="la ejecución de 652 contenedores Ubuntu 14.04LTS">http://blog.dustinkirkland.com/2015/06/lxd-challenge-how-many-containers-can.html</a> en un portátil con 16GB de RAM en el que "solo" es posible ejecutar 31 máquinas KVM sin KSM activado y 65 con KSM activado.</p>
+<p>El inconveniente de los contenedores frente a la virtualización completa asistida por hardware es que se apoya en Linux y todos los contenedores deben ejecutar una distribución de GNU/Linux. Pero como usted sabe con una distribución de GNU/Linux es posible hacer mucho.</p>
+<p>Otras herramientas similares son:</p>
+<ul>
+<li><strong>Docker</strong>: El rival directo de LXD/LXC. También es una herramienta de virtualización a nivel de SO nativa de Linux. Pero una de las diferencias respecto a LXD/LXC es que en este caso cada contenedor está orientado a ejecutar únicamente un servicio (Apache, MySQL, ...) en lugar de un SO.</li>
+<li><strong>Jails de FreeBSD</strong>: La opción nativa de FreeBSD.</li>
+<li><strong>Solaris Containers</strong>: La opción nativa de Solaris, también presente en sus derivados libres: Illumos, OpenIndiana...</li>
+</ul>
+<h2 id="instalacion-en-linux">Instalación en Linux</h2>
+<p>LXD se puede instalar sobre Ubuntu 14.04 LTS agregando su propio PPA, pero en la versión 16.04 LTS forma parte de los repositorios oficiales y viene acompañado de una gran novedad: ZFS. LXD puede utilizar diferentes storage-backends, por defecto se utiliza un directorio en el sistema de archivos pero combinar los contenedores con alguna herramienta que proporcione COW (como ZFS, Btrfs o LVM) permite mejorar la velocidad y economizar espacio al trabajar con snapshots o al copiar contenedores. Aunque para probar LXD bastará cualquier sistema de archivos.</p>
+<p>La instalación en LXD en Ubuntu se realiza con el comando:</p>
+<div class="highlight"><span class="filename">Instalación</span><pre><span></span><code>sudo<span class="w"> </span>snap<span class="w"> </span>install<span class="w"> </span>lxd
+</code></pre></div>
+<p>La instalación crea el grupo lxd que incluye a los usuarios que pueden utilizarlo. Pero como la información sobre los grupos a los que pertenece un usuario se lee en el momento de iniciar sesión, ahora será necesario salir y volver a entrar. O, alternativamente, ejecutar:</p>
+<div class="highlight"><pre><span></span><code>newgrp<span class="w"> </span>lxd
+</code></pre></div>
+<p>En Ubuntu no es necesario hacer nada especial para instalar LXD. Únicamente será necesario que el usuario que lo vaya a utilizar forme parte del grupo lxd.</p>
+<p>Una vez instalado la gestión de los contenedores se realiza a través de la herramienta lxc. Al ejecutarla sin parámetros se muestran las diferentes opciones:</p>
+<div class="highlight"><pre><span></span><code>julio@julio-Lenovo-ideapad-330-15ICH:~$<span class="w"> </span>lxc
+Usage:<span class="w"> </span>lxc<span class="w"> </span><span class="o">[</span>subcommand<span class="o">]</span><span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
+Órdenes<span class="w"> </span>disponibles
+config<span class="w"> </span>-<span class="w"> </span>Manage<span class="w"> </span>configuration.
+copy<span class="w"> </span>-<span class="w"> </span>Copy<span class="w"> </span>containers<span class="w"> </span>within<span class="w"> </span>or<span class="w"> </span><span class="k">in</span><span class="w"> </span>between<span class="w"> </span>lxd<span class="w"> </span>instances.
+delete<span class="w"> </span>-<span class="w"> </span>Delete<span class="w"> </span>containers<span class="w"> </span>or<span class="w"> </span>container<span class="w"> </span>snapshots.
+<span class="nb">exec</span><span class="w"> </span>-<span class="w"> </span>Execute<span class="w"> </span>the<span class="w"> </span>specified<span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>container.
+file<span class="w"> </span>-<span class="w"> </span>Manage<span class="w"> </span>files<span class="w"> </span>on<span class="w"> </span>a<span class="w"> </span>container.
+<span class="nb">help</span><span class="w"> </span>-<span class="w"> </span>Presents<span class="w"> </span>details<span class="w"> </span>on<span class="w"> </span>how<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span>LXD.
+image<span class="w"> </span>-<span class="w"> </span>Manipulate<span class="w"> </span>container<span class="w"> </span>images.
+info<span class="w"> </span>-<span class="w"> </span>List<span class="w"> </span>information<span class="w"> </span>on<span class="w"> </span>LXD<span class="w"> </span>servers<span class="w"> </span>and<span class="w"> </span>containers.
+launch<span class="w"> </span>-<span class="w"> </span>Launch<span class="w"> </span>a<span class="w"> </span>container<span class="w"> </span>from<span class="w"> </span>a<span class="w"> </span>particular<span class="w"> </span>image.
+list<span class="w"> </span>-<span class="w"> </span>Lists<span class="w"> </span>the<span class="w"> </span>available<span class="w"> </span>resources.
+move<span class="w"> </span>-<span class="w"> </span>Move<span class="w"> </span>containers<span class="w"> </span>within<span class="w"> </span>or<span class="w"> </span><span class="k">in</span><span class="w"> </span>between<span class="w"> </span>lxd<span class="w"> </span>instances.
+profile<span class="w"> </span>-<span class="w"> </span>Manage<span class="w"> </span>configuration<span class="w"> </span>profiles.
+publish<span class="w"> </span>-<span class="w"> </span>Publish<span class="w"> </span>containers<span class="w"> </span>as<span class="w"> </span>images.
+remote<span class="w"> </span>-<span class="w"> </span>Manage<span class="w"> </span>remote<span class="w"> </span>LXD<span class="w"> </span>servers.
+restart<span class="w"> </span>-<span class="w"> </span>Changes<span class="w"> </span>state<span class="w"> </span>of<span class="w"> </span>one<span class="w"> </span>or<span class="w"> </span>more<span class="w"> </span>containers<span class="w"> </span>to<span class="w"> </span>restart.
+restore<span class="w"> </span>-<span class="w"> </span>Set<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>state<span class="w"> </span>of<span class="w"> </span>a<span class="w"> </span>resource<span class="w"> </span>back<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>snapshot.
+snapshot<span class="w"> </span>-<span class="w"> </span>Create<span class="w"> </span>a<span class="w"> </span>read-only<span class="w"> </span>snapshot<span class="w"> </span>of<span class="w"> </span>a<span class="w"> </span>container.
+start<span class="w"> </span>-<span class="w"> </span>Changes<span class="w"> </span>state<span class="w"> </span>of<span class="w"> </span>one<span class="w"> </span>or<span class="w"> </span>more<span class="w"> </span>containers<span class="w"> </span>to<span class="w"> </span>start.
+stop<span class="w"> </span>-<span class="w"> </span>Changes<span class="w"> </span>state<span class="w"> </span>of<span class="w"> </span>one<span class="w"> </span>or<span class="w"> </span>more<span class="w"> </span>containers<span class="w"> </span>to<span class="w"> </span>stop.
+version<span class="w"> </span>-<span class="w"> </span>Prints<span class="w"> </span>the<span class="w"> </span>version<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>this<span class="w"> </span>client<span class="w"> </span>tool.
+
+Opciones:
+--all<span class="w"> </span>Print<span class="w"> </span>less<span class="w"> </span>common<span class="w"> </span>commands.
+--debug<span class="w"> </span>Print<span class="w"> </span>debug<span class="w"> </span>information.
+--verbose<span class="w"> </span>Print<span class="w"> </span>verbose<span class="w"> </span>information.
+
+Entorno:
+LXD_CONF<span class="w"> </span>Path<span class="w"> </span>to<span class="w"> </span>an<span class="w"> </span>alternate<span class="w"> </span>client<span class="w"> </span>configuration<span class="w"> </span>directory.
+LXD_DIR<span class="w"> </span>Path<span class="w"> </span>to<span class="w"> </span>an<span class="w"> </span>alternate<span class="w"> </span>server<span class="w"> </span>directory.
+julio@julio-Lenovo-ideapad-330-15ICH:~$
+</code></pre></div>
+<h2 id="contenedores-imagenes-y-remotos">Contenedores, imágenes y remotos</h2>
+<p>Los contenedores se lanzan a partir de imágenes y las imágenes se almacenan en repositorios locales o remotos. LXD facilita la gestión de contenedores, imágenes y remotos (repositorios de imágenes). De hecho, gracias a que la mayoría de operaciones son automáticas es posible lanzar un contenedor desde el primer momento (lo que descargará de manera automática la imagen necesaria).</p>
+<p>Pero vamos a verlo con más detalle. La primera vez que se ejecuta LXD es posible utilizar el comando lxc image list para comprobar que esta máquina todavía no tiene ninguna imagen:</p>
+<div class="highlight"><span class="filename">Listar imágenes</span><pre><span></span><code>julio@julio-Lenovo-ideapad-330-15ICH:~$<span class="w"> </span>sudo<span class="w"> </span>lxc<span class="w"> </span>image<span class="w"> </span>list<span class="w"> </span><span class="c1"># (1)</span>
+If<span class="w"> </span>this<span class="w"> </span>is<span class="w"> </span>your<span class="w"> </span>first<span class="w"> </span><span class="nb">time</span><span class="w"> </span>running<span class="w"> </span>LXD<span class="w"> </span>on<span class="w"> </span>this<span class="w"> </span>machine,<span class="w"> </span>you<span class="w"> </span>should<span class="w"> </span>also<span class="w"> </span>run:<span class="w"> </span>lxd<span class="w"> </span>init
+To<span class="w"> </span>start<span class="w"> </span>your<span class="w"> </span>first<span class="w"> </span>container,<span class="w"> </span>try:<span class="w"> </span>lxc<span class="w"> </span>launch<span class="w"> </span>ubuntu:20.04
+Or<span class="w"> </span><span class="k">for</span><span class="w"> </span>a<span class="w"> </span>virtual<span class="w"> </span>machine:<span class="w"> </span>lxc<span class="w"> </span>launch<span class="w"> </span>ubuntu:20.04<span class="w"> </span>--vm
+</code></pre></div>
+<ol>
+<li><img alt="🙋‍♂️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f64b-200d-2642-fe0f.svg" title=":man_raising_hand:" /> deberemos poner sudo para obtener privilegios de administrador.</li>
+</ol>
+<p>Y obtener dos informaciones:</p>
+<ul>
+<li>Que se puede utilizar <code>sudo lxd init</code> para configurar diferentes aspectos de LXD como la red o el backend de almacenamiento. Aunque las opciones por defecto son razonables y no es necesario cambiarlas.<strong><em>(deberemos lanzarlo antes de seguir creando contenedores.)</em></strong></li>
+<li>Que se puede lanzar un nuevo contenedor mediante el comando: <code>lxc launch ubuntu:20.04</code></li>
+</ul>
+<div class="highlight"><span class="filename">iniciar configuración</span><pre><span></span><code>sudo<span class="w"> </span>lxd<span class="w"> </span>init
+Would<span class="w"> </span>you<span class="w"> </span>like<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span>LXD<span class="w"> </span>clustering?<span class="w"> </span><span class="o">(</span>yes/no<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">default</span><span class="o">=</span>no<span class="o">]</span>:<span class="w"> </span>yes
+What<span class="w"> </span>IP<span class="w"> </span>address<span class="w"> </span>or<span class="w"> </span>DNS<span class="w"> </span>name<span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span>used<span class="w"> </span>to<span class="w"> </span>reach<span class="w"> </span>this<span class="w"> </span>node?<span class="w"> </span><span class="o">[</span><span class="nv">default</span><span class="o">=</span><span class="m">192</span>.168.1.37<span class="o">]</span>:
+Are<span class="w"> </span>you<span class="w"> </span>joining<span class="w"> </span>an<span class="w"> </span>existing<span class="w"> </span>cluster?<span class="w"> </span><span class="o">(</span>yes/no<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">default</span><span class="o">=</span>no<span class="o">]</span>:
+What<span class="w"> </span>name<span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span>used<span class="w"> </span>to<span class="w"> </span>identify<span class="w"> </span>this<span class="w"> </span>node<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>cluster?<span class="w"> </span><span class="o">[</span><span class="nv">default</span><span class="o">=</span>julio-Lenovo-ideapad-330-15ICH<span class="o">]</span>:
+Setup<span class="w"> </span>password<span class="w"> </span>authentication<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>cluster?<span class="w"> </span><span class="o">(</span>yes/no<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">default</span><span class="o">=</span>no<span class="o">]</span>:
+Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>configure<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span><span class="nb">local</span><span class="w"> </span>storage<span class="w"> </span>pool?<span class="w"> </span><span class="o">(</span>yes/no<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">default</span><span class="o">=</span>yes<span class="o">]</span>:
+Name<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>storage<span class="w"> </span>backend<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span><span class="o">(</span>zfs,<span class="w"> </span>btrfs,<span class="w"> </span>dir,<span class="w"> </span>lvm<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">default</span><span class="o">=</span>zfs<span class="o">]</span>:
+Create<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>ZFS<span class="w"> </span>pool?<span class="w"> </span><span class="o">(</span>yes/no<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">default</span><span class="o">=</span>yes<span class="o">]</span>:
+Would<span class="w"> </span>you<span class="w"> </span>like<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span>an<span class="w"> </span>existing<span class="w"> </span>empty<span class="w"> </span>block<span class="w"> </span>device<span class="w"> </span><span class="o">(</span>e.g.<span class="w"> </span>a<span class="w"> </span>disk<span class="w"> </span>or<span class="w"> </span>partition<span class="o">)</span>?<span class="w"> </span><span class="o">(</span>yes/no<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">default</span><span class="o">=</span>no<span class="o">]</span>:
+Size<span class="w"> </span><span class="k">in</span><span class="w"> </span>GB<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>new<span class="w"> </span>loop<span class="w"> </span>device<span class="w"> </span><span class="o">(</span>1GB<span class="w"> </span>minimum<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">default</span><span class="o">=</span>13GB<span class="o">]</span>:
+Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>configure<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>remote<span class="w"> </span>storage<span class="w"> </span>pool?<span class="w"> </span><span class="o">(</span>yes/no<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">default</span><span class="o">=</span>no<span class="o">]</span>:
+Would<span class="w"> </span>you<span class="w"> </span>like<span class="w"> </span>to<span class="w"> </span>connect<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>MAAS<span class="w"> </span>server?<span class="w"> </span><span class="o">(</span>yes/no<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">default</span><span class="o">=</span>no<span class="o">]</span>:
+Would<span class="w"> </span>you<span class="w"> </span>like<span class="w"> </span>to<span class="w"> </span>configure<span class="w"> </span>LXD<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span>an<span class="w"> </span>existing<span class="w"> </span>bridge<span class="w"> </span>or<span class="w"> </span>host<span class="w"> </span>interface?<span class="w"> </span><span class="o">(</span>yes/no<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">default</span><span class="o">=</span>no<span class="o">]</span>:
+Would<span class="w"> </span>you<span class="w"> </span>like<span class="w"> </span>to<span class="w"> </span>create<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>Fan<span class="w"> </span>overlay<span class="w"> </span>network?<span class="w"> </span><span class="o">(</span>yes/no<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">default</span><span class="o">=</span>yes<span class="o">]</span>:
+What<span class="w"> </span>subnet<span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span>used<span class="w"> </span>as<span class="w"> </span>the<span class="w"> </span>Fan<span class="w"> </span>underlay?<span class="w"> </span><span class="o">[</span><span class="nv">default</span><span class="o">=</span>auto<span class="o">]</span>:
+Would<span class="w"> </span>you<span class="w"> </span>like<span class="w"> </span>stale<span class="w"> </span>cached<span class="w"> </span>images<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>updated<span class="w"> </span>automatically?<span class="w"> </span><span class="o">(</span>yes/no<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">default</span><span class="o">=</span>yes<span class="o">]</span>
+Would<span class="w"> </span>you<span class="w"> </span>like<span class="w"> </span>a<span class="w"> </span>YAML<span class="w"> </span><span class="s2">&quot;lxd init&quot;</span><span class="w"> </span>preseed<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>printed?<span class="w"> </span><span class="o">(</span>yes/no<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">default</span><span class="o">=</span>no<span class="o">]</span>:
+</code></pre></div>
+<p>Lanzar un nuevo contenedor es tan sencillo como ejecutar el comando indicado, en cuyo caso nos lanzará un nuevo contenedor con un nombre generado dinámicamente, o bien especificar el nombre del contenedor (u1 en este ejemplo) al ejecutar: lxc launch ubuntu:16.04 u1. Al ser la primera vez que se utiliza la imagen ubuntu:16.04 <strong>primero se descargará de forma automática</strong>, se guardará en el repositorio local y después se lanzará el contenedor u1.</p>
+<div class="highlight"><span class="filename">Lanzar contenedores sobre imágenes</span><pre><span></span><code>julio@julio-Lenovo-ideapad-330-15ICH:~$<span class="w"> </span>lxc<span class="w"> </span>launch<span class="w"> </span>ubuntu:20.04<span class="w"> </span>u1
+Creando<span class="w"> </span>u1
+Retrieving<span class="w"> </span>image:<span class="w"> </span><span class="m">100</span>%
+Iniciando<span class="w"> </span>u1
+julio@julio-Lenovo-ideapad-330-15ICH:~$
+</code></pre></div>
+<p>Podemos ver el estado del nuevo contenedor al ejecutar: <code>sudo lxc list</code></p>
+<div class="highlight"><span class="filename">Estado contenedores</span><pre><span></span><code>julio@julio-Lenovo-ideapad-330-15ICH:~$<span class="w"> </span>sudo<span class="w"> </span>lxc<span class="w"> </span>list
++------+---------+--------------------+------+-----------+-----------+--------------------------------+
+<span class="p">|</span><span class="w"> </span>NAME<span class="w"> </span><span class="p">|</span><span class="w">  </span>STATE<span class="w">  </span><span class="p">|</span><span class="w">        </span>IPV4<span class="w">        </span><span class="p">|</span><span class="w"> </span>IPV6<span class="w"> </span><span class="p">|</span><span class="w">   </span>TYPE<span class="w">    </span><span class="p">|</span><span class="w"> </span>SNAPSHOTS<span class="w"> </span><span class="p">|</span><span class="w">            </span>LOCATION<span class="w">            </span><span class="p">|</span>
++------+---------+--------------------+------+-----------+-----------+--------------------------------+
+<span class="p">|</span><span class="w"> </span>u1<span class="w">   </span><span class="p">|</span><span class="w"> </span>RUNNING<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">240</span>.37.0.72<span class="w"> </span><span class="o">(</span>eth0<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w">      </span><span class="p">|</span><span class="w"> </span>CONTAINER<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0</span><span class="w">         </span><span class="p">|</span><span class="w"> </span>julio-Lenovo-ideapad-330-15ICH<span class="w"> </span><span class="p">|</span>
++------+---------+--------------------+------+-----------+-----------+--------------------------------+
+</code></pre></div>
+<p>Y comprobar que ahora sí contamos con una imagen descargada: <code>sudo lxc image list</code></p>
+<div class="highlight"><span class="filename">Estado de la imágenes que hemos descargado</span><pre><span></span><code>julio@julio-Lenovo-ideapad-330-15ICH:~$<span class="w"> </span>sudo<span class="w"> </span>lxc<span class="w"> </span>image<span class="w"> </span>list
++-------+--------------+--------+---------------------------------------------+--------------+-----------+----------+-------------------------------+
+<span class="p">|</span><span class="w"> </span>ALIAS<span class="w"> </span><span class="p">|</span><span class="w"> </span>FINGERPRINT<span class="w">  </span><span class="p">|</span><span class="w"> </span>PUBLIC<span class="w"> </span><span class="p">|</span><span class="w">                 </span>DESCRIPTION<span class="w">                 </span><span class="p">|</span><span class="w"> </span>ARCHITECTURE<span class="w"> </span><span class="p">|</span><span class="w">   </span>TYPE<span class="w">    </span><span class="p">|</span><span class="w">   </span>SIZE<span class="w">   </span><span class="p">|</span><span class="w">          </span>UPLOAD<span class="w"> </span>DATE<span class="w">          </span><span class="p">|</span>
++-------+--------------+--------+---------------------------------------------+--------------+-----------+----------+-------------------------------+
+<span class="p">|</span><span class="w">       </span><span class="p">|</span><span class="w"> </span>67c172d007a3<span class="w"> </span><span class="p">|</span><span class="w"> </span>no<span class="w">     </span><span class="p">|</span><span class="w"> </span>ubuntu<span class="w"> </span><span class="m">20</span>.04<span class="w"> </span>LTS<span class="w"> </span>amd64<span class="w"> </span><span class="o">(</span>release<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">20230908</span><span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x86_64<span class="w">       </span><span class="p">|</span><span class="w"> </span>CONTAINER<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">425</span>.65MB<span class="w"> </span><span class="p">|</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">13</span>,<span class="w"> </span><span class="m">2023</span><span class="w"> </span>at<span class="w"> </span><span class="m">11</span>:01am<span class="w"> </span><span class="o">(</span>UTC<span class="o">)</span><span class="w"> </span><span class="p">|</span>
++-------+--------------+--------+---------------------------------------------+--------------+-----------+----------+-------------------------------+
+</code></pre></div>
+<p>A partir de una imagen se pueden lanzar diferentes contenedores. Y naturalmente es posible tener diferentes imágenes que sirvan como base para lanzar contenedores (unos con OpenSSH instalado, otros con la pila LAMP) o imágenes de diferentes distribuciones de GNU/Linux (Ubuntu, CentOS, Fedora...).</p>
+<p>Las imágenes se pueden importar/exportar desde/a un fichero tarball y a partir de un contenedor es posible publicar una imagen.</p>
+<h2 id="utilizando-contenedores">Utilizando contenedores</h2>
+<p>Las operaciones básicas con los contenedores son:</p>
+<table>
+<thead>
+<tr>
+<th>Función:</th>
+<th>Comando:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Listar contenedores</td>
+<td><code>lxc list</code></td>
+</tr>
+<tr>
+<td>Lanzar un contenedor nuevo</td>
+<td><code>lxc launch &lt;imagen&gt; [nombre]</code></td>
+</tr>
+<tr>
+<td>Detener un contenedor</td>
+<td><code>lxc stop &lt;nombre&gt;</code></td>
+</tr>
+<tr>
+<td>Encender un contenedor</td>
+<td><code>lxc start &lt;nombre&gt;</code></td>
+</tr>
+<tr>
+<td>Obtener un shell en un contenedor</td>
+<td><code>lxc exec &lt;nombre&gt; -- /bin/bash</code></td>
+</tr>
+<tr>
+<td>Borrar un contenedor o snapshot</td>
+<td><code>lxc delete &lt;nombre&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>Es posible utilizar el comando lxc launch para lanzar un nuevo contenedor a partir de una imagen (por ejemplo: lxc launch ubuntu:16.04 u1). Una vez creado el contenedor estará en ejecución y se podrá detener o volver a encender respectivamente con los comandos lxc stop y lxc start. Cuando el contenedor ya no sea necesario se puede borrar con lxc delete.</p>
+<p>También es posible abrir un terminal en un contenedor para ejecutar comandos de manera interactiva: <code>sudo lxc exec u1 -- /bin/bash</code></p>
+<p>Un pequeño ejemplo de uso:</p>
+<div class="highlight"><span class="filename">Utilización de contenedores</span><pre><span></span><code>julio@julio-Lenovo-ideapad-330-15ICH:~$<span class="w"> </span>sudo<span class="w"> </span>lxc<span class="w"> </span>list
++------+---------+--------------------+------+-----------+-----------+--------------------------------+
+<span class="p">|</span><span class="w"> </span>NAME<span class="w"> </span><span class="p">|</span><span class="w">  </span>STATE<span class="w">  </span><span class="p">|</span><span class="w">        </span>IPV4<span class="w">        </span><span class="p">|</span><span class="w"> </span>IPV6<span class="w"> </span><span class="p">|</span><span class="w">   </span>TYPE<span class="w">    </span><span class="p">|</span><span class="w"> </span>SNAPSHOTS<span class="w"> </span><span class="p">|</span><span class="w">            </span>LOCATION<span class="w">            </span><span class="p">|</span>
++------+---------+--------------------+------+-----------+-----------+--------------------------------+
+<span class="p">|</span><span class="w"> </span>u1<span class="w">   </span><span class="p">|</span><span class="w"> </span>RUNNING<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">240</span>.37.0.72<span class="w"> </span><span class="o">(</span>eth0<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w">      </span><span class="p">|</span><span class="w"> </span>CONTAINER<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0</span><span class="w">         </span><span class="p">|</span><span class="w"> </span>julio-Lenovo-ideapad-330-15ICH<span class="w"> </span><span class="p">|</span>
++------+---------+--------------------+------+-----------+-----------+--------------------------------+
+
+julio@julio-Lenovo-ideapad-330-15ICH:~$<span class="w"> </span>sudo<span class="w"> </span>lxc<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>u1<span class="w"> </span>--<span class="w"> </span>/bin/bash
+root@u1:~#<span class="w"> </span>uname<span class="w"> </span>-a
+Linux<span class="w"> </span>u1<span class="w"> </span><span class="m">5</span>.4.0-162-generic<span class="w"> </span><span class="c1">#179-Ubuntu SMP Mon Aug 14 08:51:31 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux</span>
+
+root@u1:~#<span class="w"> </span><span class="nb">exit</span>
+<span class="nb">exit</span>
+julio@julio-Lenovo-ideapad-330-15ICH:~$<span class="w"> </span>sudo<span class="w"> </span>lxc<span class="w"> </span>stop<span class="w"> </span>u1
+julio@julio-Lenovo-ideapad-330-15ICH:~$<span class="w"> </span>sudo<span class="w"> </span>lxc<span class="w"> </span>list
++--------+---------+------+------+------------+-----------+
+<span class="p">|</span><span class="w"> </span>NOMBRE<span class="w"> </span><span class="p">|</span><span class="w"> </span>ESTADO<span class="w"> </span><span class="p">|</span><span class="w"> </span>IPV4<span class="w"> </span><span class="p">|</span><span class="w"> </span>IPV6<span class="w"> </span><span class="p">|</span><span class="w"> </span>TIPO<span class="w"> </span><span class="p">|</span><span class="w"> </span>SNAPSHOTS<span class="w"> </span><span class="p">|</span>
++--------+---------+------+------+------------+-----------+
+<span class="p">|</span><span class="w"> </span>u1<span class="w"> </span><span class="p">|</span><span class="w"> </span>STOPPED<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>PERSISTENT<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="p">|</span>
++--------+---------+------+------+------------+-----------+
+julio@julio-Lenovo-ideapad-330-15ICH:~$<span class="w"> </span>lxc<span class="w"> </span>delete<span class="w"> </span>u1
+julio@julio-Lenovo-ideapad-330-15ICH:~$<span class="w"> </span>lxc<span class="w"> </span>list
++--------+--------+------+------+------+-----------+
+<span class="p">|</span><span class="w"> </span>NOMBRE<span class="w"> </span><span class="p">|</span><span class="w"> </span>ESTADO<span class="w"> </span><span class="p">|</span><span class="w"> </span>IPV4<span class="w"> </span><span class="p">|</span><span class="w"> </span>IPV6<span class="w"> </span><span class="p">|</span><span class="w"> </span>TIPO<span class="w"> </span><span class="p">|</span><span class="w"> </span>SNAPSHOTS<span class="w"> </span><span class="p">|</span>
++--------+--------+------+------+------+-----------+
+</code></pre></div>
+<p>Con los contenedores además de las operaciones mostradas es posible:</p>
+<ul>
+<li>Crear instantáneas (snapshots) y restaurar su estado incluyendo su memoria.</li>
+<li>Copiar y/o mover contenedores entre diferentes servidores LXD.</li>
+<li>Copiar ficheros de y hacia el contenedor.</li>
+<li>Publicar una imagen a partir de un contenedor y, si se desea, obtener el tarball que la representa.</li>
+</ul>
+<h2 id="sobre-la-configuracion-por-defecto-de-la-red-en-los-contenedores">Sobre la configuración por defecto de la red en los contenedores</h2>
+<p>La configuración de red por defecto para los contenedores está definida en el fichero <code>/etc/default/lxd-bridge</code>.</p>
+<p>Básicamente allí se especifica:</p>
+<ul>
+<li>Que en el anfitrión se declara un puente: <code>lxdbr0</code> (recuerde que los puentes se pueden inspeccionar/gestionar con <code>brctl</code>)</li>
+<li>Que se modificará el perfil por defecto de los contenedores para que hagan uso del puente.</li>
+<li>Por defecto están vacíos, pero hay campos para especificar la IP del puente y el rango de concesiones DHCP a utilizar para los contenedores.</li>
+</ul>
+<p>La configuración de los equipos del aula utiliza el fichero /etc/network/interfaces para incluír la interfaz de red física como un puerto del puente, de tal manera que los contenedores puedan acceder a la LAN del aula tal y como lo hacen las estaciones físicas.</p>
+<h2 id="es-posible-limitar-los-recursos-de-un-contenedor">¿Es posible limitar los recursos de un contenedor?</h2>
+<p>Por supesto, de hecho resulta muy recomendable limitar y priorizar los recursos de los contenedores. Si no se imponen límites por defecto los contenedores comparten los recursos de la maquina anfitrión: CPU, memoria principal, espacio swap, interfaces de red y disco.</p>
+<p>LXD permite manejar la configuración de un contenedor de forma individual o bien crear un perfíl que luego se puede aplicar a varios contenedores.</p>
+<p>Veamos qué configuración tiene un contenedor recién creado:</p>
+<div class="highlight"><span class="filename">Mostrar configuración de un contenedor</span><pre><span></span><code>julio@julio-Lenovo-ideapad-330-15ICH:~$<span class="w"> </span>sudo<span class="w"> </span>lxc<span class="w"> </span>config<span class="w"> </span>show<span class="w"> </span>u1
+<span class="o">[</span>sudo<span class="o">]</span><span class="w"> </span>contraseña<span class="w"> </span>para<span class="w"> </span>julio:
+architecture:<span class="w"> </span>x86_64
+config:
+<span class="w">  </span>image.architecture:<span class="w"> </span>amd64
+<span class="w">  </span>image.description:<span class="w"> </span>ubuntu<span class="w"> </span><span class="m">20</span>.04<span class="w"> </span>LTS<span class="w"> </span>amd64<span class="w"> </span><span class="o">(</span>release<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">20230908</span><span class="o">)</span>
+<span class="w">  </span>image.label:<span class="w"> </span>release
+<span class="w">  </span>image.os:<span class="w"> </span>ubuntu
+<span class="w">  </span>image.release:<span class="w"> </span>focal
+<span class="w">  </span>image.serial:<span class="w"> </span><span class="s2">&quot;20230908&quot;</span>
+<span class="w">  </span>image.type:<span class="w"> </span>squashfs
+<span class="w">  </span>image.version:<span class="w"> </span><span class="s2">&quot;20.04&quot;</span>
+<span class="w">  </span>volatile.base_image:<span class="w"> </span>67c172d007a3787c92ac4fa8de30c68d3540743f8235882c46460bbe68aa3546
+<span class="w">  </span>volatile.eth0.host_name:<span class="w"> </span>veth5cba233b
+<span class="w">  </span>volatile.eth0.hwaddr:<span class="w"> </span><span class="m">00</span>:16:3e:ec:63:ed
+<span class="w">  </span>volatile.idmap.base:<span class="w"> </span><span class="s2">&quot;0&quot;</span>
+<span class="w">  </span>volatile.idmap.current:<span class="w"> </span><span class="s1">&#39;[{&quot;Isuid&quot;:true,&quot;Isgid&quot;:false,&quot;Hostid&quot;:1000000,&quot;Nsid&quot;:0,&quot;Maprange&quot;:1000000000},{&quot;Isuid&quot;:false,&quot;Isgid&quot;:true,&quot;Hostid&quot;:1000000,&quot;Nsid&quot;:0,&quot;Maprange&quot;:1000000000}]&#39;</span>
+<span class="w">  </span>volatile.idmap.next:<span class="w"> </span><span class="s1">&#39;[{&quot;Isuid&quot;:true,&quot;Isgid&quot;:false,&quot;Hostid&quot;:1000000,&quot;Nsid&quot;:0,&quot;Maprange&quot;:1000000000},{&quot;Isuid&quot;:false,&quot;Isgid&quot;:true,&quot;Hostid&quot;:1000000,&quot;Nsid&quot;:0,&quot;Maprange&quot;:1000000000}]&#39;</span>
+<span class="w">  </span>volatile.last_state.idmap:<span class="w"> </span><span class="s1">&#39;[{&quot;Isuid&quot;:true,&quot;Isgid&quot;:false,&quot;Hostid&quot;:1000000,&quot;Nsid&quot;:0,&quot;Maprange&quot;:1000000000},{&quot;Isuid&quot;:false,&quot;Isgid&quot;:true,&quot;Hostid&quot;:1000000,&quot;Nsid&quot;:0,&quot;Maprange&quot;:1000000000}]&#39;</span>
+<span class="w">  </span>volatile.last_state.power:<span class="w"> </span>RUNNING
+<span class="w">  </span>volatile.uuid:<span class="w"> </span>4b1a0b9a-886c-4592-af66-7fa9aa30b46c
+devices:<span class="w"> </span><span class="o">{}</span>
+ephemeral:<span class="w"> </span><span class="nb">false</span>
+profiles:
+-<span class="w"> </span>default
+stateful:<span class="w"> </span><span class="nb">false</span>
+description:<span class="w"> </span><span class="s2">&quot;&quot;</span>
+</code></pre></div>
+<p>Y como es posible fijar un límite para el consumo de memoria principal:</p>
+<div class="highlight"><span class="filename">Establecer limites de un contenedor</span><pre><span></span><code>julio@julio-Lenovo-ideapad-330-15ICH:~$<span class="w"> </span>sudo<span class="w"> </span>lxc<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>u1<span class="w"> </span>limits.memory<span class="w"> </span>512MB
+julio@julio-Lenovo-ideapad-330-15ICH:~$<span class="w"> </span>sudo<span class="w"> </span>lxc<span class="w"> </span>config<span class="w"> </span>show<span class="w"> </span>u1
+architecture:<span class="w"> </span>x86_64
+config:
+<span class="w">  </span>image.architecture:<span class="w"> </span>amd64
+<span class="w">  </span>image.description:<span class="w"> </span>ubuntu<span class="w"> </span><span class="m">20</span>.04<span class="w"> </span>LTS<span class="w"> </span>amd64<span class="w"> </span><span class="o">(</span>release<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">20230908</span><span class="o">)</span>
+<span class="w">  </span>image.label:<span class="w"> </span>release
+<span class="w">  </span>image.os:<span class="w"> </span>ubuntu
+<span class="w">  </span>image.release:<span class="w"> </span>focal
+<span class="w">  </span>image.serial:<span class="w"> </span><span class="s2">&quot;20230908&quot;</span>
+<span class="w">  </span>image.type:<span class="w"> </span>squashfs
+<span class="w">  </span>image.version:<span class="w"> </span><span class="s2">&quot;20.04&quot;</span>
+<span class="w">  </span>limits.memory:<span class="w"> </span>512MB
+<span class="w">  </span>volatile.base_image:<span class="w"> </span>67c172d007a3787c92ac4fa8de30c68d3540743f8235882c46460bbe68aa3546
+<span class="w">  </span>volatile.eth0.host_name:<span class="w"> </span>veth5cba233b
+<span class="w">  </span>volatile.eth0.hwaddr:<span class="w"> </span><span class="m">00</span>:16:3e:ec:63:ed
+<span class="w">  </span>volatile.idmap.base:<span class="w"> </span><span class="s2">&quot;0&quot;</span>
+<span class="w">  </span>volatile.idmap.current:<span class="w"> </span><span class="s1">&#39;[{&quot;Isuid&quot;:true,&quot;Isgid&quot;:false,&quot;Hostid&quot;:1000000,&quot;Nsid&quot;:0,&quot;Maprange&quot;:1000000000},{&quot;Isuid&quot;:false,&quot;Isgid&quot;:true,&quot;Hostid&quot;:1000000,&quot;Nsid&quot;:0,&quot;Maprange&quot;:1000000000}]&#39;</span>
+<span class="w">  </span>volatile.idmap.next:<span class="w"> </span><span class="s1">&#39;[{&quot;Isuid&quot;:true,&quot;Isgid&quot;:false,&quot;Hostid&quot;:1000000,&quot;Nsid&quot;:0,&quot;Maprange&quot;:1000000000},{&quot;Isuid&quot;:false,&quot;Isgid&quot;:true,&quot;Hostid&quot;:1000000,&quot;Nsid&quot;:0,&quot;Maprange&quot;:1000000000}]&#39;</span>
+<span class="w">  </span>volatile.last_state.idmap:<span class="w"> </span><span class="s1">&#39;[{&quot;Isuid&quot;:true,&quot;Isgid&quot;:false,&quot;Hostid&quot;:1000000,&quot;Nsid&quot;:0,&quot;Maprange&quot;:1000000000},{&quot;Isuid&quot;:false,&quot;Isgid&quot;:true,&quot;Hostid&quot;:1000000,&quot;Nsid&quot;:0,&quot;Maprange&quot;:1000000000}]&#39;</span>
+<span class="w">  </span>volatile.last_state.power:<span class="w"> </span>RUNNING
+<span class="w">  </span>volatile.uuid:<span class="w"> </span>4b1a0b9a-886c-4592-af66-7fa9aa30b46c
+devices:<span class="w"> </span><span class="o">{}</span>
+ephemeral:<span class="w"> </span><span class="nb">false</span>
+profiles:
+-<span class="w"> </span>default
+stateful:<span class="w"> </span><span class="nb">false</span>
+description:<span class="w"> </span><span class="s2">&quot;&quot;</span>
+</code></pre></div>
+<p>Y el cambio es visible desde el punto de vista del contenedor:</p>
+<div class="highlight"><span class="filename">Establecer limites de un contenedor</span><pre><span></span><code>julio@julio-Lenovo-ideapad-330-15ICH:~$<span class="w"> </span>lxc<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>u1<span class="w"> </span>--<span class="w"> </span>/bin/bash
+root@u1:~#<span class="w"> </span>free<span class="w"> </span>-m
+total<span class="w"> </span>used<span class="w"> </span>free<span class="w"> </span>shared<span class="w"> </span>buff/cache<span class="w"> </span>available
+Mem:<span class="w"> </span><span class="m">512</span><span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">421</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">79</span><span class="w"> </span><span class="m">421</span>
+Swap:<span class="w"> </span><span class="m">1021</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">1019</span>
+</code></pre></div>
+<p>La propia documentación de <a href="https://documentation.ubuntu.com/lxd/en/latest/howto/instances_configure/">LXD</a> muestra qué configuraciones y límites se pueden definir.</p>
+<p>Algunos de los parámetros básicos son:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boot.autostart</td>
+<td>boolean</td>
+<td>false</td>
+<td>Si está activo indica que se debe arrancar el contenedor cuando arranque LXD.</td>
+</tr>
+<tr>
+<td>limits.cpu</td>
+<td>string</td>
+<td>all</td>
+<td>Número o rango de CPUs para el contenedor.</td>
+</tr>
+<tr>
+<td>limits.cpu.allowance</td>
+<td>string</td>
+<td>100%</td>
+<td>Cuota de CPU a utilizar por el contenedor. Si se utiliza un % se trata de un límite blando, si se utiliza algo como "25ms/100ms" se trata de un límite duro.</td>
+</tr>
+<tr>
+<td>limits.memory</td>
+<td>string</td>
+<td>all</td>
+<td>Límite de memoria para el contenedor. Es posible utilizar los sufijos: kB, MB, GB, TB, PB, EB.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="como-anadir-discos-o-interfaces-de-red">Cómo añadir discos o interfaces de red:</h2>
+<p>La configuración por defecto de un contenedor ya incluye un disco con el sistema raíz y una interfaz de red. Pero es posible añadir nuevas interfaces de red o discos. Estos dispositivos se pueden añadir:</p>
+<p>De manera particular a un contenedor
+De manera general a un perfil que utilizarán varios contenedores</p>
+<h3 id="discos">Discos</h3>
+<p>Los discos son básicamente directorios o dispositivos de bloques en el sistema anfitrión que se montan en el lugar indicado del contenedor.</p>
+<p>En el siguiente ejemplo se lanza el contenedor u1, se crea el directorio directorio1 en el sistema anfitrión, y se añade como un nuevo disco disponible en /mnt/disco1 en el contenedor.</p>
+<div class="highlight"><span class="filename">Añadiendo un disco duro</span><pre><span></span><code>Iniciando<span class="w"> </span>u1
+julio@julio-Lenovo-ideapad-330-15ICH:~$<span class="w"> </span>mkdir<span class="w"> </span>disco1
+julio@julio-Lenovo-ideapad-330-15ICH:~$<span class="w"> </span>lxc<span class="w"> </span>config<span class="w"> </span>device<span class="w"> </span>add<span class="w"> </span>u1<span class="w"> </span>disco1<span class="w"> </span>disk<span class="w"> </span><span class="nv">source</span><span class="o">=</span>/home/usuario/disco1<span class="w"> </span><span class="nv">path</span><span class="o">=</span>/mnt/disco1
+Device<span class="w"> </span>disco1<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>u1
+julio@julio-Lenovo-ideapad-330-15ICH:~$<span class="w"> </span>lxc<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>u1<span class="w"> </span>--<span class="w"> </span>/bin/bash
+root@u1:~#<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/mnt/
+root@u1:/mnt#<span class="w"> </span>ll
+total<span class="w"> </span><span class="m">6</span>
+drwxr-xr-x<span class="w"> </span><span class="m">3</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">3</span><span class="w"> </span>Jul<span class="w"> </span><span class="m">27</span><span class="w"> </span><span class="m">08</span>:24<span class="w"> </span>./
+drwxr-xr-x<span class="w"> </span><span class="m">22</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">22</span><span class="w"> </span>Jul<span class="w"> </span><span class="m">27</span><span class="w"> </span><span class="m">07</span>:20<span class="w"> </span>../
+drwxrwxr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>nobody<span class="w"> </span>nogroup<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Jul<span class="w"> </span><span class="m">27</span><span class="w"> </span><span class="m">08</span>:22<span class="w"> </span>disco1/
+root@u1:/mnt#
+</code></pre></div>
+<h3 id="interfaces-de-red">Interfaces de red</h3>
+<p>Es posible añadir diferentes tipos de interfaces de red. Por ejemplo: physical (una interfaz física del anfitrión que se dedica en exclusiva a un contenedor) o bridged (una interfaz del contenedor que estará asociada a una interfaz en el equipo físico que formará parte del puente indicado).</p>
+<p>En el siguiente ejemplo se muestra cómo añadir una nueva interfaz de red en modo puente (eth1) utilizando el puente lxdbr0 de la máquina física.</p>
+<div class="highlight"><span class="filename">Añadiendo red</span><pre><span></span><code>julio@julio-Lenovo-ideapad-330-15ICH:~$<span class="w"> </span>lxc<span class="w"> </span>config<span class="w"> </span>device<span class="w"> </span>add<span class="w"> </span>u1<span class="w"> </span>eth1<span class="w"> </span>nic<span class="w"> </span><span class="nv">nictype</span><span class="o">=</span>bridged<span class="w"> </span><span class="nv">parent</span><span class="o">=</span>lxdbr0
+Device<span class="w"> </span>eth1<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>u1
+julio@julio-Lenovo-ideapad-330-15ICH:~$<span class="w"> </span>lxc<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>u1<span class="w"> </span>--<span class="w"> </span>/bin/bash
+root@ubuntu:~#<span class="w"> </span>ifconfig<span class="w"> </span>eth1
+eth1<span class="w"> </span>Link<span class="w"> </span>encap:Ethernet<span class="w"> </span>HWaddr<span class="w"> </span><span class="m">00</span>:16:3e:61:45:e8
+BROADCAST<span class="w"> </span>MULTICAST<span class="w"> </span>MTU:1500<span class="w"> </span>Metric:1
+RX<span class="w"> </span>packets:0<span class="w"> </span>errors:0<span class="w"> </span>dropped:0<span class="w"> </span>overruns:0<span class="w"> </span>frame:0
+TX<span class="w"> </span>packets:0<span class="w"> </span>errors:0<span class="w"> </span>dropped:0<span class="w"> </span>overruns:0<span class="w"> </span>carrier:0
+collisions:0<span class="w"> </span>txqueuelen:1000
+RX<span class="w"> </span>bytes:0<span class="w"> </span><span class="o">(</span><span class="m">0</span>.0<span class="w"> </span>B<span class="o">)</span><span class="w"> </span>TX<span class="w"> </span>bytes:0<span class="w"> </span><span class="o">(</span><span class="m">0</span>.0<span class="w"> </span>B<span class="o">)</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.path", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "toc.integrate"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

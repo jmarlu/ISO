@@ -1,0 +1,3929 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/UD1/virtual/">
+      
+      
+        <link rel="prev" href="../bios/">
+      
+      
+        <link rel="next" href="../Actividades/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Virtualización - IMPLANTACIÓN DE SISTEMAS OPERATIVOS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M0%202.75C0%201.784.784%201%201.75%201h12.5c.966%200%201.75.784%201.75%201.75v10.5A1.75%201.75%200%200%201%2014.25%2015H1.75A1.75%201.75%200%200%201%200%2013.25Zm1.75-.25a.25.25%200%200%200-.25.25v10.5c0%20.138.112.25.25.25h12.5a.25.25%200%200%200%20.25-.25V2.75a.25.25%200%200%200-.25-.25ZM7.25%208a.75.75%200%200%201-.22.53l-2.25%202.25a.749.749%200%200%201-1.275-.326.75.75%200%200%201%20.215-.734L5.44%208%203.72%206.28a.749.749%200%200%201%20.326-1.275.75.75%200%200%201%20.734.215l2.25%202.25c.141.14.22.331.22.53m1.5%201.5h3a.75.75%200%200%201%200%201.5h-3a.75.75%200%200%201%200-1.5%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#virtualizacion" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="IMPLANTACIÓN DE SISTEMAS OPERATIVOS" class="md-header__button md-logo" aria-label="IMPLANTACIÓN DE SISTEMAS OPERATIVOS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IMPLANTACIÓN DE SISTEMAS OPERATIVOS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Virtualización
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="IMPLANTACIÓN DE SISTEMAS OPERATIVOS" class="md-nav__button md-logo" aria-label="IMPLANTACIÓN DE SISTEMAS OPERATIVOS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    IMPLANTACIÓN DE SISTEMAS OPERATIVOS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 S.O. Estructura y Virtualización
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD1 S.O. Estructura y Virtualización
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Estructura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estructura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtualización
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtualización
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccionherramientas-de-virtualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introducción.Herramientas de virtualización
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introducción.Herramientas de virtualización">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-y-administracion-de-un-sistema-virtualizado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración y administración de un sistema virtualizado
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración y administración de un sistema virtualizado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creacion-de-una-maquina-virtual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creación de una máquina virtual
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#administrador-de-medios-virtuales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Administrador de medios virtuales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurar-redes-virtuales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configurar redes virtuales
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacion-de-sistemas-operativos-requisitos-y-configuracion-previa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instalación de sistemas operativos. Requisitos y configuración previa
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacion-de-ubuntu-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instalación de Ubuntu Server
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#herramientas-de-virtualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Herramientas de virtualización
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Herramientas de virtualización">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comunicacion-anfitrion-huesped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comunicación anfitrión-huésped
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comunicación anfitrión-huésped">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#carpetas-compartidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Carpetas compartidas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dispositivos-usb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dispositivos USB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrastrar-y-soltar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arrastrar y soltar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portapapeles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Portapapeles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herramientas-avanzadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Herramientas avanzadas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Herramientas avanzadas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instantaneas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instantáneas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atajos-de-teclado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atajos de teclado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clonar-una-maquina-virtual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clonar una máquina virtual
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exportacion-e-importacion-de-maquinas-virtuales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exportación e importación de máquinas virtuales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cifrado-de-maquinas-virtuales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cifrado de máquinas virtuales
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 Configuración de los SO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD2 Configuración de los SO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/IntroTerminal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción Terminal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/EstructuraDirectorios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estructura Directorios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/gestionArchivos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión Archivos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/redirecciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redirecciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/filtros/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filtros
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/busquedaArchivos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Búsqueda Archivos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/AdminMemoriaSecundaria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administración de memoria secundaria
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/gestorArranque/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestor de Arranque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/permisosBasicos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Permisos básicos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3.Administración de software base y aplicaciones
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD3.Administración de software base y aplicaciones
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/InstaWindow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación en Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/InstaLinux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación en Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/procesosLinux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión de procesos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/GestiServicios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión de Servicios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/programaTareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programación de Tareas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/actuSisOp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actualización del Sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/registroWindow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registro de Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD4.Instalación de servicios de Directorios
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD4.Instalación de servicios de Directorios
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4/sistemaRedes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sistema de organización de redes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4/IP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuración del protocolo TCP/IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4/instaServDirectorio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación del servicio de Directorio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD5.Configuración de servicios de directorio
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD5.Configuración de servicios de directorio
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/dns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuración de la resolución de nombres DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/dhcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación y configuración del servicio DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/conxClientesWindows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conexión de clientes a un controlador de dominio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/adminRemota/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administración remota
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD6.Administración de usuarios locales y de red
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD6.Administración de usuarios locales y de red
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/adminUsers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administración de usuarios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/objActive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objetos predeterminados de Active Directory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/polContra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Política de contraseñas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/scriptsInicio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scripts de inicio de sesión
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/direcSegLocal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Directivas de seguridad locales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/perUsers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Perfiles de usuario, móviles y obligatorios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/carpetasUsers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Carpetas personales. Redireccionamiento de las carpetas de usuario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/varEntorno/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables de entorno
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD7.Administración de objetos y políticas de grupo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD7.Administración de objetos y políticas de grupo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/estrategiaAnidamiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estrategias de anidamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/gruposSeguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grupos de seguridad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/unidadesOrganiza/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidades organizativas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/equiposDominio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Equipos del dominio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/directivasGrupo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Directivas de grupo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/adminDirecGrupo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administración de directivas de grupo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD8.Administración de recursos y permisos de acceso
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD8.Administración de recursos y permisos de acceso
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/controlAcceso/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control de acceso a recursos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/derechosInicio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Derechos de inicio de sesión y privilegios de usuario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/permisosRed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Permisos de red y locales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/herencia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Herencia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/cuotasDisco/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cuotas de disco
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD9.Scripts en Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD9.Scripts en Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creación de Scripts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Aritmetica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aritmetica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Comparadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comparadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/IF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estructura IF
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Operadores_Binarios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operadores Binarios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Argumentos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argumentos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Esructura CASE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/While_Until/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Esructura WHILE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/For/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Esructura FOR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Break/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Break y Continue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD10.Introducción a PowerShell
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD10.Introducción a PowerShell
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/021_Introducci%C3%B3nPwSh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/comandos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comandos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/Manejo%20resultados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manejo de Resultados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/022_PowerShell_Sintaxis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sintaxis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/023_PowerShell_ControlFlujo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control de flujo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/024_PowerShell_VectoresFunciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vectores y funciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/Estandares%20WMI-CIM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administración
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD11. Integridad y seguridad de la información.
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD11. Integridad y seguridad de la información.
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/01_seguridadIntegridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seguridad del sistema y de los datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/02_VolumenesDistribuidos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Volúmenes distribuidos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/03_toleranciaFallos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sistemas de tolerancia a fallos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/04_encriptDatos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Encriptación de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/05_compresionDatos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compresión de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/06_discosArranque/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Discos de arranque y de recuperación.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD12.Respaldo de la información y del sistema operativo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD12.Respaldo de la información y del sistema operativo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD12/01CopiasSeguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copias de seguridad del Sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD12/02Recuperacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recuperación del sistema. Opciones de restauración del Sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD12/03Clonacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clonación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD12/04InstalacionDesatendidas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuración y uso de instalaciones desatendidas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD12/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegación" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../Estructura/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    UD1 S.O. Estructura y Virtualización
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="virtualizacion">Virtualización</h1>
+<h2 id="introduccionherramientas-de-virtualizacion">Introducción.Herramientas de virtualización</h2>
+<p>A pesar de que parezca una tecnología moderna, fue desarrollada en la década de los 60 por IBM. La primera máquina diseñada para estos menesteres fue el IBM S/360 Modelo 67. Estos mainframes o superordenadores no optimizaban sus recursos por lo que surgió la idea “fraccionar lógicamente” los recursos y dividirlos en varias tarea, lo que hoy se conoce somo multitasking. En la década de los 80 y principios de los 90 con el abaratamiento del hardware gracias a los procesadores x86 de Intel, comenzó a generalizarse el uso de microordenadores que estaban lejos de las prestaciones ofrecidas por los mainframes. Esto provocó que la tecnología de virtualización dejara de utilizarse hasta bien entrados los años 90. Volvió a utilizarse profusamente en el ámbito de los servidores, pero también se empezó a usar en otros ámbitos de la informática como el test de software o seguridad de aplicaciones usando para ello los sandboxes.</p>
+<p>La virtualización crea una capa de abstracción de los recursos de un ordenador para que puedan ser utilizados por un sistema operativo virtualizado. Esta nueva capa de abstracción se denomina <strong>Hypervisor</strong> o VMM (Virtual Machine Monitor) y su trabajo consiste en administrar recursos reales de una máquina y convertirlos en recursos virtuales.</p>
+<p>La máquina que ofrece sus recursos reales para que sean convertidos en virtuales se denomina <strong>máquina anfitrión</strong>. Por otra parte, la máquina que utiliza estos recursos virtualizados ofrecidos por la máquina anfitrión se denomina <strong>máquina huésped</strong>. Lo habitual en esta tecnología es que existan más de una máquina huésped por cada máquina anfitrión y no viceversa. Es posible encontrar el caso contrario y se trata de la tecnología empleada en los sistemas operativos distribuidos vistos en la unidad anterior.</p>
+<p><img alt=" Esquema del proceso de virtualización." src="../img/virtualizacion/img1.png" /></p>
+<p>Esta capa de software (VMM) gestiona los recursos principales del ordenador como el procesador, la memoria principal, dispositivos periféricos, memoria secundaria y redes de comunicación. Se encarga de repartir los recursos de forma dinámica entre todos las máquinas virtuales, lo que hace que se pueda contener varias máquinas dentro de un sólo anfitrión.
+No es raro encontrar numerosas herramientas de virtualización en el mercado especializadas en diferentes ámbitos. Existen varias formas de virtualización y es posible virtualizar tanto el hardware como el software de servidor, sesiones de usuario, aplicaciones y también se pueden crear máquinas virtuales en un ordenador de escritorio. Esta última será la forma que se utilizará a lo largo de este módulo. Se crearán varias máquinas virtuales conectadas entre sí para dar soporte a nuestra infraestructura de servicio de directorio.</p>
+<p>En cuanto a tipos de virtualización, existe cuantiosa casuística, pero hay dos tipologías que destacan entre ellas; por la infraestructura de virtualización y por la técnica de virtualización.</p>
+<p>En el primer caso disponemos de <strong>virtualización de nivel 1</strong>, que es la que realiza directamente sobre el hardware de la máquina anfitrión sin intermediarios. No existe sistema operativo que gestione los recursos de la máquina para ofrecérselos al software de virtualización, sino que es el software de virtualización el que accede directamente a los recursos físicos y los transforma en virtuales. La ventaja de no contar con otro sistema operativo entre la virtualización y el hardware, facilita y optimiza la conversión de los recursos. Se pueden encontrar diferentes herramientas de nivel 1, recordemos las más destacadas:</p>
+<ul>
+<li>
+<p><strong>Xen Project Hypervisor</strong> es una plataforma de virtualización de nivel 1 de código abierto mantenido por una comunidad de desarrolladores que se mantiene muy activa. Muchas de las plataformas de virtualización on-line están basadas en Xen Project Hypervisor como Amazon Web Services, Aliyum y Verizon Cloud entre otras.</p>
+</li>
+<li>
+<p><strong>Proxmox</strong> es un software de código abierto con su propia comunidad de desarrolladores. Está orientada a la construcción de infraestructuras informáticas a lo largo de una red local. Posee una interfaz web para el control de las máquinas y ofrece otra serie de servicios virtualizados como Proxmox Mail Gateway, un filtro de spam y virus, aunque estos productos requieren de una suscripción.</p>
+</li>
+<li><strong>Hyper-V</strong> es otra propuesta por parte de Microsoft de código propietario y de pago en este caso. La ventaja sobre otras plataformas de nivel 1 es que es una plataforma nativa para sistemas operativos de la compañía, lo que favorece su rendimiento y escalabilidad. Esta plataforma también puede trabajar como una de nivel 2, integrada en la familia de servidores de Microsoft desde Windows Server 2008.</li>
+<li><strong>WMware vSphere Hypervisor</strong> es otra plataforma de nivel 1 ofrecida por WMware (empresa referente en el mundo de la virtualización) de código propietario pero de uso gratuito.</li>
+</ul>
+<p><strong>La virtualización de nivel 2</strong> al contrario, se realiza sobre el sistema operativo de la máquina anfitrión. Se instala una aplicación que contendrá las máquinas virtuales. Este tipo de virtualización es la más extendida y es con la que se trabajará en este módulo. Entre los diferentes sistemas de virtualización de nivel 2, se destacan las siguientes:</p>
+<ul>
+<li><strong>VMware Workstation</strong> que nos ofrece una de las plataformas de nivel 2 más potentes y se ha convertido en un estándar del sector para la virtualización. Es de código propietario y su uso es de pago, aunque disponemos de VWware Workstation Player de forma gratuita, aunque perderemos la capacidad de crear máquinas virtuales, tan sólo administrarlas.</li>
+<li><strong>Oracle VM VirtualBox</strong> es una propuesta que hasta 2007 disponía de su versión OSE (Open Source Edition) bajo licencia GPL 2 (General Public License). Actualmente es de código propietario pero gratuita, aunque tan sólo se puede utilizar bajo licencia de “Uso personal y de Evaluación” PUEL (Personal Use and Evaluation License). Licencia que se ajustará las necesidades de este módulo, por lo que será esta herramienta la que se usará para virtualizar la infraestructura necesaria.</li>
+<li><strong>QEMU</strong> es un emulador y plataforma virtual de código abierto que se distribuye de forma gratuita. Es compatible con la mayoría de máquinas virtuales y permite administrar las creadas con Xen Project Hypervisor con un rendimiento muy cercano al original.</li>
+</ul>
+<p>En cuanto a la clasificación por técnicas de virtualización disponemos de dos tipos:</p>
+<ul>
+<li><strong>virtualización por software</strong>, que posibilita la virtualización en todo tipo de ordenadores, antiguos y modernos, pero las máquinas virtuales son lentas y necesita más recursos por parte del procesador.</li>
+<li><strong>virtualización por hardware</strong>, que aceleran la ejecución del huésped, pero sólo funcionan con procesadores modernos. En el caso de Intel, la virtualización por hardware se denomina VT-x y en el caso de AMD, se denomina AMD-V. En la mayoría de ordenadores, la virtualización por hardware se debe habilitar en la BIOS.</li>
+</ul>
+<p>Las ventajas que ofrece esta tecnología son notables y van desde la reutilización y optimización del aprovechamiento del hardware hasta la contribución medioambiental, pasando por la rápida incorporación de nuevos recursos al sistema virtualizado, reducción de costes económicos y espaciales, mejora de los procesos de clonación y copia de sistema, mejora los procesos de aislamiento ante un fallo o alerta de seguridad y la administración global centralizada de los recursos.</p>
+<h3 id="configuracion-y-administracion-de-un-sistema-virtualizado">Configuración y administración de un sistema virtualizado</h3>
+<p>Los pasos contenidos en este apartado son válidos para cualquier sistema de virtualización de nivel 2, pero se va a centrar los ejemplos en la solución Oracle VM VirtualBox. Esta plataforma permite la creación de máquinas virtuales y una red virtual para conectar estas máquinas sin ocasionar interferencias con las máquinas o redes físicas en las que se encuentre el equipo anfitrión.</p>
+<h4 id="creacion-de-una-maquina-virtual">Creación de una máquina virtual</h4>
+<p>A la hora de crear una máquina virtual, Oracle VM VirtualBox ofrece un asistente que guiará a través de todo el proceso. Una vez lanzado el asistente ahorraremos tiempo si se usa el botón de <strong>Modo Experto</strong> el cual mostrará en una sola ventana las opciones de creación de nuestra máquina.</p>
+<p><img alt="Asistente en modo experto." src="../img/virtualizacion/img2.jpg" /></p>
+<p>Tres son los elementos que se deben configurar como mínimo para la creación de una máquina virtual:</p>
+<ul>
+<li>El tipo de sistema operativo que contendrá la máquina y su arquitectura,</li>
+<li>El tamaño de la memoria principal y</li>
+<li>Qué disco duro virtual le asignaremos como memoria secundaria.
+  Hay que tener presente los recursos de los que dispone la máquina anfitrión, y no ceder demasiados de éstos para que el rendimiento no caiga hasta límites insufribles. Habitualmente el software de virtualización avisa al usuario si va a superar estos límites.</li>
+</ul>
+<p>La elección de un tipo de disco duro determinará en que plataformas será compatible ese disco duro virtual. De esta manera VDI (VirtualBox Disk Image) será el formato nativo de VirtualBox, aunque también disponemos de <strong>VHD (Virtual Hard Disk)</strong> de Microsoft Virtual PC, <strong>VMDK (Virtual Machine Disk)</strong> propia de VMware Workstation, <strong>HDD (Parallels Hard Disk)</strong> de Parallels o los formatos <strong>QCOW (QEMU Copy-On-Web)</strong> y <strong>QED (QEMU Enhanced Disk)</strong> de la plataforma QEMU.</p>
+<p>Algo a tener muy en cuenta es el tipo de almacenamiento físico que vamos a dar al disco duro virtual. Existen dos opciones:</p>
+<ul>
+<li>Almacenamiento <strong>reservado dinámicamente</strong>, aumenta el tamaño del fichero a medida que los archivos se van copiando en el disco duro virtual. En esta configuración no importa el tamaño máximo del disco, ya que tan sólo cuando éste esté lleno, ocupará ese espacio de forma física en el disco anfitrión. Ofrece la ventaja de ahorrar espacio en el disco duro físico, pero es una configuración más lenta ya que tiene que redireccionar espacio nuevo cada vez que se escribe un archivo en el disco duro virtual.</li>
+<li>Almacenamiento <strong>en tamaño fijo</strong>, reserva el espacio en el disco anfitrión en función del total de la capacidad del disco duro virtual. Si el tamaño máximo del disco duro virtual es de 32 GB, será ese el tamaño del archivo en el disco duro físico. Esta configuración consume más cantidad de recursos del sistema anfitrión. Por contra en acceso al disco es más rápido, ya que no será necesario la redirección de espacio nuevo en el disco duro en cada escritura.</li>
+</ul>
+<p>El fichero que contenga en disco duro virtual, tendrá unas dimensiones considerables, sobre todo si se usa la técnica de almacenamiento en tamaño fijo. Oracle VM Workstation ofrece la posibilidad de dividir este fichero en fragmentos de 2 GB lo que permitirá mejor gestión del disco duro, el aumento de seguridad y la compatibilidad. Marcar esta casilla es obligatorio si el disco duro anfitrión posee un sistema de archivos anterior a NTFS (FAT16 o FAT32).</p>
+<h4 id="administrador-de-medios-virtuales">Administrador de medios virtuales</h4>
+<p>Cuando se crea una máquina virtual se crea también una disco duro virtual alojado en el disco duro anfitrión, como se ya se ha mencionado. La creación de este dispositivo virtual lleva consigo la asignación de un identificador unívoco basado en UUID (Universal Unique Identifier). Se trata de un número de 128 bits separado en cinco grupos por guiones. Esta identificación única evita que el mismo disco duro virtual sea asignado a varias máquinas virtuales de forma simultánea.
+Cuando se crea una máquina, se le asocia un disco duro nuevo o bien uno ya existente. Mientras este disco esté asignado a una máquina virtual se encuentra en estado ligado y tan solo esa máquina será capaz de escribir en él. Esto quiere decir también que no se puede asignar a ninguna otra.</p>
+<p>Si es necesario realizar esta asignación, antes se debe liberar ese disco a través del administrador de medios virtuales. De esta forma simulamos el funcionamiento físico de los discos duros y, además, dotamos de más seguridad al sistema virtualizado.</p>
+<p><img alt="Menú de copia del administrador de medios virtuales" src="../img/virtualizacion/img3.jpg" /></p>
+<p>Desde este mismo menú podremos realizar una copia de un disco duro virtual. Una vez realizada, el disco duro copiado habrá generado un nuevo UUID, indicando que, a pesar de ser una copia exacta del primero, en realidad Oracle VM VirtualBox lo tratará como un disco duro diferente. Este disco recién creado se le puede asignar a cualquier máquina virtual disponible, incluso la que contiene el disco original.</p>
+<p>Otras de las acciones que se puede realizar en este administrador, es dotar de funcionalidades especiales a los discos duros virtuales. Existen diferentes modos los cuales se resumen en:</p>
+<ul>
+<li>
+<p><strong>normal</strong>, esta es la configuración por defecto cuando se crea un nuevo disco duro. No existen restricciones sobre como el sistema operativo huésped lee y escribe en el disco. Los cambios que se produzcan en él serán permanentes.</p>
+</li>
+<li>
+<p><strong>inmutable</strong>, cualquier dato escrito por un sistema operativo huésped en un disco inmutable se almacena en una imagen de disco de diferenciación separada. Cuando la máquina virtual a la que se adjunta la imagen de disco se apaga o reinicia, el disco de diferenciación y los contenidos que se encuentran en él se descartan, dejando el disco inmutable inalterado. Este enfoque permite que múltiples máquinas virtuales que comparten el mismo archivo de imagen de disco, cada uno se le asigna su propio disco de diferenciación durante el tiempo de ejecución. A pesar de soportar más de una máquina ligado a un dispositivo inmutable, tan sólo una de ellas puede estar encendida de forma simultanea.</p>
+</li>
+<li>
+<p><strong>escritura</strong> simultánea, permite las operaciones de escritura y lectura como en modo normal con la salvedad que al apagar o reiniciar la máquina el disco vuelve a su estado original.</p>
+</li>
+<li>
+<p><strong>compartible</strong>, permite compartir un disco duro entre varias máquinas virtuales. Esto lo hace ideal para la formación de clusters. Sólo los discos de tamaño fijo pueden utilizar esta configuración.</p>
+</li>
+<li>
+<p><strong>multiconexión</strong>, básicamente se trata de un medio inmutable con conexión de varias máquinas simultáneamente. Además, el disco de diferenciación que crea cada máquina conectada a este disco duro, no se borra al reiniciar o apagar el sistema virtual.</p>
+</li>
+</ul>
+<p><img alt="Menú de modificación de atributos del medio" src="../img/virtualizacion/img4.jpg" /></p>
+<p>Este administrador también gestiona los discos ópticos y los discos flexibles, indicando a qué máquina virtual están conectados y permitiendo conectarlos a otra máquina si así se requiere. Estos dispositivos funcionan de igual forma que los discos duros virtuales en modo normal, pudiendo estar conectados a una única máquina virtual de forma simultánea.</p>
+<h4 id="configurar-redes-virtuales">Configurar redes virtuales</h4>
+<p>Una de las ventajas de trabajar con máquinas virtuales, es que desde el punto de vista de una red local, podemos tratarla de igual forma que si de un equipo físico se tratase. Es más, si así se requiere, también nos permite la creación de una red local interna y que tan sólo los equipos huésped sean capaces de detectar.
+Esta configuración brinda la posibilidad de crear sistemas informáticos de prueba completamente virtualizados, y sin interacción alguna con la máquina anfitrión. Cualquiera de estas configuraciones debe realizarse sobre el adaptador de red virtual, que será el encargado de gestionar la conexión de la máquina.
+Hay que conocer las distintas configuraciones que se le pueden asignar a un dispositivo de red virtual:</p>
+<ul>
+<li><strong>no conectado</strong>, la tarjeta virtual existe en el huésped, pero está configurada como si no tuviera ningún cable conectado. Huelga decir que la máquina huésped no dispone de conexión de red alguna.</li>
+<li><strong>NAT</strong>, (Network Address Translation) es el modo por defecto de la tarjeta de red virtual. La máquina huésped puede conectarse a otras redes mediante un router virtual proporcionado por Oracle VirtualBox. En este modo es posible navegar por Internet sin ser detectado por el resto de nodos de la red. Dicho router sirve direcciones DHCP del tipo 10.0.X.0/24 donde X es igual a dos para la primera tarjeta de red, X es igual a tres para la segunda tarjeta de red y así sucesivamente. En el caso de una única tarjeta de red, el router tiene como puerta de enlace la dirección 10.0.2.2, como servidor DNS la dirección 10.0.2.3 y la primera dirección DHCP asignada es la 10.0.2.15.</li>
+<li><strong>red NAT</strong>, configura una red a la que se unen todas las máquinas virtuales que quieran tener acceso a Internet sin interferir con la red en la que está inmersa el anfitrión. Antes de unirnos a una red de estas características habrá que crearla con la herramienta en línea de comandos vboxmanage o a través del administrador de redes.</li>
+<li><strong>Adaptador puente</strong>, se crea un tarjeta de red virtual en el anfitrión que intercepta el tráfico del huésped y puede inyectar paquetes en la red, de manera que el huésped se configura como si estuviera conectado por un cable a la tarjeta de red virtual del anfitrión. La máquina huésped es visible en la red.</li>
+<li><strong>red interna</strong>, se crea una red virtual visible entre las máquinas virtuales, pero invisible al anfitrión y a máquinas externas a la red. Cada red virtual creada se identifica mediante un nombre. Para conectar a los huéspedes en la misma red virtual, será necesario que sus controladoras de red se sitúen en la red con el mismo nombre.</li>
+<li><strong>adaptador sólo-anﬁtrión:</strong> en este modo se crea una tarjeta de red virtual en el anfitrión que puede conectarse con las máquinas virtuales sin necesitar que el anfitrión tenga una tarjeta destinada a esta tarea.</li>
+</ul>
+<p><img alt="Alt text" src="../img/virtualizacion/img5.png" /></p>
+<h2 id="instalacion-de-sistemas-operativos-requisitos-y-configuracion-previa">Instalación de sistemas operativos. Requisitos y configuración previa</h2>
+<p>Una de las primera tareas que se deben realizar para la instalación de un sistema operativo, es confirmar que efectivamente se puede instalar. Para ello es necesario comprobar los requisitos mínimos de hardware que se deben cumplir para que el sistema operativo se instale y funcione correctamente.</p>
+<p>Es necesario revisar los requerimientos en la velocidad del procesador, cantidad de memoria principal y CHIPSET de la placa base. En la actualidad las tarjetas gráficas y la memoria secundaria son requisitos que se cumplen con relativa facilidad.</p>
+<p>Además, es muy importante comprobar que el fabricante del hardware dispone de los controladores para la versión del sistema operativo. La inexistencia de ellos no impide la instalación, pero afectará al rendimiento general del ordenador.
+Una vez determinados los requisitos mínimos de hardware, hay que asegurarse si es compatible con el sistema operativo que haya elegido para la infraestructura, sobre todo en lo referente a la arquitectura del procesador. Un procesador con una arquitectura de 32 bits será incapaz de manejar un sistema operativo de una arquitectura diferente. Además, en la medida de lo posible se ha de elegir la arquitectura de 64 bits para contener los sistemas operativos, ya que la anterior posee ciertas limitaciones que supondrían un lastre en el sistema.</p>
+<p>En la actualidad, la instalación de un sistema operativo es un proceso completamente guiado y trivial, por lo que no se ahondará mucho en este proceso. Será con posterioridad cuando se configuren muchos de los aspectos que se han configurado de forma automática. Pero antes será necesario realizar ciertas comprobaciones:</p>
+<ul>
+<li>revisar la compatibilidad y requerimientos del hardware.</li>
+<li>arrancar el ordenador con el medio extraíble conectado y la BIOS debidamente configurada.</li>
+<li>iniciar el asistente de instalación que guiará el proceso de instalación.</li>
+<li>asignar particiones de forma adecuada a los discos duros, proceso que se realizará de forma automática en este apartado.</li>
+<li>tras la copia de ficheros, realizar configuraciones iniciales en cada sistema operativo, operaciones que se analizarán en la unidad de trabajo número 3.</li>
+</ul>
+<p>No existen muchas diferencias entre el proceso de instalación de un sistema operativo cliente y uno de red, al menos en sistemas operativos de Microsoft. Por lo que respecta a distribuciones basadas en GNU/Linux usadas en este manual, sí existen algunas diferencias entre instalar un sistema operativo cliente o uno de red. Las diferencias se ilustran en el siguiente apartado.</p>
+<h2 id="instalacion-de-ubuntu-server">Instalación de Ubuntu Server</h2>
+<p>El proceso de instalación de Ubuntu Server no es muy diferente del de Ubuntu Desktop pero al contrario que éste, necesita instalar ciertas características que todavía no se ha tratado. Por este motivo se realizará una pequeña guía de instalación destacando las configuraciones que son requeridas durante el proceso y propias de un servicio de directorio, como el servicio de DNS:</p>
+<ul>
+<li>tras elegir el idioma y configuración del teclado, procederá a detectar el hardware del sistema y configurarlo, entre ellos, los dispositivos de red. Turno para la configuración predeterminada de red y el nombre de la máquina.</li>
+<li>turno de los usuarios. Configurará un usuario para usar en lugar de la cuenta de superusuario. El asistente es autoexplicativo: nombre del usuario, nombre de la cuenta, contraseña, ubicación y cifrado de la cuenta.</li>
+<li>la instalación seguirá con el particionado del disco y la copia de ficheros en el disco duro. Como de costumbre, ofrecerá un particionado automático y otro manual. En cada ocasión se procederá según requerimientos.</li>
+<li>una vez copiados los datos, se descargarán las actualizaciones necesarias, se configurará el gestor de paquetes así como las actualizaciones del sistema operativo. En el siguiente paso es dónde se encuentra la diferencia a la que se hacía referencia. Ubuntu Server permite instalar diferentes servicios durante el proceso de instalación del sistema operativo. Se seleccionará la opción “Herramientas estándar del sistema” y se instalarán los servicios necesarios de forma manual a medida que sean necesarios tras la instalación.</li>
+</ul>
+<p><img alt="Alt text" src="../img/virtualizacion/img10.jpg" /></p>
+<p>La instalación de <strong>Microsoft Windows Server</strong> no ofrece esta posibilidad, siendo con posterioridad cuando el SOR sea promocionado a servidor y dotado de estas herramientas, tema que se abordará en la unidad de trabajo número 5.</p>
+<h2 id="herramientas-de-virtualizacion">Herramientas de virtualización</h2>
+<p>Para el estudio de los contenidos que se detallan es este punto será necesario la instalación, en cada sistema operativo contenido en una máquina virtual, la herramienta <strong>Oracle Guest Additions</strong>.</p>
+<p>Para instalarla, una vez arrancada la máquina virtual, se accede al menú <span class="menu">Dispositivos </span> → <span class="menu">Insertar imagen de CD de las Guest Additions… </span> . Tras esto se deberá instalar el software en la máquina huésped como si de un programa normal se tratase (claro dependiendo que sistema operativo sea). Al acabar, y tras reiniciar el sistema virtualizado, ya se dispondrá de las opciones de compartición que se especifican en este apartado.</p>
+<h3 id="comunicacion-anfitrion-huesped">Comunicación anfitrión-huésped</h3>
+<p>Aunque dispongamos de una red y la máquina huésped se encuentre dentro de esta red de alguna de las formas que se han visto en el apartado anterior, es posible que tanto el huésped como el anfitrión se comuniquen sin necesidad de estar contenidos dentro de ella. Además de ser una comunicación más rápida y cómoda, no interfiere en con el resto de equipos tanto virtuales como físicos.</p>
+<h4 id="carpetas-compartidas">Carpetas compartidas</h4>
+<p>En la máquina anfitrión se crea una carpeta a la que los huéspedes pueden acceder. El acceso se realizará en función del sistema operativo que contenga la máquina virtual. Si se trata de un sistema de Microsoft, se accederá a la carpeta como si de un recurso de red se tratase. Si se trata de un sistema operativo GNU/Linux o Solaris se proporciona un sistema de archivos especial diseñado para estas tareas denominado vboxsf.</p>
+<h4 id="dispositivos-usb">Dispositivos USB</h4>
+<p>Otra forma rápida de compartir ficheros es el uso de dispositivos de almacenamiento USB. Conseguiremos conectar un dispositivo USB a la máquina virtual siguiendo estos pasos:</p>
+<ul>
+<li>conecta el USB a la máquina anfitrión.</li>
+<li>en la máquina huésped <span class="menu">Dispositivos</span>→ <span class="menu">USB</span> y aparecerá un listado de los dispositivos que se encuentran conectados.</li>
+<li>pulsamos sobre alguno de ellos, el control de éste pasará a manos de la máquina virtual.</li>
+<li>para liberar el dispositivo USB, pulsamos sobre el dispositivo que queramos liberar, el anfitrión retomará el control sobre él.</li>
+</ul>
+<p>Hay que tener en cuenta que esta acción desconectará la el dispositivo USB de la máquina anfitrión. Si en ese momento existe algún fichero abierto en él, es posible la pérdida de información. Esta situación se repite cuando queremos liberar el dispositivo desde la máquina huésped.</p>
+<h4 id="arrastrar-y-soltar">Arrastrar y soltar</h4>
+<p>Oracle VirtualBox permite con este método arrastrar archivos entre anfitrión-cliente como si de una carpeta se tratase. Para habilitarlo hay que ir al menú a Dispositivos → Arrastrar y soltar. Se puede elegir el sentido de la copia de ficheros, desactivarlo o configurarlos como bidireccional.</p>
+<p><img alt="Menú Arrastrar y soltar." src="../img/virtualizacion/img6.jpg" /></p>
+<h4 id="portapapeles">Portapapeles</h4>
+<p>También es posible compartir el portapapeles entre los sistemas anfitrión-huésped a través del menú <span class="menu">Dispositivos</span> → <span class="menu">Portapapeles compartido</span>. De igual forma que en el caso anterior, es posible configurar la dirección o deshabilitar esta característica.</p>
+<p>En definitiva, se dispone de muchas opciones para compartir ficheros entre la máquina anfitrión y el huésped. A todas las vistas en este apartado hay que añadir <strong>los recursos compartidos de red</strong>. Elegir una de ellas dependerá de la necesidades de cada ocasión y también de las preferencias del usuario.</p>
+<h3 id="herramientas-avanzadas">Herramientas avanzadas</h3>
+<p>Este apartado no pretende ser exhaustivo, ya que la explicación de todas las posibilidades que ofrece una herramienta como Oracle VirtualBox excede de las pretensiones de este manual. Sí que se trata de acciones comunes que todo usuario debe conocer para optimizar su trabajo.</p>
+<h4 id="instantaneas">Instantáneas</h4>
+<p>Las instantáneas, también conocidas como snapshots, permiten al usuario realizar una copia del estado actual de la máquina para poder regresar a él con posterioridad. Esta opción es útil cuando se necesita realizar una instalación de software crítico, alguna configuración del sistema o alguna otra acción que ponga en peligro la estabilidad del sistema operativo. Antes de proceder a esta acción, es conveniente realizar una instantánea para guardar el estado actual del sistema. A partir de este punto, todos los cambios que se realicen quedarán guardados en un disco duro virtual diferencial. Una vez acabado la acción crítica sobre el sistema, éste podrá volver a un estado anterior y comenzar una nueva línea de tiempo, si así se requiere.</p>
+<p><img alt="Menú de administración de instantáneas." src="../img/virtualizacion/img7.jpg" /></p>
+<p>Cuando Oracle VirtualBox realiza una instantánea las guarda en la pestaña de Instantáneas de cada máquina virtual. Es posible realizarlas tanto con la máquina corriendo como apagada y muy recomendable que escribamos un comentario del motivo por el cual realizamos la instantánea. Pasados unos días será difícil recordar el porqué se hizo esa snapshot. Si es necesario la recuperación de una de ellas, tan sólo habrá que pulsar el botón derecho sobre ella y seleccionar la opción <span class="menu"> Restaurar Instantánea </span> del menú emergente.</p>
+<h4 id="atajos-de-teclado">Atajos de teclado</h4>
+<p>Existen combinaciones de teclas especiales para cada sistema operativo. Cuando se realizan estas combinaciones, siempre son captadas por el anfitrión, dejando sin posibilidad de reacción al huésped. Por ejemplo, si pulsamos la combinación <strong>Alt+Crtl+Supr</strong> con una máquina huésped abierta, no será ésta la que muestre el administrador de tareas, sino el anfitrión. Para enviar ordenes mediante combinación de teclas especiales al huésped es posible realizarla de dos formas:</p>
+<ul>
+<li>a través del menú <span class="menu">Entrada <span> → <span class="menu">Teclado </span> en la ventana de la máquina
+  virtuales.</li>
+<li>mediante una combinación de teclas alternativa, todas los huéspedes tienen una tecla especial denominada <strong>tecla anfitrión</strong> que nos brinda otra forma de interactuar con ella. En el ejemplo anterior, si es necesario abrir el administrador de tareas en el huésped, se realizará pulsando la tecla <strong>anfitrión+Supr</strong> .
+  Por defecto,<em>Oracle VM VirtualBox</em> establece que la tecla anfitrión es <strong>Ctrl Derecho</strong>. A través del menú <span class="menu">Entrada </span> → <span class="menu">Teclado</span> → <span class="menu">Preferencias de teclado… </span> se habilitará un editor para poder cambiar tanto la tecla anfitrión como sus combinaciones.</li>
+</ul>
+<p><img alt="Menú de configuración de atajos de teclado." src="../img/virtualizacion/img8.jpg" /></p>
+<h4 id="clonar-una-maquina-virtual">Clonar una máquina virtual</h4>
+<p>Clonar una máquina es crear una copia de un huésped exactamente igual a la clonada con la salvedad de sus números de identificación (UUID) diferentes. De esta forma ambas máquinas podrán ser ejecutadas dentro del mismo entorno.
+Es una práctica recomendable que, tras acabar la instalación e instalar las Guess Additions, se realice una clon de la máquina para disponer de una copia limpia por si ocurriera algún desastre. Es importante tener en cuenta que el huésped clonado siempre debe permanecer apagado hasta que termine el proceso.</p>
+<p>Existe un asistente de clonado en que se deberá indicar el nombre de la nueva máquina, si se quiere cambiar la MAC de los dispositivos de red (importante, hay que recordar que no pueden haber dos tarjetas de red con la misma dirección física dentro del sistema), así como si se desea clonar tan sólo el estado actual de la máquina o con todas sus instantáneas.</p>
+<p>Además de estas opciones, es importante la selección del tipo de clonación que mejor se adapte a las necesidades del proyecto:</p>
+<ul>
+<li><strong>completa</strong>, crea una copia de todos los archivos de la máquina virtual junto con todos sus discos duros.</li>
+<li><strong>enlazada</strong>, crea una copia de todos los archivos de la máquina virtual pero no de los discos duros. En su lugar genera un nuevo disco duro diferencial donde almacena los cambios que se producen sobre el estado inicial de la máquina clonada. En este estado, el nuevo huésped es dependiente de la máquina original y no podrá funcionar sin ella. Este método ahorra espacio en el disco duro pero aumenta las dependencias entre dispositivos virtuales.</li>
+</ul>
+<p><img alt="Menú de clonación de máquinas virtuales" src="../img/virtualizacion/img9.jpg" /></p>
+<p>Una vez seleccionadas todas las opciones, pulsando el botón Clonar obtendremos una nueva máquina idéntica a la inicial.</p>
+<h4 id="exportacion-e-importacion-de-maquinas-virtuales">Exportación e importación de máquinas virtuales</h4>
+<p>Este método es valido cuando queremos trasladar alguna máquina huésped de un equipo a otro e incluso de un software de virtualización diferente de dónde fue creado. Para ello se dispone de un estándar abierto para empaquetar y distribuir servicios virtualizados denominado Open Virtualization Format <strong>(OVF)</strong>. Al tratarse de un estándar abierto no está vinculado a ninguna arquitectura de procesador en concreto. La unidad de empaquetado y distribución se denomina paquete OVF y puede contener uno o más sistemas virtuales, cada uno de los cuales se puede implementar en una máquina virtual distinta.</p>
+<p>Para realizar estas acciones, para las cuales las máquinas y/o servicios virtualizados deben estar apagados, es necesario ir al <span class="menu"> Archivo</span> → <span class="menu">Exportar servicio virtualizado… </span> y seguir el asistente que aparece.</p>
+<h4 id="cifrado-de-maquinas-virtuales">Cifrado de máquinas virtuales</h4>
+<p>Oracle VM VirtualBox ofrece una opción para cifrar las máquinas virtuales que contengan información sensible. En concreto cifrará el archivo de disco o discos duros que del que el sistema virtualizado disponga. A través del menú <span class="menu">Configuración&lt;</span> → <span class="menu">General </span> → <span class="menu">Cifrado</span> se puede activar el cifrado de la máquina virtual.</p>
+<p>Se utilizará un algoritmo de cifrado simétrico AES de 128 o 256 bits. Tras insertar la contraseña comenzará el proceso de cifrado. Es posible revertir esta operación si se desmarca la opción <span class="menu">Habilitar cifrado<span>. En ese caso el programa solicitará la clave AES y procederá al descifrado de los archivos de la máquina virtual.</p>
+<p>El cifrado del disco duro virtual permitirá que tan sólo la máquina que lo ha cifrado pueda usarlo, a menos que, al configurarlo en otro huésped, introduzcamos la contraseña de cifrado. Esto evita que el disco virtual pueda conectarse a otras máquinas sin el consentimiento del administrador del sistema.</p>
+<p>Se ha de tener en cuenta que, al menos hasta la versión 5.1 de Oracle VM VirtualBox, es necesario instalar el <strong>Oracle VirtualBox Extension Pack</strong> para tener disponible la opción de cifrado. Este paquete es descargable desde su página oficial. Además de esta característica ofrece la posibilidad de cambiar el controlador de los dispositivos USB virtuales de la versión 1.0 a la 2.0 o 3.0, con el significativo aumento de rendimiento, el uso de la webcam del anfitrión y el VirtualBox RDP (Remote Desktop Protocol) entre otras funcionalidades.</p>
+<p>Son muchas las características que ofrece este software de virtualización, aunque conocerlas todas no es el objetivo de este manual. Conociendo las herramientas descritas en esta unidad, el trabajo del resto del manual se realizará sin complicaciones.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../bios/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Bios">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Bios
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Actividades/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Actividades">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Actividades
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.path", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "toc.integrate"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

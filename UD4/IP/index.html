@@ -1,0 +1,3924 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/UD4/IP/">
+      
+      
+        <link rel="prev" href="../sistemaRedes/">
+      
+      
+        <link rel="next" href="../instaServDirectorio/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Configuración del protocolo TCP/IP - IMPLANTACIÓN DE SISTEMAS OPERATIVOS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M0%202.75C0%201.784.784%201%201.75%201h12.5c.966%200%201.75.784%201.75%201.75v10.5A1.75%201.75%200%200%201%2014.25%2015H1.75A1.75%201.75%200%200%201%200%2013.25Zm1.75-.25a.25.25%200%200%200-.25.25v10.5c0%20.138.112.25.25.25h12.5a.25.25%200%200%200%20.25-.25V2.75a.25.25%200%200%200-.25-.25ZM7.25%208a.75.75%200%200%201-.22.53l-2.25%202.25a.749.749%200%200%201-1.275-.326.75.75%200%200%201%20.215-.734L5.44%208%203.72%206.28a.749.749%200%200%201%20.326-1.275.75.75%200%200%201%20.734.215l2.25%202.25c.141.14.22.331.22.53m1.5%201.5h3a.75.75%200%200%201%200%201.5h-3a.75.75%200%200%201%200-1.5%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#configuracion-del-protocolo-tcpip" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="IMPLANTACIÓN DE SISTEMAS OPERATIVOS" class="md-header__button md-logo" aria-label="IMPLANTACIÓN DE SISTEMAS OPERATIVOS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IMPLANTACIÓN DE SISTEMAS OPERATIVOS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Configuración del protocolo TCP/IP
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="IMPLANTACIÓN DE SISTEMAS OPERATIVOS" class="md-nav__button md-logo" aria-label="IMPLANTACIÓN DE SISTEMAS OPERATIVOS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    IMPLANTACIÓN DE SISTEMAS OPERATIVOS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 S.O. Estructura y Virtualización
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD1 S.O. Estructura y Virtualización
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD1/Estructura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estructura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD1/bios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD1/virtual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtualización
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD1/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 Configuración de los SO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD2 Configuración de los SO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/IntroTerminal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción Terminal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/EstructuraDirectorios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estructura Directorios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/gestionArchivos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión Archivos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/redirecciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redirecciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/filtros/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filtros
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/busquedaArchivos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Búsqueda Archivos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/AdminMemoriaSecundaria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administración de memoria secundaria
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/gestorArranque/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestor de Arranque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/permisosBasicos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Permisos básicos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3.Administración de software base y aplicaciones
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD3.Administración de software base y aplicaciones
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/InstaWindow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación en Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/InstaLinux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación en Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/procesosLinux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión de procesos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/GestiServicios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión de Servicios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/programaTareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programación de Tareas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/actuSisOp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actualización del Sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/registroWindow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registro de Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD4.Instalación de servicios de Directorios
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD4.Instalación de servicios de Directorios
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sistemaRedes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sistema de organización de redes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuración del protocolo TCP/IP
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuración del protocolo TCP/IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-de-red-alternativa-personalizada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de red alternativa personalizada
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ficheros-de-configuracion-de-red-en-gnulinux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ficheros de configuración de red en GNU/Linux
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ficheros de configuración de red en GNU/Linux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#distribuciones-de-ubuntu-server-anteriores-a-1610-inclusive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distribuciones de Ubuntu Server anteriores a 16.10 (inclusive)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distribuciones-de-ubuntu-server-1710-y-posteriores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distribuciones de Ubuntu Server 17.10 y posteriores
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolucion-de-problemas-de-conectividad-en-sistemas-operativos-en-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resolución de problemas de conectividad en sistemas operativos en red
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-vamos-a-trabajar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Cómo vamos a trabajar?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../instaServDirectorio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación del servicio de Directorio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD5.Configuración de servicios de directorio
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD5.Configuración de servicios de directorio
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/dns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuración de la resolución de nombres DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/dhcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación y configuración del servicio DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/conxClientesWindows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conexión de clientes a un controlador de dominio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/adminRemota/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administración remota
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD6.Administración de usuarios locales y de red
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD6.Administración de usuarios locales y de red
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/adminUsers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administración de usuarios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/objActive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objetos predeterminados de Active Directory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/polContra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Política de contraseñas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/scriptsInicio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scripts de inicio de sesión
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/direcSegLocal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Directivas de seguridad locales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/perUsers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Perfiles de usuario, móviles y obligatorios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/carpetasUsers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Carpetas personales. Redireccionamiento de las carpetas de usuario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/varEntorno/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables de entorno
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD7.Administración de objetos y políticas de grupo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD7.Administración de objetos y políticas de grupo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/estrategiaAnidamiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estrategias de anidamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/gruposSeguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grupos de seguridad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/unidadesOrganiza/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidades organizativas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/equiposDominio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Equipos del dominio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/directivasGrupo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Directivas de grupo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/adminDirecGrupo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administración de directivas de grupo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD8.Administración de recursos y permisos de acceso
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD8.Administración de recursos y permisos de acceso
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/controlAcceso/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control de acceso a recursos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/derechosInicio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Derechos de inicio de sesión y privilegios de usuario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/permisosRed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Permisos de red y locales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/herencia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Herencia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/cuotasDisco/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cuotas de disco
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD9.Scripts en Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD9.Scripts en Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creación de Scripts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Aritmetica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aritmetica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Comparadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comparadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/IF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estructura IF
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Operadores_Binarios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operadores Binarios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Argumentos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argumentos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Esructura CASE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/While_Until/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Esructura WHILE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/For/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Esructura FOR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Break/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Break y Continue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD10.Introducción a PowerShell
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD10.Introducción a PowerShell
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/021_Introducci%C3%B3nPwSh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/comandos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comandos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/Manejo%20resultados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manejo de Resultados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/022_PowerShell_Sintaxis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sintaxis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/023_PowerShell_ControlFlujo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control de flujo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/024_PowerShell_VectoresFunciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vectores y funciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/Estandares%20WMI-CIM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administración
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD10/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD11. Integridad y seguridad de la información.
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD11. Integridad y seguridad de la información.
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/01_seguridadIntegridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seguridad del sistema y de los datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/02_VolumenesDistribuidos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Volúmenes distribuidos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/03_toleranciaFallos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sistemas de tolerancia a fallos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/04_encriptDatos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Encriptación de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/05_compresionDatos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compresión de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/06_discosArranque/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Discos de arranque y de recuperación.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD12.Respaldo de la información y del sistema operativo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD12.Respaldo de la información y del sistema operativo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD12/01CopiasSeguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copias de seguridad del Sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD12/02Recuperacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recuperación del sistema. Opciones de restauración del Sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD12/03Clonacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clonación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD12/04InstalacionDesatendidas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuración y uso de instalaciones desatendidas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD12/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegación" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../sistemaRedes/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    UD4.Instalación de servicios de Directorios
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="configuracion-del-protocolo-tcpip">Configuración del protocolo TCP/IP</h1>
+<p>Antes de iniciar el proceso de instalación de un servicio de directorio, es necesario realizar la configuración adecuada del protocolo TCP/IP (Transmission Control Protocol/Internet Protocol). La función del protocolo TCP es la de generar una conexión virtual entre dos elementos de la red, a través de la cual fluye la información. Antes de iniciar la comunicación, este protocolo, configura una “camino” seguro entre el origen y el destino de la conexión. Tras esto, establece los parámetros de calidad mínima de la conexión y ofrece el resultado a las capas superiores. La configuración de esta ruta virtual ocupa un tiempo de proceso, pero que tras él, la comunicación se realiza de forma segura y rápida.</p>
+<p>El protocolo <strong>UDP (User Datagram Protocol)</strong>, también situado en la capa de transporte, tiene un funcionamiento sensiblemente diferente. Al contrario que su compañero de capa, éste no establece un “camino” ni unas condiciones de calidad previas de conexión. Divide el archivo en datagramas y los envía a su destino sin establecer ninguna confirmación de entrega. Evitar todas estas comprobaciones hace que este protocolo sea más rápido que TCP, pero menos confiable. Los protocolos como DNS (Domain Name Server) y DHCP (Dynamic Host Configuration Protocol) utilizan este protocolo para enviar sus mensajes.</p>
+<p>Por otro lado, el protocolo <strong>IP (Internet Protocol)</strong>, se encarga de transmitir datos de forma bidireccional a través de distintas redes físicas previamente enlazadas. Este protocolo se diseñó suponiendo que la entrega de paquetes no sería confiable, así que se le dotó de técnicas de encaminamiento para encontrar el destino final de paquete. Para ello establece una identificación unívoca de cada componente de red pertenezca a esta comunicación asignando direcciones IP distintas a cada host de la red. Existen diferentes versiones de este protocolo, siendo la más utilizada la IPv4 para entornos LAN.</p>
+<div class="admonition info inline end">
+<p class="admonition-title">Subredes</p>
+<p>Las subredes son redes segmentadas por el administrador de la red para suministrar una estructura de enrutamiento jerárquica. Permiten un mayor aprovechamiento de las redes, brinda contención de difusión.</p>
+</div>
+<p>Una dirección <strong>IPv4</strong> esta compuesta por cuatro octetos separados por un punto y divididos en dos partes, una que identifica la red a la que pertenece el equipo, y otra que identifica el equipo en esa red. En función de como se distribuyan estas dos partes tendremos diferentes tipos de direccionamiento IP, como se indica en la siguiente tabla.</p>
+<p><img alt="Tabla de clases de IPv4" src="../img/1000000000000D26000004B959BFFFDD6C09C6BE.jpg" /></p>
+<p>Todos estos conceptos ya son conocidos y no se profundizarán en ellos. Resulta evidente que son conocimientos necesarios para construir una infraestructura de red de forma adecuada y que el administrador ha de poseer las destrezas necesarias para controlar de forma adecuada esta terminología así como su implantación.</p>
+<p>Antes de realizar cualquier configuración, es necesario realizar un análisis detallado de los requerimientos de la red y realizar una previsión del direccionamiento IP. Es fundamental una buena previsión para no tener que realizar costosas reconfiguraciones en el futuro.</p>
+<p><img alt="Configuración de red en Microsoft Windows." src="../img/10000000000006AA0000078EE8672C5F052E5FFD.jpg" /></p>
+<p>De este modo, este análisis previo debe tener en cuenta aspectos como:</p>
+<ul>
+<li>dimensionar de forma holgada los equipos y dispositivos de conexión de la red, así como si es necesario realizar <strong>subredes</strong>.</li>
+<li>reservar una serie de direcciones para los servidores y configurar éstos como IP fija. Los servidores deben estar localizables en todo momento, por lo que es imprescindible que sus direcciones sean fijas.</li>
+<li>elegir en consecuencia un tipo de <strong>IP válida A, B o C</strong>. En la mayoría de casos la elección correcta para instaurar una red es el tipo B, ya que la C tiene serias limitaciones de expansión de hosts y las A en redes.</li>
+<li>reservar conjuntos de direcciones para dispositivos comunes. En efecto un buen método de trabajo es asignar conjunto de direcciones para agrupar los equipos con características similares. Por ejemplo, es buena práctica limitar un conjunto de IP para los equipos de una determinada área o departamento o colocar todas las impresoras en un rango de IP reservado para ellas.</li>
+<li>holgar la reserva de direcciones IP, de este modo en caso de expandir la red, será muy sencillo asignar direcciones a los nuevos dispositivos.</li>
+</ul>
+<p>Una vez diseñada la arquitectura lógica de la red es preciso configurar esa dirección en el servidor para que esté accesible al resto de equipos. Esta configuración se realizará a través de <span class="menu">Inicio</span> → <span class="menu">Configuración</span> → <span class="menu">Red e Internet</span> → <span class="menu">Cambiar opciones del adaptador</span>. Esta ventana mostrará los <strong>NIC (Network Interface Card)</strong> que el sistema tiene disponibles.
+Con un doble click sobre la <span class="menu">NIC</span> → <span class="menu">Propiedades</span> que se necesita configurar se accederá a su pantalla de configuración de las funciones de red. Será necesario entrar en la opción denominada <span class="menu">Protocolo de Internet versión 4 (TCP/IPv4)</span> y asignar una dirección válida a este equipo.</p>
+<p>Además, en de asignar una IP, será necesario especificar otra información como:</p>
+<ul>
+<li>la <strong>máscara de subred</strong>, utilizada para crear subredes dentro de una misma red y para delimitar los dominios de colisión.</li>
+<li><strong>puerta de enlace predeterminada</strong>, que indicará la dirección del dispositivo encargado de unir dos redes diferentes. Lo habitual es que esta dirección sea la del servidor que gobierne la red, pero eso dependerá de la arquitectura de red utilizada.</li>
+<li><strong>direcciones del servidor DNS</strong> que usará cualquier dispositivo para obtener información sobre los dispositivos de la red, como se verá detalladamente con posterioridad. Es recomendable especificar una dirección de DNS preferido, al que se le preguntará en primera instancia y uno alternativo, al que se consulta si el primero falla.</li>
+</ul>
+<h2 id="configuracion-de-red-alternativa-personalizada">Configuración de red alternativa personalizada</h2>
+<p>En algunas ocasiones los equipos se mueven entre varias redes dentro de la misma organización o incluso fuera de ella (por ejemplo equipos portátiles). Resulta muy cómodo la configuración de una red secundaria que el sistema probará si falla la configuración inicial.</p>
+<p>Esta configuración no será necesaria si se dispone de un servicio DHCP funcionando en la red, ya que será éste el que asigne los datos necesarios para configurar el equipo, lo que suele ser habitual. No obstante es conveniente conocer que se dispone de esta configuración alternativa de red.</p>
+<p>En el sistema operativo Ubuntu Server la configuración de las IP de los NIC se realizará durante el proceso de instalación o a posteriori. La diferencia es que no se dispondrá de una GUI para realizarla, por lo que habrá que recurrir al CLI.</p>
+<h2 id="ficheros-de-configuracion-de-red-en-gnulinux">Ficheros de configuración de red en GNU/Linux</h2>
+<p>Desde la versión 17.04 de Ubuntu Server, la configuración de las interfaces de red se realiza a través de <code>netplan</code>. Este nuevo método está basado en la configuración de la red con ficheros YAML (YAML Aint’s Markup Language) que <code>netplan</code> aplica a los NIC. Es un sistema en el que intervienen un menor número de archivos de configuración y ofrece una mayor compatibilidad con dispositivos virtuales. No obstante, y debido a que los dos sistemas han de coexistir durante un tiempo, es esta unidad se tratarán los dos sistemas de forma pormenorizada.</p>
+<h3 id="distribuciones-de-ubuntu-server-anteriores-a-1610-inclusive">Distribuciones de Ubuntu Server anteriores a 16.10 (inclusive)</h3>
+<p>Los archivos necesarios para la configuración de red de los NIC en GNU/Linux se encuentra en <code>/etc/network/interfaces</code>. Existen varias entradas por cada tarjeta de red. El contenido de este fichero es:</p>
+<div class="highlight"><span class="filename">Contenido del fichero de Configuración</span><pre><span></span><code><span class="c1"># This file describes the network interfaces available on your system</span>
+
+<span class="c1"># and how to activate them. For more information, see intercfaces(5)</span>
+
+<span class="c1"># The loopback network interface</span>
+
+auto<span class="w"> </span>lo
+iface<span class="w"> </span>lo<span class="w"> </span>inet<span class="w"> </span>loopback
+
+<span class="c1"># The primary network interface</span>
+
+auto<span class="w"> </span>enp0s3
+iface<span class="w"> </span>enp0s3<span class="w"> </span>inet<span class="w"> </span>dhcp
+</code></pre></div>
+<p>El fichero muestra dos configuraciones de NIC. La primera es la de loopback, de ahí su nombre “lo”. El dispositivo NIC principal es enp0s3 y como se aprecia en la última línea del archivo, está configurado de modo automático. Espera encontrar algún servicio de DHCP que le ofrezca una IP.</p>
+<p>Esta configuración para un cliente es muy válida, pero para un servidor es muy recomendable que la IP sea fija.</p>
+<p>Cuando se realiza un cambio de configuración en un NIC, será necesario desactivar y activar el servicio que la gestiona para que los cambios surjan efecto. Es posible realizar esta tarea sin reiniciar el servidor a través del comando ifconfig:</p>
+<div class="highlight"><span class="filename">Activar servicio de red</span><pre><span></span><code>sudo<span class="w"> </span>ifconfig<span class="w"> </span>enp0s3<span class="w"> </span>up
+</code></pre></div>
+<p>para activar (levantar) el NIC, o</p>
+<div class="highlight"><span class="filename">Desctivar interfaz</span><pre><span></span><code>sudo<span class="w"> </span>ifconfig<span class="w"> </span>enp0s3<span class="w"> </span>down
+</code></pre></div>
+<p>para descativar (bajar) la NIC.</p>
+<p>Antes de editar este archivo, es necesario comprobar cual es la configuración actual de la red. Se utiliza el comando <code>ifconfig</code> o <code>ip</code> en un terminal y devuelve la siguiente información:</p>
+<div class="highlight"><span class="filename">salida del comando ip a</span><pre><span></span><code>enp0s3<span class="w"> </span>Link<span class="w"> </span>encap:Ethernet<span class="w"> </span>direcciónHW<span class="w"> </span><span class="m">08</span>:00:27:40:65:bd
+<span class="w"> </span>Direc.<span class="w"> </span>inet:10.0.2.15<span class="w"> </span>Difus.:10.0.2.255<span class="w"> </span>Másc:255.255.255.0
+Dirección<span class="w"> </span>inet6:<span class="w"> </span>fe80::a00:27ff:fe40:65bd/64<span class="w"> </span>Alcance:Enlace
+ACTIVO<span class="w"> </span>DIFUSIÓN<span class="w"> </span>FUNCIONANDO<span class="w"> </span>MULTICAST<span class="w"> </span>MTU:1500<span class="w"> </span>Métrica:1
+Paquetes<span class="w"> </span>RX:0<span class="w"> </span>errores:0<span class="w"> </span>perdidos:0<span class="w"> </span>overruns:0<span class="w"> </span>frame:0
+Paquetes<span class="w"> </span>TX:22<span class="w"> </span>errores:0<span class="w"> </span>perdidos:0<span class="w"> </span>overruns:0<span class="w"> </span>carrier:0
+colisiones:0<span class="w"> </span>long.colaTX:1000
+Bytes<span class="w"> </span>RX:0<span class="w"> </span><span class="o">(</span><span class="m">0</span>.0<span class="w"> </span>B<span class="o">)</span><span class="w"> </span>TX<span class="w"> </span>bytes:2792<span class="w"> </span><span class="o">(</span><span class="m">2</span>.7<span class="w"> </span>KB<span class="o">)</span>
+
+lo<span class="w"> </span>Link<span class="w"> </span>encap:Bucle<span class="w"> </span><span class="nb">local</span>
+<span class="w"> </span>Direc.<span class="w"> </span>inet:127.0.0.1<span class="w"> </span>Másc:255.0.0.0
+Dirección<span class="w"> </span>inet6:<span class="w"> </span>::1/128<span class="w"> </span>Alcance:Anfitrión
+ACTIVO<span class="w"> </span>BUCLE<span class="w"> </span>FUNCIONANDO<span class="w"> </span>MTU:65536<span class="w"> </span>Métrica:1
+Paquetes<span class="w"> </span>RX:20<span class="w"> </span>errores:0<span class="w"> </span>perdidos:0<span class="w"> </span>overruns:0<span class="w"> </span>frame:0
+Paquetes<span class="w"> </span>TX:20<span class="w"> </span>errores:0<span class="w"> </span>perdidos:0<span class="w"> </span>overruns:0<span class="w"> </span>carrier:0
+colisiones:0<span class="w"> </span>long.colaTX:1
+Bytes<span class="w"> </span>RX:1792<span class="w"> </span><span class="o">(</span><span class="m">1</span>.7<span class="w"> </span>KB<span class="o">)</span><span class="w"> </span>TX<span class="w"> </span>bytes:1792<span class="w"> </span><span class="o">(</span><span class="m">1</span>.7<span class="w"> </span>KB<span class="o">)</span>
+</code></pre></div>
+<p>La información que hay que tener en cuenta se encuentra en las dos primeras líneas de del NIC enp0s3:</p>
+<ul>
+<li><strong>direcciónHW</strong>, hace referencia a la dirección de red física de la NIC.</li>
+<li><strong>Direc</strong>. inet, hace referencia a la IP actual del servidor, en este caso la que le ha facilitado el servidor DHCP</li>
+<li><strong>Difus</strong>, muestra la dirección de broadcast de la red</li>
+<li><strong>Másc</strong>, indica la máscara de subred</li>
+</ul>
+<div class="admonition warning inline start">
+<p class="admonition-title">Direcciones</p>
+<p>Es necesario recordar que en todo rango de direcciones de IP hay dos direcciones que no pueden ser asignadas a ningún dispositivo; la primera y la última del rango. La primera se usa como identificador de la red y la última como dirección de difusión, es decir, un paquete enviado a esta IP será transmitido al resto de equipos pertenecientes a su red (o subred).</p>
+</div>
+<p>Salvo la dirección física, será necesario incluir el resto de información de forma manual si este equipo tiene que tener una IP fija. Estos datos serán introducidos en fichero <code>/etc/network/interfaces</code> por lo que se abrirá con permisos de superusuario:</p>
+<div class="highlight"><span class="filename">Edición del archivo</span><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/network/interfaces
+</code></pre></div>
+<p>Se editará el archivo de la siguiente manera:</p>
+<div class="highlight"><span class="filename">Fichero editado</span><pre><span></span><code><span class="c1"># This file describes the network interfaces available on your system</span>
+
+<span class="c1"># and how to activate them. For more information, see intercfaces(5)</span>
+
+<span class="c1"># The loopback network interface</span>
+
+auto<span class="w"> </span>lo
+iface<span class="w"> </span>lo<span class="w"> </span>inet<span class="w"> </span>loopback
+
+<span class="c1"># The primary network interface</span>
+
+auto<span class="w"> </span>enp0s3
+iface<span class="w"> </span>enp0s3<span class="w"> </span>inet<span class="w"> </span>static
+address<span class="w"> </span><span class="m">192</span>.168.1.50
+gateway<span class="w"> </span><span class="m">192</span>.168.1.1
+netmask<span class="w"> </span><span class="m">255</span>.255.255.0
+network<span class="w"> </span><span class="m">192</span>.168.1.0
+broadcast<span class="w"> </span><span class="m">192</span>.168.1.255
+</code></pre></div>
+<p>A tener en cuenta:</p>
+<ul>
+<li>se ha configurado la NIC enp0s3 como static en lugar de dhcp. Ya no aceptará una configuración de red que no sea la que figura en las siguientes líneas.</li>
+<li>hay que especificar la address (dirección IP del equipo), gateway (puerta de enlace predeterminada) y la netmask (máscara de subred).</li>
+<li>de forma opcional, se identifica a IP de red y la de broadcast.</li>
+</ul>
+<p>Una vez guardado el fichero de configuración, será necesario reiniciar el servicio de red para que reconozca la nueva configuración:</p>
+<div class="highlight"><span class="filename">reinicio del servico</span><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>NetworkManager.service
+</code></pre></div>
+<p>A este archivo se pueden añadir las configuraciones de las NIC que sean necesarias para el correcto funcionamiento del servidor. Si se prefiere, en lugar de reiniciar el servicio es posible reiniciar el sistema con el comando reboot o shutdown. Siempre es preferible el reinicio del servicio afectado por la configuración y no la totalidad del sistema. Reiniciar un servidor puede suponer problemas en la administración de la red.</p>
+<h3 id="distribuciones-de-ubuntu-server-1710-y-posteriores">Distribuciones de Ubuntu Server 17.10 y posteriores</h3>
+<p>Para configurar una NIC con <code>netplan</code>, es necesario dirigirse a la carpeta <code>/etc/netplan</code> en donde se encontrarán los ficheros de configuración de red. Estos fichero están basados en el formato YAML que posee su propia sintaxis de lenguaje de marcas.</p>
+<p>El primer paso es generar un fichero de texto con extensión yaml y situado en la carpeta <code>/etc/netplan</code>. Es posible que el sistema operativo ya disponga de uno si durante la instalación ha encontrado una NIC. En tal caso, es preferible usar ese fichero</p>
+<div class="highlight"><span class="filename">crear un fichero de configuración</span><pre><span></span><code>sudo<span class="w"> </span>vi<span class="w"> </span>/etc/netplan/01-netcfg.yaml
+</code></pre></div>
+<p>Ahora toca editar este fichero y dotarle de la información de red necesaria.</p>
+<div class="highlight"><span class="filename">Con esta información</span><pre><span></span><code>network:
+<span class="w">    </span>version:<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="c1"># versión del documento</span>
+<span class="w">        </span>ethernets:<span class="w"> </span><span class="c1"># tipo de red a configurar</span>
+<span class="w">            </span>enp0s3:<span class="w"> </span><span class="c1"># dispositivo a configurar</span>
+<span class="w">            </span>dhcp4:<span class="w"> </span>no<span class="w"> </span><span class="c1"># servicio dhcp desactivado</span>
+<span class="w">            </span>addresses:<span class="w"> </span><span class="o">[</span><span class="m">192</span>.168.100.100/24<span class="o">]</span><span class="w"> </span><span class="c1"># dirección de red</span>
+<span class="w">            </span>gateway4:<span class="w"> </span><span class="m">192</span>.168.100.100<span class="w"> </span><span class="c1"># puerta de enlace</span>
+<span class="w">            </span>nameservers:<span class="w"> </span><span class="c1"># servicios de DNS</span>
+<span class="w">                </span>addresses:<span class="w"> </span><span class="o">[</span><span class="m">192</span>.168.100.100<span class="o">]</span><span class="w"> </span><span class="c1"># principal</span>
+<span class="w">                </span>search:<span class="w"> </span><span class="o">[</span><span class="m">8</span>.8.8.8<span class="o">]</span><span class="w"> </span><span class="c1"># de búsqueda o secundario</span>
+<span class="w">            </span>optional:<span class="w"> </span><span class="nb">true</span>
+</code></pre></div>
+<p>La información que se desprende de la lectura de este archivo resulta evidente a poco que se conozca un mínimo de teoría de redes. Con las etiquetas <strong>networks, ethernets y enp0s3</strong> se está acotando el NIC que se configurará. Las siguientes etiquetas hace referencia a la configuración de red de ese dispositivo. Todo bastante intuitivo.</p>
+<p>Es posible configurar diferentes redes y dispositivos de red a través de uno de estos ficheros yaml, tan sólo hay que estructurar la información en etiquetas del mismo modo que en el ejemplo expuesto. Una vez que el fichero esté debidamente configurado, se deberá aplicar esta configuración con el comando.</p>
+<div class="highlight"><span class="filename">Aplicar los cambios</span><pre><span></span><code>sudo<span class="w"> </span>netplay<span class="w"> </span>apply
+</code></pre></div>
+<p>Si se consulta la configuración de red, <code>netplan</code> habrá configurado de forma correcta la interfaz (o interfaces) configuradas en el fichero yaml. Recuerda que siempre en buena idea consultar la ayuda de un comando.</p>
+<h2 id="resolucion-de-problemas-de-conectividad-en-sistemas-operativos-en-red">Resolución de problemas de conectividad en sistemas operativos en red</h2>
+<p>Los problemas que un ordenador pueda tener en su hardware o software quedan adscritos a sus componentes o a la configuración del sistema operativo. Un problema de red puede saltar estar fronteras y añade una nueva dimensión al problema: la propia red y sus componentes.
+Es vital diseñar una buena estrategia de acción para que el técnico encargado de diagnosticar el problema no emplee demasiado tiempo y esfuerzo en el diagnóstico. Existe una metodología en seis fases que se ha demostrado útil:</p>
+<ul>
+<li><strong>identificar el problema</strong>, tarea que puede ser complicada pero que se puede intuir con ayuda del historial de eventos del sistema operativo, o una breve entrevista con el usuario del ordenador utilizando preguntas abiertas o cerradas que ayuden a identificar el problema.</li>
+<li><strong>establecer una teoría</strong> de causas probables.</li>
+<li><strong>poner a prueba la teoría</strong> para determinar la causa. Si no es posible demostrar la teoría, se reformulará hasta dar con la causa.</li>
+<li><strong>establecer un plan de acción</strong>, tras la confirmación del problema, se hace necesario un listado de tareas para solucionar el problema e implementar una solución.</li>
+<li><strong>verificar la funcionalidad</strong> del sistema e implementación de medidas preventivas, es recomendable que no vuelva a ocurrir.</li>
+<li><strong>documentar el problema</strong>, las soluciones planteadas y los resultados.</li>
+</ul>
+<p>A continuación se muestran los problemas de red más comunes y algunas soluciones a implementar:</p>
+<p><strong>Las luces de la NIC no están encendidas.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Causas probables</th>
+<th>Soluciones posibles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>El cable de red está desconectado o está dañado.</td>
+<td>Reemplazar el terminal RJ-45 o cambiar el cable.</td>
+</tr>
+<tr>
+<td>La NIC está dañada.</td>
+<td>Reemplazar la NIC</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Los ordenadores portátiles no pueden detectar la red inalámbrica.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Causas probables</th>
+<th>Soluciones posibles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>El router o el punto de acceso inalámbrico se configuró con un protocolo distinto.</td>
+<td>Reconfigurar el protocolo de comunicación del router.</td>
+</tr>
+<tr>
+<td>No se transmite el SSID.</td>
+<td>Configurar el router inalámbrico para que transmita la SSID.</td>
+</tr>
+<tr>
+<td>La NIC inalámbrica está deshabilitada.</td>
+<td>Habilitar la NIC inalámbrica del ordenador.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>El ordenador tiene una dirección IP 169.254.X.X.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Causas probables</th>
+<th>Soluciones posibles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>El cable de red está desconectado.</td>
+<td>Conectar el cable de red.</td>
+</tr>
+<tr>
+<td>El router está apagado o la conexión es defectuosa.</td>
+<td>Comprobar la conexión del router y el servicio DHCP.</td>
+</tr>
+<tr>
+<td>La NIC está dañada.</td>
+<td>Reemplazar la NIC.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Un dispositivo remoto no responde a una solicitud de ping.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Causas probables</th>
+<th>Soluciones posibles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>El firewall de Microsoft Windows está configurado para deshabilitar el ping de manera predeterminada.</td>
+<td>Configurar el firewall para que acepte el comando ping.</td>
+</tr>
+<tr>
+<td>El dispositivo remoto está configurado para no responder a solicitudes de ping.</td>
+<td>Configurar el dispositivo remoto para que acepte solicitudes de ping.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Un usuario puede acceder a la red local, pero no puede acceder a Internet.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Causas probables</th>
+<th>Soluciones posibles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>La dirección de la puerta de enlace no es correcta.</td>
+<td>Establecer una dirección de puerta de enlace correcta.</td>
+</tr>
+<tr>
+<td>El proveedor de Internet está teniendo problemas.</td>
+<td>Ponerse en contacto con el proveedor.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Un equipo conectado a una red no es capaz de ver los recursos compartidos.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Causas probables</th>
+<th>Soluciones posibles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>El nombre del grupo de trabajo no es correcto.</td>
+<td>Cambiar el nombre del grupo de trabajo.</td>
+</tr>
+<tr>
+<td>La ubicación de red es incorrecta.</td>
+<td>Cambiar la ubicación de red por la adecuada.</td>
+</tr>
+<tr>
+<td>La detección de redes y el uso compartido de archivos están desactivados (sólo Microsoft Windows).</td>
+<td>Activar la detección de redes y el uso compartido de archivos (sólo Microsoft Windows).</td>
+</tr>
+</tbody>
+</table>
+<p>Esta es una pequeña muestra de los problemas y las posibles soluciones específicas de red. El espectro de posibles problemas y soluciones es mucho más amplio.</p>
+<h2 id="como-vamos-a-trabajar">¿Cómo vamos a trabajar?</h2>
+<p>Voy a explicar el modo más difícil que es en Linux. Vamos a disponer de la siguiente configuración.</p>
+<p><img alt="alt text" src="../img/Configuraci%C3%B3nREd.png" /></p>
+<p>Si observamos, tenemos dos interfaces de red en la máquina virtual de Ubuntu server. <strong>La primera interfaz</strong> adaptador puente (<strong>en el primer tema está explicado</strong>) la utilizaremos para configurar y manipular el Servidor ubuntu mediante ssh. <strong>La segunda interfaz</strong>, vamos a utilizar una red Nat que nos crea una red privada con salida a Internet.</p>
+<p>Vamos a configurar el servidor Ubuntu la red NAT . Previamente debe estar creada y configurada en Virtual Box.</p>
+<p><img alt="alt text" src="../img/virtualRedNat.png" />.</p>
+<p>Como vemos en la siguiente imagen he creado una red nat llamada NATlinux. Con un <strong>rango de IPS</strong> , en el que se ha <strong>deshabilitado</strong> el DHCP. Que supone esta configuración que en el interfaz de red que se crea en la maquina virtual asociado a esta configuración, pues que no se le puede asignar una IP fuera de ese rango y tampoco se asigna una IP de forma automática.</p>
+<div class="highlight"><span class="filename">configuración de los ficheros de red</span><pre><span></span><code>ad@ServidorUbuntu:/etc/netplan$<span class="w"> </span>sudo<span class="w"> </span>cat<span class="w"> </span><span class="m">01</span>-netcfg.yaml
+<span class="o">[</span>sudo<span class="o">]</span><span class="w"> </span>password<span class="w"> </span><span class="k">for</span><span class="w"> </span>ad:
+<span class="w">     </span>network:
+<span class="w">       </span>version:<span class="w"> </span><span class="m">2</span>
+<span class="w">       </span>ethernets:
+<span class="w">         </span>enp0s3:<span class="w"> </span><span class="c1"># Interfaz para realizar una red con el cliente y crear poder salir a internet</span>
+<span class="w">           </span>dhcp4:<span class="w"> </span><span class="nb">false</span>
+<span class="w">           </span>addresses:
+<span class="w">             </span>-<span class="w"> </span><span class="m">10</span>.0.3.3/24<span class="w"> </span><span class="c1"># Dirección que se le pone al host</span>
+<span class="w">           </span>routes:
+<span class="w">             </span>-<span class="w"> </span>to:<span class="w"> </span>default<span class="w"> </span><span class="c1">#Esto cambia con la anterior configuración</span>
+<span class="w">               </span>via:<span class="w"> </span><span class="m">10</span>.0.3.1
+<span class="w">           </span>nameservers:
+<span class="w">             </span>search:<span class="w"> </span><span class="o">[</span><span class="w"> </span>ejemplo.local<span class="w"> </span><span class="o">]</span>
+<span class="w">             </span>addresses:
+<span class="w">               </span>-<span class="w"> </span><span class="m">8</span>.8.8.8
+<span class="w">               </span>-<span class="w"> </span><span class="m">8</span>.8.4.4
+<span class="w">         </span>enp0s8:<span class="w"> </span><span class="c1">#Interfaz para comunicarnos con el ordenador anfitrión mediante ssh y facilitarnos su configuración</span>
+<span class="w">           </span>dhcp4:<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="o">(</span>el<span class="w"> </span>router<span class="w"> </span>asignará<span class="w"> </span>una<span class="w"> </span>ip,<span class="w"> </span>es<span class="w"> </span>decir<span class="w"> </span>como<span class="w"> </span>si<span class="w"> </span>estuviera<span class="w"> </span>en<span class="w"> </span>la<span class="w"> </span>red<span class="o">)</span>
+</code></pre></div>
+<p>Puede ser que dentro de <code>/etc/netplan/</code> haya varios fichero. Estos vienen marcados con un número en su nombre <strong>que va a dar la prioridad.</strong>
+Como configuramos el cliente que se va a conectar con ubuntu server.</p>
+<div class="highlight"><span class="filename">configuración de los ficheros de red del cliente Ubuntu</span><pre><span></span><code>sudo<span class="w"> </span>cat<span class="w"> </span>/etc/netplan/01-network-manager-all.yaml
+
+<span class="c1"># Let NetworkManager manage all devices on this system</span>
+network:
+<span class="w">  </span>version:<span class="w"> </span><span class="m">2</span>
+<span class="w">  </span>renderer:<span class="w"> </span>NetworkManager
+<span class="w">  </span>ethernets:
+<span class="w">    </span>enp0s3:
+<span class="w">        </span>dhcp4:<span class="w"> </span>no<span class="w"> </span><span class="o">(</span><span class="c1"># No tenemos DHCP, si no fuera true y lo de bajo no valdría)</span>
+<span class="w">        </span>addresses:
+<span class="w">          </span>-<span class="w"> </span><span class="m">10</span>.0.3.5/24
+<span class="w">        </span>routes:
+<span class="w">            </span>-<span class="w"> </span>to:<span class="w"> </span>default
+<span class="w">              </span>via:<span class="w"> </span><span class="m">10</span>.0.3.1
+<span class="w">        </span>nameservers:
+<span class="w">          </span>search:<span class="w"> </span><span class="o">[</span>example.local<span class="o">]</span>
+<span class="w">          </span>addresses:
+<span class="w">            </span>-<span class="w"> </span><span class="m">10</span>.0.3.3
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../sistemaRedes/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Sistema de organización de redes">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Sistema de organización de redes
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../instaServDirectorio/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Instalación del servicio de Directorio">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Instalación del servicio de Directorio
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.path", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "toc.integrate"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

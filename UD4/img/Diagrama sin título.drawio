@@ -1,0 +1,25 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="24.7.16">
+  <diagram name="Página-1" id="dNGl02KZGJWCCH43IAgb">
+    <mxGraphModel dx="2269" dy="1449" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="BIulghIKF2VAYKIMc1So-1" value="EQUIPO ANFITRIÓN&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/vista_client.svg;verticalAlign=top;fontSize=37;" vertex="1" parent="1">
+          <mxGeometry x="130" y="210" width="197.6" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="BIulghIKF2VAYKIMc1So-24" value="&lt;b&gt;RED NAT&amp;nbsp;&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=35;" edge="1" parent="1" source="BIulghIKF2VAYKIMc1So-9" target="BIulghIKF2VAYKIMc1So-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BIulghIKF2VAYKIMc1So-9" value="&lt;div&gt;UBUNTU DESKTOP&lt;/div&gt;" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/vista_client.svg;verticalAlign=top;fontSize=37;" vertex="1" parent="1">
+          <mxGeometry x="140" y="790" width="197.6" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="BIulghIKF2VAYKIMc1So-10" value="UBUNTU SERVER" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/vista_client.svg;verticalAlign=top;fontSize=37;" vertex="1" parent="1">
+          <mxGeometry x="520" y="520" width="197.6" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="BIulghIKF2VAYKIMc1So-11" value="&lt;p style=&quot;line-height: 150%;&quot;&gt;&lt;font style=&quot;font-size: 33px;&quot;&gt;&lt;b&gt;ADAPTADOR PUENTE&amp;nbsp;&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.607;entryY=0.538;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=20;" edge="1" parent="1" source="BIulghIKF2VAYKIMc1So-1" target="BIulghIKF2VAYKIMc1So-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
