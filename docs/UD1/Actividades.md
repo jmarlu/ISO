@@ -2,7 +2,7 @@
 
 ## Actividad 1. Introducción
 
-Si bien para nosotros ya es algo común, originalmente el concepto de PC (acrónimo de las palabras inglesas Personal Computer, es decir, Computadora Personal) era algo impensado, considerándose de que los primeros ordenadores podían inclusive ocupar habitaciones enteras. Este término, si bien actualmente es un genérico para todos los equipos sin importar su fabricante o sistema operativo, en un principio pertenecía exclusivamente al ordenador llamado IBM Personal Computer, desarrollado por la firma IBM y comercializado a principios de los años '80, contando con un precario procesador 8066 con una capacidad de 4.77 MHz y una memoria ROM de 64 Kb, algo que lógicamente está más que obsoleto hoy en día.
+Si bien para nosotros ya es algo común, originalmente el concepto de PC (acrónimo de las palabras inglesas Personal Computer, es decir, Computadora Personal) era algo impensado, considerándose de que los primeros ordenadores podían inclusive ocupar habitaciones enteras. Este término, si bien actualmente es un genérico para todos los equipos sin importar su fabricante o sistema operativo, en un principio pertenecía exclusivamente al ordenador llamado IBM Personal Computer, desarrollado por la firma IBM y comercializado a principios de los años '80, contando con un procesador Intel 8088 a 4,77 MHz y una memoria ROM de 64 Kb, algo que lógicamente está más que obsoleto hoy en día.
 En cuanto a los ordenadores en sí, podemos contar con la clasificación actual en estos tipos de equipo:
 
 - **Ordenadores de Sobremesa**: Los clásicos, también llamados De Escritorio, con su torre, monitor y periféricos.
@@ -35,14 +35,13 @@ Hay que tener en cuenta que algunas de las preguntas no las podrás contestar al
 2. Es normal que los equipos estén configurados para arrancar desde CD/DVD u otro dispositivo de almacenamiento antes de arrancar desde el disco duro. Su utilidad es importante, ya que nos permite arrancar desde un medio alternativo si nuestro sistema operativo no responde. Pero lo cierto es que podemos desactivar esta opción, pidiendo al ordenador que solo arranque desde el disco duro, ya que en caso de problemas, siempre podremos restaurar el arranque desde otro medio. **Comprueba la secuencia de arranque en la BIOS y configúrala para arrancar directamente desde el disco duro.**
 3. Es posible evitar las modificaciones no deseadas, limitando el acceso a la configuración de la BIOS a personas no autorizadas. Es posible añadir una contraseña para impedir el acceso al sistema operativo a personas no autorizadas. Asigna una contraseña de acceso al sistema.
 4. Si queremos que el ordenador detenga su arranque cuando se da cualquier problema en la ejecución del POST. ¿Qué opción debemos habilitar en la BIOS?
-5. Tras realizar varios cambios en la BIOS, te das cuenta de que el sistema no está funcionando correctam
-   ente. ¿Qué opción tenemos para restaurar los valores por defecto del sistema y solucionar el problema?
+5. Tras realizar varios cambios en la BIOS, te das cuenta de que el sistema no está funcionando correctamente. ¿Qué opción tenemos para restaurar los valores por defecto del sistema y solucionar el problema?
 
 ## Actividad 4. Virtualización. Virtual Box
 
 1.  Crea una máquina virtual para cada uno de los siguientes sistemas operativos. Antes de crearlas se ha de tener en cuenta **los requisitos con los que dispone el sistema anfitrión** y que, en circunstancias normales, serán necesarias **dos de estas máquinas** encendidas a la vez. Debes planificar bien el consumo de recursos:
 
-    - una máquina para un cliente con Microsoft Windows 10 Professional .
+    - una máquina para un cliente con Microsoft Windows 10 Professional.
     - una máquina para un cliente con Ubuntu Desktop.
     - una máquina para un servidor con Microsoft Windows Server.
     - una máquina para contener un servidor con Ubuntu Server.

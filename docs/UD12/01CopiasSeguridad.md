@@ -27,9 +27,9 @@ Si se combina una copia completa semanal y diferenciales diarios, se conseguirá
 
 Por supuesto las combinaciones van a depender de las necesidades de la empresa y la importancia de los datos a respaldar. Será el administrador el que decida una estrategia válida de respaldo que combine todos estos factores.
 
-En unidades anteriores se ha tratado el tema de la salvaguarda de la información de los usuarios y documentos del sistema. En este apartado se tratará de la protección de la configuración del SOR a través de copias de seguridad del sistema. Casi tan importante como mantener a salvo los datos de los usuario es, sin lugar a dudas, mantener a salvo de errores y pérdidas la configuración de los controladores de domino. Los motivos resultan obvios. Además, si las copias se encuentran programadas, la protección se producirá de forma automática con la frecuencia que se estime necesaria.
+En unidades anteriores se ha tratado el tema de la salvaguarda de la información de los usuarios y documentos del sistema. En este apartado se tratará de la protección de la configuración del SO a través de copias de seguridad del sistema. Casi tan importante como mantener a salvo los datos de los usuarios es, sin lugar a dudas, mantener a salvo de errores y pérdidas la configuración de los controladores de dominio. Los motivos resultan obvios. Además, si las copias se encuentran programadas, la protección se producirá de forma automática con la frecuencia que se estime necesaria.
 
-En los SOR basados en Microsoft Windows, será necesario instalar la característica de **Copias de seguridad de Windows Server**. Recuerda que el proceso solicita la instalación de los roles antes que las características, por lo que pulsa el botón siguiente cuando solicite instalar un rol para para pasar directamente a la instalación de características.
+En los SO basados en Microsoft Windows, será necesario instalar la característica de **Copias de seguridad de Windows Server**. Recuerda que el proceso solicita la instalación de los roles antes que las características, por lo que pulsa el botón siguiente cuando solicite instalar un rol para pasar directamente a la instalación de características.
 
 ![Característica a instalar a través del asistente.](images/UD13/Pictures/10000000000009C4000006FF8676C71971B6F764.jpg)
 
@@ -49,7 +49,7 @@ Junto con la inclusión de este nuevo software, Microsoft ha eliminado el soport
 Ahora que ya se dispone de una herramienta para la copia del sistema, es preciso planificar estas copias para que realicen en función de varios parámetros:
 
 - **carga del sistema**, en efecto, no es buena idea realizar estas tareas cuando el sistema soporta la mayor carga de trabajo. Además de añadir una carga extra, la copia de seguridad se alargará en el tiempo quedando expuesta a una mayor posibilidad de sufrir errores.
-- **horario de trabaj**o, es muy recomendable que las copias se planifiquen fuera del horario laboral, en la medida de lo posible. Es durante la jornada laboral cuando se realizan los cambios en el sistema que hay que salvaguardar. Parece lógico que, al finalizar la jornada y con ella los cambios, se produzca la copia de seguridad del sistema.
+- **horario de trabajo**, es muy recomendable que las copias se planifiquen fuera del horario laboral, en la medida de lo posible. Es durante la jornada laboral cuando se realizan los cambios en el sistema que hay que salvaguardar. Parece lógico que, al finalizar la jornada y con ella los cambios, se produzca la copia de seguridad del sistema.
 - **adecuar la periodicidad de la copia, dependiendo de la actividad del sistema en general y sobre todo del flujo de la información**. En sistemas con poco cambios es posible espaciar las copias de seguridad. Por contra, cuando el sistema se enfrenta a continuos cambios será necesario realizar estas copias con una mayor asiduidad.
 - **programación y tipo de copias**, es recomendable que el sistema sea capaz de realizar las copias de seguridad atendiendo a una programación, de forma desatendida y de tipo incremental.
 

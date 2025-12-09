@@ -38,6 +38,38 @@
 
     **IMPORTANTE:** Al igual que en el caso anterior, realiza una clonación enlazada de los clientes **CU18XX** las veces que necesites en lugar de crear máquinas nuevas. Recuerda que deberás _cambiar el nombre del equipo, la MAC de la NIC y la IP_ si es fija.
 
+## Actividad 3 bis. Cliente Ubuntu en Active Directory (pasos menos explicados y con otros paquetes.)
+
+Objetivo: unir un cliente Ubuntu al dominio de Active Directory y comprobar que se pueden ejecutar acciones con usuarios de dominio.
+
+1. Prepara la red del cliente Ubuntu: establece el nombre de host y configura el DNS apuntando al controlador de dominio de Windows.
+2. Instala los paquetes de integración:
+   ```bash
+   sudo apt update
+   sudo apt install realmd sssd-ad sssd-tools adcli samba-common-bin oddjob-mkhomedir packagekit
+   ```
+3. Descubre el dominio y únete con una cuenta que tenga permisos de unión:
+   ```bash
+   realm discover MIDOMINIO.LOCAL
+   sudo realm join MIDOMINIO.LOCAL -U Administrador
+   realm list
+   ```
+4. Habilita la creación automática del home y permite el acceso al grupo de usuarios del dominio:
+   ```bash
+   sudo systemctl enable --now oddjobd
+   sudo pam-auth-update --enable mkhomedir
+   sudo realm permit --groups "Domain Users"
+   ```
+5. Concede privilegios de administración al grupo **Domain Admins** en el cliente Ubuntu:
+   ```bash
+   echo "%domain\\ admins ALL=(ALL) ALL" | sudo tee /etc/sudoers.d/domain-admins
+   ```
+6. Valida el acceso con un usuario de dominio:
+   - Comprueba identidad y ticket Kerberos: `id usuario@midominio.local` y `klist`.
+   - Inicia sesión por consola o SSH con el usuario del dominio y confirma que se crea su directorio `/home/DOMINIO/usuario`.
+   - Ejecuta un comando con `sudo` para verificar los permisos.
+7. Documenta los pasos y captura evidencias (unión correcta, `realm list`, `id`, `klist`, creación de home y uso de `sudo`).
+
 ## Actividad 4
 
 1. Instala la aplicación **RSAT** en el cliente CW1001 y conecta con ServidorWindows para administrarlo.
