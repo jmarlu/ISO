@@ -46,8 +46,9 @@ Objetivo: unir un cliente Ubuntu al dominio de Active Directory y comprobar que 
 2. Instala los paquetes de integración:
    ```bash
    sudo apt update
-   sudo apt install realmd sssd-ad sssd-tools adcli samba-common-bin oddjob-mkhomedir packagekit
+   sudo apt install realmd sssd-ad sssd-tools adcli krb5-user samba-common-bin libpam-mkhomedir packagekit
    ```
+   Durante la instalación, se te pedirá configurar el reino Kerberos. Introduce el nombre de tu dominio en mayúsculas (ejemplo: `MIDOMINIO.LOCAL`).
 3. Descubre el dominio y únete con una cuenta que tenga permisos de unión:
    ```bash
    realm discover MIDOMINIO.LOCAL
@@ -56,7 +57,6 @@ Objetivo: unir un cliente Ubuntu al dominio de Active Directory y comprobar que 
    ```
 4. Habilita la creación automática del home y permite el acceso al grupo de usuarios del dominio:
    ```bash
-   sudo systemctl enable --now oddjobd
    sudo pam-auth-update --enable mkhomedir
    sudo realm permit --groups "Domain Users"
    ```

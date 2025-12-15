@@ -1,0 +1,90 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Ruta personalizada para almacenar las VMs
+VM_STORAGE_PATH = "/media/julio/cd470cc1-30fe-4ca0-ba50-33241e8616ba/MaquinasVirtuales"
+
+Vagrant.configure("2") do |config|
+  
+  # ============================================
+  # SERVIDOR WINDOWS - Controlador de Dominio
+  # ============================================
+  config.vm.define "servidor_windows" do |win|
+    win.vm.box = "gusztavvargadr/windows-server-2022-standard"
+    win.vm.hostname = "ServidorWindows"
+    
+    # Configuración de red privada
+    win.vm.network "private_network", ip: "192.168.56.10", netmask: "255.255.255.0"
+    
+    # Configuración de recursos
+    win.vm.provider "virtualbox" do |vb|
+      vb.name = "Actividad3bis-ServidorWindows-AD"
+      vb.memory = "4096"
+      vb.cpus = 2
+      vb.gui = true
+      
+      # Configurar la ubicación de la VM en el disco externo
+      vb.customize ["modifyvm", :id, "--groups", "/Actividad3bis"]
+      
+      # Optimizaciones para Windows
+      vb.customize ["modifyvm", :id, "--vram", "128"]
+      vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+      vb.customize ["modifyvm", :id, "--draganddrop", "bidirectional"]
+      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
+      
+      # Configurar carpeta de máquinas virtuales
+      unless File.directory?(VM_STORAGE_PATH)
+        abort("ERROR: La ruta #{VM_STORAGE_PATH} no existe. Créala primero.")
+      end
+    end
+    
+    # Provisioning - Configuración de idioma español
+    win.vm.provision "shell", path: "scripts/setup_spanish_windows.ps1"
+    
+    # Provisioning - Configuración inicial de AD
+    win.vm.provision "shell", path: "scripts/setup_ad.ps1"
+  end
+
+  # ============================================
+  # CLIENTE UBUNTU
+  # ============================================
+  config.vm.define "cliente_ubuntu" do |ubuntu|
+    ubuntu.vm.box = "ubuntu/jammy64"  # Ubuntu 22.04 LTS
+    ubuntu.vm.hostname = "ClienteUbuntu"
+    
+    # Configuración de red privada
+    ubuntu.vm.network "private_network", ip: "192.168.56.20", netmask: "255.255.255.0"
+    
+    # Configuración de recursos
+    ubuntu.vm.provider "virtualbox" do |vb|
+      vb.name = "Actividad3bis-ClienteUbuntu"
+      vb.memory = "2048"
+      vb.cpus = 2
+      vb.gui = true  # Habilitar entorno gráfico
+      
+      # Optimizaciones para GUI
+      vb.customize ["modifyvm", :id, "--vram", "128"]
+      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
+      
+      # Configurar la ubicación de la VM en el disco externo
+      vb.customize ["modifyvm", :id, "--groups", "/Actividad3bis"]
+      
+      # Optimizaciones
+      vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+      vb.customize ["modifyvm", :id, "--draganddrop", "bidirectional"]
+    end
+    
+    # Provisioning - Instalación de entorno gráfico y español
+    ubuntu.vm.provision "shell", path: "scripts/setup_spanish_ubuntu.sh"
+    
+    # Provisioning - Preparación para unirse al dominio
+    ubuntu.vm.provision "shell", path: "scripts/setup_ubuntu_client.sh"
+  end
+
+  # Configuración global de VirtualBox
+  config.vm.provider "virtualbox" do |vb|
+    # Establecer la carpeta de máquinas virtuales por defecto
+    vb.customize ["setproperty", "machinefolder", VM_STORAGE_PATH]
+  end
+
+end

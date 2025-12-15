@@ -1,0 +1,18 @@
+# Vagrant
+.vagrant/
+*.log
+
+# VirtualBox
+*.vbox
+*.vbox-prev
+*.vdi
+*.vmdk
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Backups
+*.bak
+*.backup
+*~
