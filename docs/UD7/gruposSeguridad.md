@@ -18,14 +18,14 @@ Para ilustrar un ejemplo de grupos se dispone de un directorio dividido en tres 
 
 Se dispone de varias opciones de ámbito:
 
-- **grupos de seguridad locales de dominio**, cuentan con un identificador SID (Security IDentified) que es reconocido dentro del dominio en el que se crean, de modo que estos grupos no serán visibles fuera del dominio. Dentro del ámbito en el que fue creado, todos los controladores de dominio y todos los clientes serán capaces de reconocerlos.
+- **grupos de seguridad locales de dominio (Domain Local)**, se suelen usar para **asignar permisos a recursos** del dominio donde se crean (carpetas, impresoras, aplicaciones). Estos grupos pueden incluir miembros de cualquier dominio de confianza.
 
-  Los grupos locales de dominio pueden **contener como miembros a usuarios de cualquier dominio, a grupos globales de cualquier dominio, a grupos universales de cualquier dominio, y a otros grupos locales, pero éstos últimos creados dentro del propio dominio**.
+  Los grupos locales de dominio pueden **contener como miembros a usuarios, grupos globales y grupos universales de cualquier dominio, y a otros grupos locales del mismo dominio**.
   ![Ámbito de un grupo local de dominio](img/1000000000000DB4000009B09B7ED80CDA9FC9E7.jpg)
 
-- **grupos de seguridad globales de dominio**, su SID (Security IDentified) es reconocido fuera de su propio dominio, por lo que puede ser visto y usado en dominios que no son el propio donde se crearon. Estos grupos pueden contener como miembros únicamente **cuentas de usuario y grupos globales de su propio dominio.**
+- **grupos de seguridad globales de dominio (Global)**, se usan para agrupar cuentas por departamento o rol dentro de su dominio de origen. Estos grupos pueden contener como miembros únicamente **cuentas y grupos globales del propio dominio**, pero pueden recibir permisos sobre recursos en otros dominios de confianza.
   ![Ámbito de un grupo globales de dominio](img/1000000000000DB4000009B0B20A70D9522736EE.jpg)
-- **grupos de seguridad universales**, no tienen ningún tipo de limitación y su SID es reconocido en todo el directorio. Pueden ser vistos en cualquier dominio del árbol, y pueden contener cualquier tipo de usuario o grupo de cualquier dominio. **Se recomienda no utilizarlos**, ya que es posible llegar a crear situaciones de inseguridad para algunos recursos.
+- **grupos de seguridad universales (Universal)**, son visibles en todo el bosque y pueden contener cuentas y grupos de distintos dominios. Son útiles en entornos multi-dominio; en entornos simples se recomienda usarlos solo cuando aporten valor real para no complicar la administración.
   ![Ámbito de un grupo universal de dominio](img/1000000000000DB4000009B0927D9AC5FAF8D755.jpg)
 
 En Microsoft Windows Server, la administración de los grupos se realiza a través de la herramienta <span class="menu"> Administrador del servidor</span> → <span class="menu">Herramientas</span> → <span class="menu">Usuarios y equipos de Active Directory</span>. Desde la opción Acción del menú es posible acceder a la gestión de los grupos de una manera fácil y eficaz.
@@ -53,10 +53,10 @@ For more help on a specific subcommand, please type: samba-tool group <subcomman
 
 ```
 
-Se utilizará el siguiente comando para crea un grupo
+Se utilizará el siguiente comando para crear un grupo:
 
 ```bash
-samba-tool group add grupoFeo --group-scope=Domain --group-type=Security --description="Grupo del departamento Feos" --gruopou="Departamentos"
+samba-tool group add grupoFeo --group-scope=Domain --group-type=Security --description="Grupo del departamento Feos" --groupou="Departamentos"
 ```
 
 Estas son las opciones más importantes de este subcomando:
@@ -85,7 +85,7 @@ Aunque este método de gestión parezca un anacronismo, en realidad es el que us
 
 ## Grupos predeterminados, incorporados o built-in
 
-Cuando se instala un directorio se incluyen varios grupos predeterminados que se crean y se configuran automáticamente. Éstos permiten agregar o eliminar usuarios si es necesario, pero no la eliminación de los grupos en sí mismos. Por defecto, los grupos integrados carecen de derechos de acceso a recursos, es decir, no se pueden dar permiso de acceso a una carpeta a un grupo integrado de forma directa. Aún así, es posible asignar estos derechos agregando los grupos incorporados a grupos de seguridad creado por el administrador.
+Cuando se instala un directorio se incluyen varios grupos predeterminados que se crean y se configuran automáticamente. Estos grupos permiten delegar tareas administrativas y no suelen eliminarse. Se recomienda no usarlos para todo: lo habitual es crear grupos de seguridad propios del centro/empresa y usar los grupos incorporados solo cuando la función lo requiera.
 
 ![Grupos incorporados en Microsoft Windows Server.](img/1000000000000FCF00000912A3DC1072511AE0B8.jpg)
 
@@ -109,7 +109,7 @@ samba-tool group list
 
 La mayoría de ellos poseen un nombre autoexplicativo, otros coinciden con los descritos en el caso de Microsoft Windows Server. En cualquier caso, no es necesario conocer los entresijos de todos y cada uno de estos grupos, pero sí saber que es posible contar con ellos para asignar tareas de administración.
 
-A principio de este tema se ilustró un ejemplo de una empresa pequeña con diferentes departamentos. ¿Cuál sería la distribución en grupos de es estructura departamental?. La respuesta resulta casi instantánea; es necesaria la creación de un grupo por cada departamento y situar en ellos a las cuentas de usuario que trabajen en ellos.
+Al principio de este tema se ilustró un ejemplo de una empresa pequeña con diferentes departamentos. ¿Cuál sería la distribución en grupos de esa estructura departamental? La respuesta resulta casi instantánea: es necesaria la creación de un grupo por cada departamento y situar en ellos a las cuentas de usuario que trabajen en ellos.
 
 ¿Y si un usuario trabaja en los departamentos de Gerencia y Administración?. Nada obliga a una cuenta de usuario a pertenecer tan sólo a un grupo, por lo que esa cuenta se encontrará ubicado en dos grupos.
 

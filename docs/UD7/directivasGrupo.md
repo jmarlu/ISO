@@ -36,11 +36,11 @@ Hay que tener en cuenta que existe **herencia** entre los objetos a los que se l
 
 ![Esquema de aplicación de Default Domain Policy.](img/1000000000000DB4000009B0C076174F2F58688D.jpg)
 
-Bloquear la herencia implica que no heredará directivas del dominio, ni tampoco sus directivas descendientes. Sin embargo, sí se producirá herencia a partir de la directiva hacia abajo.
+Bloquear la herencia implica que el contenedor dejará de recibir GPO heredadas de niveles superiores (sitio, dominio u OU padre), salvo las GPO marcadas como **forzadas**. Las GPO vinculadas directamente al contenedor seguirán aplicándose a sus objetos hijos.
 
 ## Directivas de grupo por defecto
 
-Al crearse el domino, también se crean las dos directivas que le afectan por defecto:
+Al crearse el dominio, también se crean las dos directivas que le afectan por defecto:
 
 - **Default Domain Policy**, la cual se sitúa en la raíz del dominio y afecta al conjunto de unidades organizativas. Los parámetros que contiene son de configuración básica, entre ellos los de contraseña y de bloqueo.
 - **Default Domain Controller Policy**, se sitúa y afecta a la unidad organizativa Domain Controllers. Los parámetros de la directiva se reservan a los controladores de dominio y se pueden configurar los siguientes tipos de parámetros:
@@ -74,7 +74,7 @@ Además del contenido y su estructura, estos archivos también contienen la info
 
 Cuando se genera un directorio con Active Directory, se crea un almacén central, una carpeta para contener estas plantillas. Esta carpeta es gestionada por el administrador y creada en el recurso SYSVOL. Se trata de la ubicación de almacenamiento predeterminada y centralizada para todos los archivos de plantilla administrativa del dominio.
 
-Las herramientas de la directiva de grupo usan solamente los archivos situados en el controlador de dominio e ignoran las versiones almacenadas localmente. La carpeta raíz para el almacén central se debe denominar policies y debe situarse en `%SystemRoot%\SYSVOL\domain\policies`. En ella se encontrarán los archivos de configuración de cada uno de los objetos de directiva identificada por su GUID (Globaly User Identifier).
+Las herramientas de la directiva de grupo usan solamente los archivos situados en el controlador de dominio e ignoran las versiones almacenadas localmente. La carpeta raíz para el almacén central se debe denominar policies y debe situarse en `%SystemRoot%\SYSVOL\domain\policies`. En ella se encontrarán los archivos de configuración de cada uno de los objetos de directiva identificados por su GUID (**Globally Unique Identifier**).
 
 De igual forma ocurre en Ubuntu Server. Samba ubica las políticas de grupo en la ruta `\\nombre_del_dominio\sysvol\nombre_del_dominio\Policies`, y de igual manera se identifican con su GUID.
 

@@ -2,7 +2,7 @@
 
 La administración de las directivas de grupo en Microsoft Windows Server se realiza a través del Editor de administración de directivas de grupo al cual se accede a través de <span class="menu">Administración del servidor</span> → <span class="menu">Herramientas</span> → <span class="menu">Administración de directivas de grupo</span> → <span class="menu">Editar...</span> , haciendo clic sobre el objeto de directiva que se desea editar. El uso de esta herramienta es intuitivo y autoexplicativo.
 
-En Ubuntu Server estas configuraciones se realizan a través del subcomando samba-tool gpo, el cual ofrece las siguientes opciones:
+En Ubuntu Server estas configuraciones se realizan a través del subcomando `samba-tool gpo`, que permite operaciones de creación, enlace, copia de seguridad, restauración y verificación de GPO:
 
 ```bash
 $ samba-tool gpo
@@ -13,6 +13,7 @@ Options:
 -h, --help show this help message and exit
 Available subcommands:
 aclcheck - Check all GPOs have matching LDAP and DS ACLs.
+backup - Backup a GPO.
 create - Create an empty GPO.
 del - Delete a GPO.
 dellink - Delete GPO link from a container.
@@ -22,6 +23,7 @@ getlink - List GPO Links for a container.
 list - List GPOs for an account.
 listall - List all GPOs.
 listcontainers - List all linked containers for a GPO.
+restore - Restore a GPO to a new container.
 setinheritance - Set inheritance flag on a container.
 setlink - Add or update a GPO link to a container.
 show - Show information for a GPO.
@@ -57,11 +59,11 @@ Al margen de estos elementos, cada directiva dispone de varios valores de config
 
   ![Edición de una directiva de grupo](img/100000000000088F000007F25FB70E5849A0486C.jpg)
 
-Aunque pueda parecer una contradicción, no configurada y deshabilitada poseen efectos diferentes en algunas políticas, sobre todo en las que niegan aluna acción. En cualquier caso, una política no configurada no formará parte de la plantilla administrativa que genera el dominio con la configuración de la directiva de grupo, una deshabilitada sí lo hace.
+Aunque pueda parecer una contradicción, no configurada y deshabilitada poseen efectos diferentes en algunas políticas, sobre todo en las que niegan alguna acción. En cualquier caso, una política no configurada no formará parte de la plantilla administrativa que genera el dominio con la configuración de la directiva de grupo; una deshabilitada sí lo hace.
 
-En GNU/Linux se dispone del comando `samba-tool gpo` pero la administración de las GPO a través de este comando resulta algo tediosa y muy limitada. Este comando está destinado a la creación y consulta rápida de los ficheros que componen una directiva de grupo. Una opción más interesante es el uso de aplicaciones con GUI, ya que, para esta tarea resulta altamente recomendable su uso.
+En GNU/Linux se dispone del comando `samba-tool gpo`, útil para automatizar tareas y validar configuración. Para edición detallada de políticas administrativas, suele ser más práctico usar una GUI de administración de Active Directory.
 
-Existen varias opciones para realizar esta tarea entre ellas **SWAT (Samba Web Admin Tool)** y **RSAT (Remote Server Administration Tool) de Microsoft**. Es preferible el uso de RSAT para la gestión de las GPO ya que el uso de una GUI es de vital importancia para poder administrar de forma eficaz la cantidad de directivas con las que cuenta Active Directory.
+La herramienta recomendada en entornos actuales es **RSAT (Remote Server Administration Tools) de Microsoft**, instalada en un equipo de administración Windows unido al dominio.
 
 La instalación de estas herramientas así como su uso se verán en unidades sucesivas.
 
@@ -75,7 +77,7 @@ Una vez realizado, todos los elementos que estén contenidos del objeto vinculad
 
 ![Bloqueo de herencia a un elemento](img/1000000000000BC8000008A14D3ABA6C2F3D7D39.jpg)
 
-Para comprobar que todo ha resultado como debiera, se puede consultar la pestaña <span class="menu">Herencia de directivas de grupo</span> en donde todas las unidades organizativas de miepresaFea heredan las políticas de Default Domain Policy y de EmpleadosFeos. La única que no tiene herencia es la unidad organizativa que ha sido bloqueada. Por supuesto, este proceso es reversible y si el bloqueo desaparece, el objeto estará afectado de nuevo por las directivas superiores.
+Para comprobar que todo ha resultado como debiera, se puede consultar la pestaña <span class="menu">Herencia de directivas de grupo</span> en donde todas las unidades organizativas de miempresaFea heredan las políticas de Default Domain Policy y de EmpleadosFeos. La única que no tiene herencia es la unidad organizativa que ha sido bloqueada. Por supuesto, este proceso es reversible y si el bloqueo desaparece, el objeto estará afectado de nuevo por las directivas superiores.
 
 ## Actualización de clientes
 
@@ -92,24 +94,24 @@ La actualización de la directiva de equipo se completó correctamente.
 Se completó correctamente la Actualización de directiva de usuario.
 ```
 
-En los sistemas operativos con Samba como gestor de directorio, para actualizar las políticas será necesario reiniciar el servicio de la siguiente manera
+En escenarios con Samba AD DC no es necesario reiniciar el servicio `samba` para aplicar cambios de GPO. Lo importante es que la GPO quede correctamente vinculada y replicada en SYSVOL, y forzar la actualización en los clientes afectados.
 
 ```bash
-sudo /etc/init.d/samba/stop
-sudo /etc/init.d/samba/restart
+gpupdate /force
+gpresult /r
 ```
 
-Además se puede utilizar las opciones que ofrece el comando para descargar los ficheros de directiva, y después proceder a su comprobación
+Además se pueden utilizar opciones de `samba-tool gpo` para comprobación o automatización:
 
 ```bash
-sudo samba-tool gpo fetch
-sudo samba-tool gpo aclcheck
+samba-tool gpo listall
+samba-tool gpo aclcheck
 ```
 
 A pesar de existir estas opciones a través del terminal, en sistemas basados en GNU/Linux, es preferible usar las herramientas GUI para realizar estas acciones.
 
 ## Copia de seguridad y restauración de una directiva de grupo
 
-Crear diferentes directivas de grupo es una tarea costosa que bien podría ser uno de los círculos del infierno de Dante Alighieri. Es extremadamente recomendable realizar una copia de seguridad de las plantillas administrativas. En la herramienta **Administración de directiva de grupo**, situando el curso sobre Objetos de directiva de grupo y yendo al menú <span class="menu">Acción</span> → <span class="menu"></span> da acceso a un sencillo asistente que permitirá realizar las copias de seguridad.
+Crear diferentes directivas de grupo es una tarea costosa. Es extremadamente recomendable realizar copia de seguridad de las GPO. En la herramienta **Administración de directiva de grupo**, situando el cursor sobre Objetos de directiva de grupo y yendo al menú <span class="menu">Acción</span> → <span class="menu">Hacer copia de seguridad…</span> se accede al asistente.
 
-Para proceder con la restauración de una directiva de grupo en concreto, existe otro asistente al que se accede de idéntica forma que el anterior, salvo que esta ver se accede dese el menú <span class="menu">Acción</span> → <span class="menu">Administrar copias de seguridad…</span> . El control de las directivas de grupo puede suponer una tarea tediosa, pero los resultados en cuanto a seguridad son una gran recompensa por el tiempo empleado. Una buena gestión de políticas de grupo pasa por, al igual que con los permisos a recursos, permitir al usuario realizar las tareas que debe hacer, ninguna más.
+Para proceder con la restauración de una directiva de grupo en concreto, existe otro asistente al que se accede de forma similar, desde el menú <span class="menu">Acción</span> → <span class="menu">Administrar copias de seguridad…</span>. En Samba también es posible automatizarlo por CLI con `samba-tool gpo backup` y `samba-tool gpo restore`.
