@@ -28,6 +28,55 @@ Se dispone de varias opciones de ámbito:
 - **grupos de seguridad universales (Universal)**, son visibles en todo el bosque y pueden contener cuentas y grupos de distintos dominios. Son útiles en entornos multi-dominio; en entornos simples se recomienda usarlos solo cuando aporten valor real para no complicar la administración.
   ![Ámbito de un grupo universal de dominio](img/1000000000000DB4000009B0927D9AC5FAF8D755.jpg)
 
+## Estrategia de anidamiento recomendada
+
+En un dominio único, la estrategia más clara para trabajar en clase y en entornos pequeños o medianos es:
+
+```text
+Usuarios -> GG -> DL -> recurso
+```
+
+Donde:
+
+- `GG` (**Global**) agrupa a las personas por departamento o función.
+- `DL` (**Domain Local**) representa el permiso sobre un recurso concreto.
+
+La idea clave es que **el recurso no da permiso al usuario directamente**, sino al grupo `DL`. El usuario accede porque pertenece a un grupo `GG` que está anidado dentro de ese `DL`.
+
+Ejemplo:
+
+```text
+maria -> GG_Comercial -> DL_ERP_RW -> ERP
+```
+
+Interpretación correcta:
+
+1. `maria` pertenece a `GG_Comercial`.
+2. `GG_Comercial` está dentro de `DL_ERP_RW`.
+3. El ERP concede lectura y escritura a `DL_ERP_RW`.
+
+Por tanto:
+
+- `GG` responde a "quiénes son"
+- `DL` responde a "a qué recurso acceden"
+
+Esta separación evita tocar la ACL del recurso cada vez que entra, sale o cambia de puesto una persona.
+
+### Cómo explicarlo al alumnado
+
+Una formulación sencilla en clase es esta:
+
+> Primero junto a las personas que hacen la misma función en un grupo global. Después creo otro grupo que representa el permiso sobre un recurso. Luego meto el grupo de personas dentro del grupo de permiso. Eso es el anidamiento.
+
+### Analogía útil
+
+Se puede comparar con una llave:
+
+- el grupo global es el conjunto de personas del departamento
+- el grupo local de dominio es el grupo que tiene la llave de una sala o aplicación
+
+Así no se reparte la llave persona por persona; se administra la pertenencia al grupo correcto.
+
 En Microsoft Windows Server, la administración de los grupos se realiza a través de la herramienta <span class="menu"> Administrador del servidor</span> → <span class="menu">Herramientas</span> → <span class="menu">Usuarios y equipos de Active Directory</span>. Desde la opción Acción del menú es posible acceder a la gestión de los grupos de una manera fácil y eficaz.
 
 Como siempre, la gestión de elementos del directorio en Ubuntu Server se realiza a través de la interfaz CLI. Para ello se usa el comando `samba-tool group` que ofrece las siguientes opciones:

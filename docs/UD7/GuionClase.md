@@ -107,6 +107,36 @@ Ejemplo rápido:
 - `GG_Contabilidad` -> `DL_Nominas_RW`
 - carpeta `\\SRV\Nominas` con permiso `Modify` para `DL_Nominas_RW`
 
+### Cómo explicarlo en clase
+
+Explicación breve lista para decir en voz alta:
+
+> Primero agrupo a las personas que hacen la misma función. Ese es el `GG`. Después creo otro grupo que representa el permiso sobre un recurso. Ese es el `DL`. Luego meto el `GG` dentro del `DL`. Eso es anidar grupos.
+
+Idea para repetir:
+
+- `GG` = quiénes son
+- `DL` = a qué recurso acceden
+
+Ejemplo de pizarra:
+
+```text
+maria -> GG_Comercial -> DL_ERP_RW -> ERP
+```
+
+Lectura didáctica:
+
+- `maria` no recibe el permiso directamente
+- el ERP solo conoce a `DL_ERP_RW`
+- María entra porque su grupo de rol está anidado en el grupo de permiso
+
+Analogía de aula:
+
+- `GG_Comercial` es el grupo de personas del departamento
+- `DL_ERP_RW` es el grupo que tiene la "llave" del ERP
+
+Si cambia una persona de puesto, no se toca el recurso; se cambia su pertenencia al grupo.
+
 ## 2.3 OU (Unidades Organizativas)
 
 Una OU es un contenedor jerárquico para organizar objetos del dominio (usuarios, equipos, grupos e incluso OU hijas).
