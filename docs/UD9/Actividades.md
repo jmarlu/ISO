@@ -303,11 +303,10 @@ información sobre /home/ubuntu/p
       done
    ```
 
-2. Dado un fichero llamado `expira.log` que contenga en cada fila un **nombre de usuario**, se debe realizar un script que espere como argumento un número, dicho número será el número de días tras los cuales expirará la contraseña (comando `chage`).
+2. Dado un fichero llamado `expira.log` que contenga en cada fila un **nombre de usuario**, se debe realizar un script que espere como argumento un número, dicho número será el número de días tras los cuales expirará la contraseña (comando `chage`). El script debe recorrer todos los usuarios del fichero mediante un bucle for (( … )) y debe configurarlos para que su contraseña expire después de los días pasados como argumento.
 
 3. **Usando OBLIGATORIAMENTE el for (( … ))**. Genera un script que pasados dos argumentos numéricos, que será el número de filas y el número de columnas respectivamente, rellene con un “\*” cada elemento de la tabla creada.
 
-   El script debe recorrer todos los usuarios del fichero mediante un bucle for (( … )) y debe configurarlos para que su contraseña expire después de los días pasados como argumento.
 
 ### ForIn
 
