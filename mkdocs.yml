@@ -94,6 +94,7 @@ nav:
       - Esructura FOR: UD9/For.md
       - Break y Continue: UD9/Break.md
       - Actividades: UD9/Actividades.md
+      - Soluciones actividades: UD9/soluciones/soluciones-actividades-ud9.md
 
   - UD10.Introducción a PowerShell:
       - Introducción: UD10/021_IntroducciónPwSh.md
@@ -171,8 +172,8 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid

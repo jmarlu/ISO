@@ -82,7 +82,7 @@ ff02::2 ip6-allrouters
 
 ### Si NO disponemos de un DHCP instalado en el servidor.
 
-En este caso, hay que configurar manualmente la configuración IP. Tenéis que ver el [tema anterior](./UD4/IP.md## ¿Cómo vamos a trabajar?).
+En este caso, hay que configurar manualmente la configuración IP. Tenéis que ver el [tema anterior](../UD4/IP.md#como-vamos-a-trabajar).
 
 ### Si disponemos de un DHCP instalado en el servidor.
 
