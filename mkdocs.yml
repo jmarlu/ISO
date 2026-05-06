@@ -2,7 +2,8 @@ site_name: IMPLANTACIÓN DE SISTEMAS OPERATIVOS
 site_url: https://example.com/
 nav:
   - Home: index.md
-  # - Exámenes:
+  - Exámenes:
+      - Mock examen UD9 y UD10: Examenes/MockExamen_UD9_UD10_18Mayo.md
       # - Examen 1EVA: Examenes/Examen1EVA/examen.md
     #     - Examen 2EVA: Examenes/Examen2EVA/examen.md
     #    - Examen 3EVA: Examenes/Examen3EVA/examenbis.md
