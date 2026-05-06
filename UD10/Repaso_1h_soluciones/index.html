@@ -1,0 +1,5216 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/UD10/Repaso_1h_soluciones/">
+      
+      
+        <link rel="prev" href="../Actividades/">
+      
+      
+        <link rel="next" href="../../UD11/01_seguridadIntegridad/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Repaso - IMPLANTACIÓN DE SISTEMAS OPERATIVOS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M0%202.75C0%201.784.784%201%201.75%201h12.5c.966%200%201.75.784%201.75%201.75v10.5A1.75%201.75%200%200%201%2014.25%2015H1.75A1.75%201.75%200%200%201%200%2013.25Zm1.75-.25a.25.25%200%200%200-.25.25v10.5c0%20.138.112.25.25.25h12.5a.25.25%200%200%200%20.25-.25V2.75a.25.25%200%200%200-.25-.25ZM7.25%208a.75.75%200%200%201-.22.53l-2.25%202.25a.749.749%200%200%201-1.275-.326.75.75%200%200%201%20.215-.734L5.44%208%203.72%206.28a.749.749%200%200%201%20.326-1.275.75.75%200%200%201%20.734.215l2.25%202.25c.141.14.22.331.22.53m1.5%201.5h3a.75.75%200%200%201%200%201.5h-3a.75.75%200%200%201%200-1.5%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#repaso-ud10-powershell-desde-bash" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="IMPLANTACIÓN DE SISTEMAS OPERATIVOS" class="md-header__button md-logo" aria-label="IMPLANTACIÓN DE SISTEMAS OPERATIVOS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IMPLANTACIÓN DE SISTEMAS OPERATIVOS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Repaso
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="IMPLANTACIÓN DE SISTEMAS OPERATIVOS" class="md-nav__button md-logo" aria-label="IMPLANTACIÓN DE SISTEMAS OPERATIVOS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    IMPLANTACIÓN DE SISTEMAS OPERATIVOS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exámenes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exámenes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examenes/MockExamen_UD9_UD10_18Mayo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mock examen UD9 y UD10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 S.O. Estructura y Virtualización
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD1 S.O. Estructura y Virtualización
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD1/Estructura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estructura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD1/bios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD1/virtual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtualización
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD1/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 Configuración de los SO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD2 Configuración de los SO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/IntroTerminal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción Terminal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/EstructuraDirectorios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estructura Directorios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/gestionArchivos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión Archivos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/redirecciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redirecciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/filtros/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filtros
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/busquedaArchivos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Búsqueda Archivos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/AdminMemoriaSecundaria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administración de memoria secundaria
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/gestorArranque/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestor de Arranque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/permisosBasicos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Permisos básicos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD2/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3.Administración de software base y aplicaciones
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD3.Administración de software base y aplicaciones
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/InstaWindow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación en Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/InstaLinux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación en Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/procesosLinux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión de procesos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/GestiServicios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestión de Servicios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/programaTareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programación de Tareas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/actuSisOp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actualización del Sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/registroWindow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registro de Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD3/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD4.Instalación de servicios de Directorios
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD4.Instalación de servicios de Directorios
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4/sistemaRedes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sistema de organización de redes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4/IP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuración del protocolo TCP/IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4/instaServDirectorio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación del servicio de Directorio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD4/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD5.Configuración de servicios de directorio
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD5.Configuración de servicios de directorio
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/dns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuración de la resolución de nombres DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/dhcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación y configuración del servicio DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/conxClientesWindows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conexión de clientes a un controlador de dominio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/adminRemota/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administración remota
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD5/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD6.Administración de usuarios locales y de red
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD6.Administración de usuarios locales y de red
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/adminUsers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administración de usuarios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/objActive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objetos predeterminados de Active Directory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/polContra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Política de contraseñas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/scriptsInicio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scripts de inicio de sesión
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/direcSegLocal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Directivas de seguridad locales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/perUsers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Perfiles de usuario, móviles y obligatorios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/carpetasUsers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Carpetas personales. Redireccionamiento de las carpetas de usuario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/varEntorno/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables de entorno
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD6/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD7.Administración de objetos y políticas de grupo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD7.Administración de objetos y políticas de grupo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/estrategiaAnidamiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estrategias de anidamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/gruposSeguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grupos de seguridad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/unidadesOrganiza/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidades organizativas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/equiposDominio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Equipos del dominio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/directivasGrupo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Directivas de grupo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/adminDirecGrupo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administración de directivas de grupo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD7/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD8.Administración de recursos y permisos de acceso
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD8.Administración de recursos y permisos de acceso
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/controlAcceso/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control de acceso a recursos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/derechosInicio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Derechos de inicio de sesión y privilegios de usuario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/permisosRed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Permisos de red y locales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/herencia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Herencia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/cuotasDisco/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cuotas de disco
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD8/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD9.Scripts en Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD9.Scripts en Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creación de Scripts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Aritmetica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aritmetica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Comparadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comparadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/IF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estructura IF
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Operadores_Binarios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operadores Binarios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Argumentos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argumentos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Esructura CASE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/While_Until/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Esructura WHILE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/For/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Esructura FOR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Break/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Break y Continue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD9/soluciones/soluciones-actividades-ud9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Soluciones actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD10.Introducción a PowerShell
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD10.Introducción a PowerShell
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../021_Introducci%C3%B3nPwSh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comandos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comandos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Manejo%20resultados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manejo de Resultados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../022_PowerShell_Sintaxis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sintaxis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../023_PowerShell_ControlFlujo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control de flujo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../024_PowerShell_VectoresFunciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vectores y funciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Estandares%20WMI-CIM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administración
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Repaso
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Repaso
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo-de-la-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo de la sesión
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacion-de-powershell-pwsh-en-ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instalación de PowerShell (pwsh) en Ubuntu
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instalación de PowerShell (pwsh) en Ubuntu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instalacion-recomendada-desde-repositorio-microsoft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instalación recomendada desde repositorio Microsoft
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacion-manual-con-paquete-deb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instalación manual con paquete .deb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desinstalacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Desinstalación
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparacion-desde-bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preparación desde Bash
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diferencias-entre-bash-y-powershell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diferencias entre Bash y PowerShell
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Diferencias entre Bash y PowerShell">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comparacion-rapida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparacion rapida
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables-en-bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variables en Bash
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables-en-powershell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variables en PowerShell
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diferencia-al-concatenar-texto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diferencia al concatenar texto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#argumentos-de-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Argumentos de scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuberias-texto-frente-a-objetos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tuberias: texto frente a objetos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equivalencias-utiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Equivalencias utiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idea-clave-para-recordar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idea clave para recordar
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contenido-esencial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contenido esencial
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Contenido esencial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cmdlets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cmdlets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ayuda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ayuda
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objetos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuberias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tuberías
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entrada-y-salida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entrada y salida
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parámetros
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operadores
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#soluciones-de-actividades-basicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Soluciones de actividades básicas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Soluciones de actividades básicas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-procesos-del-sistema-ordenados-por-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Procesos del sistema ordenados por ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-servicios-cuyo-nombre-empieza-por-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Servicios cuyo nombre empieza por n
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-script-con-dos-numeros-como-argumentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Script con dos números como argumentos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-script-que-pide-dos-numeros-al-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Script que pide dos números al usuario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-operaciones-con-tres-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Operaciones con tres variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#soluciones-de-control-de-flujo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Soluciones de control de flujo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Soluciones de control de flujo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#6-comprobar-si-no-se-pasa-ningun-argumento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Comprobar si no se pasa ningún argumento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-saludo-segun-la-hora-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Saludo según la hora del sistema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8a-tabla-de-multiplicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8A. Tabla de multiplicar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8b-numero-par-y-numero-primo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8B. Número par y número primo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8c-diez-primeras-tablas-de-multiplicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8C. Diez primeras tablas de multiplicar
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#soluciones-de-vectores-y-funciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Soluciones de vectores y funciones
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Soluciones de vectores y funciones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#9-vector-con-365-temperaturas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Vector con 365 temperaturas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-copia-de-seguridad-con-funciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Copia de seguridad con funciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#soluciones-de-administracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Soluciones de administración
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Soluciones de administración">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-listar-equipos-del-dominio-y-comprobar-conectividad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Listar equipos del dominio y comprobar conectividad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-memoria-virtual-del-proceso-powershell-en-equipos-remotos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Memoria virtual del proceso PowerShell en equipos remotos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-version-de-media-player-mediante-registro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Versión de Media Player mediante registro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-obtener-configuracion-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Obtener configuración DNS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-asignar-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Asignar DNS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-crear-usuarios-desde-csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Crear usuarios desde CSV
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mini-practica-final-para-la-clase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mini práctica final para la clase
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preguntas-de-cierre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preguntas de cierre
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD11. Integridad y seguridad de la información.
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD11. Integridad y seguridad de la información.
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/01_seguridadIntegridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seguridad del sistema y de los datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/02_VolumenesDistribuidos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Volúmenes distribuidos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/03_toleranciaFallos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sistemas de tolerancia a fallos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/04_encriptDatos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Encriptación de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/05_compresionDatos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compresión de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/06_discosArranque/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Discos de arranque y de recuperación.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD11/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD12.Respaldo de la información y del sistema operativo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD12.Respaldo de la información y del sistema operativo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD12/01CopiasSeguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copias de seguridad del Sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD12/02Recuperacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recuperación del sistema. Opciones de restauración del Sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD12/03Clonacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clonación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD12/04InstalacionDesatendidas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuración y uso de instalaciones desatendidas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD12/Actividades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegación" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../021_Introducci%C3%B3nPwSh/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    UD10.Introducción a PowerShell
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="repaso-ud10-powershell-desde-bash">Repaso UD10: PowerShell desde Bash</h1>
+<h2 id="objetivo-de-la-sesion">Objetivo de la sesión</h2>
+<p>Repaso del tema, puntos a tocar:</p>
+<ul>
+<li>cmdlets, alias y ayuda.</li>
+<li>tuberías y objetos.</li>
+<li>variables, parámetros y entrada por teclado.</li>
+<li>operadores.</li>
+<li>estructuras condicionales e iterativas.</li>
+<li>vectores y funciones.</li>
+<li>primeros scripts de administración.</li>
+</ul>
+<blockquote>
+<p>Nota: desde Bash se puede preparar y lanzar PowerShell si está instalado como <code>pwsh</code>. Si no está instalado, los scripts se pueden crear igualmente, pero deberán ejecutarse en Windows PowerShell o en PowerShell 7.</p>
+</blockquote>
+<h2 id="instalacion-de-powershell-pwsh-en-ubuntu">Instalación de PowerShell (<code>pwsh</code>) en Ubuntu</h2>
+<p>PowerShell 7 se puede usar en Linux con el comando <code>pwsh</code>. Para esta unidad interesa instalarlo porque permite crear y ejecutar scripts <code>.ps1</code> directamente desde Bash.</p>
+<p>Fuente oficial de Microsoft: <a href="https://learn.microsoft.com/en-us/powershell/scripting/install/install-ubuntu">https://learn.microsoft.com/en-us/powershell/scripting/install/install-ubuntu</a></p>
+<h3 id="instalacion-recomendada-desde-repositorio-microsoft">Instalación recomendada desde repositorio Microsoft</h3>
+<p>Este método es el recomendado por Microsoft para versiones de Ubuntu soportadas, como Ubuntu 22.04 LTS y Ubuntu 24.04 LTS.</p>
+<p>No usar este método como primera opción en Ubuntu 25.10. Puede aparecer este error:</p>
+<div class="highlight"><pre><span></span><code>E: El paquete «powershell» no tiene un candidato para la instalación
+</code></pre></div>
+<p>Ese mensaje significa que <code>apt</code> conoce los repositorios configurados, pero no encuentra un paquete <code>powershell</code> instalable para esa versión de Ubuntu. En ese caso hay que usar la instalación manual con <code>.deb</code>.</p>
+<p>Ejecutar en Bash:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>wget<span class="w"> </span>apt-transport-https<span class="w"> </span>software-properties-common
+
+<span class="nb">source</span><span class="w"> </span>/etc/os-release
+wget<span class="w"> </span>-q<span class="w"> </span>https://packages.microsoft.com/config/ubuntu/<span class="nv">$VERSION_ID</span>/packages-microsoft-prod.deb
+
+sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>packages-microsoft-prod.deb
+rm<span class="w"> </span>packages-microsoft-prod.deb
+
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>powershell
+</code></pre></div>
+<p>Comprobar la instalación:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>pwsh
+pwsh<span class="w"> </span>--version
+</code></pre></div>
+<p>Entrar en PowerShell:</p>
+<div class="highlight"><pre><span></span><code>pwsh
+</code></pre></div>
+<p>Salir de PowerShell y volver a Bash:</p>
+<div class="highlight"><pre><span></span><code><span class="n">exit</span>
+</code></pre></div>
+<h3 id="instalacion-manual-con-paquete-deb">Instalación manual con paquete <code>.deb</code></h3>
+<p>Si se usa una versión de Ubuntu no soportada por el repositorio, por ejemplo Ubuntu 25.10, Microsoft recomienda usar la instalación manual con el paquete universal <code>.deb</code>.</p>
+<p>Este es el método que se debe usar si aparece:</p>
+<div class="highlight"><pre><span></span><code>E: El paquete «powershell» no tiene un candidato para la instalación
+</code></pre></div>
+<p>Ejemplo con PowerShell 7.6 LTS:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>wget
+
+wget<span class="w"> </span>https://github.com/PowerShell/PowerShell/releases/download/v7.6.1/powershell_7.6.1-1.deb_amd64.deb
+sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>powershell_7.6.1-1.deb_amd64.deb
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-f<span class="w"> </span>-y
+rm<span class="w"> </span>powershell_7.6.1-1.deb_amd64.deb
+</code></pre></div>
+<p>Ejemplo con PowerShell 7.5 estable:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>wget
+
+wget<span class="w"> </span>https://github.com/PowerShell/PowerShell/releases/download/v7.5.6/powershell_7.5.6-1.deb_amd64.deb
+sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>powershell_7.5.6-1.deb_amd64.deb
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-f<span class="w"> </span>-y
+rm<span class="w"> </span>powershell_7.5.6-1.deb_amd64.deb
+</code></pre></div>
+<p>Comprobar después:</p>
+<div class="highlight"><pre><span></span><code>pwsh<span class="w"> </span>--version
+pwsh<span class="w"> </span>-Command<span class="w"> </span><span class="s1">&#39;Write-Host &quot;PowerShell funciona&quot;; Get-Date&#39;</span>
+</code></pre></div>
+<h3 id="desinstalacion">Desinstalación</h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>remove<span class="w"> </span>powershell
+</code></pre></div>
+<h2 id="preparacion-desde-bash">Preparación desde Bash</h2>
+<p>Comprobar si PowerShell está instalado:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>pwsh
+pwsh<span class="w"> </span>--version
+</code></pre></div>
+<p>Crear una carpeta de trabajo para la clase:</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/repaso-ud10
+<span class="nb">cd</span><span class="w"> </span>~/repaso-ud10
+</code></pre></div>
+<p>Ejecutar un script si existe <code>pwsh</code>:</p>
+<div class="highlight"><pre><span></span><code>pwsh<span class="w"> </span>./script.ps1
+</code></pre></div>
+<p>Ejecutar un comando suelto:</p>
+<div class="highlight"><pre><span></span><code>pwsh<span class="w"> </span>-Command<span class="w"> </span><span class="s1">&#39;Get-Process | Sort-Object Id | Select-Object -First 5&#39;</span>
+</code></pre></div>
+<h2 id="diferencias-entre-bash-y-powershell">Diferencias entre Bash y PowerShell</h2>
+<p>Bash y PowerShell sirven para trabajar desde linea de comandos y automatizar tareas, pero no funcionan igual por dentro.</p>
+<p>La diferencia principal es esta:</p>
+<ul>
+<li>Bash trabaja principalmente con texto.</li>
+<li>PowerShell trabaja principalmente con objetos.</li>
+</ul>
+<p>En Bash, cuando un comando envia informacion a otro mediante una tuberia, normalmente envia lineas de texto. En PowerShell, cuando un comando envia informacion a otro, envia objetos con propiedades y metodos.</p>
+<p>Ejemplo en Bash:</p>
+<div class="highlight"><pre><span></span><code>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>bash
+</code></pre></div>
+<p>Aqui <code>ps aux</code> produce texto y <code>grep</code> busca dentro de ese texto.</p>
+<p>Ejemplo equivalente en PowerShell:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-Process</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">Name</span> <span class="o">-like</span> <span class="s2">&quot;*bash*&quot;</span><span class="p">}</span>
+</code></pre></div>
+<p>Aqui <code>Get-Process</code> produce objetos de procesos. <code>Where-Object</code> no busca en texto plano, sino que comprueba la propiedad <code>Name</code> de cada proceso.</p>
+<h3 id="comparacion-rapida">Comparacion rapida</h3>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Bash</th>
+<th>PowerShell</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tipo de shell</td>
+<td>Shell tradicional Unix/Linux</td>
+<td>Shell orientada a objetos</td>
+</tr>
+<tr>
+<td>Salida normal</td>
+<td>Texto</td>
+<td>Objetos</td>
+</tr>
+<tr>
+<td>Tuberia</td>
+<td>Pasa texto</td>
+<td>Pasa objetos</td>
+</tr>
+<tr>
+<td>Variables</td>
+<td>Normalmente cadenas de texto</td>
+<td>Pueden tener tipo: <code>int</code>, <code>string</code>, <code>bool</code>, etc.</td>
+</tr>
+<tr>
+<td>Comandos</td>
+<td><code>ls</code>, <code>cp</code>, <code>rm</code>, <code>cat</code></td>
+<td><code>Get-ChildItem</code>, <code>Copy-Item</code>, <code>Remove-Item</code>, <code>Get-Content</code></td>
+</tr>
+<tr>
+<td>Sintaxis de opciones</td>
+<td><code>-l</code>, <code>-a</code>, <code>--help</code></td>
+<td><code>-Name</code>, <code>-Path</code>, <code>-Recurse</code></td>
+</tr>
+<tr>
+<td>Comparaciones</td>
+<td><code>-eq</code>, <code>-gt</code> dentro de <code>[</code> o <code>[[</code></td>
+<td><code>-eq</code>, <code>-gt</code>, <code>-like</code> directamente</td>
+</tr>
+<tr>
+<td>Condicional</td>
+<td><code>if [ condicion ]; then ... fi</code></td>
+<td><code>if (condicion) { ... }</code></td>
+</tr>
+<tr>
+<td>Bucle</td>
+<td><code>for x in lista; do ... done</code></td>
+<td><code>foreach ($x in $lista) { ... }</code></td>
+</tr>
+<tr>
+<td>Script</td>
+<td><code>.sh</code></td>
+<td><code>.ps1</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="variables-en-bash">Variables en Bash</h3>
+<p>En Bash se asigna una variable sin espacios alrededor del signo <code>=</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">nombre</span><span class="o">=</span><span class="s2">&quot;Ana&quot;</span>
+<span class="nv">edad</span><span class="o">=</span><span class="m">20</span>
+</code></pre></div>
+<p>Para usar el valor se antepone <code>$</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$nombre</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$edad</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>Aunque <code>edad=20</code> parece un numero, Bash lo trata normalmente como texto. Para hacer calculos se usa expansion aritmetica:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">a</span><span class="o">=</span><span class="m">10</span>
+<span class="nv">b</span><span class="o">=</span><span class="m">5</span>
+<span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="nv">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">b</span><span class="k">))</span>
+</code></pre></div>
+<p>Error frecuente en Bash:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">nombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Ana&quot;</span>
+</code></pre></div>
+<p>Eso esta mal porque Bash interpreta <code>nombre</code> como si fuera un comando. Lo correcto es:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">nombre</span><span class="o">=</span><span class="s2">&quot;Ana&quot;</span>
+</code></pre></div>
+<h3 id="variables-en-powershell">Variables en PowerShell</h3>
+<p>En PowerShell las variables siempre empiezan por <code>$</code>, tanto al asignar como al leer:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$nombre</span> <span class="p">=</span> <span class="s2">&quot;Ana&quot;</span>
+<span class="nv">$edad</span> <span class="p">=</span> <span class="n">20</span>
+</code></pre></div>
+<p>Para mostrar:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Write-Host</span> <span class="nv">$nombre</span>
+<span class="nb">Write-Host</span> <span class="nv">$edad</span>
+</code></pre></div>
+<p>PowerShell puede deducir el tipo automaticamente:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$numero</span> <span class="p">=</span> <span class="n">10</span>
+<span class="nv">$texto</span> <span class="p">=</span> <span class="s2">&quot;10&quot;</span>
+</code></pre></div>
+<p>Comprobar el tipo:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$numero</span><span class="p">.</span><span class="n">GetType</span><span class="p">().</span><span class="n">Name</span>
+<span class="nv">$texto</span><span class="p">.</span><span class="n">GetType</span><span class="p">().</span><span class="n">Name</span>
+</code></pre></div>
+<p>Salida esperada:</p>
+<div class="highlight"><pre><span></span><code>Int32
+String
+</code></pre></div>
+<p>Tambien se puede declarar el tipo de forma explicita:</p>
+<div class="highlight"><pre><span></span><code><span class="no">[int]</span><span class="nv">$edad</span> <span class="p">=</span> <span class="n">20</span>
+<span class="no">[string]</span><span class="nv">$nombre</span> <span class="p">=</span> <span class="s2">&quot;Ana&quot;</span>
+<span class="no">[bool]</span><span class="nv">$activo</span> <span class="p">=</span> <span class="nv">$true</span>
+<span class="no">[double]</span><span class="nv">$precio</span> <span class="p">=</span> <span class="n">19</span><span class="p">.</span><span class="n">95</span>
+</code></pre></div>
+<p>Esto es una diferencia importante frente a Bash. En PowerShell, si una variable es <code>[int]</code>, PowerShell intenta tratarla como numero.</p>
+<p>Ejemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="no">[int]</span><span class="nv">$a</span> <span class="p">=</span> <span class="n">10</span>
+<span class="no">[int]</span><span class="nv">$b</span> <span class="p">=</span> <span class="n">5</span>
+<span class="nb">Write-Host</span> <span class="p">(</span><span class="nv">$a</span> <span class="p">+</span> <span class="nv">$b</span><span class="p">)</span>
+</code></pre></div>
+<p>Salida:</p>
+<div class="highlight"><pre><span></span><code>15
+</code></pre></div>
+<p>En Bash:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">a</span><span class="o">=</span><span class="m">10</span>
+<span class="nv">b</span><span class="o">=</span><span class="m">5</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$a$b</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>Salida:</p>
+<div class="highlight"><pre><span></span><code>105
+</code></pre></div>
+<p>Para sumar en Bash:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="nv">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">b</span><span class="k">))</span>
+</code></pre></div>
+<h3 id="diferencia-al-concatenar-texto">Diferencia al concatenar texto</h3>
+<p>En Bash:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">nombre</span><span class="o">=</span><span class="s2">&quot;Ana&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hola </span><span class="nv">$nombre</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>En PowerShell:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$nombre</span> <span class="p">=</span> <span class="s2">&quot;Ana&quot;</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;Hola $nombre&quot;</span>
+</code></pre></div>
+<p>En ambos casos las comillas dobles expanden variables. Las comillas simples no expanden:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$nombre</span> <span class="p">=</span> <span class="s2">&quot;Ana&quot;</span>
+<span class="nb">Write-Host</span> <span class="s1">&#39;Hola $nombre&#39;</span>
+</code></pre></div>
+<p>Salida:</p>
+<div class="highlight"><pre><span></span><code>Hola $nombre
+</code></pre></div>
+<h3 id="argumentos-de-scripts">Argumentos de scripts</h3>
+<p>En Bash se usan <code>$1</code>, <code>$2</code>, <code>$3</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Primer argumento: </span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Segundo argumento: </span><span class="nv">$2</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>Ejecucion:</p>
+<div class="highlight"><pre><span></span><code>./script.sh<span class="w"> </span>uno<span class="w"> </span>dos
+</code></pre></div>
+<p>En PowerShell se puede usar <code>$args</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Write-Host</span> <span class="s2">&quot;Primer argumento: </span><span class="p">$(</span><span class="nv">$args</span><span class="p">[</span><span class="n">0</span><span class="p">])</span><span class="s2">&quot;</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;Segundo argumento: </span><span class="p">$(</span><span class="nv">$args</span><span class="p">[</span><span class="n">1</span><span class="p">])</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>Pero es mas claro usar <code>param</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">param</span> <span class="p">(</span>
+    <span class="no">[string]</span><span class="nv">$nombre</span><span class="p">,</span>
+    <span class="no">[int]</span><span class="nv">$edad</span>
+<span class="p">)</span>
+
+<span class="nb">Write-Host</span> <span class="s2">&quot;Nombre: $nombre&quot;</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;Edad: $edad&quot;</span>
+</code></pre></div>
+<p>Ejecucion desde Bash:</p>
+<div class="highlight"><pre><span></span><code>pwsh<span class="w"> </span>./script.ps1<span class="w"> </span>-nombre<span class="w"> </span>Ana<span class="w"> </span>-edad<span class="w"> </span><span class="m">20</span>
+</code></pre></div>
+<h3 id="tuberias-texto-frente-a-objetos">Tuberias: texto frente a objetos</h3>
+<p>En Bash:</p>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;.txt&quot;</span>
+</code></pre></div>
+<p>El segundo comando recibe texto.</p>
+<p>En PowerShell:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-ChildItem</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">Extension</span> <span class="o">-eq</span> <span class="s2">&quot;.txt&quot;</span><span class="p">}</span>
+</code></pre></div>
+<p>El segundo comando recibe objetos de archivo. Por eso se puede filtrar por propiedades como:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$_</span><span class="p">.</span><span class="n">Name</span>
+<span class="nv">$_</span><span class="p">.</span><span class="n">Length</span>
+<span class="nv">$_</span><span class="p">.</span><span class="n">Extension</span>
+<span class="nv">$_</span><span class="p">.</span><span class="n">LastWriteTime</span>
+</code></pre></div>
+<p>Para ver las propiedades disponibles:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-ChildItem</span> <span class="p">|</span> <span class="nb">Get-Member</span>
+</code></pre></div>
+<h3 id="equivalencias-utiles">Equivalencias utiles</h3>
+<table>
+<thead>
+<tr>
+<th>Bash</th>
+<th>PowerShell</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pwd</code></td>
+<td><code>Get-Location</code></td>
+</tr>
+<tr>
+<td><code>cd ruta</code></td>
+<td><code>Set-Location ruta</code></td>
+</tr>
+<tr>
+<td><code>ls</code></td>
+<td><code>Get-ChildItem</code></td>
+</tr>
+<tr>
+<td><code>cat fichero</code></td>
+<td><code>Get-Content fichero</code></td>
+</tr>
+<tr>
+<td><code>cp origen destino</code></td>
+<td><code>Copy-Item origen destino</code></td>
+</tr>
+<tr>
+<td><code>mv origen destino</code></td>
+<td><code>Move-Item origen destino</code></td>
+</tr>
+<tr>
+<td><code>rm fichero</code></td>
+<td><code>Remove-Item fichero</code></td>
+</tr>
+<tr>
+<td><code>mkdir carpeta</code></td>
+<td><code>New-Item -ItemType Directory carpeta</code></td>
+</tr>
+<tr>
+<td><code>grep texto fichero</code></td>
+<td><code>Select-String texto fichero</code></td>
+</tr>
+<tr>
+<td><code>ps</code></td>
+<td><code>Get-Process</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="idea-clave-para-recordar">Idea clave para recordar</h3>
+<p>En Bash se suele pensar:</p>
+<div class="highlight"><pre><span></span><code>comando -&gt; texto -&gt; filtro de texto
+</code></pre></div>
+<p>En PowerShell se debe pensar:</p>
+<div class="highlight"><pre><span></span><code>cmdlet -&gt; objeto -&gt; propiedad -&gt; filtro
+</code></pre></div>
+<h2 id="contenido-esencial">Contenido esencial</h2>
+<h3 id="cmdlets">Cmdlets</h3>
+<p>Los comandos propios de PowerShell se llaman <code>cmdlets</code>. Suelen tener la forma:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Verbo-Nombre</span>
+</code></pre></div>
+<p>Ejemplos:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-Process</span>
+<span class="nb">Get-Service</span>
+<span class="nb">Get-ChildItem</span>
+<span class="nb">New-Item</span>
+<span class="nb">Copy-Item</span>
+<span class="nb">Remove-Item</span>
+</code></pre></div>
+<h3 id="ayuda">Ayuda</h3>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-Help</span> <span class="nb">Get-Process</span>
+<span class="nb">Get-Help</span> <span class="nb">Get-Process</span> <span class="n">-Examples</span>
+<span class="nb">Get-Command</span>
+<span class="nb">Get-Command</span> <span class="n">-Verb</span> <span class="n">Get</span>
+</code></pre></div>
+<h3 id="alias">Alias</h3>
+<p>PowerShell permite usar alias parecidos a comandos de Bash o CMD, pero no todos existen en todas las instalaciones. Por ejemplo, <code>dir</code> suele existir como alias de <code>Get-ChildItem</code>, pero <code>ls</code> puede no existir en algunas instalaciones de PowerShell sobre Linux.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">dir</span>
+<span class="nb">cd</span>
+<span class="nb">cat</span>
+</code></pre></div>
+<p>Para ver qué cmdlet hay detrás:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-Alias</span> <span class="nb">dir</span>
+<span class="nb">Get-Alias</span> <span class="nb">cd</span>
+<span class="nb">Get-Alias</span> <span class="nb">cat</span>
+</code></pre></div>
+<p>Para comprobar si existe un alias sin provocar un error:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-Alias</span> <span class="nb">ls </span><span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span>
+</code></pre></div>
+<p>Si <code>ls</code> no existe, se puede usar directamente el cmdlet:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-ChildItem</span>
+</code></pre></div>
+<h3 id="objetos">Objetos</h3>
+<p>En Bash la tubería suele pasar texto. En PowerShell la tubería pasa objetos.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-Process</span> <span class="p">|</span> <span class="nb">Get-Member</span>
+</code></pre></div>
+<p>Ejemplo de acceso a propiedades:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$procesos</span> <span class="p">=</span> <span class="nb">Get-Process</span>
+<span class="nv">$procesos</span><span class="p">[</span><span class="n">0</span><span class="p">].</span><span class="n">Name</span>
+<span class="nv">$procesos</span><span class="p">[</span><span class="n">0</span><span class="p">].</span><span class="n">Id</span>
+</code></pre></div>
+<h3 id="tuberias">Tuberías</h3>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-Process</span> <span class="p">|</span> <span class="nb">Sort-Object</span> <span class="n">Id</span>
+<span class="nb">Get-Process</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-Property</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Id</span><span class="p">,</span> <span class="n">CPU</span> <span class="p">|</span> <span class="nb">Format-Table</span> <span class="n">-AutoSize</span>
+<span class="nb">Get-Service</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">Name</span> <span class="o">-like</span> <span class="s2">&quot;n*&quot;</span><span class="p">}</span>
+</code></pre></div>
+<p>Si solo aparece <code>Name</code>, normalmente no es que falten las propiedades. Lo habitual en Linux es que haya procesos con nombres muy largos y PowerShell decida ajustar la salida automaticamente mostrando solo la columna que cabe en pantalla.</p>
+<p>Para una clase, limitar la salida con <code>-First</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-Process</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-First</span> <span class="n">5</span> <span class="n">-Property</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Id</span><span class="p">,</span> <span class="n">CPU</span> <span class="p">|</span> <span class="nb">Format-Table</span> <span class="n">-AutoSize</span>
+</code></pre></div>
+<p>O forzar tabla con ajuste de texto:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-Process</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-Property</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Id</span><span class="p">,</span> <span class="n">CPU</span> <span class="p">|</span> <span class="nb">Format-Table</span> <span class="n">-Wrap</span>
+</code></pre></div>
+<p>Otra opción más limpia es ordenar y quedarse con pocos procesos:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-Process</span> <span class="p">|</span> <span class="nb">Sort-Object</span> <span class="n">CPU</span> <span class="n">-Descending</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-First</span> <span class="n">10</span> <span class="n">-Property</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Id</span><span class="p">,</span> <span class="n">CPU</span> <span class="p">|</span> <span class="nb">Format-Table</span> <span class="n">-AutoSize</span>
+</code></pre></div>
+<p>Para comprobar que las propiedades existen:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-Process</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-First</span> <span class="n">1</span> <span class="p">|</span> <span class="nb">Get-Member</span> <span class="n">-MemberType</span> <span class="n">Property</span>
+</code></pre></div>
+<p>No escribir punto al final de la propiedad. Esto crea una columna llamada <code>CPU.</code> y no mostrara el valor correcto:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-Process</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Id</span><span class="p">,</span> <span class="n">CPU</span><span class="p">.</span>
+</code></pre></div>
+<p>La forma correcta es:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-Process</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Id</span><span class="p">,</span> <span class="n">CPU</span>
+</code></pre></div>
+<h3 id="variables">Variables</h3>
+<div class="highlight"><pre><span></span><code><span class="nv">$nombre</span> <span class="p">=</span> <span class="s2">&quot;Ana&quot;</span>
+<span class="no">[int]</span><span class="nv">$edad</span> <span class="p">=</span> <span class="n">20</span>
+<span class="no">[double]</span><span class="nv">$precio</span> <span class="p">=</span> <span class="n">19</span><span class="p">.</span><span class="n">95</span>
+<span class="no">[bool]</span><span class="nv">$activo</span> <span class="p">=</span> <span class="nv">$true</span>
+</code></pre></div>
+<p>Ver el tipo:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$edad</span><span class="p">.</span><span class="n">GetType</span><span class="p">().</span><span class="n">Name</span>
+</code></pre></div>
+<h3 id="entrada-y-salida">Entrada y salida</h3>
+<div class="highlight"><pre><span></span><code><span class="nv">$nombre</span> <span class="p">=</span> <span class="nb">Read-Host</span> <span class="s2">&quot;Introduce tu nombre&quot;</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;Hola $nombre&quot;</span>
+</code></pre></div>
+<h3 id="parametros">Parámetros</h3>
+<p>Con <code>$args</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$nombre</span> <span class="p">=</span> <span class="nv">$args</span><span class="p">[</span><span class="n">0</span><span class="p">]</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;Hola $nombre&quot;</span>
+</code></pre></div>
+<p>Con <code>param</code>, forma más recomendable:</p>
+<div class="highlight"><pre><span></span><code><span class="k">param</span> <span class="p">(</span><span class="no">[string]</span><span class="nv">$nombre</span><span class="p">)</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;Hola $nombre&quot;</span>
+</code></pre></div>
+<h3 id="operadores">Operadores</h3>
+<p>Aritméticos:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$a</span> <span class="p">+</span> <span class="nv">$b</span>
+<span class="nv">$a</span> <span class="p">-</span> <span class="nv">$b</span>
+<span class="nv">$a</span> <span class="p">*</span> <span class="nv">$b</span>
+<span class="nv">$a</span> <span class="p">/</span> <span class="nv">$b</span>
+<span class="nv">$a</span> <span class="p">%</span> <span class="nv">$b</span>
+</code></pre></div>
+<p>Comparación:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$a</span> <span class="o">-eq</span> <span class="nv">$b</span>
+<span class="nv">$a</span> <span class="o">-ne</span> <span class="nv">$b</span>
+<span class="nv">$a</span> <span class="o">-gt</span> <span class="nv">$b</span>
+<span class="nv">$a</span> <span class="o">-ge</span> <span class="nv">$b</span>
+<span class="nv">$a</span> <span class="o">-lt</span> <span class="nv">$b</span>
+<span class="nv">$a</span> <span class="o">-le</span> <span class="nv">$b</span>
+</code></pre></div>
+<p>Lógicos:</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nv">$a</span> <span class="o">-gt</span> <span class="n">0</span><span class="p">)</span> <span class="o">-and</span> <span class="p">(</span><span class="nv">$b</span> <span class="o">-gt</span> <span class="n">0</span><span class="p">)</span>
+<span class="p">(</span><span class="nv">$a</span> <span class="o">-gt</span> <span class="n">0</span><span class="p">)</span> <span class="o">-or</span> <span class="p">(</span><span class="nv">$b</span> <span class="o">-gt</span> <span class="n">0</span><span class="p">)</span>
+<span class="o">-not</span> <span class="p">(</span><span class="nv">$a</span> <span class="o">-eq</span> <span class="nv">$b</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="soluciones-de-actividades-basicas">Soluciones de actividades básicas</h2>
+<h3 id="1-procesos-del-sistema-ordenados-por-id">1. Procesos del sistema ordenados por ID</h3>
+<p>Archivo: <code>ej101.ps1</code></p>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-Process</span> <span class="p">|</span> <span class="nb">Sort-Object</span> <span class="n">Id</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-Property</span> <span class="n">Id</span><span class="p">,</span> <span class="n">ProcessName</span><span class="p">,</span> <span class="n">CPU</span> <span class="p">|</span> <span class="nb">Format-Table</span> <span class="n">-AutoSize</span>
+</code></pre></div>
+<p>Ejecución:</p>
+<div class="highlight"><pre><span></span><code>pwsh<span class="w"> </span>./ej101.ps1
+</code></pre></div>
+<h3 id="2-servicios-cuyo-nombre-empieza-por-n">2. Servicios cuyo nombre empieza por <code>n</code></h3>
+<p>Archivo: <code>ej102.ps1</code></p>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-Process</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">Name</span> <span class="o">-like</span> <span class="s2">&quot;n*&quot;</span><span class="p">}</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Status</span><span class="p">,</span> <span class="n">DisplayName</span>
+</code></pre></div>
+<h3 id="3-script-con-dos-numeros-como-argumentos">3. Script con dos números como argumentos</h3>
+<p>Archivo: <code>ej103.ps1</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">param</span> <span class="p">(</span>
+    <span class="no">[int]</span><span class="nv">$a</span><span class="p">,</span>
+    <span class="no">[int]</span><span class="nv">$b</span>
+<span class="p">)</span>
+
+<span class="nb">Write-Host</span> <span class="s2">&quot;Primer numero: $a&quot;</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;Segundo numero: $b&quot;</span>
+</code></pre></div>
+<p>Ejecución:</p>
+<div class="highlight"><pre><span></span><code>pwsh<span class="w"> </span>./ej103.ps1<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">20</span>
+</code></pre></div>
+<h3 id="4-script-que-pide-dos-numeros-al-usuario">4. Script que pide dos números al usuario</h3>
+<p>Archivo: <code>ej104.ps1</code></p>
+<div class="highlight"><pre><span></span><code><span class="no">[int]</span><span class="nv">$a</span> <span class="p">=</span> <span class="nb">Read-Host</span> <span class="s2">&quot;Introduce el primer numero&quot;</span>
+<span class="no">[int]</span><span class="nv">$b</span> <span class="p">=</span> <span class="nb">Read-Host</span> <span class="s2">&quot;Introduce el segundo numero&quot;</span>
+
+<span class="nb">Write-Host</span> <span class="s2">&quot;Primer numero: $a&quot;</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;Segundo numero: $b&quot;</span>
+</code></pre></div>
+<h3 id="5-operaciones-con-tres-variables">5. Operaciones con tres variables</h3>
+<p>Archivo: <code>ej105.ps1</code></p>
+<div class="highlight"><pre><span></span><code><span class="no">[int]</span><span class="nv">$a</span> <span class="p">=</span> <span class="nb">Read-Host</span> <span class="s2">&quot;Introduce a&quot;</span>
+<span class="no">[int]</span><span class="nv">$b</span> <span class="p">=</span> <span class="nb">Read-Host</span> <span class="s2">&quot;Introduce b&quot;</span>
+<span class="no">[int]</span><span class="nv">$c</span> <span class="p">=</span> <span class="nb">Read-Host</span> <span class="s2">&quot;Introduce c&quot;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$b</span> <span class="o">-eq</span> <span class="n">0</span> <span class="o">-or</span> <span class="nv">$c</span> <span class="o">-eq</span> <span class="n">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">Write-Host</span> <span class="s2">&quot;No se puede dividir entre cero.&quot;</span>
+    <span class="n">exit</span>
+<span class="p">}</span>
+
+<span class="nb">Write-Host</span> <span class="s2">&quot;a % b = &quot;</span> <span class="p">(</span><span class="nv">$a</span> <span class="p">%</span> <span class="nv">$b</span><span class="p">)</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;a / c = &quot;</span> <span class="p">(</span><span class="nv">$a</span> <span class="p">/</span> <span class="nv">$c</span><span class="p">)</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;2 * b + 3 * (a - c) = &quot;</span> <span class="p">(</span><span class="n">2</span> <span class="p">*</span> <span class="nv">$b</span> <span class="p">+</span> <span class="n">3</span> <span class="p">*</span> <span class="p">(</span><span class="nv">$a</span> <span class="p">-</span> <span class="nv">$c</span><span class="p">))</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;a * (b / c) = &quot;</span> <span class="p">(</span><span class="nv">$a</span> <span class="p">*</span> <span class="p">(</span><span class="nv">$b</span> <span class="p">/</span> <span class="nv">$c</span><span class="p">))</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;(a * c) % b = &quot;</span> <span class="p">((</span><span class="nv">$a</span> <span class="p">*</span> <span class="nv">$c</span><span class="p">)</span> <span class="p">%</span> <span class="nv">$b</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="soluciones-de-control-de-flujo">Soluciones de control de flujo</h2>
+<h3 id="6-comprobar-si-no-se-pasa-ningun-argumento">6. Comprobar si no se pasa ningún argumento</h3>
+<p>Archivo: <code>ej106.ps1</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nv">$args</span><span class="p">.</span><span class="n">Length</span> <span class="o">-eq</span> <span class="n">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">Write-Host</span> <span class="s2">&quot;No se ha pasado ningun argumento.&quot;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nb">Write-Host</span> <span class="s2">&quot;Argumentos recibidos:&quot;</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$arg</span> <span class="k">in</span> <span class="nv">$args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">Write-Host</span> <span class="s2">&quot;- $arg&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Ejecución:</p>
+<div class="highlight"><pre><span></span><code>pwsh<span class="w"> </span>./ej106.ps1
+pwsh<span class="w"> </span>./ej106.ps1<span class="w"> </span>uno<span class="w"> </span>dos<span class="w"> </span>tres
+</code></pre></div>
+<h3 id="7-saludo-segun-la-hora-del-sistema">7. Saludo según la hora del sistema</h3>
+<p>Archivo: <code>ej107.ps1</code></p>
+<div class="highlight"><pre><span></span><code><span class="nv">$hora</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-Date</span><span class="p">).</span><span class="n">Hour</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$hora</span> <span class="o">-ge</span> <span class="n">8</span> <span class="o">-and</span> <span class="nv">$hora</span> <span class="o">-lt</span> <span class="n">15</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">Write-Host</span> <span class="s2">&quot;Buenos dias&quot;</span>
+<span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nv">$hora</span> <span class="o">-ge</span> <span class="n">15</span> <span class="o">-and</span> <span class="nv">$hora</span> <span class="o">-lt</span> <span class="n">20</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">Write-Host</span> <span class="s2">&quot;Buenas tardes&quot;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nb">Write-Host</span> <span class="s2">&quot;Buenas noches&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="8a-tabla-de-multiplicar">8A. Tabla de multiplicar</h3>
+<p>Archivo: <code>ej208A.ps1</code></p>
+<div class="highlight"><pre><span></span><code><span class="no">[int]</span><span class="nv">$numero</span> <span class="p">=</span> <span class="nb">Read-Host</span> <span class="s2">&quot;Introduce un numero entero positivo&quot;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$numero</span> <span class="o">-le</span> <span class="n">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">Write-Host</span> <span class="s2">&quot;El numero debe ser entero positivo.&quot;</span>
+    <span class="n">exit</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="p">=</span> <span class="n">1</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">-le</span> <span class="n">10</span><span class="p">;</span> <span class="nv">$i</span><span class="p">++)</span> <span class="p">{</span>
+    <span class="nb">Write-Host</span> <span class="s2">&quot;$i x $numero =&quot;</span> <span class="p">(</span><span class="nv">$i</span> <span class="p">*</span> <span class="nv">$numero</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="8b-numero-par-y-numero-primo">8B. Número par y número primo</h3>
+<p>Archivo: <code>ej208B.ps1</code></p>
+<div class="highlight"><pre><span></span><code><span class="no">[int]</span><span class="nv">$numero</span> <span class="p">=</span> <span class="nb">Read-Host</span> <span class="s2">&quot;Introduce un numero entero positivo&quot;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$numero</span> <span class="o">-le</span> <span class="n">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">Write-Host</span> <span class="s2">&quot;El numero debe ser entero positivo.&quot;</span>
+    <span class="n">exit</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$numero</span> <span class="p">%</span> <span class="n">2</span> <span class="o">-eq</span> <span class="n">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">Write-Host</span> <span class="s2">&quot;$numero es par&quot;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nb">Write-Host</span> <span class="s2">&quot;$numero es impar&quot;</span>
+<span class="p">}</span>
+
+<span class="nv">$esPrimo</span> <span class="p">=</span> <span class="nv">$true</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$numero</span> <span class="o">-lt</span> <span class="n">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$esPrimo</span> <span class="p">=</span> <span class="nv">$false</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="p">=</span> <span class="n">2</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">-le</span> <span class="no">[math]</span><span class="p">::</span><span class="n">Sqrt</span><span class="p">(</span><span class="nv">$numero</span><span class="p">);</span> <span class="nv">$i</span><span class="p">++)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$numero</span> <span class="p">%</span> <span class="nv">$i</span> <span class="o">-eq</span> <span class="n">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$esPrimo</span> <span class="p">=</span> <span class="nv">$false</span>
+            <span class="k">break</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$esPrimo</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">Write-Host</span> <span class="s2">&quot;$numero es primo&quot;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nb">Write-Host</span> <span class="s2">&quot;$numero no es primo&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="8c-diez-primeras-tablas-de-multiplicar">8C. Diez primeras tablas de multiplicar</h3>
+<p>Archivo: <code>ej208C.ps1</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="nv">$tabla</span> <span class="p">=</span> <span class="n">1</span><span class="p">;</span> <span class="nv">$tabla</span> <span class="o">-le</span> <span class="n">10</span><span class="p">;</span> <span class="nv">$tabla</span><span class="p">++)</span> <span class="p">{</span>
+    <span class="nb">Write-Host</span> <span class="s2">&quot;Tabla del $tabla&quot;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="p">=</span> <span class="n">1</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">-le</span> <span class="n">10</span><span class="p">;</span> <span class="nv">$i</span><span class="p">++)</span> <span class="p">{</span>
+        <span class="nb">Write-Host</span> <span class="s2">&quot;$i x $tabla =&quot;</span> <span class="p">(</span><span class="nv">$i</span> <span class="p">*</span> <span class="nv">$tabla</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="nb">Start-Sleep</span> <span class="n">-Seconds</span> <span class="n">1</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Versión con <code>foreach</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">foreach</span> <span class="p">(</span><span class="nv">$tabla</span> <span class="k">in</span> <span class="n">1</span><span class="p">..</span><span class="n">10</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">Write-Host</span> <span class="s2">&quot;Tabla del $tabla&quot;</span>
+
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$i</span> <span class="k">in</span> <span class="n">1</span><span class="p">..</span><span class="n">10</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">Write-Host</span> <span class="s2">&quot;$i x $tabla =&quot;</span> <span class="p">(</span><span class="nv">$i</span> <span class="p">*</span> <span class="nv">$tabla</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="nb">Start-Sleep</span> <span class="n">-Seconds</span> <span class="n">1</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="soluciones-de-vectores-y-funciones">Soluciones de vectores y funciones</h2>
+<h3 id="9-vector-con-365-temperaturas">9. Vector con 365 temperaturas</h3>
+<p>Archivo: <code>ej109.ps1</code></p>
+<div class="highlight"><pre><span></span><code><span class="nv">$temperaturas</span> <span class="p">=</span> <span class="p">@()</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="p">=</span> <span class="n">1</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">-le</span> <span class="n">365</span><span class="p">;</span> <span class="nv">$i</span><span class="p">++)</span> <span class="p">{</span>
+    <span class="nv">$temperaturas</span> <span class="p">+=</span> <span class="nb">Get-Random</span> <span class="n">-Minimum</span> <span class="p">-</span><span class="n">5</span> <span class="n">-Maximum</span> <span class="n">36</span>
+<span class="p">}</span>
+
+<span class="nv">$suma</span> <span class="p">=</span> <span class="n">0</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$temperatura</span> <span class="k">in</span> <span class="nv">$temperaturas</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$suma</span> <span class="p">+=</span> <span class="nv">$temperatura</span>
+<span class="p">}</span>
+
+<span class="nv">$media</span> <span class="p">=</span> <span class="nv">$suma</span> <span class="p">/</span> <span class="nv">$temperaturas</span><span class="p">.</span><span class="n">Length</span>
+<span class="nv">$porEncima</span> <span class="p">=</span> <span class="n">0</span>
+<span class="nv">$porDebajo</span> <span class="p">=</span> <span class="n">0</span>
+<span class="nv">$igual</span> <span class="p">=</span> <span class="n">0</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$temperatura</span> <span class="k">in</span> <span class="nv">$temperaturas</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$temperatura</span> <span class="o">-gt</span> <span class="nv">$media</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$porEncima</span><span class="p">++</span>
+    <span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nv">$temperatura</span> <span class="o">-lt</span> <span class="nv">$media</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$porDebajo</span><span class="p">++</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nv">$igual</span><span class="p">++</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nb">Write-Host</span> <span class="s2">&quot;Media: $media&quot;</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;Dias por encima de la media: $porEncima&quot;</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;Dias por debajo de la media: $porDebajo&quot;</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;Dias iguales a la media: $igual&quot;</span>
+</code></pre></div>
+<p>Versión más compacta:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$temperaturas</span> <span class="p">=</span> <span class="n">1</span><span class="p">..</span><span class="n">365</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span> <span class="nb">Get-Random</span> <span class="n">-Minimum</span> <span class="p">-</span><span class="n">5</span> <span class="n">-Maximum</span> <span class="n">36</span> <span class="p">}</span>
+<span class="nv">$media</span> <span class="p">=</span> <span class="p">(</span><span class="nv">$temperaturas</span> <span class="p">|</span> <span class="nb">Measure-Object</span> <span class="n">-Average</span><span class="p">).</span><span class="n">Average</span>
+
+<span class="nv">$porEncima</span> <span class="p">=</span> <span class="p">(</span><span class="nv">$temperaturas</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span><span class="nv">$_</span> <span class="o">-gt</span> <span class="nv">$media</span><span class="p">}).</span><span class="n">Count</span>
+<span class="nv">$porDebajo</span> <span class="p">=</span> <span class="p">(</span><span class="nv">$temperaturas</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span><span class="nv">$_</span> <span class="o">-lt</span> <span class="nv">$media</span><span class="p">}).</span><span class="n">Count</span>
+<span class="nv">$igual</span> <span class="p">=</span> <span class="p">(</span><span class="nv">$temperaturas</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span><span class="nv">$_</span> <span class="o">-eq</span> <span class="nv">$media</span><span class="p">}).</span><span class="n">Count</span>
+
+<span class="nb">Write-Host</span> <span class="s2">&quot;Media: $media&quot;</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;Dias por encima: $porEncima&quot;</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;Dias por debajo: $porDebajo&quot;</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;Dias iguales: $igual&quot;</span>
+</code></pre></div>
+<h3 id="10-copia-de-seguridad-con-funciones">10. Copia de seguridad con funciones</h3>
+<p>Archivo: <code>ej110_backup.ps1</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">param</span> <span class="p">(</span>
+    <span class="no">[string]</span><span class="nv">$Origen</span> <span class="p">=</span> <span class="nv">$HOME</span><span class="p">,</span>
+    <span class="no">[string]</span><span class="nv">$Destino</span> <span class="p">=</span> <span class="s2">&quot;$HOME/BackupPS&quot;</span>
+<span class="p">)</span>
+
+<span class="k">function</span> <span class="nb">New-BackupDirectory</span> <span class="p">{</span>
+    <span class="k">param</span> <span class="p">(</span><span class="no">[string]</span><span class="nv">$Ruta</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">-not</span> <span class="p">(</span><span class="nb">Test-Path</span> <span class="nv">$Ruta</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nb">New-Item</span> <span class="n">-ItemType</span> <span class="n">Directory</span> <span class="n">-Path</span> <span class="nv">$Ruta</span> <span class="p">|</span> <span class="nb">Out-Null</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">function</span> <span class="nb">Test-ShouldCopy</span> <span class="p">{</span>
+    <span class="k">param</span> <span class="p">(</span>
+        <span class="no">[System.IO.FileInfo]</span><span class="nv">$ArchivoOrigen</span><span class="p">,</span>
+        <span class="no">[string]</span><span class="nv">$ArchivoDestino</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">-not</span> <span class="p">(</span><span class="nb">Test-Path</span> <span class="nv">$ArchivoDestino</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$true</span>
+    <span class="p">}</span>
+
+    <span class="nv">$destinoInfo</span> <span class="p">=</span> <span class="nb">Get-Item</span> <span class="nv">$ArchivoDestino</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$ArchivoOrigen</span><span class="p">.</span><span class="n">LastWriteTime</span> <span class="o">-gt</span> <span class="nv">$destinoInfo</span><span class="p">.</span><span class="n">LastWriteTime</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$true</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$ArchivoOrigen</span><span class="p">.</span><span class="n">Length</span> <span class="o">-gt</span> <span class="nv">$destinoInfo</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$true</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nv">$false</span>
+<span class="p">}</span>
+
+<span class="k">function</span> <span class="nb">Write-BackupLog</span> <span class="p">{</span>
+    <span class="k">param</span> <span class="p">(</span>
+        <span class="no">[string]</span><span class="nv">$Mensaje</span><span class="p">,</span>
+        <span class="no">[string]</span><span class="nv">$LogPath</span>
+    <span class="p">)</span>
+
+    <span class="nv">$fecha</span> <span class="p">=</span> <span class="nb">Get-Date</span> <span class="n">-Format</span> <span class="s2">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>
+    <span class="nb">Add-Content</span> <span class="n">-Path</span> <span class="nv">$LogPath</span> <span class="n">-Value</span> <span class="s2">&quot;$fecha - $Mensaje&quot;</span>
+<span class="p">}</span>
+
+<span class="nb">New-BackupDirectory</span> <span class="n">-Ruta</span> <span class="nv">$Destino</span>
+
+<span class="nv">$scriptDir</span> <span class="p">=</span> <span class="nb">Split-Path</span> <span class="n">-Parent</span> <span class="nv">$MyInvocation</span><span class="p">.</span><span class="n">MyCommand</span><span class="p">.</span><span class="n">Path</span>
+<span class="nv">$logPath</span> <span class="p">=</span> <span class="nb">Join-Path</span> <span class="nv">$scriptDir</span> <span class="s2">&quot;backup.log&quot;</span>
+
+<span class="nb">Get-ChildItem</span> <span class="n">-Path</span> <span class="nv">$Origen</span> <span class="o">-File</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span>
+    <span class="nv">$archivoDestino</span> <span class="p">=</span> <span class="nb">Join-Path</span> <span class="nv">$Destino</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Name</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nb">Test-ShouldCopy</span> <span class="n">-ArchivoOrigen</span> <span class="nv">$_</span> <span class="n">-ArchivoDestino</span> <span class="nv">$archivoDestino</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">Copy-Item</span> <span class="n">-Path</span> <span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span> <span class="n">-Destination</span> <span class="nv">$archivoDestino</span> <span class="n">-Force</span>
+        <span class="nb">Write-BackupLog</span> <span class="n">-Mensaje</span> <span class="s2">&quot;Copiado: </span><span class="p">$(</span><span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span><span class="p">)</span><span class="s2"> -&gt; $archivoDestino&quot;</span> <span class="n">-LogPath</span> <span class="nv">$logPath</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nb">Write-BackupLog</span> <span class="n">-Mensaje</span> <span class="s2">&quot;No copiado: </span><span class="p">$(</span><span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span><span class="p">)</span><span class="s2">&quot;</span> <span class="n">-LogPath</span> <span class="nv">$logPath</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Ejecución:</p>
+<div class="highlight"><pre><span></span><code>pwsh<span class="w"> </span>./ej110_backup.ps1
+pwsh<span class="w"> </span>./ej110_backup.ps1<span class="w"> </span>-Origen<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/Documentos&quot;</span><span class="w"> </span>-Destino<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/BackupPS&quot;</span>
+</code></pre></div>
+<h2 id="soluciones-de-administracion">Soluciones de administración</h2>
+<p>Estas soluciones requieren un entorno Windows con Active Directory, permisos adecuados y módulos disponibles. No son adecuadas para una demo rápida en Bash sin dominio.</p>
+<h3 id="11-listar-equipos-del-dominio-y-comprobar-conectividad">11. Listar equipos del dominio y comprobar conectividad</h3>
+<p>Archivo: <code>scriptAd1.ps1</code></p>
+<div class="highlight"><pre><span></span><code><span class="nb">Import-Module</span> <span class="n">ActiveDirectory</span>
+
+<span class="nv">$equipos</span> <span class="p">=</span> <span class="nb">Get-ADComputer</span> <span class="n">-Filter</span> <span class="p">*</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-ExpandProperty</span> <span class="n">Name</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$equipo</span> <span class="k">in</span> <span class="nv">$equipos</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">Test-Connection</span> <span class="nv">$equipo</span> <span class="n">-Quiet</span> <span class="n">-Count</span> <span class="n">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="no">[PSCustomObject]</span><span class="p">@{</span>
+            <span class="n">Equipo</span> <span class="p">=</span> <span class="nv">$equipo</span>
+            <span class="n">Estado</span> <span class="p">=</span> <span class="s2">&quot;alcanzado&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="no">[PSCustomObject]</span><span class="p">@{</span>
+            <span class="n">Equipo</span> <span class="p">=</span> <span class="nv">$equipo</span>
+            <span class="n">Estado</span> <span class="p">=</span> <span class="s2">&quot;no alcanzado&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="12-memoria-virtual-del-proceso-powershell-en-equipos-remotos">12. Memoria virtual del proceso PowerShell en equipos remotos</h3>
+<p>Archivo: <code>scriptProcesVirtual.ps1</code></p>
+<div class="highlight"><pre><span></span><code><span class="nb">Import-Module</span> <span class="n">ActiveDirectory</span>
+
+<span class="nv">$equipos</span> <span class="p">=</span> <span class="nb">Get-ADComputer</span> <span class="n">-Filter</span> <span class="p">*</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-ExpandProperty</span> <span class="n">Name</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$equipo</span> <span class="k">in</span> <span class="nv">$equipos</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">Test-Connection</span> <span class="nv">$equipo</span> <span class="n">-Quiet</span> <span class="n">-Count</span> <span class="n">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$proceso</span> <span class="p">=</span> <span class="nb">Get-Process</span> <span class="n">-ComputerName</span> <span class="nv">$equipo</span> <span class="n">-Name</span> <span class="n">powershell</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span> <span class="p">|</span>
+            <span class="nb">Select-Object</span> <span class="n">-First</span> <span class="n">1</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$proceso</span><span class="p">)</span> <span class="p">{</span>
+            <span class="no">[PSCustomObject]</span><span class="p">@{</span>
+                <span class="n">Equipo</span> <span class="p">=</span> <span class="nv">$equipo</span>
+                <span class="n">MemoriaVirtual</span> <span class="p">=</span> <span class="nv">$proceso</span><span class="p">.</span><span class="n">VirtualMemorySize</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="no">[PSCustomObject]</span><span class="p">@{</span>
+                <span class="n">Equipo</span> <span class="p">=</span> <span class="nv">$equipo</span>
+                <span class="n">MemoriaVirtual</span> <span class="p">=</span> <span class="s2">&quot;proceso no encontrado&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="no">[PSCustomObject]</span><span class="p">@{</span>
+            <span class="n">Equipo</span> <span class="p">=</span> <span class="nv">$equipo</span>
+            <span class="n">MemoriaVirtual</span> <span class="p">=</span> <span class="s2">&quot;no alcanzado&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="13-version-de-media-player-mediante-registro">13. Versión de Media Player mediante registro</h3>
+<p>Archivo: <code>scriptMediaPlayerVersion.ps1</code></p>
+<div class="highlight"><pre><span></span><code><span class="nb">Import-Module</span> <span class="n">ActiveDirectory</span>
+
+<span class="k">function</span> <span class="nb">Get-Key</span> <span class="p">{</span>
+    <span class="nv">$ruta</span> <span class="p">=</span> <span class="s2">&quot;HKLM:\SOFTWARE\Microsoft\MediaPlayer\PlayerUpgrade&quot;</span>
+    <span class="nv">$valor</span> <span class="p">=</span> <span class="nb">Get-ItemProperty</span> <span class="nv">$ruta</span> <span class="n">-Name</span> <span class="s2">&quot;PlayerVersion&quot;</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$valor</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$valor</span><span class="p">.</span><span class="n">PlayerVersion</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="s2">&quot;no instalado&quot;</span>
+<span class="p">}</span>
+
+<span class="nv">$equipos</span> <span class="p">=</span> <span class="nb">Get-ADComputer</span> <span class="n">-Filter</span> <span class="p">*</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-ExpandProperty</span> <span class="n">Name</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$equipo</span> <span class="k">in</span> <span class="nv">$equipos</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">Test-Connection</span> <span class="nv">$equipo</span> <span class="n">-Quiet</span> <span class="n">-Count</span> <span class="n">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$version</span> <span class="p">=</span> <span class="nb">Invoke-Command</span> <span class="n">-ComputerName</span> <span class="nv">$equipo</span> <span class="n">-ScriptBlock</span> <span class="p">${</span><span class="k">function</span><span class="p">:</span><span class="nb">Get-Key</span><span class="p">}</span>
+
+        <span class="no">[PSCustomObject]</span><span class="p">@{</span>
+            <span class="n">Equipo</span> <span class="p">=</span> <span class="nv">$equipo</span>
+            <span class="n">Version</span> <span class="p">=</span> <span class="nv">$version</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="no">[PSCustomObject]</span><span class="p">@{</span>
+            <span class="n">Equipo</span> <span class="p">=</span> <span class="nv">$equipo</span>
+            <span class="n">Version</span> <span class="p">=</span> <span class="s2">&quot;equipo inalcanzable&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="14-obtener-configuracion-dns">14. Obtener configuración DNS</h3>
+<p>Archivo: <code>scriptDNSConfig.ps1</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span> <span class="nb">Get-DNSConfiguration</span> <span class="p">{</span>
+    <span class="p">[</span><span class="k">CmdletBinding</span><span class="p">()]</span>
+    <span class="k">param</span> <span class="p">(</span>
+        <span class="p">[</span><span class="k">Parameter</span><span class="p">(</span><span class="k">Mandatory</span> <span class="p">=</span> <span class="nv">$true</span><span class="p">,</span> <span class="k">ValueFromPipeline</span> <span class="p">=</span> <span class="nv">$true</span><span class="p">)]</span>
+        <span class="no">[string[]]</span><span class="nv">$ComputerName</span>
+    <span class="p">)</span>
+
+    <span class="k">process</span> <span class="p">{</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$equipo</span> <span class="k">in</span> <span class="nv">$ComputerName</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nb">Test-Connection</span> <span class="nv">$equipo</span> <span class="n">-Quiet</span> <span class="n">-Count</span> <span class="n">1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nv">$adaptadores</span> <span class="p">=</span> <span class="nb">Get-WmiObject</span> <span class="n">-Class</span> <span class="n">Win32_NetworkAdapterConfiguration</span> <span class="p">`</span>
+                    <span class="n">-ComputerName</span> <span class="nv">$equipo</span> <span class="p">`</span>
+                    <span class="n">-Filter</span> <span class="s2">&quot;IPEnabled = True&quot;</span>
+
+                <span class="k">foreach</span> <span class="p">(</span><span class="nv">$adaptador</span> <span class="k">in</span> <span class="nv">$adaptadores</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="no">[PSCustomObject]</span><span class="p">@{</span>
+                        <span class="n">HostName</span> <span class="p">=</span> <span class="nv">$equipo</span>
+                        <span class="n">Ping</span> <span class="p">=</span> <span class="s2">&quot;OK&quot;</span>
+                        <span class="n">DNS</span> <span class="p">=</span> <span class="nv">$adaptador</span><span class="p">.</span><span class="n">DNSServerSearchOrder</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="no">[PSCustomObject]</span><span class="p">@{</span>
+                    <span class="n">HostName</span> <span class="p">=</span> <span class="nv">$equipo</span>
+                    <span class="n">Ping</span> <span class="p">=</span> <span class="s2">&quot;NOK&quot;</span>
+                    <span class="n">DNS</span> <span class="p">=</span> <span class="nv">$null</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Uso:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-DNSConfiguration</span> <span class="n">-ComputerName</span> <span class="n">cliente2</span>
+
+<span class="nb">Get-ADComputer</span> <span class="n">-Filter</span> <span class="p">*</span> <span class="p">|</span>
+    <span class="nb">Select-Object</span> <span class="n">-ExpandProperty</span> <span class="n">Name</span> <span class="p">|</span>
+    <span class="nb">Get-DNSConfiguration</span>
+</code></pre></div>
+<h3 id="15-asignar-dns">15. Asignar DNS</h3>
+<p>Archivo: <code>scriptSetDNSConfig.ps1</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span> <span class="nb">Set-DNSConfiguration</span> <span class="p">{</span>
+    <span class="p">[</span><span class="k">CmdletBinding</span><span class="p">()]</span>
+    <span class="k">param</span> <span class="p">(</span>
+        <span class="p">[</span><span class="k">Parameter</span><span class="p">(</span><span class="k">Mandatory</span> <span class="p">=</span> <span class="nv">$true</span><span class="p">,</span> <span class="k">ValueFromPipeline</span> <span class="p">=</span> <span class="nv">$true</span><span class="p">)]</span>
+        <span class="no">[string[]]</span><span class="nv">$ComputerName</span><span class="p">,</span>
+
+        <span class="no">[string[]]</span><span class="nv">$DNSList</span> <span class="p">=</span> <span class="p">@(</span><span class="s2">&quot;192.168.0.30&quot;</span><span class="p">,</span> <span class="s2">&quot;192.168.0.40&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">process</span> <span class="p">{</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$equipo</span> <span class="k">in</span> <span class="nv">$ComputerName</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nb">Test-Connection</span> <span class="nv">$equipo</span> <span class="n">-Quiet</span> <span class="n">-Count</span> <span class="n">1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nv">$adaptadores</span> <span class="p">=</span> <span class="nb">Get-WmiObject</span> <span class="n">-Class</span> <span class="n">Win32_NetworkAdapterConfiguration</span> <span class="p">`</span>
+                    <span class="n">-ComputerName</span> <span class="nv">$equipo</span> <span class="p">`</span>
+                    <span class="n">-Filter</span> <span class="s2">&quot;IPEnabled = True&quot;</span>
+
+                <span class="k">foreach</span> <span class="p">(</span><span class="nv">$adaptador</span> <span class="k">in</span> <span class="nv">$adaptadores</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nv">$resultado</span> <span class="p">=</span> <span class="nv">$adaptador</span><span class="p">.</span><span class="n">SetDNSServerSearchOrder</span><span class="p">(</span><span class="nv">$DNSList</span><span class="p">)</span>
+
+                    <span class="no">[PSCustomObject]</span><span class="p">@{</span>
+                        <span class="n">HostName</span> <span class="p">=</span> <span class="nv">$equipo</span>
+                        <span class="n">Ping</span> <span class="p">=</span> <span class="s2">&quot;OK&quot;</span>
+                        <span class="n">DNS</span> <span class="p">=</span> <span class="nv">$DNSList</span>
+                        <span class="n">Resultado</span> <span class="p">=</span> <span class="nv">$resultado</span><span class="p">.</span><span class="n">ReturnValue</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="no">[PSCustomObject]</span><span class="p">@{</span>
+                    <span class="n">HostName</span> <span class="p">=</span> <span class="nv">$equipo</span>
+                    <span class="n">Ping</span> <span class="p">=</span> <span class="s2">&quot;NOK&quot;</span>
+                    <span class="n">DNS</span> <span class="p">=</span> <span class="nv">$null</span>
+                    <span class="n">Resultado</span> <span class="p">=</span> <span class="s2">&quot;equipo inalcanzable&quot;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Uso:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Set-DNSConfiguration</span> <span class="n">-ComputerName</span> <span class="n">cliente2</span>
+<span class="nb">Set-DNSConfiguration</span> <span class="n">-ComputerName</span> <span class="n">cliente2</span> <span class="n">-DNSList</span> <span class="s2">&quot;192.168.1.30&quot;</span><span class="p">,</span> <span class="s2">&quot;192.168.1.40&quot;</span>
+</code></pre></div>
+<h3 id="16-crear-usuarios-desde-csv">16. Crear usuarios desde CSV</h3>
+<p>Archivo CSV de ejemplo: <code>usuarios.csv</code></p>
+<div class="highlight"><pre><span></span><code>Name;SAMAccountName;givenName;surname;Description;profilePath;scriptPath;HomeDrive;HomeDirectory
+Perez;Perez;Eduardo;Perez;Cuenta de usuario;;login.vbs;L:;\\srvfic1\users
+Larea;Larea;Pedro;Larea;Cuenta de usuario;;login.vbs;L:;\\srvfic1\users
+Gonzalo;Gonzalo;Juan;Gonzalo;Cuenta de usuario;;login.vbs;L:;\\srvfic1\users
+Arellano;Arellano;Marcelo;Arellano;Cuenta de usuario;;login.vbs;L:;\\srvfic1\users
+Navarro;Navarro;Jorge;Navarro;Cuenta de usuario;;login.vbs;L:;\\srvfic1\users
+</code></pre></div>
+<p>Archivo: <code>scriptNewUser.ps1</code></p>
+<div class="highlight"><pre><span></span><code><span class="nb">Import-Module</span> <span class="n">ActiveDirectory</span>
+
+<span class="nv">$usuarios</span> <span class="p">=</span> <span class="nb">Import-Csv</span> <span class="n">-Path</span> <span class="s2">&quot;.\usuarios.csv&quot;</span> <span class="n">-Delimiter</span> <span class="s2">&quot;;&quot;</span>
+<span class="nv">$ou</span> <span class="p">=</span> <span class="s2">&quot;OU=Usuarios,DC=empresa,DC=local&quot;</span>
+<span class="nv">$password</span> <span class="p">=</span> <span class="nb">ConvertTo-SecureString</span> <span class="s2">&quot;Cambiar1234!&quot;</span> <span class="n">-AsPlainText</span> <span class="n">-Force</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$usuario</span> <span class="k">in</span> <span class="nv">$usuarios</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">New-ADUser</span> <span class="p">`</span>
+        <span class="n">-Name</span> <span class="nv">$usuario</span><span class="p">.</span><span class="n">Name</span> <span class="p">`</span>
+        <span class="n">-SamAccountName</span> <span class="nv">$usuario</span><span class="p">.</span><span class="n">SAMAccountName</span> <span class="p">`</span>
+        <span class="n">-GivenName</span> <span class="nv">$usuario</span><span class="p">.</span><span class="n">givenName</span> <span class="p">`</span>
+        <span class="n">-Surname</span> <span class="nv">$usuario</span><span class="p">.</span><span class="n">surname</span> <span class="p">`</span>
+        <span class="n">-Description</span> <span class="nv">$usuario</span><span class="p">.</span><span class="n">Description</span> <span class="p">`</span>
+        <span class="n">-ProfilePath</span> <span class="nv">$usuario</span><span class="p">.</span><span class="n">profilePath</span> <span class="p">`</span>
+        <span class="n">-ScriptPath</span> <span class="nv">$usuario</span><span class="p">.</span><span class="n">scriptPath</span> <span class="p">`</span>
+        <span class="n">-HomeDrive</span> <span class="nv">$usuario</span><span class="p">.</span><span class="n">HomeDrive</span> <span class="p">`</span>
+        <span class="n">-HomeDirectory</span> <span class="nv">$usuario</span><span class="p">.</span><span class="n">HomeDirectory</span> <span class="p">`</span>
+        <span class="n">-Path</span> <span class="nv">$ou</span> <span class="p">`</span>
+        <span class="n">-AccountPassword</span> <span class="nv">$password</span> <span class="p">`</span>
+        <span class="n">-Enabled</span> <span class="nv">$true</span> <span class="p">`</span>
+        <span class="n">-PasswordNeverExpires</span> <span class="nv">$true</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Antes de usarlo en clase hay que adaptar:</p>
+<ul>
+<li><code>DC=empresa,DC=local</code> al dominio real.</li>
+<li><code>OU=Usuarios</code> a la OU real.</li>
+<li>La contraseña inicial.</li>
+<li>Las rutas de perfil y carpeta personal.</li>
+</ul>
+<h2 id="mini-practica-final-para-la-clase">Mini práctica final para la clase</h2>
+<p>Crear un script llamado <code>repaso_final.ps1</code> que:</p>
+<ol>
+<li>Pida un número al usuario.</li>
+<li>Muestre su tabla de multiplicar.</li>
+<li>Indique si es par o impar.</li>
+<li>Guarde la salida en un fichero <code>resultado.txt</code>.</li>
+</ol>
+<p>Solución:</p>
+<div class="highlight"><pre><span></span><code><span class="no">[int]</span><span class="nv">$numero</span> <span class="p">=</span> <span class="nb">Read-Host</span> <span class="s2">&quot;Introduce un numero&quot;</span>
+<span class="nv">$salida</span> <span class="p">=</span> <span class="p">@()</span>
+
+<span class="nv">$salida</span> <span class="p">+=</span> <span class="s2">&quot;Tabla del $numero&quot;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="p">=</span> <span class="n">1</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">-le</span> <span class="n">10</span><span class="p">;</span> <span class="nv">$i</span><span class="p">++)</span> <span class="p">{</span>
+    <span class="nv">$salida</span> <span class="p">+=</span> <span class="s2">&quot;$i x $numero = </span><span class="p">$(</span><span class="nv">$i</span> <span class="p">*</span> <span class="nv">$numero</span><span class="p">)</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$numero</span> <span class="p">%</span> <span class="n">2</span> <span class="o">-eq</span> <span class="n">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$salida</span> <span class="p">+=</span> <span class="s2">&quot;$numero es par&quot;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nv">$salida</span> <span class="p">+=</span> <span class="s2">&quot;$numero es impar&quot;</span>
+<span class="p">}</span>
+
+<span class="nv">$salida</span> <span class="p">|</span> <span class="nb">Out-File</span> <span class="n">-FilePath</span> <span class="s2">&quot;./resultado.txt&quot;</span> <span class="n">-Encoding</span> <span class="n">utf8</span>
+<span class="nv">$salida</span>
+</code></pre></div>
+<p>Ejecución:</p>
+<div class="highlight"><pre><span></span><code>pwsh<span class="w"> </span>./repaso_final.ps1
+cat<span class="w"> </span>resultado.txt
+</code></pre></div>
+<h2 id="preguntas-de-cierre">Preguntas de cierre</h2>
+<ol>
+<li>¿Qué diferencia hay entre <code>dir</code> y <code>Get-ChildItem</code>?</li>
+<li>¿Qué muestra <code>Get-Member</code>?</li>
+<li>¿Qué representa <code>$_</code> dentro de una tubería?</li>
+<li>¿Cuándo usarías <code>for</code> y cuándo <code>foreach</code>?</li>
+<li>¿Por qué es recomendable usar <code>param</code> en lugar de depender siempre de <code>$args</code>?</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../Actividades/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Actividades">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Actividades
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../UD11/01_seguridadIntegridad/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Seguridad del sistema y de los datos">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Seguridad del sistema y de los datos
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.path", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
